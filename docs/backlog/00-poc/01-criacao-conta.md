@@ -7,7 +7,7 @@ por enquanto — o cliente em Godot ainda está em estudo.
 
 ## Servidor
 
-- [ ] Preparação inicial do server: configuração de HTTP, banco de dados
+- [] Preparação inicial do server: configuração de HTTP, banco de dados
 - [ ] Endpoint para criar conta
 
 ## Regras
