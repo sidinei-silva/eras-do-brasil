@@ -1,0 +1,9 @@
+// .vscode/settings.json
+{
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    { "file": ".github/commit-instructions.md" }
+  ],
+  "commentTranslate.source": "intellsmi.comment-translate-ali.cloud",
+  "commentTranslate.hover.enabled": true,
+  "commentTranslate.multiLineMerge": false
+}
