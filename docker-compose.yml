@@ -1,0 +1,45 @@
+# docker-compose.yml
+services:
+  postgres:
+    image: postgres:15
+    container_name: eras-do-brasil_postgres
+    profiles:
+      - deps
+      - all
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: eras-do-brasil
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d eras-do-brasil"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: eras-do-brasil_backend
+    profiles:
+      - app
+      - all
+    env_file:
+      - ./backend/.env
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/eras-do-brasil?sslmode=disable
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend:/app
+      - ./data:/data
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
