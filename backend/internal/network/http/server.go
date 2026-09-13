@@ -10,13 +10,23 @@ type Server struct {
 	httpServer *http.Server
 }
 
-func NewServer(healthHandler *HealthHandler) *Server {
+type ServerHandlers struct {
+	HealthHandler  *HealthHandler
+	AccountHandler *AccountHandler
+}
+
+func NewServer(handlers *ServerHandlers) *Server {
 	mux := http.NewServeMux()
 	routes := []string{}
 
-	registerRoute(mux, &routes, "/health", healthHandler.CheckHealth)
+	registerRoute(mux, &routes, "/health", handlers.HealthHandler.CheckHealth)
 
-	slog.Info("HTTP routes registered", "routes", routes)
+	registerRoute(
+		mux,
+		&routes,
+		"POST /accounts",
+		handlers.AccountHandler.CreateAccount,
+	)
 
 	return &Server{
 		httpServer: &http.Server{
@@ -54,6 +64,7 @@ func registerRoute(
 ) {
 	mux.HandleFunc(pattern, handler)
 	*routes = append(*routes, pattern)
+	slog.Info("Registered route", "route", pattern)
 }
 
 func jsonContentTypeMiddleware(next http.Handler) http.Handler {

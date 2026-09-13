@@ -3,8 +3,10 @@ package bootstrap
 
 import (
 	"context"
+	"eras-do-brasil/internal/account"
 	httpnetwork "eras-do-brasil/internal/network/http"
 	"eras-do-brasil/internal/persistence/postgres"
+	"eras-do-brasil/internal/persistence/postgres/repositories"
 	"fmt"
 	"log"
 	"log/slog"
@@ -47,9 +49,20 @@ func New() (*Application, error) {
 		return nil, err
 	}
 
-	//Http
+	// Health
 	healthHandler := httpnetwork.NewHealthHandler()
-	httpServer := httpnetwork.NewServer(healthHandler)
+
+	// Account
+	accountRepository := repositories.NewAccountRepository(db)
+	accountService := account.NewService(accountRepository)
+	accountHandler := httpnetwork.NewAccountHandler(accountService)
+
+	handlers := &httpnetwork.ServerHandlers{
+		HealthHandler:  healthHandler,
+		AccountHandler: accountHandler,
+	}
+
+	httpServer := httpnetwork.NewServer(handlers)
 
 	return &Application{
 		httpServer: httpServer,
