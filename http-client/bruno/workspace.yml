@@ -6,6 +6,8 @@ info:
 collections:
   - name: "Account"
     path: "collections/Account"
+  - name: "Auth"
+    path: "collections/Auth"
 
 specs:
 
