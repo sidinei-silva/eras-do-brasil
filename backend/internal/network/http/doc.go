@@ -1,2 +1,2 @@
-// Package http provides HTTP server functionality for the application.
+// Package http
 package http

@@ -13,19 +13,27 @@ type Server struct {
 type ServerHandlers struct {
 	HealthHandler  *HealthHandler
 	AccountHandler *AccountHandler
+	AuthHandler    *AuthHandler
 }
 
-func NewServer(handlers *ServerHandlers) *Server {
+func NewServer(healthHandler *HealthHandler, accountHandler *AccountHandler, authHandler *AuthHandler) *Server {
 	mux := http.NewServeMux()
 	routes := []string{}
 
-	registerRoute(mux, &routes, "/health", handlers.HealthHandler.CheckHealth)
+	registerRoute(mux, &routes, "/health", healthHandler.CheckHealth)
 
 	registerRoute(
 		mux,
 		&routes,
 		"POST /accounts",
-		handlers.AccountHandler.CreateAccount,
+		accountHandler.CreateAccount,
+	)
+
+	registerRoute(
+		mux,
+		&routes,
+		"POST /auth/login",
+		authHandler.Login,
 	)
 
 	return &Server{

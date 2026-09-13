@@ -4,6 +4,7 @@ package bootstrap
 import (
 	"context"
 	"eras-do-brasil/internal/account"
+	"eras-do-brasil/internal/auth"
 	httpnetwork "eras-do-brasil/internal/network/http"
 	"eras-do-brasil/internal/persistence/postgres"
 	"eras-do-brasil/internal/persistence/postgres/repositories"
@@ -57,12 +58,16 @@ func New() (*Application, error) {
 	accountService := account.NewService(accountRepository)
 	accountHandler := httpnetwork.NewAccountHandler(accountService)
 
-	handlers := &httpnetwork.ServerHandlers{
-		HealthHandler:  healthHandler,
-		AccountHandler: accountHandler,
+	// Auth
+	jwtSecret := os.Getenv("JWT_SECRET")
+	if jwtSecret == "" {
+		return nil, fmt.Errorf("JWT_SECRET não definido")
 	}
+	tokenService := auth.NewJWTService(jwtSecret, 24*time.Hour)
+	authService := auth.NewService(accountRepository, tokenService)
+	authHandler := httpnetwork.NewAuthHandler(authService)
 
-	httpServer := httpnetwork.NewServer(handlers)
+	httpServer := httpnetwork.NewServer(healthHandler, accountHandler, authHandler)
 
 	return &Application{
 		httpServer: httpServer,
