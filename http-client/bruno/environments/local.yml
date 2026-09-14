@@ -3,3 +3,6 @@ variables:
   - name: HOST
     value: http://localhost:8080
     description: ""
+  - name: TOKEN
+    value: ""
+    description: ""
