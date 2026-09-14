@@ -10,36 +10,54 @@ type Server struct {
 	httpServer *http.Server
 }
 
-type ServerHandlers struct {
-	HealthHandler  *HealthHandler
-	AccountHandler *AccountHandler
-	AuthHandler    *AuthHandler
+type Route struct {
+	Method  string
+	Path    string
+	Handler http.HandlerFunc
+	Public  bool
 }
 
-func NewServer(healthHandler *HealthHandler, accountHandler *AccountHandler, authHandler *AuthHandler) *Server {
+func NewServer(healthHandler *HealthHandler, accountHandler *AccountHandler, authHandler *AuthHandler, authMiddleware *AuthMiddleware) *Server {
 	mux := http.NewServeMux()
-	routes := []string{}
+	routes := []Route{
+		{
+			Method:  http.MethodGet,
+			Path:    "/health",
+			Handler: healthHandler.CheckHealth,
+			Public:  true,
+		},
+		{
+			Method:  http.MethodPost,
+			Path:    "/accounts",
+			Handler: accountHandler.CreateAccount,
+			Public:  true,
+		},
+		{
+			Method:  http.MethodGet,
+			Path:    "/me",
+			Handler: accountHandler.Me,
+		},
+		{
+			Method:  http.MethodPost,
+			Path:    "/auth/login",
+			Handler: authHandler.Login,
+			Public:  true,
+		},
+	}
 
-	registerRoute(mux, &routes, "/health", healthHandler.CheckHealth)
-
-	registerRoute(
-		mux,
-		&routes,
-		"POST /accounts",
-		accountHandler.CreateAccount,
-	)
-
-	registerRoute(
-		mux,
-		&routes,
-		"POST /auth/login",
-		authHandler.Login,
-	)
+	for _, route := range routes {
+		handler := http.Handler(http.HandlerFunc(route.Handler))
+		if !route.Public {
+			handler = authMiddleware.Authenticate(handler)
+		}
+		mux.Handle(route.Method+" "+route.Path, handler)
+		slog.Info("Registered route", "method", route.Method, "path", route.Path, "public", route.Public)
+	}
 
 	return &Server{
 		httpServer: &http.Server{
 			Addr:              ":8080",
-			Handler:           jsonContentTypeMiddleware(mux),
+			Handler:           JSONContentTypeMiddleware(mux),
 			ReadHeaderTimeout: 5 * time.Second,
 			ReadTimeout:       10 * time.Second,
 			WriteTimeout:      10 * time.Second,
@@ -62,22 +80,4 @@ func (s *Server) Shutdown() error {
 	slog.Info("Shutting down HTTP server")
 
 	return s.httpServer.Close()
-}
-
-func registerRoute(
-	mux *http.ServeMux,
-	routes *[]string,
-	pattern string,
-	handler http.HandlerFunc,
-) {
-	mux.HandleFunc(pattern, handler)
-	*routes = append(*routes, pattern)
-	slog.Info("Registered route", "route", pattern)
-}
-
-func jsonContentTypeMiddleware(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
-		next.ServeHTTP(w, r)
-	})
 }

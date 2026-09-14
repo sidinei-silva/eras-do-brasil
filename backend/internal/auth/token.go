@@ -9,6 +9,7 @@ import (
 
 type TokenService interface {
 	Generate(accountID uuid.UUID) (string, error)
+	Validate(token string) (uuid.UUID, error)
 }
 
 type JWTService struct {
@@ -43,4 +44,28 @@ func (s *JWTService) Generate(accountID uuid.UUID) (string, error) {
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 
 	return token.SignedString(s.secret)
+}
+
+func (s *JWTService) Validate(tokenString string) (uuid.UUID, error) {
+	token, err := jwt.ParseWithClaims(
+		tokenString,
+		&Claims{},
+		func(token *jwt.Token) (any, error) {
+			if token.Method != jwt.SigningMethodHS256 {
+				return nil, ErrInvalidToken
+			}
+
+			return s.secret, nil
+		},
+	)
+	if err != nil {
+		return uuid.Nil, ErrInvalidToken
+	}
+
+	claims, ok := token.Claims.(*Claims)
+	if !ok || !token.Valid {
+		return uuid.Nil, ErrInvalidToken
+	}
+
+	return claims.AccountID, nil
 }

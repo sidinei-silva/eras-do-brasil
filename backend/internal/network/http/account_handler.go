@@ -52,8 +52,26 @@ func (h *AccountHandler) CreateAccount(
 		ID: acc.ID.String(),
 	}
 
-	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 
 	_ = json.NewEncoder(w).Encode(response)
+}
+
+func (h *AccountHandler) Me(
+	w http.ResponseWriter,
+	r *http.Request,
+) {
+	accountID, ok := AccountIDFromContext(r.Context())
+	if !ok {
+		http.Error(
+			w,
+			"unauthorized",
+			http.StatusUnauthorized,
+		)
+		return
+	}
+
+	_ = json.NewEncoder(w).Encode(map[string]string{
+		"account_id": accountID.String(),
+	})
 }

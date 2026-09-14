@@ -50,6 +50,15 @@ func New() (*Application, error) {
 		return nil, err
 	}
 
+	jwtSecret := os.Getenv("JWT_SECRET")
+	if jwtSecret == "" {
+		return nil, fmt.Errorf("JWT_SECRET não definido")
+	}
+	tokenService := auth.NewJWTService(jwtSecret, 24*time.Hour)
+
+	//Middleware
+	authMiddleware := httpnetwork.NewAuthMiddleware(tokenService)
+
 	// Health
 	healthHandler := httpnetwork.NewHealthHandler()
 
@@ -59,15 +68,11 @@ func New() (*Application, error) {
 	accountHandler := httpnetwork.NewAccountHandler(accountService)
 
 	// Auth
-	jwtSecret := os.Getenv("JWT_SECRET")
-	if jwtSecret == "" {
-		return nil, fmt.Errorf("JWT_SECRET não definido")
-	}
-	tokenService := auth.NewJWTService(jwtSecret, 24*time.Hour)
+
 	authService := auth.NewService(accountRepository, tokenService)
 	authHandler := httpnetwork.NewAuthHandler(authService)
 
-	httpServer := httpnetwork.NewServer(healthHandler, accountHandler, authHandler)
+	httpServer := httpnetwork.NewServer(healthHandler, accountHandler, authHandler, authMiddleware)
 
 	return &Application{
 		httpServer: httpServer,
