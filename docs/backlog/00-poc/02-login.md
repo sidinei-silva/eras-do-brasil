@@ -8,8 +8,8 @@ enquanto — o cliente em Godot ainda está em estudo.
 
 ## Servidor
 
-- [ ] Endpoint para logar no jogo
-- [ ] Criação de JWT e proteção de rotas com JWT
+- [x] Endpoint para logar no jogo
+- [x] Criação de JWT e proteção de rotas com JWT
 
 ## Regras
 
