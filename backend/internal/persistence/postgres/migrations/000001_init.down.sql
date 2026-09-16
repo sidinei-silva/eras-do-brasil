@@ -1,2 +1,1 @@
--- Reversão inofensiva.
-SELECT 1;
+DROP EXTENSION IF EXISTS "uuid-ossp";

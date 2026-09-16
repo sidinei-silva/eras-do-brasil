@@ -6,7 +6,7 @@
       "type": "shell",
       "command": "air",
       "options": {
-        "cwd": "${workspaceFolder}/server"
+        "cwd": "${workspaceFolder}/backend"
       },
       "isBackground": true,
       "problemMatcher": {

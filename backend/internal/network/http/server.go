@@ -17,7 +17,13 @@ type Route struct {
 	Public  bool
 }
 
-func NewServer(healthHandler *HealthHandler, accountHandler *AccountHandler, authHandler *AuthHandler, authMiddleware *AuthMiddleware) *Server {
+func NewServer(
+	healthHandler *HealthHandler,
+	accountHandler *AccountHandler,
+	authHandler *AuthHandler,
+	authMiddleware *AuthMiddleware,
+	characterHandler *CharacterHandler,
+) *Server {
 	mux := http.NewServeMux()
 	routes := []Route{
 		{
@@ -42,6 +48,16 @@ func NewServer(healthHandler *HealthHandler, accountHandler *AccountHandler, aut
 			Path:    "/auth/login",
 			Handler: authHandler.Login,
 			Public:  true,
+		},
+		{
+			Method:  http.MethodPost,
+			Path:    "/character",
+			Handler: characterHandler.CreateCharacter,
+		},
+		{
+			Method:  http.MethodGet,
+			Path:    "/character",
+			Handler: characterHandler.ListCharacters,
 		},
 	}
 

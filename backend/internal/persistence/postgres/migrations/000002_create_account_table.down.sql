@@ -1,3 +1,1 @@
 DROP TABLE IF EXISTS accounts;
-
-DROP EXTENSION IF EXISTS "uuid-ossp";

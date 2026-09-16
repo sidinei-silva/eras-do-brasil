@@ -44,6 +44,7 @@ func (s *Service) CreateAccount(
 	}
 
 	checkAccount, err := s.repository.FindByEmail(ctx, email)
+
 	if err != nil {
 		return nil, err
 	}

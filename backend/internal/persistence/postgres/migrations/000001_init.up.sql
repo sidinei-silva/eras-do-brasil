@@ -1,4 +1,2 @@
-
--- Arquivo inicial criado para satisfazer o go:embed.
--- Nenhuma tabela de domínio definida nesta etapa.
-SELECT 1;
+-- Habilita a extensão para geração de UUID nativa do Postgres
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";

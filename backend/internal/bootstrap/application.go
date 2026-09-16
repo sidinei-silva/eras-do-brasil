@@ -5,6 +5,7 @@ import (
 	"context"
 	"eras-do-brasil/internal/account"
 	"eras-do-brasil/internal/auth"
+	"eras-do-brasil/internal/character"
 	httpnetwork "eras-do-brasil/internal/network/http"
 	"eras-do-brasil/internal/persistence/postgres"
 	"eras-do-brasil/internal/persistence/postgres/repositories"
@@ -72,7 +73,12 @@ func New() (*Application, error) {
 	authService := auth.NewService(accountRepository, tokenService)
 	authHandler := httpnetwork.NewAuthHandler(authService)
 
-	httpServer := httpnetwork.NewServer(healthHandler, accountHandler, authHandler, authMiddleware)
+	// Character
+	characterRepository := repositories.NewCharacterRepository(db)
+	characterService := character.NewService(characterRepository)
+	characterHandler := httpnetwork.NewCharacterHandler(characterService)
+
+	httpServer := httpnetwork.NewServer(healthHandler, accountHandler, authHandler, authMiddleware, characterHandler)
 
 	return &Application{
 		httpServer: httpServer,

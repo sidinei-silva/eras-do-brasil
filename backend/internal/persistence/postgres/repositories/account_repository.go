@@ -4,6 +4,7 @@ package repositories
 import (
 	"context"
 	"eras-do-brasil/internal/account"
+	"errors"
 
 	"github.com/jackc/pgx/v5"
 )
@@ -47,15 +48,20 @@ func (r *AccountRepository) FindByEmail(
 	row := r.db.QueryRow(
 		ctx,
 		`
-		SELECT id, email, password_hash
-		FROM accounts
-		WHERE email = $1
-		`,
+        SELECT id, email, password_hash
+        FROM accounts
+        WHERE email = $1
+        `,
 		email,
 	)
 
 	acc := &account.Account{}
+
 	if err := row.Scan(&acc.ID, &acc.Email, &acc.PasswordHash); err != nil {
+		if errors.Is(err, pgx.ErrNoRows) {
+			return nil, nil
+		}
+
 		return nil, err
 	}
 

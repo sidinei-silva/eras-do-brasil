@@ -1,6 +1,3 @@
--- Habilita a extensão para geração de UUID nativa do Postgres
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-
 -- Cria a tabela base para o account_repository
 CREATE TABLE IF NOT EXISTS accounts (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),

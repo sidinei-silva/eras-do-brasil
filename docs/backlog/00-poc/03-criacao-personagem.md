@@ -8,10 +8,18 @@ backend por enquanto — o cliente em Godot ainda está em estudo.
 
 ## Servidor
 
-- [ ] Endpoint para criar personagem
-- [ ] Vincular personagem à conta
+- [x] Endpoint para criar personagem
+- [x] Endpoint para listar personagens do jogador
+- [x] Vincular personagem à conta
 
 ## Regras
 
 - Jogador só pode ter 1 personagem por conta por enquanto
 - Esta fatia só cria o personagem e salva no banco 
+
+## Passo
+
+- Para criar personagem precisa criar tabela no banco de dados do personagem
+- Inicialmente personagem só vai ter os campos basicos:
+  - name
+  - body_type com uma das opções: NORMAL_FEMALE, NORMAL_MALE
