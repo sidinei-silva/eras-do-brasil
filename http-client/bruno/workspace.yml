@@ -8,6 +8,8 @@ collections:
     path: "collections/Account"
   - name: "Auth"
     path: "collections/Auth"
+  - name: "Character"
+    path: "collections/Character"
 
 specs:
 

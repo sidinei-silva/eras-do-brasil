@@ -1,0 +1,23 @@
+info:
+  name: Create
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{HOST}}/character"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "HkSidin",
+        "body_type": "NORMAL_MALE"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
