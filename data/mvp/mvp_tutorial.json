@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 1,
+  "id": "tutorial-mvp",
+  "scope": "mvp",
+  "note": "Maquina de estados do tutorial. Cada passo tem gatilho de entrada, condicao de conclusao, o que ensina, o que libera e o que da de recompensa. Esta em dado e nao em codigo para poder ser ajustado sem recompilar.",
+  "noteAlbionDifference": "Espelha o tutorial do Albion, com uma diferenca deliberada: la varias pecas sao entregues prontas. Aqui o jogador coleta e fabrica tudo — as tres pecas T1, as quatro ferramentas, a arma T2 e o conjunto T2 inteiro. So a bolsa vem do mini-chefe e so a montaria e comprada.",
+  "steps": [
+    {
+      "id": "tut-01",
+      "name": "Acordar sem nada",
+      "zoneId": "zone-a-beira",
+      "npcId": "npc-o-lingua",
+      "entryTrigger": "entrar no mundo pela primeira vez",
+      "completion": "falar com o Língua",
+      "teaches": "onde você está e que não trouxe nada",
+      "keyLine": "O que você trouxe de lá não vale nada aqui. Nem o nome."
+    },
+    {
+      "id": "tut-02",
+      "name": "Pedra e pau",
+      "zoneId": "zone-a-beira",
+      "npcId": "npc-o-lingua",
+      "entryTrigger": "concluir tut-01",
+      "completion": "coletar 6 de mat-seixo-de-praia e 6 de mat-pau-mole",
+      "teaches": "nó de recurso e que T1 se coleta sem ferramenta",
+      "unlocks": [
+        "col-seixo",
+        "col-pau-mole"
+      ]
+    },
+    {
+      "id": "tut-03",
+      "name": "A primeira lâmina",
+      "zoneId": "zone-a-beira",
+      "npcId": "npc-o-lingua",
+      "entryTrigger": "concluir tut-02",
+      "completion": "craftar e equipar weapon-lamina-crua e escolher um Q",
+      "teaches": "estação de craft, receita, equipar, escolher habilidade",
+      "unlocks": [
+        "cra-lamina-crua"
+      ]
+    },
+    {
+      "id": "tut-04",
+      "name": "Primeiro combate",
+      "zoneId": "zone-a-beira",
+      "npcId": "npc-o-lingua",
+      "entryTrigger": "concluir tut-03",
+      "completion": "vencer uma onda do grupo-caranguejal",
+      "teaches": "auto-battler, onda fechada, fila de combate"
+    },
+    {
+      "id": "tut-05",
+      "name": "Couro de bicho",
+      "zoneId": "zone-a-beira",
+      "npcId": "npc-o-lingua",
+      "entryTrigger": "concluir tut-04",
+      "completion": "coletar 16 de mat-couro-de-capivara",
+      "teaches": "esfolar sem ferramenta a partir de mob morto",
+      "unlocks": [
+        "col-couro-capivara"
+      ]
+    },
+    {
+      "id": "tut-06",
+      "name": "Vestido do jeito que dá",
+      "zoneId": "zone-a-beira",
+      "npcId": "npc-o-lingua",
+      "entryTrigger": "concluir tut-05",
+      "completion": "craftar e equipar armor-capuz-cru, armor-colete-cru e armor-botina-crua",
+      "teaches": "slots de armadura e habilidade por peça",
+      "unlocks": [
+        "cra-capuz-cru",
+        "cra-colete-cru",
+        "cra-botina-crua"
+      ]
+    },
+    {
+      "id": "tut-07",
+      "name": "O broquel",
+      "zoneId": "zone-a-beira",
+      "npcId": "npc-o-lingua",
+      "entryTrigger": "concluir tut-06",
+      "completion": "craftar e equipar weapon-broquel-cru",
+      "teaches": "off-hand só existe com arma de uma mão",
+      "unlocks": [
+        "cra-broquel-cru"
+      ]
+    },
+    {
+      "id": "tut-08",
+      "name": "O que não passou",
+      "zoneId": "zone-a-beira",
+      "npcId": "npc-o-lingua",
+      "entryTrigger": "concluir tut-07",
+      "completion": "vencer 3 ondas e derrotar mob-o-primeiro-perdido",
+      "teaches": "mini-chefe e que combate difícil dá recompensa",
+      "unlocks": [
+        "mvp-conn-001"
+      ],
+      "reward": [
+        "item-bolsa-de-couro"
+      ],
+      "keyLine": "Tem coisa no caminho que chegou antes de você e não passou."
+    },
+    {
+      "id": "tut-09",
+      "name": "O Porto",
+      "zoneId": "zone-porto-de-passagem",
+      "npcId": "npc-a-barqueira",
+      "entryTrigger": "entrar em zone-porto-de-passagem",
+      "completion": "falar com a Barqueira",
+      "teaches": "vila, estações, armazém"
+    },
+    {
+      "id": "tut-10",
+      "name": "A mula",
+      "zoneId": "zone-porto-de-passagem",
+      "npcId": "npc-a-barqueira",
+      "entryTrigger": "concluir tut-09",
+      "completion": "comprar e equipar mount-mula",
+      "teaches": "mercado, montaria, capacidade de carga"
+    },
+    {
+      "id": "tut-11",
+      "name": "Quatro ferramentas",
+      "zoneId": "zone-porto-de-passagem",
+      "npcId": "npc-o-ferramenteiro",
+      "entryTrigger": "concluir tut-10",
+      "completion": "craftar e equipar as 4 ferramentas T1",
+      "teaches": "ferramenta destrava recurso e a regra de tier",
+      "unlocks": [
+        "cra-machado",
+        "cra-picareta",
+        "cra-foice",
+        "cra-faca"
+      ]
+    },
+    {
+      "id": "tut-12",
+      "name": "Mata Revirada",
+      "zoneId": "zone-mata-revirada",
+      "npcId": "npc-o-ferramenteiro",
+      "entryTrigger": "concluir tut-11",
+      "completion": "coletar 16 de mat-pau-brasil e 16 de mat-couro-de-veado",
+      "teaches": "tier de recurso, mapa da zona, viagem em minutos reais",
+      "unlocks": [
+        "mvp-conn-002",
+        "col-pau-brasil",
+        "col-couro-veado"
+      ]
+    },
+    {
+      "id": "tut-13",
+      "name": "Pedreira Torta",
+      "zoneId": "zone-pedreira-torta",
+      "npcId": "npc-o-ferramenteiro",
+      "entryTrigger": "concluir tut-12",
+      "completion": "coletar 16 de mat-algodao-bravo e 16 de mat-ferro-de-brejo",
+      "teaches": "segunda zona aberta e peso da carga",
+      "unlocks": [
+        "mvp-conn-003",
+        "col-algodao",
+        "col-ferro"
+      ]
+    },
+    {
+      "id": "tut-14",
+      "name": "Refinar",
+      "zoneId": "zone-porto-de-passagem",
+      "npcId": null,
+      "entryTrigger": "concluir tut-13",
+      "completion": "refinar pelo menos 1 de cada: tábua, couro curtido, pano e barra",
+      "teaches": "as quatro estações de refino e a cascata",
+      "unlocks": [
+        "ref-tabua",
+        "ref-couro-curtido",
+        "ref-pano",
+        "ref-barra"
+      ]
+    },
+    {
+      "id": "tut-15",
+      "name": "A Árvore do Destino",
+      "zoneId": "zone-porto-de-passagem",
+      "npcId": "npc-a-barqueira",
+      "entryTrigger": "concluir tut-14",
+      "completion": "abrir a Árvore do Destino e alcançar os quatro nós de aprendiz",
+      "teaches": "progressão por uso e os quatro ramos",
+      "unlocks": [
+        "no-lutador-aprendiz",
+        "no-coletor-aprendiz",
+        "no-refinador-aprendiz",
+        "no-fabricante-aprendiz"
+      ],
+      "keyLine": "Faz muito de uma coisa e o mundo passa a te reconhecer por ela."
+    },
+    {
+      "id": "tut-16",
+      "name": "A escolha",
+      "zoneId": "zone-porto-de-passagem",
+      "npcId": "npc-a-barqueira",
+      "entryTrigger": "concluir tut-15",
+      "completion": "craftar e equipar uma das três armas T2 e escolher Q, W e E",
+      "teaches": "escolha de tradição e configuração de habilidade",
+      "unlocks": [
+        "cra-espada-de-lado",
+        "cra-zarabatana",
+        "cra-cabaca",
+        "cra-rodela",
+        "cra-patua"
+      ],
+      "keyLine": "Escolhe com que mão você vai trabalhar."
+    },
+    {
+      "id": "tut-17",
+      "name": "Você é o que veste",
+      "zoneId": "zone-porto-de-passagem",
+      "npcId": "npc-a-barqueira",
+      "entryTrigger": "concluir tut-16",
+      "completion": "craftar e equipar as 3 peças T2 de uma mesma linha",
+      "teaches": "conjunto completo e bônus de conjunto",
+      "unlocks": [
+        "cra-morriao",
+        "cra-couraca",
+        "cra-grevas",
+        "cra-cocar",
+        "cra-escaupil",
+        "cra-alpercatas",
+        "cra-carapuca",
+        "cra-manto",
+        "cra-sandalias"
+      ]
+    },
+    {
+      "id": "tut-18",
+      "name": "A travessia",
+      "zoneId": "zone-porto-de-passagem",
+      "npcId": "npc-a-barqueira",
+      "entryTrigger": "concluir tut-17",
+      "completion": "embarcar",
+      "teaches": "fim do tutorial e saída da ilha",
+      "keyLine": "Vestido assim já dá. Sobe."
+    }
+  ],
+  "exitCondition": "Concluir tut-18. A ilha nao pode ser revisitada."
+}

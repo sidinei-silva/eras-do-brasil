@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "id": "zones-mvp",
+  "scope": "mvp",
+  "continentId": "continent-a-travessia",
+  "eraId": null,
+  "note": "A ilha do tutorial. Nao pertence a era nenhuma e nao se volta a ela. Mesmo esquema de era-1: zona lista recursos por material e acampamentos por id; o acampamento e dono da composicao e mora aqui, no mapa.",
+  "regions": [],
+  "zones": [
+    {
+      "id": "zone-a-beira",
+      "name": "A Beira",
+      "regionId": null,
+      "tier": 1,
+      "risk": "segura",
+      "factionId": null,
+      "hub": false,
+      "spawn": true,
+      "services": [],
+      "albionEquivalent": "The Lighthouse",
+      "description": "Faixa de praia onde a Raiz deposita quem não é daqui. Sem estrutura e sem ninguém além do Língua.",
+      "resources": [
+        {
+          "materialId": "mat-seixo-de-praia",
+          "abundance": "primary"
+        },
+        {
+          "materialId": "mat-pau-mole",
+          "abundance": "primary"
+        },
+        {
+          "materialId": "mat-couro-de-capivara",
+          "abundance": "secondary"
+        }
+      ],
+      "camps": [
+        "camp-caranguejal",
+        "camp-cascalho-solto"
+      ],
+      "bossId": "mob-o-primeiro-perdido"
+    },
+    {
+      "id": "zone-porto-de-passagem",
+      "name": "Porto de Passagem",
+      "regionId": null,
+      "tier": 1,
+      "risk": "segura",
+      "factionId": null,
+      "hub": true,
+      "spawn": false,
+      "services": [
+        "market",
+        "forge",
+        "refinery",
+        "rest",
+        "storage",
+        "trade"
+      ],
+      "albionEquivalent": "The Cove",
+      "description": "Vila de quem espera a travessia. Mercado, estações e a Barqueira.",
+      "resources": [],
+      "camps": [],
+      "bossId": null
+    },
+    {
+      "id": "zone-mata-revirada",
+      "name": "Mata Revirada",
+      "regionId": null,
+      "tier": 2,
+      "risk": "segura",
+      "factionId": null,
+      "hub": false,
+      "spawn": false,
+      "services": [],
+      "albionEquivalent": "The Forgotten Woods",
+      "description": "Mata que a Raiz embaralhou: árvore de três eras no mesmo terreno.",
+      "resources": [
+        {
+          "materialId": "mat-pau-brasil",
+          "abundance": "primary"
+        },
+        {
+          "materialId": "mat-couro-de-veado",
+          "abundance": "primary"
+        },
+        {
+          "materialId": "mat-seixo-de-praia",
+          "abundance": "secondary"
+        }
+      ],
+      "camps": [
+        "camp-copa-revirada",
+        "camp-perdidos-da-mata"
+      ],
+      "bossId": null
+    },
+    {
+      "id": "zone-pedreira-torta",
+      "name": "Pedreira Torta",
+      "regionId": null,
+      "tier": 2,
+      "risk": "segura",
+      "factionId": null,
+      "hub": false,
+      "spawn": false,
+      "services": [],
+      "albionEquivalent": "Mountain Fort",
+      "description": "Corte de pedra que ninguém terminou. Fibra e minério.",
+      "resources": [
+        {
+          "materialId": "mat-algodao-bravo",
+          "abundance": "primary"
+        },
+        {
+          "materialId": "mat-ferro-de-brejo",
+          "abundance": "primary"
+        },
+        {
+          "materialId": "mat-couro-de-capivara",
+          "abundance": "secondary"
+        }
+      ],
+      "camps": [
+        "camp-perdidos-do-corte",
+        "camp-boca-da-fenda"
+      ],
+      "bossId": null
+    }
+  ],
+  "camps": [
+    {
+      "id": "camp-caranguejal",
+      "name": "Caranguejal",
+      "zoneId": "zone-a-beira",
+      "mobIds": [
+        "mob-caranguejo-da-beira"
+      ],
+      "sizeMin": 2,
+      "sizeMax": 3,
+      "eliteId": null
+    },
+    {
+      "id": "camp-cascalho-solto",
+      "name": "Cascalho solto",
+      "zoneId": "zone-a-beira",
+      "mobIds": [
+        "mob-cascalho-vivo"
+      ],
+      "sizeMin": 2,
+      "sizeMax": 3,
+      "eliteId": null
+    },
+    {
+      "id": "camp-copa-revirada",
+      "name": "Copa revirada",
+      "zoneId": "zone-mata-revirada",
+      "mobIds": [
+        "mob-macaco-revirado"
+      ],
+      "sizeMin": 2,
+      "sizeMax": 4,
+      "eliteId": null
+    },
+    {
+      "id": "camp-perdidos-da-mata",
+      "name": "Acampamento dos Perdidos",
+      "zoneId": "zone-mata-revirada",
+      "mobIds": [
+        "mob-perdido"
+      ],
+      "sizeMin": 2,
+      "sizeMax": 3,
+      "eliteId": null
+    },
+    {
+      "id": "camp-perdidos-do-corte",
+      "name": "Perdidos do corte",
+      "zoneId": "zone-pedreira-torta",
+      "mobIds": [
+        "mob-perdido"
+      ],
+      "sizeMin": 2,
+      "sizeMax": 3,
+      "eliteId": null
+    },
+    {
+      "id": "camp-boca-da-fenda",
+      "name": "Boca da fenda",
+      "zoneId": "zone-pedreira-torta",
+      "mobIds": [
+        "mob-morcego-da-torta"
+      ],
+      "sizeMin": 3,
+      "sizeMax": 4,
+      "eliteId": null
+    }
+  ],
+  "connections": [
+    {
+      "id": "conn-mvp-001",
+      "from": "zone-a-beira",
+      "to": "zone-porto-de-passagem",
+      "travelMinutes": 6
+    },
+    {
+      "id": "conn-mvp-002",
+      "from": "zone-porto-de-passagem",
+      "to": "zone-mata-revirada",
+      "travelMinutes": 8
+    },
+    {
+      "id": "conn-mvp-003",
+      "from": "zone-porto-de-passagem",
+      "to": "zone-pedreira-torta",
+      "travelMinutes": 8
+    },
+    {
+      "id": "conn-mvp-004",
+      "from": "zone-mata-revirada",
+      "to": "zone-pedreira-torta",
+      "travelMinutes": 10
+    }
+  ],
+  "noteGate": "Conexoes nao travam sozinhas. O que libera cada caminho e um passo do tutorial (ver mvp_tutorial.json), e no futuro sera missao. Assim o gate e um sistema so, e nao um campo que aparece numa conexao de um mapa e em nenhuma outra."
+}

@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "id": "npcs-mvp",
+  "scope": "mvp",
+  "note": "Tres NPCs com dialogo. As estacoes de refino e craft do Porto sao pontos de interacao sem fala. Degrau 0 da escada de simulacao: sem rotina, sem necessidade, sem memoria.",
+  "npcs": [
+    {
+      "id": "npc-o-lingua",
+      "name": "Bartolomeu, o Língua",
+      "zoneId": "zone-a-beira",
+      "role": "recepção e tutorial",
+      "services": [
+        "tutorial",
+        "explicação da Árvore do Destino"
+      ],
+      "description": "Interprete. Chegou pela Raiz ha tempo demais para lembrar de onde, e ficou. Recebe quem aparece na Beira e ensina o suficiente para a pessoa nao morrer na primeira noite.",
+      "historicalNote": "Lingua era cargo real da colonia: interprete que transitava entre povos sem pertencer a nenhum.",
+      "lines": {
+        "chegada": "O que você trouxe de lá não vale nada aqui. Nem o nome. Todo mundo que chega chega assim.",
+        "o_lugar": "Isto não é lugar, é caminho. A Raiz puxou você no meio e largou aqui. Quem fica, fica sendo ninguém.",
+        "primeiro_craft": "Pedra e pau você tira com a mão. O resto exige ferramenta, e ferramenta também se faz.",
+        "saida": "A vila é depois daquela pedra. Tem coisa no caminho que chegou antes de você e não passou."
+      }
+    },
+    {
+      "id": "npc-a-barqueira",
+      "name": "A Barqueira",
+      "zoneId": "zone-porto-de-passagem",
+      "role": "mercado e travessia",
+      "services": [
+        "mercado",
+        "montaria",
+        "armazém",
+        "Árvore do Destino",
+        "travessia"
+      ],
+      "description": "Leva gente para o outro lado e cobra em trabalho. Nao explica para onde vai a travessia, e ninguem que embarcou voltou para perguntar.",
+      "lines": {
+        "chegada": "Chegou inteiro. Bom. Aqui ninguém pergunta de onde você veio.",
+        "mercado": "Compra o que precisar. Prata daqui não serve do outro lado, então gasta.",
+        "destino": "Isso aí registra o que você faz. Faz muito de uma coisa e o mundo passa a te reconhecer por ela.",
+        "tradicao": "Escolhe com que mão você vai trabalhar. Dá para mudar depois, mas a primeira pesa.",
+        "travessia": "Vestido assim já dá. Sobe."
+      }
+    },
+    {
+      "id": "npc-o-ferramenteiro",
+      "name": "O Ferramenteiro",
+      "zoneId": "zone-porto-de-passagem",
+      "role": "ferramentas",
+      "services": [
+        "craft de ferramenta"
+      ],
+      "description": "Faz o que todo mundo precisa e ninguem elogia. Explica a mesma regra de tier cinco vezes por dia.",
+      "lines": {
+        "padrao": "Ferramenta um tier abaixo do nó ainda tira. Do mesmo tier tira melhor.",
+        "entrega": "Quatro ferramentas, quatro recursos. Sem elas você só cata pedra e pau."
+      }
+    }
+  ],
+  "stationsWithoutDialogue": [
+    "estacao-fundicao",
+    "estacao-curtume",
+    "estacao-tecelagem",
+    "estacao-serraria",
+    "estacao-canteiro",
+    "estacao-forja",
+    "estacao-posto-de-caca",
+    "estacao-terreiro",
+    "estacao-ferramentaria"
+  ]
+}

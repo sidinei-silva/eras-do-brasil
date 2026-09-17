@@ -1,0 +1,597 @@
+{
+  "schemaVersion": 1,
+  "id": "mobs-era-1",
+  "scope": "era-1",
+  "note": "Bestiario da Era 1. A composicao dos acampamentos mora no mapa, em era-1_zones.json > camps.",
+  "archetypes": [
+    {
+      "id": "fauna",
+      "nota": "Bicho local, sem deus e sem politica. Anti-fuga baixa."
+    },
+    {
+      "id": "humano",
+      "nota": "Gente. Anti-fuga media — sabe perseguir."
+    },
+    {
+      "id": "elite",
+      "nota": "Junta-se a um grupo por sorteio. E a emergencia do farm."
+    },
+    {
+      "id": "chefe",
+      "nota": "Fixo na zona, nao entra em grupo. Anti-fuga altissima."
+    }
+  ],
+  "mobs": [
+    {
+      "id": "mob-caranguejo-gigante",
+      "name": "Caranguejo-uçá grande",
+      "archetype": "fauna",
+      "tier": 1,
+      "zoneId": "zone-praia-de-coqueiros",
+      "factionId": null,
+      "description": "Caranguejo de mangue do tamanho de um cão. Briga por carniça e por sucata.",
+      "drops": [
+        "mat-couro-de-capivara"
+      ],
+      "historicalNote": "Caranguejo-uçá é base alimentar do litoral nordestino desde antes da colonização."
+    },
+    {
+      "id": "mob-gaivota-brava",
+      "name": "Bando de atobás",
+      "archetype": "fauna",
+      "tier": 1,
+      "zoneId": "zone-praia-de-coqueiros",
+      "factionId": null,
+      "description": "Aves marinhas que atacam qualquer coisa que pareça comida na mão.",
+      "drops": [
+        "mat-piacava"
+      ]
+    },
+    {
+      "id": "mob-lama-viva",
+      "name": "Lama viva",
+      "archetype": "fauna",
+      "tier": 1,
+      "zoneId": "zone-manguezal-do-sal",
+      "factionId": "faction-folclorico",
+      "description": "Um trecho de lodo que se move contra a maré. Ninguém sabe dizer se é bicho.",
+      "drops": [
+        "mat-seixo-de-praia",
+        "mat-essencia-t1"
+      ]
+    },
+    {
+      "id": "mob-ipupiara-menor",
+      "name": "Cria de Ipupiara",
+      "archetype": "fauna",
+      "tier": 1,
+      "zoneId": "zone-manguezal-do-sal",
+      "factionId": "faction-folclorico",
+      "description": "Coisa de água salobra, braço comprido demais para o corpo. Agarra e puxa para baixo.",
+      "drops": [
+        "mat-essencia-t1"
+      ],
+      "historicalNote": "Ipupiara é registrado por Pero de Magalhães Gandavo em 1576 como monstro marinho que matava gente na costa."
+    },
+    {
+      "id": "mob-capivara-brava",
+      "name": "Capivara brava",
+      "archetype": "fauna",
+      "tier": 1,
+      "zoneId": "zone-roca-de-mandioca",
+      "factionId": null,
+      "description": "Come a roça inteira numa noite. Defende a cria com uma violência que ninguém espera.",
+      "drops": [
+        "mat-couro-de-capivara",
+        "mat-mandioca"
+      ]
+    },
+    {
+      "id": "mob-cao-selvagem",
+      "name": "Cão assilvestrado",
+      "archetype": "fauna",
+      "tier": 1,
+      "zoneId": "zone-roca-de-mandioca",
+      "factionId": null,
+      "description": "Cachorro que veio de navio e voltou ao mato. Caça em bando e não tem medo de gente.",
+      "drops": [
+        "mat-couro-de-capivara"
+      ],
+      "historicalNote": "Cães trazidos pelos colonizadores assilvestraram-se rapidamente na colônia."
+    },
+    {
+      "id": "mob-macaco-ladrao",
+      "name": "Macacos-prego",
+      "archetype": "fauna",
+      "tier": 2,
+      "zoneId": "zone-mata-do-pau-brasil",
+      "factionId": null,
+      "description": "Roubam ferramenta, comida e qualquer coisa que brilhe. Atacam em grupo quando encurralados.",
+      "drops": [
+        "mat-pau-brasil"
+      ]
+    },
+    {
+      "id": "mob-cortador-clandestino",
+      "name": "Cortador clandestino",
+      "archetype": "humano",
+      "tier": 2,
+      "zoneId": "zone-mata-do-pau-brasil",
+      "factionId": "grupo-contrabandistas",
+      "description": "Francês ou degredado tirando pau-brasil por fora da Coroa. Armado com machado e facão.",
+      "drops": [
+        "mat-pau-brasil",
+        "mat-couro-de-veado"
+      ],
+      "historicalNote": "O corte ilegal de pau-brasil por franceses foi constante no litoral ao longo de todo o século XVI."
+    },
+    {
+      "id": "mob-jacare-jovem",
+      "name": "Jacaré-do-papo-amarelo",
+      "archetype": "fauna",
+      "tier": 2,
+      "zoneId": "zone-baixio-das-garcas",
+      "factionId": null,
+      "description": "Fica parado horas no baixio. Quando decide, não erra.",
+      "drops": [
+        "mat-couro-de-veado"
+      ]
+    },
+    {
+      "id": "mob-garca-espectral",
+      "name": "Garça de sal",
+      "archetype": "fauna",
+      "tier": 2,
+      "zoneId": "zone-baixio-das-garcas",
+      "factionId": "faction-folclorico",
+      "description": "Branca demais, alta demais, e não deixa pegada na lama.",
+      "drops": [
+        "mat-arenito",
+        "mat-essencia-t2"
+      ]
+    },
+    {
+      "id": "mob-capanga",
+      "name": "Capanga do canavial",
+      "archetype": "humano",
+      "tier": 2,
+      "zoneId": "zone-canavial-velho",
+      "factionId": "faction-colonizador",
+      "description": "Homem contratado para cuidar da cana e do que trabalha nela. Cacete e faca.",
+      "drops": [
+        "mat-algodao-bravo"
+      ]
+    },
+    {
+      "id": "mob-rato-de-cana",
+      "name": "Rato-do-canavial",
+      "archetype": "fauna",
+      "tier": 2,
+      "zoneId": "zone-canavial-velho",
+      "factionId": null,
+      "description": "Praga do engenho. Grande, rápido, e vem em quantidade.",
+      "drops": [
+        "mat-algodao-bravo"
+      ]
+    },
+    {
+      "id": "mob-capanga-armado",
+      "name": "Capanga de espingarda",
+      "archetype": "humano",
+      "tier": 3,
+      "zoneId": "zone-engenho-da-cruz",
+      "factionId": "faction-colonizador",
+      "description": "Versão paga do capanga: arcabuz velho, pólvora úmida e péssima pontaria a distância.",
+      "drops": [
+        "mat-ferro-de-serrote"
+      ]
+    },
+    {
+      "id": "mob-feitor",
+      "name": "Feitor",
+      "archetype": "humano",
+      "tier": 3,
+      "zoneId": "zone-engenho-da-cruz",
+      "factionId": "faction-colonizador",
+      "description": "Manda no chão de engenho. Não luta bem, mas chama todo mundo que está por perto.",
+      "drops": [
+        "mat-ferro-de-serrote",
+        "mat-jatoba"
+      ],
+      "behavior": "Convoca reforço: aumenta o tamanho do grupo em uma unidade quando entra em combate."
+    },
+    {
+      "id": "mob-porco-do-mato",
+      "name": "Queixada",
+      "archetype": "fauna",
+      "tier": 3,
+      "zoneId": "zone-mata-fechada",
+      "factionId": null,
+      "description": "Porco-do-mato em vara. Um é problema; trinta é um acidente.",
+      "drops": [
+        "mat-couro-de-anta",
+        "mat-jatoba"
+      ]
+    },
+    {
+      "id": "mob-sombra-de-mata",
+      "name": "Sombra de mata",
+      "archetype": "fauna",
+      "tier": 3,
+      "zoneId": "zone-mata-fechada",
+      "factionId": "faction-folclorico",
+      "description": "A mata escurece de um lado só e alguma coisa anda ali dentro.",
+      "drops": [
+        "mat-essencia-t3"
+      ]
+    },
+    {
+      "id": "mob-curupira",
+      "name": "Curupira",
+      "archetype": "chefe",
+      "tier": 3,
+      "zoneId": "zone-mata-fechada",
+      "factionId": "faction-folclorico",
+      "description": "Guarda da caça. Pés virados para trás, rastro que leva para o lado errado. Não mata quem caça o que precisa; mata quem caça por caçar.",
+      "drops": [
+        "mat-essencia-t3",
+        "mat-couro-de-anta",
+        "mat-jatoba"
+      ],
+      "behavior": "Inverte a direção: quem tenta fugir dele volta para o mesmo lugar. Anti-fuga dobrada.",
+      "historicalNote": "Registrado por José de Anchieta em carta de 1560 como espírito que atacava indígenas na mata."
+    },
+    {
+      "id": "mob-lagarto-de-fogo",
+      "name": "Teiú de brasa",
+      "archetype": "fauna",
+      "tier": 3,
+      "zoneId": "zone-olho-de-boitata",
+      "factionId": null,
+      "description": "Lagarto grande que dorme em pedra quente e sai fumaçando.",
+      "drops": [
+        "mat-laje-branca"
+      ]
+    },
+    {
+      "id": "mob-fogo-fatuo",
+      "name": "Fogo-fátuo",
+      "archetype": "fauna",
+      "tier": 3,
+      "zoneId": "zone-olho-de-boitata",
+      "factionId": "faction-folclorico",
+      "description": "Luz baixa que anda sozinha. Não queima, mas leva.",
+      "drops": [
+        "mat-essencia-t3"
+      ]
+    },
+    {
+      "id": "mob-boitata",
+      "name": "Boitatá",
+      "archetype": "chefe",
+      "tier": 3,
+      "zoneId": "zone-olho-de-boitata",
+      "factionId": "faction-folclorico",
+      "description": "Cobra de fogo que ronda o campo queimado. Persegue quem põe fogo no mato.",
+      "drops": [
+        "mat-essencia-t3",
+        "mat-laje-branca"
+      ],
+      "behavior": "Aplica queimadura que continua depois do combate até o jogador chegar a água.",
+      "historicalNote": "Anchieta registra o Mboi-tatá, a cobra de fogo, em 1560."
+    },
+    {
+      "id": "mob-capitao-do-mato",
+      "name": "Capitão do mato",
+      "archetype": "humano",
+      "tier": 3,
+      "zoneId": "zone-serra-da-barriga",
+      "factionId": "faction-colonizador",
+      "description": "Caça gente fugida por pagamento. Conhece a serra melhor que qualquer um.",
+      "drops": [
+        "mat-couro-de-anta"
+      ],
+      "behavior": "Anti-fuga alta: é a profissão dele impedir que alguém escape."
+    },
+    {
+      "id": "mob-cao-de-caca",
+      "name": "Matilha de caça",
+      "archetype": "fauna",
+      "tier": 3,
+      "zoneId": "zone-serra-da-barriga",
+      "factionId": "faction-colonizador",
+      "description": "Cães treinados para seguir rastro. Cansam a presa antes de morder.",
+      "drops": [
+        "mat-couro-de-anta"
+      ]
+    },
+    {
+      "id": "mob-bode-espectral",
+      "name": "Bode branco",
+      "archetype": "fauna",
+      "tier": 4,
+      "zoneId": "zone-caatinga-branca",
+      "factionId": "faction-folclorico",
+      "description": "Aparece na hora mais quente do dia, sem sombra. Some quando você chega perto.",
+      "drops": [
+        "mat-macambira",
+        "mat-essencia-t4"
+      ]
+    },
+    {
+      "id": "mob-cascavel",
+      "name": "Cascavel",
+      "archetype": "fauna",
+      "tier": 4,
+      "zoneId": "zone-caatinga-branca",
+      "factionId": null,
+      "description": "Avisa antes. Quem não escuta não tem desculpa.",
+      "drops": [
+        "mat-macambira",
+        "mat-aroeira"
+      ],
+      "behavior": "Aplica veneno acumulável que não para quando ela morre."
+    },
+    {
+      "id": "mob-espirito-de-pedra",
+      "name": "Espírito de pedra",
+      "archetype": "fauna",
+      "tier": 4,
+      "zoneId": "zone-serrote-das-pedras",
+      "factionId": "faction-folclorico",
+      "description": "O serrote se levanta num pedaço só e anda.",
+      "drops": [
+        "mat-granito-rachado",
+        "mat-cobre-do-sertao"
+      ]
+    },
+    {
+      "id": "mob-morcego-grande",
+      "name": "Morcego-vampiro",
+      "archetype": "fauna",
+      "tier": 4,
+      "zoneId": "zone-serrote-das-pedras",
+      "factionId": null,
+      "description": "Sai da gruta ao fim da tarde. Tira pouco sangue de muita gente.",
+      "drops": [
+        "mat-cobre-do-sertao"
+      ]
+    },
+    {
+      "id": "mob-boi-bravo",
+      "name": "Boi bravo",
+      "archetype": "fauna",
+      "tier": 4,
+      "zoneId": "zone-curral-do-gado",
+      "factionId": "faction-colonizador",
+      "description": "Gado solto há gerações, meio selvagem. Chifre longo e mau humor.",
+      "drops": [
+        "mat-couro-de-boi"
+      ]
+    },
+    {
+      "id": "mob-vaqueiro-perdido",
+      "name": "Vaqueiro perdido",
+      "archetype": "humano",
+      "tier": 4,
+      "zoneId": "zone-curral-do-gado",
+      "factionId": "faction-colonizador",
+      "description": "Foi atrás da boiada e voltou diferente. Vestido de couro da cabeça aos pés.",
+      "drops": [
+        "mat-couro-de-boi",
+        "mat-aroeira"
+      ],
+      "historicalNote": "O gibão de couro do vaqueiro nordestino é vestimenta documentada desde a expansão pecuária do século XVI."
+    },
+    {
+      "id": "mob-mula-sem-cabeca",
+      "name": "Mula sem cabeça",
+      "archetype": "chefe",
+      "tier": 4,
+      "zoneId": "zone-curral-do-gado",
+      "factionId": "faction-folclorico",
+      "description": "Vem de noite, fogo no lugar do pescoço, som de ferradura em terra batida.",
+      "drops": [
+        "mat-couro-de-boi",
+        "mat-essencia-t4",
+        "mat-ferro-de-serrote"
+      ],
+      "behavior": "Só aparece na segunda metade do dia de jogo. Foge e volta: não pode ser morta na primeira investida.",
+      "historicalNote": "Lenda de origem ibérica medieval, trazida pelos colonizadores e enraizada no interior."
+    },
+    {
+      "id": "mob-lagarto-de-lajedo",
+      "name": "Calango de lajedo",
+      "archetype": "fauna",
+      "tier": 4,
+      "zoneId": "zone-lajedo-rachado",
+      "factionId": null,
+      "description": "Some na fenda e sai por outra a três metros.",
+      "drops": [
+        "mat-granito-rachado"
+      ]
+    },
+    {
+      "id": "mob-espirito-rachado",
+      "name": "Espírito rachado",
+      "archetype": "fauna",
+      "tier": 4,
+      "zoneId": "zone-lajedo-rachado",
+      "factionId": "faction-folclorico",
+      "description": "Coisa que ficou presa entre duas pedras quando a Raiz estourou. Não está inteira.",
+      "drops": [
+        "mat-essencia-t4",
+        "mat-granito-rachado"
+      ]
+    },
+    {
+      "id": "mob-sucuri",
+      "name": "Sucuri",
+      "archetype": "fauna",
+      "tier": 5,
+      "zoneId": "zone-varzea-alagada",
+      "factionId": null,
+      "description": "Espera embaixo d'água o tempo que for preciso.",
+      "drops": [
+        "mat-couro-de-jacare",
+        "mat-curaua"
+      ]
+    },
+    {
+      "id": "mob-mae-dagua",
+      "name": "Sucuri anciã",
+      "archetype": "elite",
+      "tier": 5,
+      "zoneId": "zone-varzea-alagada",
+      "factionId": null,
+      "description": "A maior da várzea, com marca de arpão antigo no lombo. Os ribeirinhos não caçam essa.",
+      "drops": [
+        "mat-couro-de-jacare",
+        "mat-curaua",
+        "mat-essencia-t5"
+      ],
+      "behavior": "Arrasta para a água: anti-fuga alta enquanto o jogador estiver na várzea."
+    },
+    {
+      "id": "mob-remador-afogado",
+      "name": "Remador afogado",
+      "archetype": "humano",
+      "tier": 5,
+      "zoneId": "zone-porto-de-canoas",
+      "factionId": "faction-folclorico",
+      "description": "Ainda rema. A canoa não está lá.",
+      "drops": [
+        "mat-pau-ferro",
+        "mat-essencia-t5"
+      ]
+    },
+    {
+      "id": "mob-piranha-negra",
+      "name": "Cardume de piranha",
+      "archetype": "fauna",
+      "tier": 5,
+      "zoneId": "zone-corredeira-negra",
+      "factionId": null,
+      "description": "Não é uma, é o rio inteiro decidindo ao mesmo tempo.",
+      "drops": [
+        "mat-ouro-branco"
+      ],
+      "behavior": "Grupo sempre no tamanho máximo."
+    },
+    {
+      "id": "mob-canoa-vazia",
+      "name": "Canoa vazia",
+      "archetype": "fauna",
+      "tier": 5,
+      "zoneId": "zone-corredeira-negra",
+      "factionId": "faction-folclorico",
+      "description": "Desce a corredeira contra a correnteza, sem ninguém dentro.",
+      "drops": [
+        "mat-cristal-de-lapa",
+        "mat-essencia-t5"
+      ]
+    },
+    {
+      "id": "mob-ipupiara",
+      "name": "Ipupiara",
+      "archetype": "chefe",
+      "tier": 5,
+      "zoneId": "zone-corredeira-negra",
+      "factionId": "faction-folclorico",
+      "description": "O que mora no fundo da corredeira. Abraça, leva para baixo e devolve o que não interessa.",
+      "drops": [
+        "mat-essencia-t5",
+        "mat-ouro-branco",
+        "mat-cristal-de-lapa"
+      ],
+      "behavior": "Puxa para dentro d'água: a cada três turnos, uma tentativa de fuga do jogador é automaticamente anulada.",
+      "historicalNote": "Gandavo descreve o Ipupiara em 1576 como criatura que matava pescadores e deixava os corpos na margem."
+    },
+    {
+      "id": "mob-macaco-guariba",
+      "name": "Bando de guariba",
+      "archetype": "fauna",
+      "tier": 6,
+      "zoneId": "zone-castanhal-antigo",
+      "factionId": null,
+      "description": "Ouve-se a duas léguas. Quando cala, já é tarde.",
+      "drops": [
+        "mat-castanheira-mae",
+        "mat-couro-de-sucuri"
+      ]
+    },
+    {
+      "id": "mob-castanheiro-velho",
+      "name": "Castanheira velha",
+      "archetype": "elite",
+      "tier": 6,
+      "zoneId": "zone-castanhal-antigo",
+      "factionId": "faction-folclorico",
+      "description": "Uma árvore que os indígenas contornam há gerações. Ninguém explica por quê.",
+      "drops": [
+        "mat-castanheira-mae",
+        "mat-essencia-t6",
+        "mat-cipo-titica"
+      ],
+      "behavior": "Não persegue. Só não deixa passar."
+    },
+    {
+      "id": "mob-sombra-de-igarape",
+      "name": "Sombra de igarapé",
+      "archetype": "fauna",
+      "tier": 6,
+      "zoneId": "zone-igarape-de-anhanga",
+      "factionId": "faction-folclorico",
+      "description": "A água escura tem fundo, mas a sombra não.",
+      "drops": [
+        "mat-pedra-de-raiz",
+        "mat-essencia-t6"
+      ]
+    },
+    {
+      "id": "mob-jurupari-menor",
+      "name": "Mensageiro de Jurupari",
+      "archetype": "humano",
+      "tier": 6,
+      "zoneId": "zone-igarape-de-anhanga",
+      "factionId": "faction-folclorico",
+      "description": "Vem com máscara e não fala. Está vendo se você devia estar aqui.",
+      "drops": [
+        "mat-essencia-t6",
+        "mat-cipo-titica"
+      ],
+      "historicalNote": "Jurupari aparece em relatos jesuíticos do século XVI como entidade temida entre povos tupis."
+    },
+    {
+      "id": "mob-anhanga",
+      "name": "Anhangá",
+      "archetype": "chefe",
+      "tier": 6,
+      "zoneId": "zone-igarape-de-anhanga",
+      "factionId": "faction-folclorico",
+      "description": "Toma a forma do bicho que você mais caçou. Se você nunca caçou nada, toma a sua.",
+      "drops": [
+        "mat-essencia-t6",
+        "mat-pedra-de-raiz",
+        "mat-cipo-titica"
+      ],
+      "behavior": "Copia o loadout do jogador. Quanto melhor o equipamento dele, mais forte o chefe.",
+      "historicalNote": "Anhangá é registrado nas cartas jesuíticas do século XVI, entre elas as de Anchieta, como espírito que assombrava a mata."
+    },
+    {
+      "id": "mob-guardiao-da-fenda",
+      "name": "O que fica na borda",
+      "archetype": "chefe",
+      "tier": 6,
+      "zoneId": "zone-a-raiz",
+      "factionId": null,
+      "description": "Não é de nenhuma era. Estava aqui antes de haver eras para ser de alguma.",
+      "drops": [
+        "mat-ferro-do-ceu",
+        "mat-essencia-t6",
+        "mat-pedra-de-raiz"
+      ],
+      "behavior": "Nenhuma fuga funciona enquanto ele estiver vivo. Não há retirada da Raiz."
+    }
+  ]
+}

@@ -1,0 +1,371 @@
+{
+  "schemaVersion": 1,
+  "id": "materials",
+  "note": "Catalogo de materiais do jogo inteiro. A FERRAMENTA mora aqui, no tipo de recurso — nao no no de zona. T1 se coleta sem ferramenta (requiresTool false); do T2 em diante exige a ferramenta do tipo, no maximo um tier abaixo. A Essencia nao e coletada: cai de mob.",
+  "resourceTypes": [
+    {
+      "id": "res-madeira",
+      "name": "Madeira",
+      "gathering": "corte",
+      "tool": "tool-machado"
+    },
+    {
+      "id": "res-fibra",
+      "name": "Fibra",
+      "gathering": "colheita",
+      "tool": "tool-foice"
+    },
+    {
+      "id": "res-couro",
+      "name": "Couro",
+      "gathering": "esfola",
+      "tool": "tool-faca-de-esfolar"
+    },
+    {
+      "id": "res-minerio",
+      "name": "Minério",
+      "gathering": "mineracao",
+      "tool": "tool-picareta"
+    },
+    {
+      "id": "res-pedra",
+      "name": "Pedra",
+      "gathering": "mineracao",
+      "tool": null
+    },
+    {
+      "id": "res-comida",
+      "name": "Comida",
+      "gathering": "colheita",
+      "tool": null
+    },
+    {
+      "id": "res-essencia",
+      "name": "Essência",
+      "gathering": "drop de combate",
+      "nota": "Equivale as Runas/Almas/Reliquias do Albion: sobe o nivel de encantamento de um item ja pronto.",
+      "tool": null
+    },
+    {
+      "id": "res-refinado",
+      "name": "Refinado",
+      "gathering": "refino",
+      "tool": null
+    }
+  ],
+  "materials": [
+    {
+      "id": "mat-pau-mole",
+      "name": "Pau-mole",
+      "resourceType": "res-madeira",
+      "tier": 1,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-pau-brasil",
+      "name": "Pau-brasil",
+      "resourceType": "res-madeira",
+      "tier": 2,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-jatoba",
+      "name": "Jatobá",
+      "resourceType": "res-madeira",
+      "tier": 3,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-aroeira",
+      "name": "Aroeira",
+      "resourceType": "res-madeira",
+      "tier": 4,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-pau-ferro",
+      "name": "Pau-ferro",
+      "resourceType": "res-madeira",
+      "tier": 5,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-castanheira-mae",
+      "name": "Castanheira-mãe",
+      "resourceType": "res-madeira",
+      "tier": 6,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-piacava",
+      "name": "Piaçava",
+      "resourceType": "res-fibra",
+      "tier": 1,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-algodao-bravo",
+      "name": "Algodão-bravo",
+      "resourceType": "res-fibra",
+      "tier": 2,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-caroa",
+      "name": "Caroá",
+      "resourceType": "res-fibra",
+      "tier": 3,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-macambira",
+      "name": "Macambira",
+      "resourceType": "res-fibra",
+      "tier": 4,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-curaua",
+      "name": "Curauá",
+      "resourceType": "res-fibra",
+      "tier": 5,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-cipo-titica",
+      "name": "Cipó-titica",
+      "resourceType": "res-fibra",
+      "tier": 6,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-couro-de-capivara",
+      "name": "Couro de capivara",
+      "resourceType": "res-couro",
+      "tier": 1,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-couro-de-veado",
+      "name": "Couro de veado",
+      "resourceType": "res-couro",
+      "tier": 2,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-couro-de-anta",
+      "name": "Couro de anta",
+      "resourceType": "res-couro",
+      "tier": 3,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-couro-de-boi",
+      "name": "Couro de boi",
+      "resourceType": "res-couro",
+      "tier": 4,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-couro-de-jacare",
+      "name": "Couro de jacaré",
+      "resourceType": "res-couro",
+      "tier": 5,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-couro-de-sucuri",
+      "name": "Couro de sucuri",
+      "resourceType": "res-couro",
+      "tier": 6,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-cascalho",
+      "name": "Cascalho",
+      "resourceType": "res-minerio",
+      "tier": 1,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-ferro-de-brejo",
+      "name": "Ferro-de-brejo",
+      "resourceType": "res-minerio",
+      "tier": 2,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-ferro-de-serrote",
+      "name": "Ferro-de-serrote",
+      "resourceType": "res-minerio",
+      "tier": 3,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-cobre-do-sertao",
+      "name": "Cobre-do-sertão",
+      "resourceType": "res-minerio",
+      "tier": 4,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-ouro-branco",
+      "name": "Ouro-branco",
+      "resourceType": "res-minerio",
+      "tier": 5,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-ferro-do-ceu",
+      "name": "Ferro-do-céu",
+      "resourceType": "res-minerio",
+      "tier": 6,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-seixo-de-praia",
+      "name": "Seixo de praia",
+      "resourceType": "res-pedra",
+      "tier": 1,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-arenito",
+      "name": "Arenito",
+      "resourceType": "res-pedra",
+      "tier": 2,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-laje-branca",
+      "name": "Laje-branca",
+      "resourceType": "res-pedra",
+      "tier": 3,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-granito-rachado",
+      "name": "Granito rachado",
+      "resourceType": "res-pedra",
+      "tier": 4,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-cristal-de-lapa",
+      "name": "Cristal-de-lapa",
+      "resourceType": "res-pedra",
+      "tier": 5,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-pedra-de-raiz",
+      "name": "Pedra-de-raiz",
+      "resourceType": "res-pedra",
+      "tier": 6,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-mandioca",
+      "name": "Mandioca",
+      "resourceType": "res-comida",
+      "tier": 1,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-essencia-t1",
+      "name": "Essência T1",
+      "resourceType": "res-essencia",
+      "tier": 1,
+      "requiresTool": false,
+      "source": "drop de mob, chefe ou bau",
+      "note": "O tier do drop e limitado pelo tier do mob morto."
+    },
+    {
+      "id": "mat-essencia-t2",
+      "name": "Essência T2",
+      "resourceType": "res-essencia",
+      "tier": 2,
+      "requiresTool": false,
+      "source": "drop de mob, chefe ou bau",
+      "note": "O tier do drop e limitado pelo tier do mob morto."
+    },
+    {
+      "id": "mat-essencia-t3",
+      "name": "Essência T3",
+      "resourceType": "res-essencia",
+      "tier": 3,
+      "requiresTool": false,
+      "source": "drop de mob, chefe ou bau",
+      "note": "O tier do drop e limitado pelo tier do mob morto."
+    },
+    {
+      "id": "mat-essencia-t4",
+      "name": "Essência T4",
+      "resourceType": "res-essencia",
+      "tier": 4,
+      "requiresTool": false,
+      "source": "drop de mob, chefe ou bau",
+      "note": "O tier do drop e limitado pelo tier do mob morto."
+    },
+    {
+      "id": "mat-essencia-t5",
+      "name": "Essência T5",
+      "resourceType": "res-essencia",
+      "tier": 5,
+      "requiresTool": false,
+      "source": "drop de mob, chefe ou bau",
+      "note": "O tier do drop e limitado pelo tier do mob morto."
+    },
+    {
+      "id": "mat-essencia-t6",
+      "name": "Essência T6",
+      "resourceType": "res-essencia",
+      "tier": 6,
+      "requiresTool": false,
+      "source": "drop de mob, chefe ou bau",
+      "note": "O tier do drop e limitado pelo tier do mob morto."
+    },
+    {
+      "id": "mat-tabua-de-pau-brasil",
+      "name": "Tábua de pau-brasil",
+      "resourceType": "res-madeira",
+      "tier": 2,
+      "requiresTool": false,
+      "refined": true,
+      "stationId": "estacao-serraria",
+      "note": "Refinado T2. No T1 nao ha refino: os brutos vao direto para o craft."
+    },
+    {
+      "id": "mat-couro-curtido",
+      "name": "Couro curtido",
+      "resourceType": "res-couro",
+      "tier": 2,
+      "requiresTool": false,
+      "refined": true,
+      "stationId": "estacao-curtume",
+      "note": "Refinado T2. No T1 nao ha refino: os brutos vao direto para o craft."
+    },
+    {
+      "id": "mat-pano-de-algodao",
+      "name": "Pano de algodão",
+      "resourceType": "res-fibra",
+      "tier": 2,
+      "requiresTool": false,
+      "refined": true,
+      "stationId": "estacao-tecelagem",
+      "note": "Refinado T2. No T1 nao ha refino: os brutos vao direto para o craft."
+    },
+    {
+      "id": "mat-barra-de-ferro",
+      "name": "Barra de ferro",
+      "resourceType": "res-minerio",
+      "tier": 2,
+      "requiresTool": false,
+      "refined": true,
+      "stationId": "estacao-fundicao",
+      "note": "Refinado T2. No T1 nao ha refino: os brutos vao direto para o craft."
+    }
+  ],
+  "escopo": "compartilhado",
+  "scope": "shared"
+}

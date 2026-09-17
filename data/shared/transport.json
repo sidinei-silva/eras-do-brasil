@@ -1,0 +1,342 @@
+{
+  "schemaVersion": 1,
+  "id": "transport-and-passives",
+  "note": "Complementa armor.era-1.json. Cada peça tem um slot ativo e um slot passivo; o tier decide de quantas opções o jogador escolhe (T2 = 1, T4 = 2, T6 = 3). Passivas de cabeça e botas são comuns às três linhas; a passiva de torso carrega a identidade da linha. Passivas repetidas em peças diferentes se acumulam.",
+  "passiveSlots": [
+    {
+      "id": "pslot-cabeca",
+      "name": "Cabeça",
+      "scope": "comum",
+      "appliesToSlotId": "slot-cabeca"
+    },
+    {
+      "id": "pslot-botas",
+      "name": "Botas",
+      "scope": "comum",
+      "appliesToSlotId": "slot-botas"
+    },
+    {
+      "id": "pslot-torso",
+      "name": "Torso",
+      "scope": "por-linha",
+      "appliesToSlotId": "slot-torso"
+    }
+  ],
+  "passives": [
+    {
+      "id": "apass-rijeza",
+      "name": "Rijeza",
+      "slotId": "slot-cabeca",
+      "lineId": null,
+      "tier": 2,
+      "effect": "Aumenta resistência física e mágica.",
+      "tags": [
+        "defesa"
+      ],
+      "stacks": true
+    },
+    {
+      "id": "apass-cabeca-no-lugar",
+      "name": "Cabeça no Lugar",
+      "slotId": "slot-cabeca",
+      "lineId": null,
+      "tier": 4,
+      "effect": "Reduz a duração de controle sofrido.",
+      "tags": [
+        "defesa"
+      ],
+      "stacks": true
+    },
+    {
+      "id": "apass-faro-fino",
+      "name": "Faro Fino",
+      "slotId": "slot-cabeca",
+      "lineId": null,
+      "tier": 6,
+      "effect": "Chance de obter recurso extra ao coletar.",
+      "tags": [
+        "coleta"
+      ],
+      "stacks": true
+    },
+    {
+      "id": "apass-pe-no-chao",
+      "name": "Pé no Chão",
+      "slotId": "slot-botas",
+      "lineId": null,
+      "tier": 2,
+      "effect": "Aumenta a capacidade de carga.",
+      "tags": [
+        "carga"
+      ],
+      "stacks": true
+    },
+    {
+      "id": "apass-pressa",
+      "name": "Pressa",
+      "slotId": "slot-botas",
+      "lineId": null,
+      "tier": 4,
+      "effect": "Reduz todas as recargas.",
+      "tags": [],
+      "stacks": true
+    },
+    {
+      "id": "apass-sola-dura",
+      "name": "Sola Dura",
+      "slotId": "slot-botas",
+      "lineId": null,
+      "tier": 6,
+      "effect": "Reduz o tempo de viagem entre zonas.",
+      "tags": [
+        "viagem"
+      ],
+      "stacks": true
+    },
+    {
+      "id": "apass-teimosia",
+      "name": "Teimosia",
+      "slotId": "slot-torso",
+      "lineId": "armorline-pesada",
+      "tier": 2,
+      "effect": "Reduz drasticamente a duração de controle sofrido.",
+      "tags": [
+        "defesa"
+      ],
+      "stacks": false
+    },
+    {
+      "id": "apass-chamariz",
+      "name": "Chamariz",
+      "slotId": "slot-torso",
+      "lineId": "armorline-pesada",
+      "tier": 4,
+      "effect": "Inimigos priorizam você como alvo.",
+      "tags": [
+        "controle"
+      ],
+      "stacks": false
+    },
+    {
+      "id": "apass-casco",
+      "name": "Casco",
+      "slotId": "slot-torso",
+      "lineId": "armorline-pesada",
+      "tier": 6,
+      "effect": "Converte parte do dano recebido em armadura temporária.",
+      "tags": [
+        "defesa"
+      ],
+      "stacks": false
+    },
+    {
+      "id": "apass-faca-afiada",
+      "name": "Faca Afiada",
+      "slotId": "slot-torso",
+      "lineId": "armorline-media",
+      "tier": 2,
+      "effect": "Aumenta o dano de ataque básico.",
+      "tags": [],
+      "stacks": false
+    },
+    {
+      "id": "apass-ligeireza",
+      "name": "Ligeireza",
+      "slotId": "slot-torso",
+      "lineId": "armorline-media",
+      "tier": 4,
+      "effect": "Após matar, bônus de coleta e de fuga por um tempo.",
+      "tags": [
+        "fuga",
+        "coleta"
+      ],
+      "stacks": false
+    },
+    {
+      "id": "apass-sem-rastro",
+      "name": "Sem Rastro",
+      "slotId": "slot-torso",
+      "lineId": "armorline-media",
+      "tier": 6,
+      "effect": "Reduz a chance de aparecer na fila de gank.",
+      "tags": [
+        "pvp",
+        "fuga"
+      ],
+      "stacks": false
+    },
+    {
+      "id": "apass-boca-de-fogo",
+      "name": "Boca de Fogo",
+      "slotId": "slot-torso",
+      "lineId": "armorline-leve",
+      "tier": 2,
+      "effect": "Aumenta dano de habilidade e potência de cura.",
+      "tags": [],
+      "stacks": false
+    },
+    {
+      "id": "apass-poupanca",
+      "name": "Poupança",
+      "slotId": "slot-torso",
+      "lineId": "armorline-leve",
+      "tier": 4,
+      "effect": "Reduz o custo de recurso das habilidades.",
+      "tags": [
+        "recurso"
+      ],
+      "stacks": false
+    },
+    {
+      "id": "apass-segunda-voz",
+      "name": "Segunda Voz",
+      "slotId": "slot-torso",
+      "lineId": "armorline-leve",
+      "tier": 6,
+      "effect": "Chance de a habilidade não entrar em recarga.",
+      "tags": [],
+      "stacks": false
+    }
+  ],
+  "mounts": [
+    {
+      "id": "mount-cavalo-de-sela",
+      "name": "Cavalo de sela",
+      "speedClass": "rapido",
+      "loadClass": "baixo",
+      "activeSkillId": "mskill-meia-volta",
+      "passiveSkillId": "mpass-passo-solto"
+    },
+    {
+      "id": "mount-mula",
+      "name": "Mula",
+      "speedClass": "medio",
+      "loadClass": "medio",
+      "activeSkillId": "mskill-aguentar-segura",
+      "passiveSkillId": "mpass-lombo-largo"
+    },
+    {
+      "id": "mount-boi-de-carga",
+      "name": "Boi de carga",
+      "speedClass": "lento",
+      "loadClass": "alto",
+      "activeSkillId": "mskill-parar-tudo",
+      "passiveSkillId": "mpass-cargueiro"
+    }
+  ],
+  "bags": [
+    {
+      "id": "bag-bolsa-de-couro",
+      "name": "Bolsa de couro",
+      "activeSkillId": "bskill-largar-carga",
+      "passiveSkillId": "bpass-fundo-largo"
+    },
+    {
+      "id": "bag-cesto-de-cipo",
+      "name": "Cesto de cipó",
+      "activeSkillId": "bskill-largar-carga",
+      "passiveSkillId": "bpass-trancado"
+    },
+    {
+      "id": "bag-surrao-de-sal",
+      "name": "Surrão de sal",
+      "activeSkillId": "bskill-largar-carga",
+      "passiveSkillId": "bpass-bem-amarrado"
+    }
+  ],
+  "transportSkills": [
+    {
+      "id": "mskill-meia-volta",
+      "name": "Meia Volta",
+      "slot": "mount-active",
+      "effect": "Arranca e ganha grande bônus de fuga.",
+      "tags": [
+        "fuga"
+      ]
+    },
+    {
+      "id": "mskill-aguentar-segura",
+      "name": "Aguentar Segura",
+      "slot": "mount-active",
+      "effect": "Resiste uma vez a ser derrubado da montaria.",
+      "tags": [
+        "defesa"
+      ]
+    },
+    {
+      "id": "mskill-parar-tudo",
+      "name": "Parar Tudo",
+      "slot": "mount-active",
+      "effect": "Ancora no lugar e protege a carga do saque.",
+      "tags": [
+        "carga"
+      ]
+    },
+    {
+      "id": "mpass-passo-solto",
+      "name": "Passo Solto",
+      "slot": "mount-passive",
+      "effect": "Reduz o tempo de viagem entre zonas.",
+      "tags": [
+        "viagem"
+      ]
+    },
+    {
+      "id": "mpass-lombo-largo",
+      "name": "Lombo Largo",
+      "slot": "mount-passive",
+      "effect": "Capacidade de carga moderada.",
+      "tags": [
+        "carga"
+      ]
+    },
+    {
+      "id": "mpass-cargueiro",
+      "name": "Cargueiro",
+      "slot": "mount-passive",
+      "effect": "Grande aumento de capacidade de carga.",
+      "tags": [
+        "carga"
+      ]
+    },
+    {
+      "id": "bskill-largar-carga",
+      "name": "Largar Carga",
+      "slot": "bag-active",
+      "effect": "Descarta a carga no chão e concede fuga imediata.",
+      "tags": [
+        "fuga",
+        "carga"
+      ]
+    },
+    {
+      "id": "bpass-fundo-largo",
+      "name": "Fundo Largo",
+      "slot": "bag-passive",
+      "effect": "Aumenta a capacidade da bolsa.",
+      "tags": [
+        "carga"
+      ]
+    },
+    {
+      "id": "bpass-trancado",
+      "name": "Trançado",
+      "slot": "bag-passive",
+      "effect": "Reduz o peso de recurso bruto.",
+      "tags": [
+        "carga"
+      ]
+    },
+    {
+      "id": "bpass-bem-amarrado",
+      "name": "Bem Amarrado",
+      "slot": "bag-passive",
+      "effect": "Parte da carga não cai ao morrer.",
+      "tags": [
+        "pvp",
+        "carga"
+      ]
+    }
+  ],
+  "escopo": "compartilhado"
+}

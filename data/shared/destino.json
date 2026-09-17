@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "id": "destiny",
+  "scope": "shared",
+  "note": "A Arvore do Destino e a progressao por uso, equivalente a Destiny Board do Albion. Quatro ramos independentes: cada acao alimenta o no correspondente. No MVP so os quatro nos de aprendiz sao alcancaveis.",
+  "root": {
+    "id": "no-forasteiro",
+    "name": "Forasteiro",
+    "note": "No central. Ganha fama com qualquer acao.",
+    "unlocks": [
+      "item-bolsa-de-couro",
+      "mount-mula",
+      "ferramentas T2"
+    ]
+  },
+  "branches": [
+    {
+      "id": "ramo-combate",
+      "name": "Combate",
+      "source": "derrotar inimigo",
+      "nodes": [
+        {
+          "id": "no-lutador-aprendiz",
+          "name": "Lutador Aprendiz",
+          "level": 1,
+          "fame": 3600,
+          "unlocks": "usar arma e armadura T2",
+          "inMVP": true
+        }
+      ]
+    },
+    {
+      "id": "ramo-coleta",
+      "name": "Coleta",
+      "source": "coletar recurso",
+      "nodes": [
+        {
+          "id": "no-coletor-aprendiz",
+          "name": "Coletor Aprendiz",
+          "level": 1,
+          "fame": 3600,
+          "unlocks": "usar ferramenta T2",
+          "inMVP": true
+        }
+      ]
+    },
+    {
+      "id": "ramo-refino",
+      "name": "Refino",
+      "source": "refinar material",
+      "nodes": [
+        {
+          "id": "no-refinador-aprendiz",
+          "name": "Refinador Aprendiz",
+          "level": 1,
+          "fame": 3600,
+          "unlocks": "refinar T2",
+          "inMVP": true
+        }
+      ]
+    },
+    {
+      "id": "ramo-craft",
+      "name": "Craft",
+      "source": "fabricar item",
+      "nodes": [
+        {
+          "id": "no-fabricante-aprendiz",
+          "name": "Fabricante Aprendiz",
+          "level": 1,
+          "fame": 3600,
+          "unlocks": "fabricar arma e armadura T2",
+          "inMVP": true
+        }
+      ]
+    }
+  ],
+  "noteMVP": "No Albion o tutorial mostra tres ramos porque refino cabe dentro de Fabricante. Aqui sao quatro desde o comeco; se a tela do tutorial ficar cheia, refino pode ser apresentado junto com craft e separado depois.",
+  "mastery": "Ver balance.json > arvore_do_destino > maestria_*."
+}

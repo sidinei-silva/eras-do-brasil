@@ -1,0 +1,386 @@
+{
+  "schemaVersion": 1,
+  "id": "armor",
+  "note": "Linhas de armadura sao universais entre eras. T1 e generico e sem linha. A partir do T2 cada linha pertence a uma tradicao e o conjunto completo da bonus.",
+  "lines": [
+    {
+      "id": "armorline-crua",
+      "name": "Crua",
+      "materials": [
+        "res-couro"
+      ],
+      "factionId": null,
+      "identity": "nenhuma — é o que dá para vestir com couro cru",
+      "weightClass": "baixo",
+      "setBonusId": null
+    },
+    {
+      "id": "armorline-pesada",
+      "name": "Pesada",
+      "materials": [
+        "res-minerio",
+        "res-couro"
+      ],
+      "factionId": "faction-colonizador",
+      "identity": "armadura, autocura instantânea, resistir a controle",
+      "weightClass": "alto",
+      "setBonusId": "setbonus-pesada"
+    },
+    {
+      "id": "armorline-media",
+      "name": "Média",
+      "materials": [
+        "res-couro",
+        "res-fibra"
+      ],
+      "factionId": "faction-indigena",
+      "identity": "evasão, crítico, viagem, escape",
+      "weightClass": "medio",
+      "setBonusId": "setbonus-media"
+    },
+    {
+      "id": "armorline-leve",
+      "name": "Leve",
+      "materials": [
+        "res-fibra"
+      ],
+      "factionId": "faction-folclorico",
+      "identity": "recurso, escudo, cura ao longo do tempo, sumir",
+      "weightClass": "baixo",
+      "setBonusId": "setbonus-leve"
+    }
+  ],
+  "slots": [
+    {
+      "id": "slot-cabeca",
+      "name": "Cabeça",
+      "role": "utilidade e percepção"
+    },
+    {
+      "id": "slot-torso",
+      "name": "Torso",
+      "role": "a grande defensiva"
+    },
+    {
+      "id": "slot-botas",
+      "name": "Botas",
+      "role": "peso, viagem e fuga"
+    }
+  ],
+  "pieces": [
+    {
+      "id": "armor-capuz-cru",
+      "name": "Capuz Cru",
+      "lineId": "armorline-crua",
+      "slotId": "slot-cabeca",
+      "entryTier": 1
+    },
+    {
+      "id": "armor-colete-cru",
+      "name": "Colete Cru",
+      "lineId": "armorline-crua",
+      "slotId": "slot-torso",
+      "entryTier": 1
+    },
+    {
+      "id": "armor-botina-crua",
+      "name": "Botina Crua",
+      "lineId": "armorline-crua",
+      "slotId": "slot-botas",
+      "entryTier": 1
+    },
+    {
+      "id": "armor-morriao",
+      "name": "Morrião",
+      "lineId": "armorline-pesada",
+      "slotId": "slot-cabeca",
+      "entryTier": 2
+    },
+    {
+      "id": "armor-couraca",
+      "name": "Couraça",
+      "lineId": "armorline-pesada",
+      "slotId": "slot-torso",
+      "entryTier": 2
+    },
+    {
+      "id": "armor-grevas",
+      "name": "Grevas",
+      "lineId": "armorline-pesada",
+      "slotId": "slot-botas",
+      "entryTier": 2
+    },
+    {
+      "id": "armor-cocar",
+      "name": "Cocar",
+      "lineId": "armorline-media",
+      "slotId": "slot-cabeca",
+      "entryTier": 2
+    },
+    {
+      "id": "armor-escaupil",
+      "name": "Escaupil",
+      "lineId": "armorline-media",
+      "slotId": "slot-torso",
+      "entryTier": 2
+    },
+    {
+      "id": "armor-alpercatas",
+      "name": "Alpercatas",
+      "lineId": "armorline-media",
+      "slotId": "slot-botas",
+      "entryTier": 2
+    },
+    {
+      "id": "armor-carapuca",
+      "name": "Carapuça",
+      "lineId": "armorline-leve",
+      "slotId": "slot-cabeca",
+      "entryTier": 2
+    },
+    {
+      "id": "armor-manto-de-retalhos",
+      "name": "Manto de Retalhos",
+      "lineId": "armorline-leve",
+      "slotId": "slot-torso",
+      "entryTier": 2
+    },
+    {
+      "id": "armor-sandalias-de-piacava",
+      "name": "Sandálias de Piaçava",
+      "lineId": "armorline-leve",
+      "slotId": "slot-botas",
+      "entryTier": 2
+    }
+  ],
+  "skills": [
+    {
+      "id": "askill-cabeca-dura",
+      "name": "Cabeça Dura",
+      "pieceId": "armor-capuz-cru",
+      "tier": 1,
+      "effect": "Reduz um pouco o dano recebido na próxima vez que for atingido.",
+      "tags": [
+        "defesa"
+      ]
+    },
+    {
+      "id": "askill-encolher",
+      "name": "Encolher",
+      "pieceId": "armor-colete-cru",
+      "tier": 1,
+      "effect": "Reduz o dano recebido por 2 turnos.",
+      "tags": [
+        "defesa"
+      ]
+    },
+    {
+      "id": "askill-passo-firme",
+      "name": "Passo Firme",
+      "pieceId": "armor-botina-crua",
+      "tier": 1,
+      "effect": "Pequeno aumento de capacidade de carga.",
+      "tags": [
+        "carga"
+      ]
+    },
+    {
+      "id": "askill-cabeca-fria",
+      "name": "Cabeça Fria",
+      "pieceId": "armor-morriao",
+      "tier": 2,
+      "effect": "Reduz a duração de todo controle sofrido.",
+      "tags": [
+        "defesa"
+      ]
+    },
+    {
+      "id": "askill-visor-baixo",
+      "name": "Visor Baixo",
+      "pieceId": "armor-morriao",
+      "tier": 5,
+      "effect": "Reduz o dano crítico recebido.",
+      "tags": [
+        "defesa"
+      ]
+    },
+    {
+      "id": "askill-aguentar",
+      "name": "Aguentar",
+      "pieceId": "armor-couraca",
+      "tier": 2,
+      "effect": "Reduz drasticamente o dano recebido por 2 turnos.",
+      "tags": [
+        "defesa"
+      ]
+    },
+    {
+      "id": "askill-ferro-vivo",
+      "name": "Ferro Vivo",
+      "pieceId": "armor-couraca",
+      "tier": 5,
+      "effect": "Cura instantânea proporcional à sua armadura.",
+      "tags": [
+        "cura"
+      ]
+    },
+    {
+      "id": "askill-passo-pesado",
+      "name": "Passo Pesado",
+      "pieceId": "armor-grevas",
+      "tier": 3,
+      "effect": "Aumenta a capacidade de carga.",
+      "tags": [
+        "carga"
+      ]
+    },
+    {
+      "id": "askill-fincar",
+      "name": "Fincar",
+      "pieceId": "armor-grevas",
+      "tier": 5,
+      "effect": "O alvo não consegue escapar de você.",
+      "tags": [
+        "anti-fuga"
+      ]
+    },
+    {
+      "id": "askill-olho-aberto",
+      "name": "Olho Aberto",
+      "pieceId": "armor-cocar",
+      "tier": 2,
+      "effect": "Aumenta a chance de crítico.",
+      "tags": []
+    },
+    {
+      "id": "askill-faro",
+      "name": "Faro",
+      "pieceId": "armor-cocar",
+      "tier": 5,
+      "effect": "Revela quem está com postura de gank na zona.",
+      "tags": [
+        "pvp",
+        "percepcao"
+      ]
+    },
+    {
+      "id": "askill-rolar",
+      "name": "Rolar",
+      "pieceId": "armor-escaupil",
+      "tier": 2,
+      "effect": "Evita completamente o próximo golpe recebido.",
+      "tags": [
+        "defesa"
+      ]
+    },
+    {
+      "id": "askill-couro-batido",
+      "name": "Couro Batido",
+      "pieceId": "armor-escaupil",
+      "tier": 5,
+      "effect": "Reduz o dano recebido de sangramento e veneno.",
+      "tags": [
+        "defesa"
+      ]
+    },
+    {
+      "id": "askill-pe-solto",
+      "name": "Pé Solto",
+      "pieceId": "armor-alpercatas",
+      "tier": 3,
+      "effect": "Bônus de escape.",
+      "tags": [
+        "fuga"
+      ]
+    },
+    {
+      "id": "askill-trilha-conhecida",
+      "name": "Trilha Conhecida",
+      "pieceId": "armor-alpercatas",
+      "tier": 5,
+      "effect": "Reduz o tempo de viagem entre zonas.",
+      "tags": [
+        "viagem"
+      ]
+    },
+    {
+      "id": "askill-cabeca-limpa",
+      "name": "Cabeça Limpa",
+      "pieceId": "armor-carapuca",
+      "tier": 2,
+      "effect": "Regenera recurso a cada turno.",
+      "tags": [
+        "recurso"
+      ]
+    },
+    {
+      "id": "askill-sussurro",
+      "name": "Sussurro",
+      "pieceId": "armor-carapuca",
+      "tier": 5,
+      "effect": "Reduz a recarga da próxima habilidade usada.",
+      "tags": []
+    },
+    {
+      "id": "askill-casca-de-luz",
+      "name": "Casca de Luz",
+      "pieceId": "armor-manto-de-retalhos",
+      "tier": 2,
+      "effect": "Escudo que absorve dano.",
+      "tags": [
+        "defesa"
+      ]
+    },
+    {
+      "id": "askill-panos-quentes",
+      "name": "Panos Quentes",
+      "pieceId": "armor-manto-de-retalhos",
+      "tier": 5,
+      "effect": "Cura em si mesmo ao longo de vários turnos.",
+      "tags": [
+        "cura"
+      ]
+    },
+    {
+      "id": "askill-passo-leve",
+      "name": "Passo Leve",
+      "pieceId": "armor-sandalias-de-piacava",
+      "tier": 3,
+      "effect": "Reduz o peso do que você carrega.",
+      "tags": [
+        "carga"
+      ]
+    },
+    {
+      "id": "askill-sumir-no-mato",
+      "name": "Sumir no Mato",
+      "pieceId": "armor-sandalias-de-piacava",
+      "tier": 5,
+      "effect": "Grande bônus de escape, uma vez por combate.",
+      "tags": [
+        "fuga"
+      ]
+    }
+  ],
+  "setBonuses": [
+    {
+      "id": "setbonus-pesada",
+      "lineId": "armorline-pesada",
+      "requires": 3,
+      "effect": "Armadura adicional e resistência a controle."
+    },
+    {
+      "id": "setbonus-media",
+      "lineId": "armorline-media",
+      "requires": 3,
+      "effect": "Evasão adicional e bônus de escape."
+    },
+    {
+      "id": "setbonus-leve",
+      "lineId": "armorline-leve",
+      "requires": 3,
+      "effect": "Recurso máximo e potência de escudo e cura aumentados."
+    }
+  ],
+  "escopo": "compartilhado"
+}

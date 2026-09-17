@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "id": "factions-era-1",
+  "eraId": "era-1-colonizacao",
+  "note": "Facção é propriedade da era, não do jogo — a Era 2 terá outras. O jogador não pertence a nenhuma delas; é forasteiro trazido pela Ruptura. Reputação está ADIADA: na PoC a Aldeia Potiguara usa um booleano (negocia ou não), não uma barra.",
+  "niveisDeReputacao": [
+    {
+      "id": "rep-inimigo",
+      "nome": "Inimigo",
+      "ordem": 1,
+      "efeito": "Atacado à vista nas zonas dela. Estações e troca fechadas."
+    },
+    {
+      "id": "rep-desconfiado",
+      "nome": "Desconfiado",
+      "ordem": 2,
+      "efeito": "Preço ruim, sem acesso a serviço avançado."
+    },
+    {
+      "id": "rep-tolerado",
+      "nome": "Tolerado",
+      "ordem": 3,
+      "efeito": "Padrão para quem chega. Troca e estações ao preço normal."
+    },
+    {
+      "id": "rep-conhecido",
+      "nome": "Conhecido",
+      "ordem": 4,
+      "efeito": "Preço melhor. Acesso a materiais que não vão ao mercado comum."
+    },
+    {
+      "id": "rep-aliado",
+      "nome": "Aliado",
+      "ordem": 5,
+      "efeito": "Purificação de artefato da facção. Serviços exclusivos."
+    }
+  ],
+  "notaReputacao": "O destino do sistema: artefato dropa NÃO PURIFICADO, e purificar exige reputação com a facção dele. Ou o jogador sobe com uma baixando a rival, ou compra purificado no mercado — o que cria o purificador como profissão. Se até o T4 não houver o que a reputação destranque, ela não entra.",
+  "factions": [
+    {
+      "id": "faction-colonizador",
+      "nome": "A Coroa",
+      "apelido": "colonizador",
+      "descricao": "A empresa portuguesa no litoral: feitoria de pau-brasil, engenho de açúcar, currais avançando para dentro. Não é um exército, é um negócio — e trata tudo, inclusive gente, como estoque.",
+      "periodo": "Feitorias desde 1500; engenhos a partir da década de 1530; gado no sertão pela Casa da Torre desde os anos 1550.",
+      "linhaDeArmadura": "armorline-pesada",
+      "arvorePreferida": "tree-fisico",
+      "zonas": [
+        "zone-feitoria-da-cruz",
+        "zone-roca-de-mandioca",
+        "zone-canavial-velho",
+        "zone-engenho-da-cruz",
+        "zone-curral-do-gado"
+      ],
+      "rivais": [
+        "faction-indigena",
+        "faction-folclorico"
+      ],
+      "materialExclusivo": "mat-ferro-de-brejo",
+      "posturaInicial": "rep-tolerado",
+      "comoSobe": [
+        "matar mobs indígenas e folclóricos",
+        "entregar material bruto na Feitoria",
+        "defender o engenho de contrabandistas"
+      ],
+      "comoDesce": [
+        "saquear zona da Coroa",
+        "negociar demais com a Aldeia"
+      ],
+      "voz": "Fria e contábil. Fala em arroba, em quintal, em safra. Nunca em pessoas.",
+      "dominioPorFaixa": "Domina a costa e vai sumindo para dentro. No Pantanal e na Mata Sem Fim não existe."
+    },
+    {
+      "id": "faction-indigena",
+      "nome": "Os Potiguara e aliados",
+      "apelido": "indígena",
+      "descricao": "Povos que já estavam aqui e que negociam, resistem ou se retiram, cada aldeia por conta própria. Não são um bloco: a aldeia da costa comercia enquanto a do sertão atira.",
+      "periodo": "Potiguara documentados na Paraíba e no Rio Grande do Norte; aliaram-se primeiro aos franceses e depois aos portugueses.",
+      "linhaDeArmadura": "armorline-media",
+      "arvorePreferida": "tree-projetil",
+      "zonas": [
+        "zone-aldeia-potiguara",
+        "zone-caatinga-branca",
+        "zone-varzea-alagada",
+        "zone-castanhal-antigo"
+      ],
+      "rivais": [
+        "faction-colonizador"
+      ],
+      "materialExclusivo": "mat-couro-de-anta",
+      "posturaInicial": "rep-tolerado",
+      "comoSobe": [
+        "trocar em vez de saquear",
+        "matar contrabandistas e capitães do mato",
+        "levar remédio e sal à aldeia"
+      ],
+      "comoDesce": [
+        "saquear aldeia",
+        "trabalhar de graça para o engenho"
+      ],
+      "voz": "Direta e sem cerimônia. Pergunta o que você quer antes de dizer bom dia.",
+      "dominioPorFaixa": "Aparece em toda faixa de tier, mas nunca é dominante. É a única facção presente do T2 ao T6."
+    },
+    {
+      "id": "faction-folclorico",
+      "nome": "Os Encantados",
+      "apelido": "folclórico",
+      "descricao": "O que mora no mato e não é gente. Não tem projeto nem governo: tem território e regra. Quem respeita a regra passa; quem não respeita, some.",
+      "periodo": "Curupira, Boitatá, Ipupiara, Anhangá e Jurupari estão registrados em cartas e crônicas do século XVI, por Anchieta e por Gandavo.",
+      "linhaDeArmadura": "armorline-leve",
+      "arvorePreferida": "tree-magico",
+      "zonas": [
+        "zone-manguezal-do-sal",
+        "zone-mata-fechada",
+        "zone-olho-de-boitata",
+        "zone-lajedo-rachado",
+        "zone-corredeira-negra",
+        "zone-igarape-de-anhanga"
+      ],
+      "rivais": [
+        "faction-colonizador"
+      ],
+      "materialExclusivo": "mat-pedra-de-raiz",
+      "posturaInicial": "rep-desconfiado",
+      "comoSobe": [
+        "deixar oferenda nos marcos",
+        "não derrubar árvore marcada",
+        "matar quem corta e queima"
+      ],
+      "comoDesce": [
+        "derrubar mata",
+        "queimar",
+        "matar filhote de bicho"
+      ],
+      "voz": "Não fala em frases. Fala em sinal: rastro trocado, fogo que não aquece, assobio que vem do lado errado.",
+      "dominioPorFaixa": "Raro na praia, dono absoluto da Mata Sem Fim. É a única facção que cresce conforme se aproxima da Raiz."
+    }
+  ],
+  "gruposIndependentes": [
+    {
+      "id": "grupo-contrabandistas",
+      "nome": "Contrabandistas franceses",
+      "descricao": "Tiravam pau-brasil da costa sem passar pela Coroa, escorados em aliança com povos locais. Hostis a todo mundo que não seja deles.",
+      "periodo": "Presença constante no litoral entre 1500 e 1600; a França Antártica no Rio durou de 1555 a 1567.",
+      "hostilA": [
+        "faction-colonizador",
+        "faction-indigena",
+        "faction-folclorico",
+        "jogador"
+      ],
+      "zonas": [
+        "zone-mata-do-pau-brasil",
+        "zone-baixio-das-garcas"
+      ],
+      "nota": "Não é facção jogável e não tem reputação. É inimigo humano de tier baixo, e é por isso que serve ao tutorial."
+    },
+    {
+      "id": "grupo-mocambo",
+      "nome": "O Mocambo da Serra",
+      "descricao": "Gente fugida do engenho, vivendo na serra. Não ataca quem chega desarmado e não negocia com quem trabalha para a Coroa.",
+      "periodo": "Mocambos na Serra da Barriga desde o início do século XVII; o conjunto ficou conhecido como Palmares.",
+      "hostilA": [
+        "faction-colonizador"
+      ],
+      "zonas": [
+        "zone-serra-da-barriga"
+      ],
+      "nota": "Zona neutra com ponto de descanso. Fora das três facções de propósito: não é origem, é consequência. Se a reputação entrar, é forte candidato a quarta facção."
+    }
+  ],
+  "escopo": "era-1",
+  "notaMVP": "Na ilha da Travessia nao ha faccao: ninguem e de la. As tres tradicoes aparecem so como estilo de arma e armadura no T2, sem reputacao nem conflito.",
+  "scope": "era-1"
+}
