@@ -63,15 +63,52 @@ Sete slots: mão principal, off-hand, cabeça, torso, botas, montaria e bolsa. A
 
 ## Combate
 
-**Auto-battler, sem posicionamento.** Tick de dois segundos, ciclo de habilidades, e "área" significa número de alvos — não formato nem alcance.
+**Auto-battler, sem posicionamento.** "Área" significa número de alvos — não formato nem alcance.
 
 O jogador escolhe um acampamento na zona e a **onda nasce fechada**: só nasce a próxima quando a anterior morre inteira. Teto de cinquenta rodadas por onda; se estourar, é impasse.
 
 Como a onda é fechada, **o servidor resolve a luta inteira e manda a linha do tempo pronta**. O cliente só anima.
 
-**As regras de combate são configuradas antes.** A cada tick o servidor verifica, nesta ordem: condição de parada, limiar de retirada, limiar de cura, atacar. Parar significa **parar no lugar**, nunca voltar para a cidade.
+### Os dois relógios
 
-**Retirada usa a mesma matemática da fuga em PvP.** Pontos de fuga vêm do equipamento; falhar custa turno e durabilidade. O atributo significa *escapar barato*, não *escapar*.
+Não há turno nem tick. Duas coisas correm em paralelo:
+
+**O ataque básico** dispara a cada `1 ÷ velocidade de ataque` segundos. Velocidade de ataque é atributo da arma — espada rápida e fraca por golpe, tacape lento e pesado. Não ocupa slot, não custa energia e nunca para.
+
+**As habilidades** têm recarga própria e custam energia. Quando ficam prontas, disparam pela ordem de prioridade.
+
+É daí que sai a primeira decisão real de build: **bater muitas vezes fraco ou poucas vezes forte.**
+
+### O loadout é o combate
+
+Seis slots ativos, e o slot é a restrição — cada um só aceita habilidade da fonte dele:
+
+| Slot      | Vem de            | Escolha                      |
+| --------- | ----------------- | ---------------------------- |
+| Ataque    | arma              | entre os Q que a arma acessa |
+| Utilidade | arma              | entre os W que a arma acessa |
+| Especial  | arma              | **fixo pela arma**           |
+| Cabeça    | capacete          | entre as ativas da peça      |
+| Torso     | armadura de torso | entre as ativas da peça      |
+| Botas     | botas             | entre as ativas da peça      |
+
+Mais quatro slots de passiva, um por peça e um da arma, e as passivas fixas da montaria e da bolsa.
+
+**Depois de preencher, o jogador ordena a prioridade entre os seis.** Quando mais de uma está pronta e há energia, dispara a de prioridade mais alta.
+
+Não existe lista de desabilitadas: quem não quer uma habilidade simplesmente não a escolhe no slot.
+
+### Energia
+
+Recurso das habilidades, comum às três árvores. Regenera com o tempo e tem teto que cresce com o poder de item. Habilidade barata e rápida no topo da prioridade seca a barra; habilidade cara exige guardar.
+
+### Regras de combate
+
+Configuradas antes, porque num idle ninguém está olhando. A cada evento o servidor verifica, nesta ordem: condição de parada, limiar de retirada, limiar de cura, e então dispara o que estiver pronto.
+
+Parar significa **parar no lugar**, nunca voltar para a cidade. Poção dispara por limiar de vida e fica fora da prioridade.
+
+**Retirada usa a mesma matemática da fuga em PvP.** Pontos de fuga vêm do equipamento; falhar custa tempo e durabilidade. O atributo significa *escapar barato*, não *escapar*.
 
 ---
 

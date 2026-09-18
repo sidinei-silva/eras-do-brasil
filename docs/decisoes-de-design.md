@@ -51,12 +51,12 @@ Com T1 craftável, a aula de forja vem cedo como no Albion, e a escolha de tradi
 
 ## Escopo por fase
 
-| Fase | Conteúdo |
-|---|---|
-| **MVP** | ilha da Travessia: 4 zonas, T1–T2, banda segura |
-| Era 1 | 22 zonas, T1–T6, três facções |
-| Continente 1 | 4 eras, 60 a 100 zonas |
-| Completo | mais o Emaranhado, T6–T8 |
+| Fase         | Conteúdo                                        |
+| ------------ | ----------------------------------------------- |
+| **MVP**      | ilha da Travessia: 4 zonas, T1–T2, banda segura |
+| Era 1        | 22 zonas, T1–T6, três facções                   |
+| Continente 1 | 4 eras, 60 a 100 zonas                          |
+| Completo     | mais o Emaranhado, T6–T8                        |
 
 ---
 
@@ -66,11 +66,11 @@ Com T1 craftável, a aula de forja vem cedo como no Albion, e a escolha de tradi
 
 PvP é **consentido e mútuo**, no modelo do Albion: sinalizado pode atacar e ser atacado; não sinalizado não faz nem uma coisa nem outra.
 
-| Banda | Regra |
-|---|---|
-| Segura | ninguém ataca ninguém, mesmo sinalizado |
-| Disputada | sinalizado contra sinalizado, perda parcial |
-| Mortal | sinalizado contra sinalizado, perda total |
+| Banda                     | Regra                                             |
+| ------------------------- | ------------------------------------------------- |
+| Segura                    | ninguém ataca ninguém, mesmo sinalizado           |
+| Disputada                 | sinalizado contra sinalizado, perda parcial       |
+| Mortal                    | sinalizado contra sinalizado, perda total         |
 | Emaranhado (continente 2) | entrar é consentir; não há flag e não há contador |
 
 **A flag liga e desliga só na cidade.** Desligar exige voltar, o que mantém caçar como compromisso e não como invisibilidade sob demanda.
@@ -123,13 +123,13 @@ Critério de corte: se até o T4 não houver o que a reputação destranque, ela
 
 ### A escada de simulação
 
-| Degrau | Custa | Entrega num idle |
-|---|---|---|
-| 0 · Estação | nada | o jogo funciona |
-| 1 · Estado e estoque | uma tabela e um timer | motivo para voltar depois |
-| 2 · Rotina | o relógio dia e noite | conteúdo com janela |
-| 3 · Necessidade | utility AI por NPC | quase invisível |
-| 4 · Conhecimento e fofoca | memória e expiração | só se a informação valer |
+| Degrau                    | Custa                 | Entrega num idle          |
+| ------------------------- | --------------------- | ------------------------- |
+| 0 · Estação               | nada                  | o jogo funciona           |
+| 1 · Estado e estoque      | uma tabela e um timer | motivo para voltar depois |
+| 2 · Rotina                | o relógio dia e noite | conteúdo com janela       |
+| 3 · Necessidade           | utility AI por NPC    | quase invisível           |
+| 4 · Conhecimento e fofoca | memória e expiração   | só se a informação valer  |
 
 **O MVP precisa do degrau 0.** Um NPC: o **Língua** — cargo histórico real, o intérprete que transitava entre os povos sem pertencer a nenhum. Espelho do jogador.
 
@@ -167,19 +167,51 @@ Combate D20. Grid isométrico, posicionamento e cobertura. Modo RPG de mesa. As 
 
 ---
 
+## Combate — dois relógios, seis slots e prioridade
+
+**Decisão.** Sem tick e sem turno. O ataque básico corre pela velocidade de ataque da arma; cada habilidade tem recarga e custo de energia próprios; a ordem de prioridade decide quem dispara quando mais de uma está pronta.
+
+**O que havia antes, e por que caiu.** O modelo era um ciclo fixo `Q Q Q Q E` num tick de dois segundos. Aquilo foi **placeholder consciente**, suficiente para validar tempo de morte, curva de progressão, economia e durabilidade — e nada além disso. Não tinha ataque básico, velocidade de ataque, recarga, custo de recurso, e o W nem entrava no ciclo.
+
+Com tick fixo, uma arma de 0,8 ataque por segundo e outra de 1,4 são impossíveis de distinguir. **A granularidade matava a diferença entre as armas**, que é justamente o que o projeto inteiro se propõe a ter.
+
+**Por que orientado a evento e não tick fino.** Como a onda é fechada e o servidor já resolve a luta inteira de uma vez, o resultado natural é uma linha do tempo com marcações em segundos — *aos 0,0s bateu, aos 1,2s bateu, aos 2,4s soltou o especial*. É exatamente o que o cliente precisa para animar. Um tick só acrescentaria arredondamento.
+
+### O slot é a restrição
+
+**Descartado: lista de habilidades com desabilitar.** A primeira proposta foi uma lista única de prioridade com uma seção de desabilitadas embaixo. Perde porque **desabilitar é remendo**: a escolha deve acontecer na hora de montar o equipamento, não na hora de desligar o que sobrou.
+
+Seis slots ativos, cada um aceitando só habilidade da própria fonte — três da arma, três da armadura. O **Especial é fixo pela arma**, e é o que diferencia duas armas da mesma árvore. Mais quatro slots de passiva e as fixas de montaria e bolsa.
+
+**Consequência desenhada:** trocar uma peça de armadura troca uma habilidade ativa e uma passiva. Isso faz "você é o que veste" valer também dentro do combate, e não só nos atributos.
+
+### Energia
+
+**Existia implícita e nunca tinha sido criada.** A passiva *Poupança* reduz o custo de recurso das habilidades e a *Cabeça Limpa* regenera recurso — as duas mexiam num sistema que não existia no dado.
+
+Chama-se energia e não mana porque serve às três árvores igualmente.
+
+### O que isso ainda deve
+
+Os valores de velocidade de ataque, recarga, custo e regeneração estão no dado marcados como **chute**, para o simulador ter o que calibrar. **Nenhum foi validado.**
+
+O simulador itera por tick com ciclo fixo e precisa ser reescrito para fila de eventos. Os tempos de morte vão mudar, e com eles a calibração da progressão e da economia.
+
+---
+
 ## Renomeações — e por quê
 
 Todas seguem a mesma regra: **mecânica não se poetiza, e nome de sistema global não pode vir de uma era**.
 
-| Antes | Agora | Motivo |
-|---|---|---|
-| Litania | **Árvore do Destino** | vocabulário religioso da Era 1 num sistema do jogo inteiro; é a Destiny Board do Albion |
-| Têmpera | **Afinidade** | metalurgia herdada da Escória, sem equivalente reconhecível |
-| Doutrina de combate | **Regras de combate** | poesia onde cabia a palavra óbvia |
-| Barracas | **Estações** | soava estranho para uma fundição |
-| Sopro | **Essência** | ninguém lembrava o que era; e estava amarrada aos Encantados, facção da Era 1 |
-| firme, trêmula, rachada | **segura, disputada, mortal** | descreviam a distorção da Raiz em vez da regra |
-| A Bigorna (estação) | **A Forja** | colidia com uma zona morta da Escória |
+| Antes                   | Agora                         | Motivo                                                                                  |
+| ----------------------- | ----------------------------- | --------------------------------------------------------------------------------------- |
+| Litania                 | **Árvore do Destino**         | vocabulário religioso da Era 1 num sistema do jogo inteiro; é a Destiny Board do Albion |
+| Têmpera                 | **Afinidade**                 | metalurgia herdada da Escória, sem equivalente reconhecível                             |
+| Doutrina de combate     | **Regras de combate**         | poesia onde cabia a palavra óbvia                                                       |
+| Barracas                | **Estações**                  | soava estranho para uma fundição                                                        |
+| Sopro                   | **Essência**                  | ninguém lembrava o que era; e estava amarrada aos Encantados, facção da Era 1           |
+| firme, trêmula, rachada | **segura, disputada, mortal** | descreviam a distorção da Raiz em vez da regra                                          |
+| A Bigorna (estação)     | **A Forja**                   | colidia com uma zona morta da Escória                                                   |
 
 **Ecos ficou**, por ser nome de conteúdo e não de sistema.
 

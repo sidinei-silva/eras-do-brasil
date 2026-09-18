@@ -23,10 +23,7 @@
       "entryTrigger": "concluir tut-01",
       "completion": "coletar 6 de mat-seixo-de-praia e 6 de mat-pau-mole",
       "teaches": "nó de recurso e que T1 se coleta sem ferramenta",
-      "unlocks": [
-        "col-seixo",
-        "col-pau-mole"
-      ]
+      "unlocks": ["col-seixo", "col-pau-mole"]
     },
     {
       "id": "tut-03",
@@ -34,11 +31,9 @@
       "zoneId": "zone-a-beira",
       "npcId": "npc-o-lingua",
       "entryTrigger": "concluir tut-02",
-      "completion": "craftar e equipar weapon-lamina-crua e escolher um Q",
-      "teaches": "estação de craft, receita, equipar, escolher habilidade",
-      "unlocks": [
-        "cra-lamina-crua"
-      ]
+      "completion": "craftar e equipar weapon-lamina-crua e preencher o slot de Ataque",
+      "teaches": "estação de craft, receita, equipar, e escolher a habilidade do slot de Ataque",
+      "unlocks": ["cra-lamina-crua"]
     },
     {
       "id": "tut-04",
@@ -57,9 +52,7 @@
       "entryTrigger": "concluir tut-04",
       "completion": "coletar 16 de mat-couro-de-capivara",
       "teaches": "esfolar sem ferramenta a partir de mob morto",
-      "unlocks": [
-        "col-couro-capivara"
-      ]
+      "unlocks": ["col-couro-capivara"]
     },
     {
       "id": "tut-06",
@@ -68,12 +61,8 @@
       "npcId": "npc-o-lingua",
       "entryTrigger": "concluir tut-05",
       "completion": "craftar e equipar armor-capuz-cru, armor-colete-cru e armor-botina-crua",
-      "teaches": "slots de armadura e habilidade por peça",
-      "unlocks": [
-        "cra-capuz-cru",
-        "cra-colete-cru",
-        "cra-botina-crua"
-      ]
+      "teaches": "slots de armadura: cada peça abre um slot ativo e um passivo",
+      "unlocks": ["cra-capuz-cru", "cra-colete-cru", "cra-botina-crua"]
     },
     {
       "id": "tut-07",
@@ -83,9 +72,7 @@
       "entryTrigger": "concluir tut-06",
       "completion": "craftar e equipar weapon-broquel-cru",
       "teaches": "off-hand só existe com arma de uma mão",
-      "unlocks": [
-        "cra-broquel-cru"
-      ]
+      "unlocks": ["cra-broquel-cru"]
     },
     {
       "id": "tut-08",
@@ -95,12 +82,8 @@
       "entryTrigger": "concluir tut-07",
       "completion": "vencer 3 ondas e derrotar mob-o-primeiro-perdido",
       "teaches": "mini-chefe e que combate difícil dá recompensa",
-      "unlocks": [
-        "mvp-conn-001"
-      ],
-      "reward": [
-        "item-bolsa-de-couro"
-      ],
+      "unlocks": ["mvp-conn-001"],
+      "reward": ["item-bolsa-de-couro"],
       "keyLine": "Tem coisa no caminho que chegou antes de você e não passou."
     },
     {
@@ -129,12 +112,7 @@
       "entryTrigger": "concluir tut-10",
       "completion": "craftar e equipar as 4 ferramentas T1",
       "teaches": "ferramenta destrava recurso e a regra de tier",
-      "unlocks": [
-        "cra-machado",
-        "cra-picareta",
-        "cra-foice",
-        "cra-faca"
-      ]
+      "unlocks": ["cra-machado", "cra-picareta", "cra-foice", "cra-faca"]
     },
     {
       "id": "tut-12",
@@ -144,11 +122,7 @@
       "entryTrigger": "concluir tut-11",
       "completion": "coletar 16 de mat-pau-brasil e 16 de mat-couro-de-veado",
       "teaches": "tier de recurso, mapa da zona, viagem em minutos reais",
-      "unlocks": [
-        "mvp-conn-002",
-        "col-pau-brasil",
-        "col-couro-veado"
-      ]
+      "unlocks": ["mvp-conn-002", "col-pau-brasil", "col-couro-veado"]
     },
     {
       "id": "tut-13",
@@ -158,11 +132,7 @@
       "entryTrigger": "concluir tut-12",
       "completion": "coletar 16 de mat-algodao-bravo e 16 de mat-ferro-de-brejo",
       "teaches": "segunda zona aberta e peso da carga",
-      "unlocks": [
-        "mvp-conn-003",
-        "col-algodao",
-        "col-ferro"
-      ]
+      "unlocks": ["mvp-conn-003", "col-algodao", "col-ferro"]
     },
     {
       "id": "tut-14",
@@ -172,12 +142,7 @@
       "entryTrigger": "concluir tut-13",
       "completion": "refinar pelo menos 1 de cada: tábua, couro curtido, pano e barra",
       "teaches": "as quatro estações de refino e a cascata",
-      "unlocks": [
-        "ref-tabua",
-        "ref-couro-curtido",
-        "ref-pano",
-        "ref-barra"
-      ]
+      "unlocks": ["ref-tabua", "ref-couro-curtido", "ref-pano", "ref-barra"]
     },
     {
       "id": "tut-15",
@@ -202,7 +167,7 @@
       "npcId": "npc-a-barqueira",
       "entryTrigger": "concluir tut-15",
       "completion": "craftar e equipar uma das três armas T2 e escolher Q, W e E",
-      "teaches": "escolha de tradição e configuração de habilidade",
+      "teaches": "escolha de tradição, preencher os slots de Utilidade e Especial, e ORDENAR A PRIORIDADE",
       "unlocks": [
         "cra-espada-de-lado",
         "cra-zarabatana",
@@ -219,7 +184,7 @@
       "npcId": "npc-a-barqueira",
       "entryTrigger": "concluir tut-16",
       "completion": "craftar e equipar as 3 peças T2 de uma mesma linha",
-      "teaches": "conjunto completo e bônus de conjunto",
+      "teaches": "conjunto completo, bônus de conjunto e os quatro slots de passiva",
       "unlocks": [
         "cra-morriao",
         "cra-couraca",
@@ -243,5 +208,6 @@
       "keyLine": "Vestido assim já dá. Sobe."
     }
   ],
-  "exitCondition": "Concluir tut-18. A ilha nao pode ser revisitada."
+  "exitCondition": "Concluir tut-18. A ilha nao pode ser revisitada.",
+  "noteLoadout": "O loadout e o combate. Os seis slots ativos e os quatro passivos existem desde o MVP, e o tutorial os ensina em tres momentos: escolher a habilidade do slot (3), ordenar a prioridade (16) e fechar as passivas (17)."
 }

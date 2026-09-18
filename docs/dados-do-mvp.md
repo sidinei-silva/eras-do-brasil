@@ -12,48 +12,48 @@ Inventário completo do que precisa existir para o MVP rodar, e o que é conteú
 
 ### Compartilhado — vale para o jogo inteiro
 
-| Arquivo | Conteúdo |
-|---|---|
-| `continents.json` | os três continentes: Travessia, As Eras e O Emaranhado |
-| `materials.json` | catálogo T1 a T6, brutos e refinados, a Essência, e **qual ferramenta cada tipo exige** |
-| `combat.json` | 3 árvores, pool de Q, W e passivas, e todas as armas |
-| `armor.json` | 4 linhas (crua, pesada, média, leve), peças e bônus de conjunto |
-| `transport.json` | passivas de armadura, montarias e bolsas |
-| `destino.json` | a Árvore do Destino: quatro ramos e os nós |
-| `balance.json` | todas as constantes do jogo |
-| `sim.py` | simulador, lê `balance.json` |
+| Arquivo           | Conteúdo                                                                                |
+| ----------------- | --------------------------------------------------------------------------------------- |
+| `continents.json` | os três continentes: Travessia, As Eras e O Emaranhado                                  |
+| `materials.json`  | catálogo T1 a T6, brutos e refinados, a Essência, e **qual ferramenta cada tipo exige** |
+| `combat.json`     | 3 árvores, pool de Q, W e passivas, e todas as armas                                    |
+| `armor.json`      | 4 linhas (crua, pesada, média, leve), peças e bônus de conjunto                         |
+| `transport.json`  | passivas de armadura, montarias e bolsas                                                |
+| `destino.json`    | a Árvore do Destino: quatro ramos e os nós                                              |
+| `balance.json`    | todas as constantes do jogo                                                             |
+| `sim.py`          | simulador, lê `balance.json`                                                            |
 
 **Sistema é compartilhado por definição.** Era nova nunca traz árvore de skill nova nem linha de armadura nova — traz armas, peças e conteúdo.
 
 ### MVP — a ilha da Travessia
 
-| Arquivo | Conteúdo |
-|---|---|
-| `mvp_zones.json` | 4 zonas, 4 conexões, 6 acampamentos, recursos por zona |
-| `mvp_mobs.json` | 6 mobs, um deles mini-chefe — só bestiário |
-| `mvp_npcs.json` | 3 NPCs com diálogo |
-| `mvp_recipes.json` | 8 coletas, 4 refinos, 24 crafts |
-| `mvp_tutorial.json` | 18 passos, como máquina de estados |
+| Arquivo             | Conteúdo                                               |
+| ------------------- | ------------------------------------------------------ |
+| `mvp_zones.json`    | 4 zonas, 4 conexões, 6 acampamentos, recursos por zona |
+| `mvp_mobs.json`     | 6 mobs, um deles mini-chefe — só bestiário             |
+| `mvp_npcs.json`     | 3 NPCs com diálogo                                     |
+| `mvp_recipes.json`  | 8 coletas, 4 refinos, 24 crafts                        |
+| `mvp_tutorial.json` | 18 passos, como máquina de estados                     |
 
 ### Era 1 — conteúdo posterior
 
-| Arquivo | Conteúdo |
-|---|---|
-| `era-1_zones.json` | 22 zonas, 44 conexões, 5 regiões, 33 acampamentos |
-| `era-1_mobs.json` | 43 mobs — só bestiário |
-| `era-1_npcs.json` | 17 NPCs |
-| `era-1_factions.json` | 3 facções e 2 grupos independentes |
+| Arquivo               | Conteúdo                                          |
+| --------------------- | ------------------------------------------------- |
+| `era-1_zones.json`    | 22 zonas, 44 conexões, 5 regiões, 33 acampamentos |
+| `era-1_mobs.json`     | 43 mobs — só bestiário                            |
+| `era-1_npcs.json`     | 17 NPCs                                           |
+| `era-1_factions.json` | 3 facções e 2 grupos independentes                |
 
 ---
 
 ## As quatro zonas
 
-| Zona | Papel | Equivalente no Albion | Tier |
-|---|---|---|---|
-| **A Beira** | onde nasce, o Língua, o mini-chefe | The Lighthouse | T1 |
-| **Porto de Passagem** | vila, mercado, estações, a Barqueira | The Cove | T1 |
-| **Mata Revirada** | madeira e couro | The Forgotten Woods | T2 |
-| **Pedreira Torta** | fibra e minério | Mountain Fort | T2 |
+| Zona                  | Papel                                | Equivalente no Albion | Tier |
+| --------------------- | ------------------------------------ | --------------------- | ---- |
+| **A Beira**           | onde nasce, o Língua, o mini-chefe   | The Lighthouse        | T1   |
+| **Porto de Passagem** | vila, mercado, estações, a Barqueira | The Cove              | T1   |
+| **Mata Revirada**     | madeira e couro                      | The Forgotten Woods   | T2   |
+| **Pedreira Torta**    | fibra e minério                      | Mountain Fort         | T2   |
 
 A saída de A Beira é liberada pelo passo 8 do tutorial, que exige o mini-chefe — o gate é do tutorial, não da conexão. Toda a ilha é banda segura: sem PvP e sem perda.
 
@@ -69,12 +69,12 @@ Couro de capivara é esfolado de qualquer bicho T1 morto, em qualquer zona.
 
 ### T2 — exigem ferramenta
 
-| Material | Ferramenta | Onde |
-|---|---|---|
-| Pau-brasil | machado | Mata Revirada |
-| Couro de veado | faca de esfolar | Mata Revirada |
-| Algodão-bravo | foice | Pedreira Torta |
-| Ferro-de-brejo | picareta | Pedreira Torta |
+| Material       | Ferramenta      | Onde           |
+| -------------- | --------------- | -------------- |
+| Pau-brasil     | machado         | Mata Revirada  |
+| Couro de veado | faca de esfolar | Mata Revirada  |
+| Algodão-bravo  | foice           | Pedreira Torta |
+| Ferro-de-brejo | picareta        | Pedreira Torta |
 
 ### Refinados T2
 
@@ -86,15 +86,15 @@ Tábua de pau-brasil, couro curtido, pano de algodão e barra de ferro. **No T1 
 
 ### Armas
 
-| Item | Tier | Árvore | Craft |
-|---|---|---|---|
-| Lâmina Crua | T1 | Físico | seixo + pau-mole |
-| Broquel Cru | T1 | off-hand | seixo |
-| Espada de lado | T2 | Físico | barra + couro curtido |
-| Zarabatana | T2 | Projétil | tábua |
-| Cabaça de Boitatá | T2 | Mágico | barra + tábua |
-| Rodela | T2 | off-hand físico | barra + tábua |
-| Patuá | T2 | off-hand mágico | pano + couro curtido |
+| Item              | Tier | Árvore          | Craft                 |
+| ----------------- | ---- | --------------- | --------------------- |
+| Lâmina Crua       | T1   | Físico          | seixo + pau-mole      |
+| Broquel Cru       | T1   | off-hand        | seixo                 |
+| Espada de lado    | T2   | Físico          | barra + couro curtido |
+| Zarabatana        | T2   | Projétil        | tábua                 |
+| Cabaça de Boitatá | T2   | Mágico          | barra + tábua         |
+| Rodela            | T2   | off-hand físico | barra + tábua         |
+| Patuá             | T2   | off-hand mágico | pano + couro curtido  |
 
 T1 é sucata sem tradição, e é onde o jogador aprende a forjar. **A tradição só aparece no T2**, e escolher a arma é a primeira decisão de identidade do jogo.
 
@@ -130,23 +130,24 @@ Cada passo em `mvp_tutorial.json` tem gatilho de entrada, condição de conclus�
 
 ## Cobertura de sistemas
 
-| Sistema | Passo |
-|---|---|
-| Equipar e inventário | 3 |
-| Combate e onda fechada | 4 |
-| Coleta sem ferramenta | 2, 5 |
-| Craft | 3, 6, 7 |
-| Slots de armadura | 6 |
-| Off-hand | 7 |
-| Mini-chefe e recompensa | 8 |
-| Mercado e armazém | 9, 10 |
-| Montaria e carga | 10 |
-| Ferramenta destrava recurso | 11 |
-| Tier de recurso e viagem | 12, 13 |
-| Refino e cascata | 14 |
-| Árvore do Destino, quatro ramos | 15 |
-| Escolha de tradição e de habilidade | 16 |
-| Conjunto completo e bônus | 17 |
+| Sistema                               | Passo   |
+| ------------------------------------- | ------- |
+| Equipar e inventário                  | 3       |
+| Combate, onda fechada e ataque básico | 4       |
+| Slots, prioridade e energia           | 3, 16   |
+| Coleta sem ferramenta                 | 2, 5    |
+| Craft                                 | 3, 6, 7 |
+| Slots de armadura                     | 6       |
+| Off-hand                              | 7       |
+| Mini-chefe e recompensa               | 8       |
+| Mercado e armazém                     | 9, 10   |
+| Montaria e carga                      | 10      |
+| Ferramenta destrava recurso           | 11      |
+| Tier de recurso e viagem              | 12, 13  |
+| Refino e cascata                      | 14      |
+| Árvore do Destino, quatro ramos       | 15      |
+| Escolha de tradição e de habilidade   | 16      |
+| Conjunto completo e bônus             | 17      |
 
 ---
 
@@ -158,30 +159,30 @@ PvP, perda de item, durabilidade relevante, T3 em diante, artefatos, encantament
 
 ## Contagem
 
-| Categoria | Quantidade |
-|---|---|
-| Zonas | 4 |
-| Acampamentos | 6 |
-| Materiais em uso | 11 |
-| Armas e off-hands | 7 |
-| Peças de armadura | 12 |
-| Ferramentas e transporte | 6 |
-| Mobs | 6, com 1 mini-chefe |
-| NPCs com diálogo | 3 |
-| Receitas | 36 |
-| Passos do tutorial | 18 |
-| Modelos 3D | cerca de 32 |
+| Categoria                | Quantidade          |
+| ------------------------ | ------------------- |
+| Zonas                    | 4                   |
+| Acampamentos             | 6                   |
+| Materiais em uso         | 11                  |
+| Armas e off-hands        | 7                   |
+| Peças de armadura        | 12                  |
+| Ferramentas e transporte | 6                   |
+| Mobs                     | 6, com 1 mini-chefe |
+| NPCs com diálogo         | 3                   |
+| Receitas                 | 36                  |
+| Passos do tutorial       | 18                  |
+| Modelos 3D               | cerca de 32         |
 
 ---
 
 ## Faseamento
 
-| Escopo | Conteúdo |
-|---|---|
-| **MVP** | ilha da Travessia, 4 zonas, T1–T2 |
-| Era 1 | 22 zonas, T1–T6, três facções |
-| Continente 1 | 4 eras, 60 a 100 zonas |
-| Completo | mais o Emaranhado, T6–T8 |
+| Escopo       | Conteúdo                          |
+| ------------ | --------------------------------- |
+| **MVP**      | ilha da Travessia, 4 zonas, T1–T2 |
+| Era 1        | 22 zonas, T1–T6, três facções     |
+| Continente 1 | 4 eras, 60 a 100 zonas            |
+| Completo     | mais o Emaranhado, T6–T8          |
 
 
 ---
@@ -211,3 +212,21 @@ data/
 **Pasta por escopo, não por domínio.** Adicionar a Era 2 é criar uma pasta e copiar a forma; carregar é ler `shared/` mais um pacote de conteúdo. O escopo vira o diretório, e o campo `scope` dentro do arquivo fica só como conferência.
 
 Nos arquivos do Projeto do Claude os nomes são achatados — `mvp_zones.json` em vez de `mvp/zones.json` — porque lá não há pasta.
+
+
+---
+
+## Loadout no MVP
+
+**Seis slots ativos e quatro passivos**, mesmo com poucas habilidades. É a alma do combate e por isso entra desde o MVP.
+
+| Momento               | O que o jogador tem                   |
+| --------------------- | ------------------------------------- |
+| Passo 3, Lâmina Crua  | 1 slot: Ataque, entre dois Q          |
+| Passo 6, armadura T1  | 4 slots: Ataque, Cabeça, Torso, Botas |
+| Passo 16, arma T2     | 6 slots: mais Utilidade e Especial    |
+| Passo 17, conjunto T2 | os 6 ativos mais os 4 passivos        |
+
+**Com poucas habilidades a prioridade já decide.** Uma arma rápida com Q barato no topo bate muitas vezes fraco; uma lenta guardando energia para o Especial bate poucas vezes forte. Isso existe desde o passo 3, com dois Q e uma arma só.
+
+O tutorial ensina o sistema em três momentos: escolher a habilidade do slot (passo 3), ordenar a prioridade (passo 16) e fechar as passivas (passo 17).

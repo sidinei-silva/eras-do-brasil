@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "balance",
   "note": "Primeira proposta de âncoras. TODA constante do jogo mora aqui — servidor e simulador leem deste arquivo. Nada de número em código.",
-  "tick_segundos": 2.0,
   "item_power": {
     "base_por_tier": {
       "1": 100,
@@ -52,15 +51,12 @@
       "W_dano": 45,
       "E": 90
     },
-    "ciclo_padrao": [
-      "Q",
-      "Q",
-      "Q",
-      "Q",
-      "E"
-    ],
     "penetracao_por_ip_atacante": 2.0,
-    "nota_mitigacao": "mitigacao = ARM / (ARM + C + k*IP_atacante). A penetracao por IP impede que tier alto fique estritamente mais seguro."
+    "nota_mitigacao": "mitigacao = ARM / (ARM + C + k*IP_atacante). A penetracao por IP impede que tier alto fique estritamente mais seguro.",
+    "modelo": "orientado a evento",
+    "nota_modelo": "Nao ha tick. O proximo evento e o menor entre o proximo ataque basico e a proxima habilidade pronta. A luta inteira e resolvida de uma vez e enviada como linha do tempo com marcacoes em segundos — que e exatamente o que o cliente precisa para animar.",
+    "poder_ataque_basico": 20,
+    "nota_ataque_basico": "Sempre ativo, vem da arma, nao ocupa slot e nao custa energia. Mais fraco por golpe que um Q; o que decide e a velocidade de ataque da arma."
   },
   "mobs": {
     "multiplicador_hp": {
@@ -268,18 +264,9 @@
     "exclusividade": {
       "nota": "Um slot, uma escolha. Recuar OU Rastro Falso (mesmo slot W). Pe Solto OU Trilha Conhecida (mesma bota). Ligeireza OU Sem Rastro (mesmo torso).",
       "grupos": [
-        [
-          "skill-recuar",
-          "skill-rastro-falso"
-        ],
-        [
-          "askill-pe-solto",
-          "askill-sumir-no-mato"
-        ],
-        [
-          "apass-ligeireza",
-          "apass-sem-rastro"
-        ]
+        ["skill-recuar", "skill-rastro-falso"],
+        ["askill-pe-solto", "askill-sumir-no-mato"],
+        ["apass-ligeireza", "apass-sem-rastro"]
       ]
     },
     "largar_carga": {
@@ -489,13 +476,7 @@
     "nota": "Refino T1 e de graca, como no Albion. Prata sai do jogo pelo conserto, refino e craft; entra pelos mobs."
   },
   "encantamento": {
-    "niveis": [
-      0,
-      1,
-      2,
-      3,
-      4
-    ],
+    "niveis": [0, 1, 2, 3, 4],
     "ip_por_nivel": {
       "0": 0,
       "1": 80,
@@ -520,5 +501,25 @@
     "selvagem": "PvP aberto, perda total — so no Emaranhado"
   },
   "escopo": "compartilhado",
-  "nota_continentes": "Tres continentes: A Travessia (tutorial), As Eras (principal), O Emaranhado. Ver continents.json."
+  "nota_continentes": "Tres continentes: A Travessia (tutorial), As Eras (principal), O Emaranhado. Ver continents.json.",
+  "energia": {
+    "maxima_base": 100,
+    "maxima_por_ip": 0.1,
+    "regeneracao_por_segundo": 3.5,
+    "nota": "Recurso das habilidades. Existia implicito — as passivas Poupanca e Cabeca Limpa mexiam num sistema que nao existia. Serve para as tres arvores, e por isso nao se chama mana.",
+    "valoresChutados": true
+  },
+  "prioridade": {
+    "regra": "Quando mais de uma habilidade esta pronta e ha energia, dispara a de prioridade mais alta.",
+    "ordenavel": [
+      "slot-ataque",
+      "slot-utilidade",
+      "slot-especial",
+      "slot-cabeca",
+      "slot-torso",
+      "slot-botas"
+    ],
+    "nota": "Sem lista de desabilitadas: o slot ja e a restricao. Quem nao quer uma habilidade nao a escolhe no slot. Pocao e retirada continuam por limiar, fora da prioridade."
+  },
+  "valoresChutados_combate": true
 }

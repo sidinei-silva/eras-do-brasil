@@ -1,14 +1,12 @@
 {
   "schemaVersion": 1,
   "id": "armor",
-  "note": "Linhas de armadura sao universais entre eras. T1 e generico e sem linha. A partir do T2 cada linha pertence a uma tradicao e o conjunto completo da bonus.",
+  "note": "Linhas de armadura sao universais entre eras. T1 e generico e sem linha. A partir do T2 cada linha pertence a uma tradicao e o conjunto completo da bonus. Recarga e custo sao CHUTE. Habilidades marcadas passivaDeFato nao disparam: valem o tempo todo.",
   "lines": [
     {
       "id": "armorline-crua",
       "name": "Crua",
-      "materials": [
-        "res-couro"
-      ],
+      "materials": ["res-couro"],
       "factionId": null,
       "identity": "nenhuma — é o que dá para vestir com couro cru",
       "weightClass": "baixo",
@@ -17,10 +15,7 @@
     {
       "id": "armorline-pesada",
       "name": "Pesada",
-      "materials": [
-        "res-minerio",
-        "res-couro"
-      ],
+      "materials": ["res-minerio", "res-couro"],
       "factionId": "faction-colonizador",
       "identity": "armadura, autocura instantânea, resistir a controle",
       "weightClass": "alto",
@@ -29,10 +24,7 @@
     {
       "id": "armorline-media",
       "name": "Média",
-      "materials": [
-        "res-couro",
-        "res-fibra"
-      ],
+      "materials": ["res-couro", "res-fibra"],
       "factionId": "faction-indigena",
       "identity": "evasão, crítico, viagem, escape",
       "weightClass": "medio",
@@ -41,9 +33,7 @@
     {
       "id": "armorline-leve",
       "name": "Leve",
-      "materials": [
-        "res-fibra"
-      ],
+      "materials": ["res-fibra"],
       "factionId": "faction-folclorico",
       "identity": "recurso, escudo, cura ao longo do tempo, sumir",
       "weightClass": "baixo",
@@ -160,9 +150,10 @@
       "pieceId": "armor-capuz-cru",
       "tier": 1,
       "effect": "Reduz um pouco o dano recebido na próxima vez que for atingido.",
-      "tags": [
-        "defesa"
-      ]
+      "tags": ["defesa"],
+      "cooldownSeconds": 35.0,
+      "energyCost": 20,
+      "valoresChutados": true
     },
     {
       "id": "askill-encolher",
@@ -170,9 +161,10 @@
       "pieceId": "armor-colete-cru",
       "tier": 1,
       "effect": "Reduz o dano recebido por 2 turnos.",
-      "tags": [
-        "defesa"
-      ]
+      "tags": ["defesa"],
+      "cooldownSeconds": 35.0,
+      "energyCost": 20,
+      "valoresChutados": true
     },
     {
       "id": "askill-passo-firme",
@@ -180,9 +172,11 @@
       "pieceId": "armor-botina-crua",
       "tier": 1,
       "effect": "Pequeno aumento de capacidade de carga.",
-      "tags": [
-        "carga"
-      ]
+      "tags": ["carga"],
+      "passivaDeFato": true,
+      "cooldownSeconds": null,
+      "energyCost": 0,
+      "valoresChutados": true
     },
     {
       "id": "askill-cabeca-fria",
@@ -190,9 +184,10 @@
       "pieceId": "armor-morriao",
       "tier": 2,
       "effect": "Reduz a duração de todo controle sofrido.",
-      "tags": [
-        "defesa"
-      ]
+      "tags": ["defesa"],
+      "cooldownSeconds": 35.0,
+      "energyCost": 20,
+      "valoresChutados": true
     },
     {
       "id": "askill-visor-baixo",
@@ -200,9 +195,10 @@
       "pieceId": "armor-morriao",
       "tier": 5,
       "effect": "Reduz o dano crítico recebido.",
-      "tags": [
-        "defesa"
-      ]
+      "tags": ["defesa"],
+      "cooldownSeconds": 35.0,
+      "energyCost": 20,
+      "valoresChutados": true
     },
     {
       "id": "askill-aguentar",
@@ -210,9 +206,10 @@
       "pieceId": "armor-couraca",
       "tier": 2,
       "effect": "Reduz drasticamente o dano recebido por 2 turnos.",
-      "tags": [
-        "defesa"
-      ]
+      "tags": ["defesa"],
+      "cooldownSeconds": 35.0,
+      "energyCost": 20,
+      "valoresChutados": true
     },
     {
       "id": "askill-ferro-vivo",
@@ -220,9 +217,10 @@
       "pieceId": "armor-couraca",
       "tier": 5,
       "effect": "Cura instantânea proporcional à sua armadura.",
-      "tags": [
-        "cura"
-      ]
+      "tags": ["cura"],
+      "cooldownSeconds": 45.0,
+      "energyCost": 25,
+      "valoresChutados": true
     },
     {
       "id": "askill-passo-pesado",
@@ -230,9 +228,11 @@
       "pieceId": "armor-grevas",
       "tier": 3,
       "effect": "Aumenta a capacidade de carga.",
-      "tags": [
-        "carga"
-      ]
+      "tags": ["carga"],
+      "passivaDeFato": true,
+      "cooldownSeconds": null,
+      "energyCost": 0,
+      "valoresChutados": true
     },
     {
       "id": "askill-fincar",
@@ -240,9 +240,10 @@
       "pieceId": "armor-grevas",
       "tier": 5,
       "effect": "O alvo não consegue escapar de você.",
-      "tags": [
-        "anti-fuga"
-      ]
+      "tags": ["anti-fuga"],
+      "cooldownSeconds": 60.0,
+      "energyCost": 15,
+      "valoresChutados": true
     },
     {
       "id": "askill-olho-aberto",
@@ -250,7 +251,10 @@
       "pieceId": "armor-cocar",
       "tier": 2,
       "effect": "Aumenta a chance de crítico.",
-      "tags": []
+      "tags": [],
+      "cooldownSeconds": 35.0,
+      "energyCost": 20,
+      "valoresChutados": true
     },
     {
       "id": "askill-faro",
@@ -258,10 +262,11 @@
       "pieceId": "armor-cocar",
       "tier": 5,
       "effect": "Revela quem está com postura de gank na zona.",
-      "tags": [
-        "pvp",
-        "percepcao"
-      ]
+      "tags": ["pvp", "percepcao"],
+      "passivaDeFato": true,
+      "cooldownSeconds": null,
+      "energyCost": 0,
+      "valoresChutados": true
     },
     {
       "id": "askill-rolar",
@@ -269,9 +274,10 @@
       "pieceId": "armor-escaupil",
       "tier": 2,
       "effect": "Evita completamente o próximo golpe recebido.",
-      "tags": [
-        "defesa"
-      ]
+      "tags": ["defesa"],
+      "cooldownSeconds": 35.0,
+      "energyCost": 20,
+      "valoresChutados": true
     },
     {
       "id": "askill-couro-batido",
@@ -279,9 +285,10 @@
       "pieceId": "armor-escaupil",
       "tier": 5,
       "effect": "Reduz o dano recebido de sangramento e veneno.",
-      "tags": [
-        "defesa"
-      ]
+      "tags": ["defesa"],
+      "cooldownSeconds": 35.0,
+      "energyCost": 20,
+      "valoresChutados": true
     },
     {
       "id": "askill-pe-solto",
@@ -289,9 +296,10 @@
       "pieceId": "armor-alpercatas",
       "tier": 3,
       "effect": "Bônus de escape.",
-      "tags": [
-        "fuga"
-      ]
+      "tags": ["fuga"],
+      "cooldownSeconds": 60.0,
+      "energyCost": 15,
+      "valoresChutados": true
     },
     {
       "id": "askill-trilha-conhecida",
@@ -299,9 +307,11 @@
       "pieceId": "armor-alpercatas",
       "tier": 5,
       "effect": "Reduz o tempo de viagem entre zonas.",
-      "tags": [
-        "viagem"
-      ]
+      "tags": ["viagem"],
+      "passivaDeFato": true,
+      "cooldownSeconds": null,
+      "energyCost": 0,
+      "valoresChutados": true
     },
     {
       "id": "askill-cabeca-limpa",
@@ -309,9 +319,10 @@
       "pieceId": "armor-carapuca",
       "tier": 2,
       "effect": "Regenera recurso a cada turno.",
-      "tags": [
-        "recurso"
-      ]
+      "tags": ["recurso"],
+      "cooldownSeconds": 35.0,
+      "energyCost": 20,
+      "valoresChutados": true
     },
     {
       "id": "askill-sussurro",
@@ -319,7 +330,10 @@
       "pieceId": "armor-carapuca",
       "tier": 5,
       "effect": "Reduz a recarga da próxima habilidade usada.",
-      "tags": []
+      "tags": [],
+      "cooldownSeconds": 35.0,
+      "energyCost": 20,
+      "valoresChutados": true
     },
     {
       "id": "askill-casca-de-luz",
@@ -327,9 +341,10 @@
       "pieceId": "armor-manto-de-retalhos",
       "tier": 2,
       "effect": "Escudo que absorve dano.",
-      "tags": [
-        "defesa"
-      ]
+      "tags": ["defesa"],
+      "cooldownSeconds": 35.0,
+      "energyCost": 20,
+      "valoresChutados": true
     },
     {
       "id": "askill-panos-quentes",
@@ -337,9 +352,10 @@
       "pieceId": "armor-manto-de-retalhos",
       "tier": 5,
       "effect": "Cura em si mesmo ao longo de vários turnos.",
-      "tags": [
-        "cura"
-      ]
+      "tags": ["cura"],
+      "cooldownSeconds": 45.0,
+      "energyCost": 25,
+      "valoresChutados": true
     },
     {
       "id": "askill-passo-leve",
@@ -347,9 +363,11 @@
       "pieceId": "armor-sandalias-de-piacava",
       "tier": 3,
       "effect": "Reduz o peso do que você carrega.",
-      "tags": [
-        "carga"
-      ]
+      "tags": ["carga"],
+      "passivaDeFato": true,
+      "cooldownSeconds": null,
+      "energyCost": 0,
+      "valoresChutados": true
     },
     {
       "id": "askill-sumir-no-mato",
@@ -357,9 +375,10 @@
       "pieceId": "armor-sandalias-de-piacava",
       "tier": 5,
       "effect": "Grande bônus de escape, uma vez por combate.",
-      "tags": [
-        "fuga"
-      ]
+      "tags": ["fuga"],
+      "cooldownSeconds": 60.0,
+      "energyCost": 15,
+      "valoresChutados": true
     }
   ],
   "setBonuses": [
