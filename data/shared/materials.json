@@ -1,6 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "materials",
+  "scope": "shared",
   "note": "Catalogo de materiais do jogo inteiro. A FERRAMENTA mora aqui, no tipo de recurso — nao no no de zona. T1 se coleta sem ferramenta (requiresTool false); do T2 em diante exige a ferramenta do tipo, no maximo um tier abaixo. A Essencia nao e coletada: cai de mob.",
   "resourceTypes": [
     {
@@ -43,7 +44,7 @@
       "id": "res-essencia",
       "name": "Essência",
       "gathering": "drop de combate",
-      "nota": "Equivale as Runas/Almas/Reliquias do Albion: sobe o nivel de encantamento de um item ja pronto.",
+      "note": "Equivale as Runas/Almas/Reliquias do Albion: sobe o nivel de encantamento de um item ja pronto.",
       "tool": null
     },
     {
@@ -365,7 +366,5 @@
       "stationId": "estacao-fundicao",
       "note": "Refinado T2. No T1 nao ha refino: os brutos vao direto para o craft."
     }
-  ],
-  "escopo": "compartilhado",
-  "scope": "shared"
+  ]
 }

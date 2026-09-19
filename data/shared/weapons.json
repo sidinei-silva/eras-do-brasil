@@ -52,85 +52,85 @@
     "off": "Ocupa apenas a mão secundária; exige uma arma de uma mão da mesma árvore."
   },
   "slots": {
-    "nota": "Seis slots ativos e quatro passivos. O slot E a restricao: cada um so aceita habilidade da fonte dele. Depois de preenchidos, o jogador ordena a PRIORIDADE entre os seis ativos.",
-    "ativos": [
+    "note": "Seis slots ativos e quatro passivos. O slot E a restricao: cada um so aceita habilidade da fonte dele. Depois de preenchidos, o jogador ordena a PRIORIDADE entre os seis ativos.",
+    "active": [
       {
         "id": "slot-ataque",
         "label": "Ataque",
         "source": "arma",
         "pool": "Q",
-        "fixo": false,
-        "nota": "Escolhe entre os Q que a arma equipada acessa."
+        "fixed": false,
+        "note": "Escolhe entre os Q que a arma equipada acessa."
       },
       {
         "id": "slot-utilidade",
         "label": "Utilidade",
         "source": "arma",
         "pool": "W",
-        "fixo": false,
-        "nota": "Escolhe entre os W que a arma equipada acessa."
+        "fixed": false,
+        "note": "Escolhe entre os W que a arma equipada acessa."
       },
       {
         "id": "slot-especial",
         "label": "Especial",
         "source": "arma",
         "pool": "E",
-        "fixo": true,
-        "nota": "Fixo pela arma. E o que diferencia duas armas da mesma arvore."
+        "fixed": true,
+        "note": "Fixo pela arma. E o que diferencia duas armas da mesma arvore."
       },
       {
         "id": "slot-cabeca",
         "label": "Cabeça",
         "source": "armadura-cabeca",
         "pool": "ativa",
-        "fixo": false
+        "fixed": false
       },
       {
         "id": "slot-torso",
         "label": "Torso",
         "source": "armadura-torso",
         "pool": "ativa",
-        "fixo": false
+        "fixed": false
       },
       {
         "id": "slot-botas",
         "label": "Botas",
         "source": "armadura-botas",
         "pool": "ativa",
-        "fixo": false
+        "fixed": false
       }
     ],
-    "passivos": [
+    "passive": [
       {
         "id": "slot-passiva-arma",
         "label": "Passiva da arma",
         "source": "arma",
-        "pool": "passive",
-        "fixo": false
+        "pool": "passiva",
+        "fixed": false
       },
       {
         "id": "slot-passiva-cabeca",
         "label": "Passiva de cabeça",
         "source": "armadura-cabeca",
-        "pool": "passive",
-        "fixo": false
+        "pool": "passiva",
+        "fixed": false
       },
       {
         "id": "slot-passiva-torso",
         "label": "Passiva de torso",
         "source": "armadura-torso",
-        "pool": "passive",
-        "fixo": false
+        "pool": "passiva",
+        "fixed": false
       },
       {
         "id": "slot-passiva-botas",
         "label": "Passiva de botas",
         "source": "armadura-botas",
-        "pool": "passive",
-        "fixo": false
+        "pool": "passiva",
+        "fixed": false
       }
     ],
-    "fixosPorItem": [
+    "fixedPerItem": [
       {
         "id": "slot-passiva-montaria",
         "label": "Passiva da montaria",
@@ -142,18 +142,18 @@
         "source": "bolsa"
       }
     ],
-    "foraDaPrioridade": [
+    "outsidePriority": [
       {
         "id": "ataque-basico",
         "label": "Ataque básico",
-        "nota": "Sempre ativo. Vem da arma, nao ocupa slot e nao custa energia."
+        "note": "Sempre ativo. Vem da arma, nao ocupa slot e nao custa energia."
       },
       {
         "id": "pocao",
         "label": "Poção",
-        "nota": "Dispara por limiar de vida, configurado nas regras de combate. Nao entra na prioridade."
+        "note": "Dispara por limiar de vida, configurado nas regras de combate. Nao entra na prioridade."
       }
     ],
-    "notaNomes": "Os labels sao por FONTE, nao por tecla, porque num idle nao ha teclado. Q, W e E seguem como identificadores internos do pool, ja usados no dado."
+    "noteNames": "Os labels sao por FONTE, nao por tecla, porque num idle nao ha teclado. Q, W e E seguem como identificadores internos do pool, ja usados no dado."
   }
 }

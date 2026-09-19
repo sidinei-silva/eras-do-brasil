@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "armor",
   "scope": "shared",
-  "note": "Linhas, pecas e bonus de conjunto. As habilidades das pecas estao em skills.json, com source armor.",
+  "note": "Linhas, pecas e bonus de conjunto. As habilidades das pecas estao em skills.json, com source armadura.",
   "lines": [
     {
       "id": "armorline-crua",

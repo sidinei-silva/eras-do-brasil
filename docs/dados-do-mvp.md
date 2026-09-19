@@ -12,16 +12,19 @@ Inventário completo do que precisa existir para o MVP rodar, e o que é conteú
 
 ### Compartilhado — vale para o jogo inteiro
 
-| Arquivo           | Conteúdo                                                                                |
-| ----------------- | --------------------------------------------------------------------------------------- |
-| `continents.json` | os três continentes: Travessia, As Eras e O Emaranhado                                  |
-| `materials.json`  | catálogo T1 a T6, brutos e refinados, a Essência, e **qual ferramenta cada tipo exige** |
-| `combat.json`     | 3 árvores, pool de Q, W e passivas, e todas as armas                                    |
-| `armor.json`      | 4 linhas (crua, pesada, média, leve), peças e bônus de conjunto                         |
-| `transport.json`  | passivas de armadura, montarias e bolsas                                                |
-| `destino.json`    | a Árvore do Destino: quatro ramos e os nós                                              |
-| `balance.json`    | todas as constantes do jogo                                                             |
-| `sim.py`          | simulador, lê `balance.json`                                                            |
+| Arquivo                         | Conteúdo                                                                                |
+| ------------------------------- | --------------------------------------------------------------------------------------- |
+| `continents.json`               | os três continentes: Travessia, As Eras e O Emaranhado                                  |
+| `materials.json`                | catálogo T1 a T6, brutos e refinados, a Essência, e **qual ferramenta cada tipo exige** |
+| `trees.json`                    | 3 árvores, pool de Q, W e passivas, e a estrutura de slots do loadout                   |
+| `skills.json`                   | todas as habilidades do jogo, num arquivo só                                            |
+| `armor.json`                    | 4 linhas (crua, pesada, média, leve), peças e bônus de conjunto                         |
+| `equipment.json`                | montarias, bolsas e ferramentas                                                         |
+| `destiny.json`                  | a Árvore do Destino: quatro ramos e os nós                                              |
+| `balance/combat.json`           | constantes de combate, energia, fuga, retirada e regras de combate                      |
+| `balance/economy.json`          | constantes de coleta, refino, craft, durabilidade, prata, carga e estações              |
+| `balance/progression.json`      | constantes de fama, afinidade, Árvore do Destino e ferramentas                          |
+| `sim.py`                        | simulador, lê as constantes de `balance/`                                               |
 
 **Sistema é compartilhado por definição.** Era nova nunca traz árvore de skill nova nem linha de armadura nova — traz armas, peças e conteúdo.
 
@@ -30,6 +33,7 @@ Inventário completo do que precisa existir para o MVP rodar, e o que é conteú
 | Arquivo             | Conteúdo                                               |
 | ------------------- | ------------------------------------------------------ |
 | `mvp_zones.json`    | 4 zonas, 4 conexões, 6 acampamentos, recursos por zona |
+| `mvp_factions.json` | as facções da ilha                                     |
 | `mvp_mobs.json`     | 6 mobs, um deles mini-chefe — só bestiário             |
 | `mvp_npcs.json`     | 3 NPCs com diálogo                                     |
 | `mvp_recipes.json`  | 8 coletas, 4 refinos, 24 crafts                        |
@@ -203,15 +207,17 @@ PvP, perda de item, durabilidade relevante, T3 em diante, artefatos, encantament
 
 ```
 data/
-  shared/   continents.json materials.json combat.json armor.json
-            transport.json destino.json balance.json
-  mvp/      zones.json mobs.json npcs.json recipes.json tutorial.json
-  era-1/    zones.json mobs.json npcs.json factions.json
+  shared/   continents.json materials.json trees.json weapons.json skills.json
+            armor.json equipment.json destiny.json
+            balance/  combat.json economy.json progression.json
+  mvp/      mvp_zones.json mvp_mobs.json mvp_npcs.json mvp_recipes.json
+            mvp_tutorial.json mvp_factions.json
+  era1/     era-1_zones.json era-1_mobs.json era-1_npcs.json era-1_factions.json
 ```
 
 **Pasta por escopo, não por domínio.** Adicionar a Era 2 é criar uma pasta e copiar a forma; carregar é ler `shared/` mais um pacote de conteúdo. O escopo vira o diretório, e o campo `scope` dentro do arquivo fica só como conferência.
 
-Nos arquivos do Projeto do Claude os nomes são achatados — `mvp_zones.json` em vez de `mvp/zones.json` — porque lá não há pasta.
+Os nomes dos arquivos de conteúdo levam o prefixo do escopo (`mvp_zones.json`, `era-1_zones.json`), o que também permite achatá-los no Projeto do Claude, onde não há pasta.
 
 
 ---

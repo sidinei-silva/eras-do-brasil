@@ -22,15 +22,15 @@
       "resources": [
         {
           "materialId": "mat-seixo-de-praia",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-pau-mole",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-couro-de-capivara",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [
@@ -65,7 +65,7 @@
       "factionId": null,
       "hub": true,
       "spawn": false,
-      "services": ["market", "forge", "refinery", "rest", "storage", "trade"],
+      "services": ["mercado", "forja", "refino", "descanso", "armazém", "troca"],
       "albionEquivalent": "The Cove",
       "description": "Vila de quem espera a travessia. Mercado, estações e a Barqueira.",
       "resources": [],
@@ -88,15 +88,15 @@
       "resources": [
         {
           "materialId": "mat-pau-brasil",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-couro-de-veado",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-seixo-de-praia",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [
@@ -137,15 +137,15 @@
       "resources": [
         {
           "materialId": "mat-algodao-bravo",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-ferro-de-brejo",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-couro-de-capivara",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [

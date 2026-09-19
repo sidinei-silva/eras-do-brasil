@@ -3,8 +3,8 @@
   "id": "balance-combat",
   "scope": "shared",
   "note": "Constantes de balanceamento. O servidor e o simulador carregam a pasta inteira e mesclam.",
-  "item_power": {
-    "base_por_tier": {
+  "itemPower": {
+    "baseByTier": {
       "1": 100,
       "2": 200,
       "3": 350,
@@ -12,21 +12,21 @@
       "5": 800,
       "6": 1100
     },
-    "encantamento": {
+    "enchantment": {
       "0": 0,
       "1": 80,
       "2": 170,
       "3": 270,
       "4": 380
     },
-    "qualidade": {
+    "quality": {
       "normal": 0,
       "bom": 20,
       "excepcional": 50,
       "excelente": 90,
       "obra_prima": 140
     },
-    "peso_slot": {
+    "slotWeight": {
       "arma_uma_mao": 0.35,
       "arma_duas_maos": 0.45,
       "offhand": 0.1,
@@ -35,50 +35,50 @@
       "botas": 0.15
     }
   },
-  "combate": {
-    "constante_mitigacao": 200,
-    "mitigacao_maxima": 0.75,
-    "fator_relativo": {
+  "combat": {
+    "mitigationConstant": 200,
+    "maxMitigation": 0.75,
+    "relativeFactor": {
       "divisor": 2000,
       "min": 0.5,
       "max": 1.8,
-      "nota": "Afrouxado de 1000/2.5 para 2000/1.8. Com a curva multiplicativa a diferenca de tier ja vem embutida no multiplicador; manter o peso antigo contaria o tier duas vezes. CHUTE — o simulador decide."
+      "note": "Afrouxado de 1000/2.5 para 2000/1.8. Com a curva multiplicativa a diferenca de tier ja vem embutida no multiplicador; manter o peso antigo contaria o tier duas vezes. CHUTE — o simulador decide."
     },
-    "poder_skill": {
+    "skillPower": {
       "Q": 35,
       "W_dano": 45,
       "E": 90
     },
-    "penetracao_por_ip_atacante": 2.0,
-    "nota_mitigacao": "mitigacao = ARM / (ARM + C + k*IP_atacante). A penetracao por IP impede que tier alto fique estritamente mais seguro.",
-    "modelo": "orientado a evento",
-    "nota_modelo": "Nao ha tick. O proximo evento e o menor entre o proximo ataque basico e a proxima habilidade pronta. A luta inteira e resolvida de uma vez e enviada como linha do tempo com marcacoes em segundos — que e exatamente o que o cliente precisa para animar.",
-    "poder_ataque_basico": 20,
-    "nota_ataque_basico": "Sempre ativo, vem da arma, nao ocupa slot e nao custa energia. Mais fraco por golpe que um Q; o que decide e a velocidade de ataque da arma.",
-    "escala": {
-      "tipo": "multiplicativa",
-      "por_100_ip_pct": 9.18,
+    "penetrationPerAttackerIp": 2.0,
+    "noteMitigation": "mitigacao = ARM / (ARM + C + k*IP_atacante). A penetracao por IP impede que tier alto fique estritamente mais seguro.",
+    "model": "orientado a evento",
+    "noteModel": "Nao ha tick. O proximo evento e o menor entre o proximo ataque basico e a proxima habilidade pronta. A luta inteira e resolvida de uma vez e enviada como linha do tempo com marcacoes em segundos — que e exatamente o que o cliente precisa para animar.",
+    "basicAttackPower": 20,
+    "noteBasicAttack": "Sempre ativo, vem da arma, nao ocupa slot e nao custa energia. Mais fraco por golpe que um Q; o que decide e a velocidade de ataque da arma.",
+    "scaling": {
+      "type": "multiplicativa",
+      "per100IpPct": 9.18,
       "formula": "multiplicadorIP = 1.0918 ^ (IP / 100)",
-      "nota": "Curva do Albion. Cada 100 de Poder de Item vale mais 9,18%, aplicados sobre o valor anterior. Substitui a escala linear com AP. O conceito de AP nao existe mais: existe o multiplicador. Motivo: com escala linear o tier domina tudo e encantamento vira ruido — e ai peca de era antiga deixa de ser competitiva, que e o oposto da fantasia central do jogo."
+      "note": "Curva do Albion. Cada 100 de Poder de Item vale mais 9,18%, aplicados sobre o valor anterior. Substitui a escala linear com AP. O conceito de AP nao existe mais: existe o multiplicador. Motivo: com escala linear o tier domina tudo e encantamento vira ruido — e ai peca de era antiga deixa de ser competitiva, que e o oposto da fantasia central do jogo."
     },
-    "hp_base": 600,
-    "armadura_base": 240,
-    "nota_hp_armadura": "Vida e armadura passam pela MESMA curva. Se ficarem lineares com o dano multiplicativo, o tempo de morte dispara com o tier.",
-    "formula_dano": "dano = poderSkill x multiplicadorIP x (1 - mitigacao) x fatorRelativo",
-    "formula_hp": "hp = hp_base x multiplicadorIP",
-    "formula_armadura": "armadura = armadura_base x multiplicadorIP_medio(cabeca,torso,botas)",
-    "nota_custo_energia": "energyCostBase mora na habilidade; o custo real e base x multiplicadorIP, calculado com a arma equipada. As capturas do Albion mostram custo subindo 1,385x enquanto o dano sobe 1,375x — praticamente a mesma curva. Recarga NAO escala: 12s no T4 e 12s no T8."
+    "baseHp": 600,
+    "baseArmor": 240,
+    "noteHpArmor": "Vida e armadura passam pela MESMA curva. Se ficarem lineares com o dano multiplicativo, o tempo de morte dispara com o tier.",
+    "damageFormula": "dano = poderSkill x multiplicadorIP x (1 - mitigacao) x fatorRelativo",
+    "hpFormula": "hp = baseHp x multiplicadorIP",
+    "armorFormula": "armadura = baseArmor x multiplicadorIP_medio(cabeca,torso,botas)",
+    "noteEnergyCost": "energyCostBase mora na habilidade; o custo real e base x multiplicadorIP, calculado com a arma equipada. As capturas do Albion mostram custo subindo 1,385x enquanto o dano sobe 1,375x — praticamente a mesma curva. Recarga NAO escala: 12s no T4 e 12s no T8."
   },
-  "energia": {
-    "maxima_base": 100,
-    "maxima_por_ip": 0.1,
-    "regeneracao_por_segundo": 3.5,
-    "nota": "Recurso das habilidades. Existia implicito — as passivas Poupanca e Cabeca Limpa mexiam num sistema que nao existia. Serve para as tres arvores, e por isso nao se chama mana.",
-    "valoresChutados": true
+  "energy": {
+    "maxBase": 100,
+    "maxPerIp": 0.1,
+    "regenPerSecond": 3.5,
+    "note": "Recurso das habilidades. Existia implicito — as passivas Poupanca e Cabeca Limpa mexiam num sistema que nao existia. Serve para as tres arvores, e por isso nao se chama mana.",
+    "guessedValues": true
   },
-  "prioridade": {
-    "regra": "Quando mais de uma habilidade esta pronta e ha energia, dispara a de prioridade mais alta.",
-    "ordenavel": [
+  "priority": {
+    "rule": "Quando mais de uma habilidade esta pronta e ha energia, dispara a de prioridade mais alta.",
+    "sortable": [
       "slot-ataque",
       "slot-utilidade",
       "slot-especial",
@@ -86,56 +86,56 @@
       "slot-torso",
       "slot-botas"
     ],
-    "nota": "Sem lista de desabilitadas: o slot ja e a restricao. Quem nao quer uma habilidade nao a escolhe no slot. Pocao e retirada continuam por limiar, fora da prioridade."
+    "note": "Sem lista de desabilitadas: o slot ja e a restricao. Quem nao quer uma habilidade nao a escolhe no slot. Pocao e retirada continuam por limiar, fora da prioridade."
   },
   "mobs": {
-    "multiplicador_hp": {
+    "hpMultiplier": {
       "normal": 0.35,
       "elite": 1.5,
       "chefe": 5.0
     },
-    "multiplicador_ap": {
+    "apMultiplier": {
       "normal": 0.45,
       "elite": 0.85,
       "chefe": 1.15
     },
-    "anti_fuga_por_arquetipo": {
+    "antiEscapeByArchetype": {
       "fauna": 0.5,
       "humano": 1.5,
       "elite": 2.5,
       "chefe": 4.0
     }
   },
-  "grupos": {
-    "tamanho_min": 2,
-    "tamanho_max": 4,
-    "chance_elite": 0.12,
-    "multiplicador_elite_estado_zona": {
+  "groups": {
+    "minSize": 2,
+    "maxSize": 4,
+    "eliteChance": 0.12,
+    "eliteMultiplierByZoneState": {
       "abundante": 1.6,
       "normal": 1.0,
       "escassa": 0.6
     },
-    "nota": "O jogador escolhe o grupo na zona, como escolhe um no de coleta. O grupo nasce como ONDA fechada: so nasce a proxima quando a onda inteira morre. Por isso o servidor resolve a luta inteira e manda a linha do tempo pronta. O sorteio fica na composicao: tamanho e presenca de elite.",
-    "rodadas_maximas": 50,
-    "segundos_entre_ondas": 8,
-    "nota_teto": "Teto de 50 rodadas por onda. Se estourar, a luta termina em IMPASSE: ninguem morre, nao ha loot dos sobreviventes, e o jogador volta ao terreno da zona. E limite de seguranca contra luta que nao fecha, e limita o tamanho da linha do tempo que trafega."
+    "note": "O jogador escolhe o grupo na zona, como escolhe um no de coleta. O grupo nasce como ONDA fechada: so nasce a proxima quando a onda inteira morre. Por isso o servidor resolve a luta inteira e manda a linha do tempo pronta. O sorteio fica na composicao: tamanho e presenca de elite.",
+    "maxRounds": 50,
+    "secondsBetweenWaves": 8,
+    "noteCap": "Teto de 50 rodadas por onda. Se estourar, a luta termina em IMPASSE: ninguem morre, nao ha loot dos sobreviventes, e o jogador volta ao terreno da zona. E limite de seguranca contra luta que nao fecha, e limita o tamanho da linha do tempo que trafega."
   },
-  "retirada": {
-    "custo_durabilidade_por_falha": 3,
-    "perde_loot_da_luta": true,
-    "golpe_de_despedida": true,
-    "cooldown_segundos": 20,
-    "chance_sobe_por_falha": 0.0,
-    "nota": "Chance NAO sobe: fuga alta sai barato, fuga baixa sai caro ou nao sai. Morrer continua possivel."
+  "retreat": {
+    "durabilityCostPerFailure": 3,
+    "losesFightLoot": true,
+    "partingBlow": true,
+    "cooldownSeconds": 20,
+    "chanceIncreasePerFailure": 0.0,
+    "note": "Chance NAO sobe: fuga alta sai barato, fuga baixa sai caro ou nao sai. Morrer continua possivel."
   },
-  "fuga": {
+  "escape": {
     "base": 0.3,
-    "por_ponto_de_fuga": 0.1,
-    "peso_anti_fuga": 0.08,
+    "perEscapePoint": 0.1,
+    "antiEscapeWeight": 0.08,
     "min": 0.05,
     "max": 0.75,
-    "nota": "Mesma formula em PvE e PvP. Pontos de fuga vem do gear (arvore Projetil, botas, torso medio, montaria, bolsa).",
-    "pontos_por_habilidade": {
+    "note": "Mesma formula em PvE e PvP. Pontos de fuga vem do gear (arvore Projetil, botas, torso medio, montaria, bolsa).",
+    "pointsBySkill": {
       "skill-recuar": 1,
       "skill-rastro-falso": 2,
       "skill-pe-leve": 1,
@@ -145,43 +145,43 @@
       "apass-sem-rastro": 1,
       "mskill-meia-volta": 1
     },
-    "pontos_anti_fuga_por_habilidade": {
+    "antiEscapePointsBySkill": {
       "skill-encurralar": 2,
       "skill-amarracao": 2,
       "askill-fincar": 2
     },
-    "exclusividade": {
-      "nota": "Um slot, uma escolha. Recuar OU Rastro Falso (mesmo slot W). Pe Solto OU Trilha Conhecida (mesma bota). Ligeireza OU Sem Rastro (mesmo torso).",
-      "grupos": [
+    "exclusivity": {
+      "note": "Um slot, uma escolha. Recuar OU Rastro Falso (mesmo slot W). Pe Solto OU Trilha Conhecida (mesma bota). Ligeireza OU Sem Rastro (mesmo torso).",
+      "groups": [
         ["skill-recuar", "skill-rastro-falso"],
         ["askill-pe-solto", "askill-sumir-no-mato"],
         ["apass-ligeireza", "apass-sem-rastro"]
       ]
     },
-    "largar_carga": {
-      "pontos": 4,
-      "uma_vez_por_combate": true,
-      "descarta_toda_a_carga": true,
-      "nota": "Nao entra na soma passiva. E uma acao com preco: voce troca o que juntou por sair vivo."
+    "dropLoad": {
+      "points": 4,
+      "oncePerCombat": true,
+      "discardsAllLoad": true,
+      "note": "Nao entra na soma passiva. E uma acao com preco: voce troca o que juntou por sair vivo."
     },
-    "anti_fuga_por_inimigo_extra": 0.5,
-    "nota_grupo": "Fugir de 4 e mais dificil que de 1. anti_fuga_efetiva = anti_fuga do mais forte + 0.5 por inimigo vivo alem do primeiro."
+    "antiEscapePerExtraEnemy": 0.5,
+    "noteGroup": "Fugir de 4 e mais dificil que de 1. anti_fuga_efetiva = anti_fuga do mais forte + 0.5 por inimigo vivo alem do primeiro."
   },
-  "pocao": {
-    "cura_pct": 35,
-    "cooldown_ticks": 8,
-    "quantidade_padrao": 8
+  "potion": {
+    "healPct": 35,
+    "cooldownTicks": 8,
+    "defaultQuantity": 8
   },
-  "regras_de_combate": {
-    "configuravel": {
-      "limiar_cura_pct": 45,
-      "limiar_retirada_pct": 20
+  "combatRules": {
+    "configurable": {
+      "healThresholdPct": 45,
+      "retreatThresholdPct": 20
     },
-    "paradas_fixas": {
-      "carga_cheia": true,
-      "pocoes_acabaram": true,
-      "durabilidade_minima_pct": 30
+    "fixedStops": {
+      "fullLoad": true,
+      "potionsDepleted": true,
+      "minDurabilityPct": 30
     },
-    "nota": "Parar significa parar no lugar, NUNCA voltar para a cidade. Viagem de volta continua custando. Paradas nao se desligam; o valor delas e ajustavel. A condicao de parada por sinalizado na zona foi REMOVIDA: com a flag mutua o coletor nao sinalizado nao pode ser atacado, entao ela era redundante — e virava ferramenta de negacao, com um sinalizado parando o farm de todo mundo sem lutar."
+    "note": "Parar significa parar no lugar, NUNCA voltar para a cidade. Viagem de volta continua custando. Paradas nao se desligam; o valor delas e ajustavel. A condicao de parada por sinalizado na zona foi REMOVIDA: com a flag mutua o coletor nao sinalizado nao pode ser atacado, entao ela era redundante — e virava ferramenta de negacao, com um sinalizado parando o farm de todo mundo sem lutar."
   }
 }

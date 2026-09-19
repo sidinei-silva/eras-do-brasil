@@ -72,5 +72,5 @@
     }
   ],
   "noteMVP": "No Albion o tutorial mostra tres ramos porque refino cabe dentro de Fabricante. Aqui sao quatro desde o comeco; se a tela do tutorial ficar cheia, refino pode ser apresentado junto com craft e separado depois.",
-  "mastery": "Ver balance.json > arvore_do_destino > maestria_*."
+  "mastery": "Ver balance/progression.json > destinyTree > *Mastery."
 }

@@ -6,19 +6,19 @@
   "archetypes": [
     {
       "id": "fauna",
-      "nota": "Bicho local, sem deus e sem politica. Anti-fuga baixa."
+      "note": "Bicho local, sem deus e sem politica. Anti-fuga baixa."
     },
     {
       "id": "humano",
-      "nota": "Gente. Anti-fuga media — sabe perseguir."
+      "note": "Gente. Anti-fuga media — sabe perseguir."
     },
     {
       "id": "elite",
-      "nota": "Junta-se a um grupo por sorteio. E a emergencia do farm."
+      "note": "Junta-se a um grupo por sorteio. E a emergencia do farm."
     },
     {
       "id": "chefe",
-      "nota": "Fixo na zona, nao entra em grupo. Anti-fuga altissima."
+      "note": "Fixo na zona, nao entra em grupo. Anti-fuga altissima."
     }
   ],
   "mobs": [

@@ -58,7 +58,7 @@
       "factionId": "faction-colonizador",
       "hub": true,
       "spawn": false,
-      "services": ["market", "forge", "refinery", "rest", "storage"],
+      "services": ["mercado", "forja", "refino", "descanso", "armazém"],
       "albionEquivalent": null,
       "description": null,
       "resources": [],
@@ -81,11 +81,11 @@
       "resources": [
         {
           "materialId": "mat-piacava",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-couro-de-capivara",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [
@@ -126,11 +126,11 @@
       "resources": [
         {
           "materialId": "mat-seixo-de-praia",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-cascalho",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [
@@ -171,11 +171,11 @@
       "resources": [
         {
           "materialId": "mat-mandioca",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-pau-mole",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [
@@ -216,11 +216,11 @@
       "resources": [
         {
           "materialId": "mat-pau-brasil",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-couro-de-veado",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [
@@ -255,17 +255,17 @@
       "factionId": "faction-indigena",
       "hub": false,
       "spawn": false,
-      "services": ["trade"],
+      "services": ["troca"],
       "albionEquivalent": null,
       "description": null,
       "resources": [
         {
           "materialId": "mat-couro-de-veado",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-algodao-bravo",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [],
@@ -287,11 +287,11 @@
       "resources": [
         {
           "materialId": "mat-couro-de-veado",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-arenito",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [
@@ -332,11 +332,11 @@
       "resources": [
         {
           "materialId": "mat-algodao-bravo",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-ferro-de-brejo",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [
@@ -371,13 +371,13 @@
       "factionId": "faction-colonizador",
       "hub": false,
       "spawn": false,
-      "services": ["refinery"],
+      "services": ["refino"],
       "albionEquivalent": null,
       "description": null,
       "resources": [
         {
           "materialId": "mat-ferro-de-serrote",
-          "abundance": "primary"
+          "abundance": "primaria"
         }
       ],
       "camps": [
@@ -409,11 +409,11 @@
       "resources": [
         {
           "materialId": "mat-jatoba",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-couro-de-anta",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [
@@ -454,11 +454,11 @@
       "resources": [
         {
           "materialId": "mat-laje-branca",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-caroa",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [
@@ -493,17 +493,17 @@
       "factionId": null,
       "hub": false,
       "spawn": false,
-      "services": ["rest"],
+      "services": ["descanso"],
       "albionEquivalent": null,
       "description": null,
       "resources": [
         {
           "materialId": "mat-couro-de-anta",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-caroa",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [
@@ -535,11 +535,11 @@
       "resources": [
         {
           "materialId": "mat-macambira",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-aroeira",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [
@@ -580,11 +580,11 @@
       "resources": [
         {
           "materialId": "mat-cobre-do-sertao",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-granito-rachado",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [
@@ -625,11 +625,11 @@
       "resources": [
         {
           "materialId": "mat-couro-de-boi",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-macambira",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [
@@ -670,11 +670,11 @@
       "resources": [
         {
           "materialId": "mat-granito-rachado",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-macambira",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [
@@ -715,11 +715,11 @@
       "resources": [
         {
           "materialId": "mat-curaua",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-couro-de-jacare",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [
@@ -745,13 +745,13 @@
       "factionId": null,
       "hub": false,
       "spawn": false,
-      "services": ["rest", "trade"],
+      "services": ["descanso", "troca"],
       "albionEquivalent": null,
       "description": null,
       "resources": [
         {
           "materialId": "mat-pau-ferro",
-          "abundance": "primary"
+          "abundance": "primaria"
         }
       ],
       "camps": [
@@ -783,11 +783,11 @@
       "resources": [
         {
           "materialId": "mat-ouro-branco",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-cristal-de-lapa",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [
@@ -828,11 +828,11 @@
       "resources": [
         {
           "materialId": "mat-castanheira-mae",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-couro-de-sucuri",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [
@@ -864,11 +864,11 @@
       "resources": [
         {
           "materialId": "mat-pedra-de-raiz",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-cipo-titica",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [
@@ -909,11 +909,11 @@
       "resources": [
         {
           "materialId": "mat-ferro-do-ceu",
-          "abundance": "primary"
+          "abundance": "primaria"
         },
         {
           "materialId": "mat-pedra-de-raiz",
-          "abundance": "secondary"
+          "abundance": "secundaria"
         }
       ],
       "camps": [],

@@ -2,7 +2,7 @@
 
 > ⚠️ **Duas mudanças pendentes de simulador.** A escala virou multiplicativa (seção 3) e o combate virou orientado a evento com slots e prioridade (seção 8). O simulador ainda roda o modelo antigo — linear, tick fixo, ciclo `Q Q Q Q E`. **Todos os resultados medidos abaixo estão obsoletos** e serão refeitos.
 
-Todas as constantes vivem em `balance.json`. **Nenhum número em código** — servidor e simulador leem o mesmo arquivo. `sim.py` valida as âncoras sem precisar jogar.
+Todas as constantes vivem em `data/shared/balance/` (`combat.json`, `economy.json`, `progression.json`). **Nenhum número em código** — servidor e simulador carregam a pasta inteira e mesclam. `sim.py` valida as âncoras sem precisar jogar.
 
 ---
 
@@ -200,7 +200,7 @@ A cada evento: condição de parada, limiar de retirada, limiar de cura, dispara
 
 ### Todos esses números são chute
 
-Velocidade de ataque, recarga, custo e regeneração estão no dado marcados como `valoresChutados`. **Nenhum foi validado.** O simulador ainda itera por tick com ciclo fixo `Q Q Q Q E` e precisa ser reescrito para fila de eventos antes de qualquer calibração valer.
+Velocidade de ataque, recarga, custo e regeneração estão no dado marcados como `guessedValues`. **Nenhum foi validado.** O simulador ainda itera por tick com ciclo fixo `Q Q Q Q E` e precisa ser reescrito para fila de eventos antes de qualquer calibração valer.
 
 Os tempos de morte da seção seguinte foram medidos no modelo antigo e **vão mudar**.
 
@@ -491,7 +491,7 @@ O que importa é que o formato esteja certo agora, para os números se moverem d
 ## 14. Como usar o simulador
 
 ```bash
-python3 sim.py                      # usa balance.json
+python3 sim.py                      # usa data/shared/balance/
 python3 sim.py outro-balance.json   # testa uma variação
 ```
 
@@ -499,4 +499,4 @@ Ele imprime cinco relatórios e uma seção de alertas que avisa quando uma ânc
 
 **O fluxo de trabalho:** mexer num número do JSON, rodar, ler os alertas. Segundos em vez de horas de teste em jogo.
 
-Quando o servidor Go existir, ele deve carregar `balance.json` diretamente. Se o simulador e o servidor lerem arquivos diferentes, o simulador deixa de valer no dia seguinte.
+Quando o servidor Go existir, ele deve carregar `data/shared/balance/` diretamente. Se o simulador e o servidor lerem arquivos diferentes, o simulador deixa de valer no dia seguinte.

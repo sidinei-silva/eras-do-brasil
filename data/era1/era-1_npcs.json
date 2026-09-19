@@ -18,10 +18,10 @@
       "description": "Intérprete. Vive entre os três lados sem pertencer a nenhum, e é a única pessoa na Feitoria que consegue ensinar as três tradições sem que isso pareça traição. Não é mentor nem herói: é funcionário.",
       "historicalNote": "Língua era cargo real da colônia — intérpretes, muitos deles náufragos ou degredados que viveram anos entre os povos locais antes da colonização se firmar.",
       "lines": {
-        "chegada": "O que você trouxe de lá não vale nada aqui. Nem o nome. Todo mundo que chega chega assim.",
-        "o_mundo": "Isto aqui não é ruína, é corrida. Tem madeira que vale ouro na Europa, tem gente que já morava aqui, e tem coisa no mato que não é gente nenhuma. Escolha com quem você trabalha.",
-        "primeiro_kit": "Toma. Não é presente, é ferramenta emprestada. Devolve gasto que está bom.",
-        "saida": "Daqui pra frente ninguém te orienta. Você já sabe onde fica a forja."
+        "arrival": "O que você trouxe de lá não vale nada aqui. Nem o nome. Todo mundo que chega chega assim.",
+        "theWorld": "Isto aqui não é ruína, é corrida. Tem madeira que vale ouro na Europa, tem gente que já morava aqui, e tem coisa no mato que não é gente nenhuma. Escolha com quem você trabalha.",
+        "firstKit": "Toma. Não é presente, é ferramenta emprestada. Devolve gasto que está bom.",
+        "exit": "Daqui pra frente ninguém te orienta. Você já sabe onde fica a forja."
       }
     },
     {
@@ -38,7 +38,7 @@
       "stationId": "estacao-forja",
       "description": "Veio contratado para ferrar cavalo e acabou fazendo espada. Lucra com desgaste e não tem pressa nenhuma de que a briga acabe.",
       "lines": {
-        "padrao": "Ferro é ferro. Traz a barra e o resto é comigo."
+        "default": "Ferro é ferro. Traz a barra e o resto é comigo."
       }
     },
     {
@@ -55,7 +55,7 @@
       "stationId": "estacao-posto-de-caca",
       "description": "Filha de português com potiguara, cresceu nos dois lados e aprendeu arco antes de aprender besta. Faz as duas coisas e não gosta de explicar qual prefere.",
       "lines": {
-        "padrao": "Arco ou besta? Depende de quanto tempo você tem para mirar."
+        "default": "Arco ou besta? Depende de quanto tempo você tem para mirar."
       }
     },
     {
@@ -72,7 +72,7 @@
       "stationId": "estacao-terreiro",
       "description": "Reza, benze e faz cabaça. A Feitoria finge que não sabe o que ela faz nos fundos, porque precisa do que ela faz nos fundos.",
       "lines": {
-        "padrao": "Não é feitiço, é jeito. Quem sabe o jeito, faz."
+        "default": "Não é feitiço, é jeito. Quem sabe o jeito, faz."
       }
     },
     {
@@ -89,7 +89,7 @@
       "stationId": "estacao-ferramentaria",
       "description": "Faz o que todo mundo precisa e ninguém elogia. Repete a mesma explicação sobre tier de ferramenta cinco vezes por dia.",
       "lines": {
-        "padrao": "Ferramenta um tier abaixo do nó ainda tira. Do mesmo tier tira melhor."
+        "default": "Ferramenta um tier abaixo do nó ainda tira. Do mesmo tier tira melhor."
       }
     },
     {
@@ -101,7 +101,7 @@
       "services": ["compra", "venda", "montaria", "bolsa"],
       "description": "Compra tudo e vende tudo, inclusive o que não devia. É ele quem vende a primeira montaria e a primeira bolsa.",
       "lines": {
-        "padrao": "Preço é preço. Se não gostou, espera a próxima nau."
+        "default": "Preço é preço. Se não gostou, espera a próxima nau."
       }
     },
     {
@@ -113,7 +113,7 @@
       "services": ["armazém"],
       "description": "Anota tudo num livro que ninguém confere. Guarda o que você deixa e não pergunta de onde veio.",
       "lines": {
-        "padrao": "Deixa aí. Sai daqui do jeito que entrou."
+        "default": "Deixa aí. Sai daqui do jeito que entrou."
       }
     },
     {
@@ -125,8 +125,8 @@
       "services": ["troca de couro e algodão", "arma inicial indígena"],
       "description": "Decide o que a aldeia negocia e com quem. Troca por escambo e não aceita prata — prata não serve para nada aqui.",
       "lines": {
-        "padrao": "Prata não presta. Traz sal, traz ferro, traz coisa que corta.",
-        "recusa": "Quem trabalha para o engenho troca no engenho."
+        "default": "Prata não presta. Traz sal, traz ferro, traz coisa que corta.",
+        "refusal": "Quem trabalha para o engenho troca no engenho."
       }
     },
     {
@@ -184,7 +184,7 @@
       "stationId": "estacao-fundicao",
       "description": "Toca a fundição do engenho. Cobra caro e faz bem feito.",
       "lines": {
-        "padrao": "Aqui não é a Feitoria. Aqui o forno é de verdade."
+        "default": "Aqui não é a Feitoria. Aqui o forno é de verdade."
       }
     },
     {
@@ -196,8 +196,8 @@
       "services": ["descanso", "informação sobre a serra"],
       "description": "Deixa passar quem chega desarmado. Não negocia com quem tem marca de engenho no braço nem nada da Coroa no corpo.",
       "lines": {
-        "padrao": "Passa. Mas não olha demais.",
-        "recusa": "Você cheira a Feitoria. Volta por onde veio."
+        "default": "Passa. Mas não olha demais.",
+        "refusal": "Você cheira a Feitoria. Volta por onde veio."
       }
     },
     {
@@ -209,7 +209,7 @@
       "services": ["descanso", "troca", "travessia do rio"],
       "description": "Leva e traz gente pelo rio há mais tempo do que devia ser possível. Não cobra prata de quem está sem nada.",
       "lines": {
-        "padrao": "Sobe. E não olha para trás quando a correnteza virar."
+        "default": "Sobe. E não olha para trás quando a correnteza virar."
       }
     },
     {
@@ -221,7 +221,7 @@
       "services": ["armazém", "mercado", "passagem para o Emaranhado"],
       "description": "Não é pessoa e não finge ser. Atende quem chega ao centro e cobra em algo que ninguém sabe nomear.",
       "lines": {
-        "padrao": "Aqui as eras se encostam. Escolha por qual você vai sair."
+        "default": "Aqui as eras se encostam. Escolha por qual você vai sair."
       }
     }
   ],
