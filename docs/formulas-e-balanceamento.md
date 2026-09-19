@@ -1,6 +1,6 @@
 # Fórmulas e balanceamento
 
-> ⚠️ **O modelo de combate mudou e o simulador ainda não.** Ver a seção 8. Os resultados medidos abaixo valem para o ciclo fixo antigo e serão refeitos.
+> ⚠️ **Duas mudanças pendentes de simulador.** A escala virou multiplicativa (seção 3) e o combate virou orientado a evento com slots e prioridade (seção 8). O simulador ainda roda o modelo antigo — linear, tick fixo, ciclo `Q Q Q Q E`. **Todos os resultados medidos abaixo estão obsoletos** e serão refeitos.
 
 Todas as constantes vivem em `balance.json`. **Nenhum número em código** — servidor e simulador leem o mesmo arquivo. `sim.py` valida as âncoras sem precisar jogar.
 
@@ -50,44 +50,44 @@ Arma de duas mãos absorve o peso do off-hand e vale 0.45. **Torso é o slot de 
 
 ---
 
-## 3. Atributos derivados
+## 3. A curva de escala
+
+**Tudo desemboca num número só, o Poder de Item, e ele passa por uma curva multiplicativa.**
 
 ```
-AP        = IP × 0.5
-HP        = 300 + IP × 2
-Armadura  = (IP_cabeça + IP_torso + IP_botas) × 0.4
+multiplicadorIP = 1.0918 ^ (IP / 100)
 ```
 
-Só as três peças de armadura contribuem para a Armadura. Arma e off-hand contribuem para o IP total, e portanto para HP e AP, mas não para mitigação.
+Cada 100 de Poder de Item vale **mais 9,18%**, aplicados sobre o valor anterior. É a curva do Albion.
 
----
+| Tier | IP   | multiplicador | linear, o modelo antigo |
+| ---- | ---- | ------------- | ----------------------- |
+| T1   | 100  | 1,00×         | 1,0×                    |
+| T2   | 200  | 1,09×         | 2,0×                    |
+| T3   | 350  | 1,25×         | 3,5×                    |
+| T4   | 550  | 1,48×         | 5,5×                    |
+| T5   | 800  | 1,85×         | 8,0×                    |
+| T6   | 1100 | **2,41×**     | **11,0×**               |
 
-## 4. Dano
+**A curva é achatada de propósito.** Com escala linear o tier domina tudo e encantamento vira ruído — e aí peça de era antiga deixa de ser competitiva, que é o oposto da fantasia central do jogo.
+
+**O conceito de AP não existe mais.** Existe o multiplicador.
+
+## 4. Atributos e dano
 
 ```
-mitigação      = ARM / (ARM + 200 + 2.0 × IP_atacante),  teto 75%
-fator_relativo = clamp(1 + (IP_atacante − IP_alvo) / 1000, 0.4, 2.5)
+hp        = 600 × multiplicadorIP
+armadura  = 240 × multiplicadorIP_médio(cabeça, torso, botas)
+mitigação = ARM / (ARM + 200 + 2.0 × IP_atacante),  teto 75%
 
-dano = poder_skill × (AP/100) × (1 − mitigação) × fator_relativo
+fatorRelativo = clamp(1 + (IP_atacante − IP_alvo) / 2000, 0.5, 1.8)
+
+dano = poderSkill × multiplicadorIP × (1 − mitigação) × fatorRelativo
 ```
 
-**A penetração por IP do atacante não é enfeite.** Sem ela a mitigação sobe de 45% no T2 para 58% no T6, e tier alto fica estritamente mais seguro — o simulador mostrou T5 e T6 aguentando grupos com elite que matavam um T4. Com a penetração, a mitigação fica praticamente plana entre tiers e o perigo escala junto com o poder.
+**Vida e armadura passam pela mesma curva do dano.** Se ficassem lineares, o tempo de morte dispararia com o tier.
 
-**O `fator_relativo` é a peça política do sistema.** Escalar pela *diferença* de IP, e não pelo valor absoluto, é o que faz um T6 esmagar um T4 e o que dá sentido à zona de risco. Sem ele, gear vira só um número maior.
-
-Os limites de 0.4 e 2.5 impedem que a diferença chegue a zero ou ao infinito: mesmo muito abaixo, você ainda arranha; mesmo muito acima, você ainda leva tempo.
-
-### Poder de skill
-
-| Slot      | Poder |
-| --------- | ----- |
-| Q         | 35    |
-| W de dano | 45    |
-| E         | 90    |
-
-Ciclo padrão do auto-battler: `Q Q Q Q E`. Tick de 2 segundos.
-
----
+**O fator relativo afrouxou** de `/1000` com teto 2,5 para `/2000` com teto 1,8. Com a curva multiplicativa a diferença de tier já vem embutida no multiplicador; manter o peso antigo contaria o tier duas vezes.
 
 ## 5. Mobs e grupos
 

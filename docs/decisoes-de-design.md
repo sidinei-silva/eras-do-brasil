@@ -93,18 +93,19 @@ Isso só é honesto porque a flag é mútua: **todo mundo que aparece no contado
 
 **Adjacência foi descartada.** A zona é a unidade de tudo no jogo — recurso, risco, facção, mob, viagem. PvP enxergar além dela faria o sistema falar uma língua que o resto do jogo não fala, e obrigaria o jogador a vigiar mapas vizinhos.
 
-**Sem matchmaking.** O contador gera o jogo sozinho: quem sinaliza já está no conjunto pequeno de quem também sinalizou, e o mapa faz o trabalho de encontro. Matchmaking teleportaria gente e tornaria irrelevante a geografia que o projeto inteiro faz questão de tornar relevante.
+**Sem pareamento entre zonas.** O contador gera o jogo sozinho: quem sinaliza já está no conjunto pequeno de quem também sinalizou, e o mapa faz o trabalho de encontro.
 
-Se o número for baixo demais, o problema é de população, e a resposta certa é **concentrar** — menos zonas com PvP habilitado — e não adicionar ferramenta de busca.
+**A busca dentro da zona sempre existiu** e é o contador mais a fila de prioridade por consentimento decrescente. O que foi rejeitado é pareamento que move o jogador entre zonas — isso tornaria irrelevante a geografia que o projeto inteiro faz questão de tornar relevante.
+
+Se o número for baixo demais, o problema é de população, e a resposta certa é **concentrar** — menos zonas com PvP habilitado — e não espalhar a busca para fora da zona.
 
 ### Proteção do coletor
 
-Num idle a defesa não pode ser reação; tem que ser **compromisso prévio**. Três camadas, todas já existentes:
+**Com a flag mútua, o coletor não sinalizado simplesmente não pode ser atacado.** Ele está protegido por não sinalizar, e não precisa de mais nada.
 
-- **A escolha da zona**, com o contador público antes de viajar.
-- **Uma condição de parada na regras de combate:** parar se um sinalizado entrar na zona. O personagem interrompe e fica onde está, aguardando ordem.
-- **O equipamento** que ele levou: os pontos de fuga, testados no simulador.
+**Descartado: condição de parada por sinalizado na zona.** Sobrou de uma versão em que a flag não era mútua. Era redundante e, pior, virava ferramenta de negação — um sinalizado andaria pelo mapa parando o farm de todo mundo sem lutar com ninguém.
 
+O que continua protegendo quem escolhe sinalizar: o contador público antes de viajar, e os pontos de fuga que ele levou no equipamento.
 **O Faro ganha função definitiva aqui.** O contador diz quantos; o Faro diz quem.
 
 ### Herdado sem mudança
@@ -119,7 +120,11 @@ Critério de corte: se até o T4 não houver o que a reputação destranque, ela
 
 ---
 
-## NPCs e mundo vivo
+## Guardado para depois
+
+As duas seções abaixo descrevem coisas que **não existem e foram deliberadamente adiadas**. Estão aqui porque registram o que foi cortado e por quê — sem isso, os assuntos voltam.
+
+### NPCs e mundo vivo
 
 ### A escada de simulação
 
@@ -147,7 +152,7 @@ Critério de corte: se até o T4 não houver o que a reputação destranque, ela
 
 ---
 
-## Temporadas
+### Temporadas
 
 **Ficam para depois do lançamento.** É o que vai distanciar o jogo do Albion e por isso mesmo não pode ser feito antes de haver jogo.
 
@@ -199,6 +204,38 @@ O simulador itera por tick com ciclo fixo e precisa ser reescrito para fila de e
 
 ---
 
+## Escala multiplicativa
+
+**Decisão.** O dano, a vida e a armadura escalam pela curva `1.0918 ^ (IP/100)` — mais 9,18% a cada 100 de Poder de Item, aplicados sobre o valor anterior. É a curva do Albion.
+
+**Descartado: escala linear.** O modelo anterior tinha `AP = IP × 0.5` e dano proporcional ao AP, o que fazia um T6 causar onze vezes o dano de um T1. Sob a curva multiplicativa, causa duas vezes e meia.
+
+**Por quê.** Com escala linear, **o tier domina tudo e encantamento vira ruído** — e aí uma peça de era antiga bem trabalhada deixa de ser competitiva, que é o oposto da fantasia central do jogo. A curva achatada é o que faz "T4 obra-prima vale um T5 normal" ser verdade.
+
+E há confirmação empírica: nas telas do Albion, 1,56× de Poder de Item vira 1,375× de dano. **Sublinear.** A curva multiplicativa reproduz isso; a linear não.
+
+**Consequência: o conceito de AP some.** Não existe poder de ataque; existe o multiplicador. E vida e armadura passam pela mesma curva — se ficassem lineares com o dano multiplicativo, o tempo de morte dispararia com o tier.
+
+**O fator relativo afrouxou** de `/1000` com teto 2,5 para `/2000` com teto 1,8. Com a curva multiplicativa a diferença de tier já vem embutida; manter o peso antigo contaria o tier duas vezes.
+
+**Custo de energia escala; recarga não.** As telas confirmam: custo sobe 1,385× enquanto o dano sobe 1,375×, e a recarga é 12s no T4 e 12s no T8. Por isso a habilidade guarda `energyCostBase`, e o custo real é calculado com a arma equipada.
+
+**Efeito colateral bom:** dano por energia fica praticamente constante entre tiers. O tier dá volume absoluto maior, não custo-benefício melhor.
+
+### A maestria daqui é mais generosa que a do Albion
+
+Lá a especialização vai a 100 níveis e dá +2 de Poder de Item por nível — 1,19× no topo. Aqui dá +12 por nível e chega a 1,36× em trinta. Não está errado, mas vale saber que **a maestria vale quase um tier e meio**.
+
+### Guardado: a camada ampla, e o reset da Afinidade
+
+No Albion, especializar numa arma dá um pouco para **todas as armas do arquétipo**. Isso faz trocar de arma não recomeçar do zero, e para um jogo cuja fantasia é misturar equipamento, é o que torna experimentar barato.
+
+E há uma tensão para resolver: existem **dois** sistemas punindo troca de arma — a Afinidade, que reseta, e a maestria, que é por arma. O Albion tem só o segundo. Somados, empurram o jogador a ficar com uma arma para sempre, contra o pitch do jogo. Vale rever se a Afinidade deve resetar ou apenas pausar.
+
+Registrado também: **teto de Poder de Item**, rígido e suave por conteúdo, como no Albion, para veterano não ficar intocável.
+
+---
+
 ## Renomeações — e por quê
 
 Todas seguem a mesma regra: **mecânica não se poetiza, e nome de sistema global não pode vir de uma era**.
@@ -217,8 +254,10 @@ Todas seguem a mesma regra: **mecânica não se poetiza, e nome de sistema globa
 
 ---
 
-## Vocabulário morto
+## De onde veio
 
-O projeto nasceu como *A Escória* e foi fundido com *Eras do Brasil*. **Não existem mais:** Lastro; panteões e deuses dentro de armas; gank por adjacência; as zonas A Ressaca, A Bigorna, O Verde Surdo, A Costela e A Encruzilhada; combate D20; as classes como classes; e o módulo Go chamado `escoria`.
+O projeto nasceu como *A Escória*, um MMORPG idle sem mundo próprio, e foi fundido com *Eras do Brasil*, que tinha mundo mas nunca virou jogo. Da Escória vieram a arquitetura e a gramática do Albion; do Eras vieram lore, mundo e mecânicas.
 
-Se esse vocabulário aparecer em material antigo, é resíduo.
+**Isso fica registrado por um motivo prático:** três decisões só se sustentam com a história. T1 é craftável porque a regra antiga vinha de uma lore em que existia deus dentro de arma. A Forja se chama assim porque *A Bigorna* era uma zona do jogo antigo. Sem isso escrito, alguém desfaz achando que é arbitrário.
+
+O resto do material antigo está arquivado e não deve ser consultado.

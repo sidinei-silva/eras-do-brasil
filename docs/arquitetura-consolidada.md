@@ -90,7 +90,7 @@ data/*.json  →  gamedata  →  bootstrap  →  game
 
 **Por quê.** Houve uma versão em que `gamedata` construía `game.Zone` diretamente, e ela até funcionou melhor que a alternativa da época. Foi descartada porque criava duas responsabilidades no mesmo pacote — interpretar formato de arquivo e construir objeto de domínio — e porque **definição estática e estado mutável têm ciclos de vida diferentes**. Um `GameData` que guarda objetos de runtime não é mais "data".
 
-**Formato dos arquivos.** Um JSON por conceito, categorias como chave dentro do arquivo. Não pastas por tipo com um arquivo dentro.
+**Formato dos arquivos.** **Um arquivo por tipo de entidade**, não por contexto de uso nem por instância. Categorias como chave dentro do arquivo. Dividir quando o arquivo mistura tipos diferentes ou passa de umas quinhentas linhas — nunca por instância.
 
 **`data/` fica fora do backend**, na raiz do monorepo, porque é conteúdo do jogo e não configuração de servidor. Configuração do servidor e migrations ficam em `backend/`.
 
@@ -262,4 +262,4 @@ Os estudos originais são de *A Escória*. **Não existem mais:** Lastro; pante�
 
 **Sobreviveram:** o multiplicador de uso ativo da mesma arma, hoje chamado **Afinidade**; a progressão por uso, hoje chamada **Árvore do Destino**, agora em quatro ramos; o tutorial como máquina de estados; e Fama e recursos encapsulados em vez de campos abertos que qualquer sistema altera.
 
-O PvP mudou: a fila por prioridade continua, mas a busca é por **sinalizados na mesma zona**, com contador público, sem adjacência e sem matchmaking.
+O PvP mudou: a fila por prioridade continua, mas a busca é por **sinalizados na mesma zona**, com contador público, sem adjacência e sem pareamento entre zonas.

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "factions-mvp",
+  "scope": "mvp",
+  "note": "A ilha tem uma faccao de mob so. Nao ha reputacao nem conflito: ninguem ali e de lado nenhum.",
+  "factions": [
+    {
+      "id": "faction-os-perdidos",
+      "name": "Os Perdidos",
+      "description": "Gente que a Raiz puxou antes de você e que não chegou do outro lado. Não falam mais e não reconhecem ninguém.",
+      "note": "Usam o esqueleto e as animacoes do jogador. E o unico inimigo humano do MVP e custa quase nada de arte.",
+      "bossId": "mob-o-primeiro-perdido"
+    }
+  ]
+}

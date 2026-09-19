@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 1,
+  "id": "balance-economy",
+  "scope": "shared",
+  "note": "Constantes de balanceamento. O servidor e o simulador carregam a pasta inteira e mesclam.",
+  "coleta": {
+    "segundos_por_no_tier": {
+      "1": 6,
+      "2": 10,
+      "3": 17,
+      "4": 28,
+      "5": 47,
+      "6": 78
+    },
+    "unidades_por_no": 2,
+    "multiplicador_estado_zona": {
+      "abundante": 1.5,
+      "normal": 1.0,
+      "escassa": 0.6
+    },
+    "chance_encantamento": {
+      "1": 0.08,
+      "2": 0.02,
+      "3": 0.005,
+      "4": 0.001
+    },
+    "nota": "Ambos escalam por tier: no de tier alto demora mais para extrair E e mais raro de achar. E o que impede o equipamento de tier alto sair de graca.",
+    "segundos_entre_nos_por_tier": {
+      "1": 10,
+      "2": 15,
+      "3": 25,
+      "4": 45,
+      "5": 85,
+      "6": 160
+    }
+  },
+  "refino": {
+    "brutos_por_refinado": 3,
+    "refinado_tier_anterior_por_refinado": 1,
+    "segundos_por_refinado": 3
+  },
+  "craft": {
+    "refinados_por_peca": {
+      "arma_duas_maos": 20,
+      "arma_uma_mao": 16,
+      "offhand": 8,
+      "torso": 16,
+      "cabeca": 8,
+      "botas": 8
+    }
+  },
+  "durabilidade": {
+    "maxima": 100,
+    "perda_por_morte_pct": 5,
+    "acoes_por_ponto_perdido": 400,
+    "perda_por_falha_de_fuga": 1,
+    "custo_conserto_por_ponto": {
+      "1": 10,
+      "2": 25,
+      "3": 60,
+      "4": 145,
+      "5": 350,
+      "6": 840
+    },
+    "penalidade_ip_por_faixa": [
+      {
+        "de": 50,
+        "ate": 100,
+        "ip": 0,
+        "cor": "verde"
+      },
+      {
+        "de": 25,
+        "ate": 49,
+        "ip": -100,
+        "cor": "amarelo"
+      },
+      {
+        "de": 10,
+        "ate": 24,
+        "ip": -200,
+        "cor": "vermelho"
+      },
+      {
+        "de": 0,
+        "ate": 9,
+        "ip": null,
+        "cor": "inutilizavel"
+      }
+    ],
+    "ferramentas_perdem_ip": false,
+    "aplica_a_mochila": true,
+    "nota": "Ser derrubado e a via mais rapida, como no Albion. Uso desgasta devagar. Abaixo de 50% o item perde Poder de Item; abaixo de 10% nao pode ser usado. Ferramentas de coleta nao perdem poder.",
+    "nota_curva": "Custo de conserto escala ~2.4x por tier, mesma taxa da prata que os mobs soltam."
+  },
+  "prata": {
+    "por_mob_tier": {
+      "1": 15,
+      "2": 36,
+      "3": 86,
+      "4": 207,
+      "5": 497,
+      "6": 1194
+    },
+    "custo_refino_por_refinado_tier": {
+      "1": 0,
+      "2": 24,
+      "3": 84,
+      "4": 288,
+      "5": 960,
+      "6": 3240
+    },
+    "custo_craft_por_peca_tier": {
+      "1": 60,
+      "2": 240,
+      "3": 900,
+      "4": 3240,
+      "5": 11400,
+      "6": 39600
+    },
+    "nota": "Refino T1 e de graca, como no Albion. Prata sai do jogo pelo conserto, refino e craft; entra pelos mobs."
+  },
+  "carga": {
+    "capacidade_base": 100,
+    "peso_bruto": 1.5,
+    "peso_refinado": 1.0,
+    "peso_equipamento_base": 3,
+    "peso_equipamento_por_tier": 1,
+    "bonus_montaria": {
+      "cavalo_de_sela": 50,
+      "mula": 150,
+      "boi_de_carga": 400
+    },
+    "bonus_bolsa": {
+      "bolsa_de_couro": 50,
+      "cesto_de_cipo": 80,
+      "surrao_de_sal": 120
+    }
+  },
+  "viagem": {
+    "modificador_montaria": {
+      "a_pe": 1.0,
+      "cavalo_de_sela": 0.6,
+      "mula": 0.8,
+      "boi_de_carga": 1.0
+    }
+  },
+  "teleporte": {
+    "r_teto_de_peso": 150,
+    "r_prata_por_peso": 2,
+    "cidade_prata_por_peso": 4,
+    "cidade_prata_por_ip_equipado": 0.5
+  },
+  "estacoes": {
+    "nota": "Estacoes de producao. Cada uma tem tier proprio e so produz ate o tier dela. Dono pode cobrar taxa.",
+    "refino": [
+      {
+        "id": "estacao-fundicao",
+        "nome": "Fundicao",
+        "recurso": "res-minerio",
+        "produz": "barra"
+      },
+      {
+        "id": "estacao-curtume",
+        "nome": "Curtume",
+        "recurso": "res-couro",
+        "produz": "couro curtido"
+      },
+      {
+        "id": "estacao-tecelagem",
+        "nome": "Tecelagem",
+        "recurso": "res-fibra",
+        "produz": "pano"
+      },
+      {
+        "id": "estacao-serraria",
+        "nome": "Serraria",
+        "recurso": "res-madeira",
+        "produz": "tabua"
+      },
+      {
+        "id": "estacao-canteiro",
+        "nome": "Canteiro",
+        "recurso": "res-pedra",
+        "produz": "bloco"
+      }
+    ],
+    "craft": [
+      {
+        "id": "estacao-forja",
+        "nome": "A Forja",
+        "arvore": "tree-fisico",
+        "armadura": "armorline-pesada"
+      },
+      {
+        "id": "estacao-posto-de-caca",
+        "nome": "Posto de Caca",
+        "arvore": "tree-projetil",
+        "armadura": "armorline-media"
+      },
+      {
+        "id": "estacao-terreiro",
+        "nome": "Terreiro",
+        "arvore": "tree-magico",
+        "armadura": "armorline-leve"
+      },
+      {
+        "id": "estacao-ferramentaria",
+        "nome": "Ferramentaria",
+        "arvore": null,
+        "armadura": null,
+        "nota": "machado, picareta e demais ferramentas"
+      },
+      {
+        "id": "estacao-forja-de-artefato",
+        "nome": "Forja de Artefato",
+        "arvore": null,
+        "armadura": null,
+        "nota": "Sobe o nivel de encantamento de um item pronto, gastando Essencia do mesmo tier."
+      }
+    ],
+    "taxa_padrao_pct": 10,
+    "bonus_producao_cidade_pct": 18,
+    "nota_bonus": "A cidade da um bonus de producao que aumenta a taxa de retorno de material."
+  },
+  "encantamento": {
+    "niveis": [0, 1, 2, 3, 4],
+    "ip_por_nivel": {
+      "0": 0,
+      "1": 80,
+      "2": 170,
+      "3": 270,
+      "4": 380
+    },
+    "essencia_por_nivel": {
+      "1": 16,
+      "2": 36,
+      "3": 80,
+      "4": 180
+    },
+    "exige_mesmo_tier": true,
+    "estacaoId": "estacao-forja-de-artefato",
+    "nota": "Dois caminhos, como no Albion: craftar com recurso ja encantado vindo de no encantado, ou subir o nivel de um item pronto gastando Essencia do mesmo tier na Forja de Artefato. Encantamento e nivel de item; qualidade e outro sistema e soma separado."
+  },
+  "economia": {
+    "overhead_viagem_pct": 25,
+    "nota": "Linhas de armadura usam materiais diferentes (minerio para pesada, couro e fibra para media, fibra para leve), entao vestir um conjunto exige rodar mais de uma zona. O overhead cobre isso e o retorno a cidade."
+  }
+}

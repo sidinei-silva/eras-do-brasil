@@ -98,12 +98,7 @@
       "zoneId": "zone-feitoria-da-cruz",
       "factionId": "faction-colonizador",
       "role": "mercado",
-      "services": [
-        "compra",
-        "venda",
-        "montaria",
-        "bolsa"
-      ],
+      "services": ["compra", "venda", "montaria", "bolsa"],
       "description": "Compra tudo e vende tudo, inclusive o que não devia. É ele quem vende a primeira montaria e a primeira bolsa.",
       "lines": {
         "padrao": "Preço é preço. Se não gostou, espera a próxima nau."
@@ -115,9 +110,7 @@
       "zoneId": "zone-feitoria-da-cruz",
       "factionId": "faction-colonizador",
       "role": "armazém",
-      "services": [
-        "armazém"
-      ],
+      "services": ["armazém"],
       "description": "Anota tudo num livro que ninguém confere. Guarda o que você deixa e não pergunta de onde veio.",
       "lines": {
         "padrao": "Deixa aí. Sai daqui do jeito que entrou."
@@ -129,10 +122,7 @@
       "zoneId": "zone-aldeia-potiguara",
       "factionId": "faction-indigena",
       "role": "troca",
-      "services": [
-        "troca de couro e algodão",
-        "arma inicial indígena"
-      ],
+      "services": ["troca de couro e algodão", "arma inicial indígena"],
       "description": "Decide o que a aldeia negocia e com quem. Troca por escambo e não aceita prata — prata não serve para nada aqui.",
       "lines": {
         "padrao": "Prata não presta. Traz sal, traz ferro, traz coisa que corta.",
@@ -145,9 +135,7 @@
       "zoneId": "zone-feitoria-da-cruz",
       "factionId": "faction-colonizador",
       "role": "refino",
-      "services": [
-        "refino de minério"
-      ],
+      "services": ["refino de minério"],
       "stationId": "estacao-fundicao"
     },
     {
@@ -156,9 +144,7 @@
       "zoneId": "zone-feitoria-da-cruz",
       "factionId": "faction-colonizador",
       "role": "refino",
-      "services": [
-        "refino de couro"
-      ],
+      "services": ["refino de couro"],
       "stationId": "estacao-curtume"
     },
     {
@@ -167,9 +153,7 @@
       "zoneId": "zone-feitoria-da-cruz",
       "factionId": "faction-colonizador",
       "role": "refino",
-      "services": [
-        "refino de fibra"
-      ],
+      "services": ["refino de fibra"],
       "stationId": "estacao-tecelagem"
     },
     {
@@ -178,9 +162,7 @@
       "zoneId": "zone-feitoria-da-cruz",
       "factionId": "faction-colonizador",
       "role": "refino",
-      "services": [
-        "refino de madeira"
-      ],
+      "services": ["refino de madeira"],
       "stationId": "estacao-serraria"
     },
     {
@@ -189,9 +171,7 @@
       "zoneId": "zone-feitoria-da-cruz",
       "factionId": "faction-colonizador",
       "role": "refino",
-      "services": [
-        "refino de pedra"
-      ],
+      "services": ["refino de pedra"],
       "stationId": "estacao-canteiro"
     },
     {
@@ -200,9 +180,7 @@
       "zoneId": "zone-engenho-da-cruz",
       "factionId": "faction-colonizador",
       "role": "refino avançado",
-      "services": [
-        "refino de minério até T3"
-      ],
+      "services": ["refino de minério até T3"],
       "stationId": "estacao-fundicao",
       "description": "Toca a fundição do engenho. Cobra caro e faz bem feito.",
       "lines": {
@@ -215,10 +193,7 @@
       "zoneId": "zone-serra-da-barriga",
       "factionId": "grupo-mocambo",
       "role": "descanso",
-      "services": [
-        "descanso",
-        "informação sobre a serra"
-      ],
+      "services": ["descanso", "informação sobre a serra"],
       "description": "Deixa passar quem chega desarmado. Não negocia com quem tem marca de engenho no braço nem nada da Coroa no corpo.",
       "lines": {
         "padrao": "Passa. Mas não olha demais.",
@@ -231,11 +206,7 @@
       "zoneId": "zone-porto-de-canoas",
       "factionId": null,
       "role": "descanso e troca",
-      "services": [
-        "descanso",
-        "troca",
-        "travessia do rio"
-      ],
+      "services": ["descanso", "troca", "travessia do rio"],
       "description": "Leva e traz gente pelo rio há mais tempo do que devia ser possível. Não cobra prata de quem está sem nada.",
       "lines": {
         "padrao": "Sobe. E não olha para trás quando a correnteza virar."
@@ -247,11 +218,7 @@
       "zoneId": "zone-a-raiz",
       "factionId": null,
       "role": "passagem",
-      "services": [
-        "armazém",
-        "mercado",
-        "passagem para o Emaranhado"
-      ],
+      "services": ["armazém", "mercado", "passagem para o Emaranhado"],
       "description": "Não é pessoa e não finge ser. Atende quem chega ao centro e cobra em algo que ninguém sabe nomear.",
       "lines": {
         "padrao": "Aqui as eras se encostam. Escolha por qual você vai sair."

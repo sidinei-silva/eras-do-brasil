@@ -230,3 +230,12 @@ Nos arquivos do Projeto do Claude os nomes são achatados — `mvp_zones.json` e
 **Com poucas habilidades a prioridade já decide.** Uma arma rápida com Q barato no topo bate muitas vezes fraco; uma lenta guardando energia para o Especial bate poucas vezes forte. Isso existe desde o passo 3, com dois Q e uma arma só.
 
 O tutorial ensina o sistema em três momentos: escolher a habilidade do slot (passo 3), ordenar a prioridade (passo 16) e fechar as passivas (passo 17).
+
+
+---
+
+## Facção de mob
+
+**Os Perdidos são a facção do tutorial.** A ilha segue a fórmula do Albion: fauna em qualquer lugar mais **uma** facção de mob.
+
+A Beira tem só fauna nos acampamentos, mas o chefe é um Perdido — **o jogador conhece a facção primeiro pelo chefe dela**, e só depois encontra os acampamentos na Mata Revirada e na Pedreira Torta.

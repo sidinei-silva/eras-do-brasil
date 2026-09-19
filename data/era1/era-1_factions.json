@@ -52,10 +52,7 @@
         "zone-engenho-da-cruz",
         "zone-curral-do-gado"
       ],
-      "rivais": [
-        "faction-indigena",
-        "faction-folclorico"
-      ],
+      "rivais": ["faction-indigena", "faction-folclorico"],
       "materialExclusivo": "mat-ferro-de-brejo",
       "posturaInicial": "rep-tolerado",
       "comoSobe": [
@@ -63,10 +60,7 @@
         "entregar material bruto na Feitoria",
         "defender o engenho de contrabandistas"
       ],
-      "comoDesce": [
-        "saquear zona da Coroa",
-        "negociar demais com a Aldeia"
-      ],
+      "comoDesce": ["saquear zona da Coroa", "negociar demais com a Aldeia"],
       "voz": "Fria e contábil. Fala em arroba, em quintal, em safra. Nunca em pessoas.",
       "dominioPorFaixa": "Domina a costa e vai sumindo para dentro. No Pantanal e na Mata Sem Fim não existe."
     },
@@ -84,9 +78,7 @@
         "zone-varzea-alagada",
         "zone-castanhal-antigo"
       ],
-      "rivais": [
-        "faction-colonizador"
-      ],
+      "rivais": ["faction-colonizador"],
       "materialExclusivo": "mat-couro-de-anta",
       "posturaInicial": "rep-tolerado",
       "comoSobe": [
@@ -94,10 +86,7 @@
         "matar contrabandistas e capitães do mato",
         "levar remédio e sal à aldeia"
       ],
-      "comoDesce": [
-        "saquear aldeia",
-        "trabalhar de graça para o engenho"
-      ],
+      "comoDesce": ["saquear aldeia", "trabalhar de graça para o engenho"],
       "voz": "Direta e sem cerimônia. Pergunta o que você quer antes de dizer bom dia.",
       "dominioPorFaixa": "Aparece em toda faixa de tier, mas nunca é dominante. É a única facção presente do T2 ao T6."
     },
@@ -117,9 +106,7 @@
         "zone-corredeira-negra",
         "zone-igarape-de-anhanga"
       ],
-      "rivais": [
-        "faction-colonizador"
-      ],
+      "rivais": ["faction-colonizador"],
       "materialExclusivo": "mat-pedra-de-raiz",
       "posturaInicial": "rep-desconfiado",
       "comoSobe": [
@@ -127,11 +114,7 @@
         "não derrubar árvore marcada",
         "matar quem corta e queima"
       ],
-      "comoDesce": [
-        "derrubar mata",
-        "queimar",
-        "matar filhote de bicho"
-      ],
+      "comoDesce": ["derrubar mata", "queimar", "matar filhote de bicho"],
       "voz": "Não fala em frases. Fala em sinal: rastro trocado, fogo que não aquece, assobio que vem do lado errado.",
       "dominioPorFaixa": "Raro na praia, dono absoluto da Mata Sem Fim. É a única facção que cresce conforme se aproxima da Raiz."
     }
@@ -148,10 +131,7 @@
         "faction-folclorico",
         "jogador"
       ],
-      "zonas": [
-        "zone-mata-do-pau-brasil",
-        "zone-baixio-das-garcas"
-      ],
+      "zonas": ["zone-mata-do-pau-brasil", "zone-baixio-das-garcas"],
       "nota": "Não é facção jogável e não tem reputação. É inimigo humano de tier baixo, e é por isso que serve ao tutorial."
     },
     {
@@ -159,12 +139,8 @@
       "nome": "O Mocambo da Serra",
       "descricao": "Gente fugida do engenho, vivendo na serra. Não ataca quem chega desarmado e não negocia com quem trabalha para a Coroa.",
       "periodo": "Mocambos na Serra da Barriga desde o início do século XVII; o conjunto ficou conhecido como Palmares.",
-      "hostilA": [
-        "faction-colonizador"
-      ],
-      "zonas": [
-        "zone-serra-da-barriga"
-      ],
+      "hostilA": ["faction-colonizador"],
+      "zonas": ["zone-serra-da-barriga"],
       "nota": "Zona neutra com ponto de descanso. Fora das três facções de propósito: não é origem, é consequência. Se a reputação entrar, é forte candidato a quarta facção."
     }
   ],

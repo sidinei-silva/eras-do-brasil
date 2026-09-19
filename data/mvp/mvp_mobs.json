@@ -12,9 +12,7 @@
       "zoneId": "zone-a-beira",
       "factionId": null,
       "description": "Caranguejo grande demais, de carapaca rachada. Briga por qualquer coisa que a mare traga.",
-      "drops": [
-        "mat-couro-de-capivara"
-      ]
+      "drops": ["mat-couro-de-capivara"]
     },
     {
       "id": "mob-cascalho-vivo",
@@ -24,9 +22,7 @@
       "zoneId": "zone-a-beira",
       "factionId": null,
       "description": "Um punhado de pedra que se junta e anda. A Raiz faz isso e ninguem explica.",
-      "drops": [
-        "mat-seixo-de-praia"
-      ]
+      "drops": ["mat-seixo-de-praia"]
     },
     {
       "id": "mob-o-primeiro-perdido",
@@ -34,12 +30,9 @@
       "archetype": "chefe",
       "tier": 2,
       "zoneId": "zone-a-beira",
-      "factionId": null,
+      "factionId": "faction-os-perdidos",
       "description": "Chegou muito antes de voce e nunca atravessou. Ainda veste o que tinha no dia em que foi puxado.",
-      "drops": [
-        "mat-couro-de-veado",
-        "item-bolsa-de-couro"
-      ],
+      "drops": ["mat-couro-de-veado", "item-bolsa-de-couro"],
       "behavior": "Tranca a saida de A Beira. Solta a bolsa T2 ao morrer, como o mini-chefe do Albion."
     },
     {
@@ -50,10 +43,7 @@
       "zoneId": "zone-mata-revirada",
       "factionId": null,
       "description": "Rouba ferramenta e some na copa. Ataca em bando quando encurralado.",
-      "drops": [
-        "mat-pau-brasil",
-        "mat-couro-de-veado"
-      ]
+      "drops": ["mat-pau-brasil", "mat-couro-de-veado"]
     },
     {
       "id": "mob-perdido",
@@ -61,12 +51,9 @@
       "archetype": "humano",
       "tier": 2,
       "zoneId": "zone-mata-revirada",
-      "factionId": null,
+      "factionId": "faction-os-perdidos",
       "description": "Gente que a Raiz puxou antes de voce e que nao chegou do outro lado. Nao fala mais.",
-      "drops": [
-        "mat-couro-de-veado",
-        "mat-ferro-de-brejo"
-      ],
+      "drops": ["mat-couro-de-veado", "mat-ferro-de-brejo"],
       "behavior": "Mesmo esqueleto e mesmas animacoes do jogador; muda so roupa e ferramenta."
     },
     {
@@ -77,10 +64,7 @@
       "zoneId": "zone-pedreira-torta",
       "factionId": null,
       "description": "Sai da fenda ao fim da tarde. Tira pouco de muita gente.",
-      "drops": [
-        "mat-couro-de-capivara",
-        "mat-ferro-de-brejo"
-      ]
+      "drops": ["mat-couro-de-capivara", "mat-ferro-de-brejo"]
     }
   ]
 }

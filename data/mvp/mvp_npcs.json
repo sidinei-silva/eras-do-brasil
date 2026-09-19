@@ -9,10 +9,7 @@
       "name": "Bartolomeu, o Língua",
       "zoneId": "zone-a-beira",
       "role": "recepção e tutorial",
-      "services": [
-        "tutorial",
-        "explicação da Árvore do Destino"
-      ],
+      "services": ["tutorial", "explicação da Árvore do Destino"],
       "description": "Interprete. Chegou pela Raiz ha tempo demais para lembrar de onde, e ficou. Recebe quem aparece na Beira e ensina o suficiente para a pessoa nao morrer na primeira noite.",
       "historicalNote": "Lingua era cargo real da colonia: interprete que transitava entre povos sem pertencer a nenhum.",
       "lines": {
@@ -48,9 +45,7 @@
       "name": "O Ferramenteiro",
       "zoneId": "zone-porto-de-passagem",
       "role": "ferramentas",
-      "services": [
-        "craft de ferramenta"
-      ],
+      "services": ["craft de ferramenta"],
       "description": "Faz o que todo mundo precisa e ninguem elogia. Explica a mesma regra de tier cinco vezes por dia.",
       "lines": {
         "padrao": "Ferramenta um tier abaixo do nó ainda tira. Do mesmo tier tira melhor.",

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "id": "equipment",
+  "scope": "shared",
+  "note": "Montarias, bolsas e ferramentas. Substitui transport.json, que misturava passivas de armadura com transporte. Ferramentas nao existiam como entidade: eram ids soltos citados pelas receitas.",
+  "mounts": [
+    {
+      "id": "mount-cavalo-de-sela",
+      "name": "Cavalo de sela",
+      "speedClass": "rapido",
+      "loadClass": "baixo",
+      "activeSkillId": "mskill-meia-volta",
+      "passiveSkillId": "mpass-passo-solto"
+    },
+    {
+      "id": "mount-mula",
+      "name": "Mula",
+      "speedClass": "medio",
+      "loadClass": "medio",
+      "activeSkillId": "mskill-aguentar-segura",
+      "passiveSkillId": "mpass-lombo-largo"
+    },
+    {
+      "id": "mount-boi-de-carga",
+      "name": "Boi de carga",
+      "speedClass": "lento",
+      "loadClass": "alto",
+      "activeSkillId": "mskill-parar-tudo",
+      "passiveSkillId": "mpass-cargueiro"
+    }
+  ],
+  "bags": [
+    {
+      "id": "bag-bolsa-de-couro",
+      "name": "Bolsa de couro",
+      "activeSkillId": "bskill-largar-carga",
+      "passiveSkillId": "bpass-fundo-largo"
+    },
+    {
+      "id": "bag-cesto-de-cipo",
+      "name": "Cesto de cipó",
+      "activeSkillId": "bskill-largar-carga",
+      "passiveSkillId": "bpass-trancado"
+    },
+    {
+      "id": "bag-surrao-de-sal",
+      "name": "Surrão de sal",
+      "activeSkillId": "bskill-largar-carga",
+      "passiveSkillId": "bpass-bem-amarrado"
+    }
+  ],
+  "tools": [
+    {
+      "id": "tool-machado",
+      "name": "Machado",
+      "tier": 1,
+      "resourceType": "res-madeira"
+    },
+    {
+      "id": "tool-picareta",
+      "name": "Picareta",
+      "tier": 1,
+      "resourceType": "res-minerio"
+    },
+    {
+      "id": "tool-foice",
+      "name": "Foice",
+      "tier": 1,
+      "resourceType": "res-fibra"
+    },
+    {
+      "id": "tool-faca-de-esfolar",
+      "name": "Faca de esfolar",
+      "tier": 1,
+      "resourceType": "res-couro"
+    }
+  ],
+  "toolRule": "A ferramenta pode estar no maximo um tier abaixo do recurso. Para qualidade acima de normal, precisa ser do mesmo tier."
+}

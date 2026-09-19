@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "id": "trees",
+  "scope": "shared",
+  "note": "As tres arvores de habilidade e a estrutura de slots do loadout. Arvore e o kit de Q, W e passivas, compartilhado por todas as armas dela e por todas as eras. Era nova NUNCA traz arvore nova.",
+  "trees": [
+    {
+      "id": "tree-fisico",
+      "name": "Físico",
+      "roles": ["role-dano-corpo-a-corpo", "role-controle-impacto"]
+    },
+    {
+      "id": "tree-projetil",
+      "name": "Projétil",
+      "roles": ["role-precisao", "role-area-desgaste"]
+    },
+    {
+      "id": "tree-magico",
+      "name": "Mágico",
+      "roles": ["role-dano-magico", "role-suporte"]
+    }
+  ],
+  "roles": [
+    {
+      "id": "role-dano-corpo-a-corpo",
+      "name": "Dano corpo a corpo"
+    },
+    {
+      "id": "role-controle-impacto",
+      "name": "Controle e impacto"
+    },
+    {
+      "id": "role-precisao",
+      "name": "Precisão"
+    },
+    {
+      "id": "role-area-desgaste",
+      "name": "Área e desgaste"
+    },
+    {
+      "id": "role-dano-magico",
+      "name": "Dano"
+    },
+    {
+      "id": "role-suporte",
+      "name": "Suporte"
+    }
+  ],
+  "handRules": {
+    "main": "Ocupa a mão principal e libera o slot de off-hand.",
+    "two": "Ocupa as duas mãos; sem off-hand, em troca de mais poder de item.",
+    "off": "Ocupa apenas a mão secundária; exige uma arma de uma mão da mesma árvore."
+  },
+  "slots": {
+    "nota": "Seis slots ativos e quatro passivos. O slot E a restricao: cada um so aceita habilidade da fonte dele. Depois de preenchidos, o jogador ordena a PRIORIDADE entre os seis ativos.",
+    "ativos": [
+      {
+        "id": "slot-ataque",
+        "label": "Ataque",
+        "source": "arma",
+        "pool": "Q",
+        "fixo": false,
+        "nota": "Escolhe entre os Q que a arma equipada acessa."
+      },
+      {
+        "id": "slot-utilidade",
+        "label": "Utilidade",
+        "source": "arma",
+        "pool": "W",
+        "fixo": false,
+        "nota": "Escolhe entre os W que a arma equipada acessa."
+      },
+      {
+        "id": "slot-especial",
+        "label": "Especial",
+        "source": "arma",
+        "pool": "E",
+        "fixo": true,
+        "nota": "Fixo pela arma. E o que diferencia duas armas da mesma arvore."
+      },
+      {
+        "id": "slot-cabeca",
+        "label": "Cabeça",
+        "source": "armadura-cabeca",
+        "pool": "ativa",
+        "fixo": false
+      },
+      {
+        "id": "slot-torso",
+        "label": "Torso",
+        "source": "armadura-torso",
+        "pool": "ativa",
+        "fixo": false
+      },
+      {
+        "id": "slot-botas",
+        "label": "Botas",
+        "source": "armadura-botas",
+        "pool": "ativa",
+        "fixo": false
+      }
+    ],
+    "passivos": [
+      {
+        "id": "slot-passiva-arma",
+        "label": "Passiva da arma",
+        "source": "arma",
+        "pool": "passive",
+        "fixo": false
+      },
+      {
+        "id": "slot-passiva-cabeca",
+        "label": "Passiva de cabeça",
+        "source": "armadura-cabeca",
+        "pool": "passive",
+        "fixo": false
+      },
+      {
+        "id": "slot-passiva-torso",
+        "label": "Passiva de torso",
+        "source": "armadura-torso",
+        "pool": "passive",
+        "fixo": false
+      },
+      {
+        "id": "slot-passiva-botas",
+        "label": "Passiva de botas",
+        "source": "armadura-botas",
+        "pool": "passive",
+        "fixo": false
+      }
+    ],
+    "fixosPorItem": [
+      {
+        "id": "slot-passiva-montaria",
+        "label": "Passiva da montaria",
+        "source": "montaria"
+      },
+      {
+        "id": "slot-passiva-bolsa",
+        "label": "Passiva da bolsa",
+        "source": "bolsa"
+      }
+    ],
+    "foraDaPrioridade": [
+      {
+        "id": "ataque-basico",
+        "label": "Ataque básico",
+        "nota": "Sempre ativo. Vem da arma, nao ocupa slot e nao custa energia."
+      },
+      {
+        "id": "pocao",
+        "label": "Poção",
+        "nota": "Dispara por limiar de vida, configurado nas regras de combate. Nao entra na prioridade."
+      }
+    ],
+    "notaNomes": "Os labels sao por FONTE, nao por tecla, porque num idle nao ha teclado. Q, W e E seguem como identificadores internos do pool, ja usados no dado."
+  }
+}

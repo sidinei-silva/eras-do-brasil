@@ -39,7 +39,9 @@ Sobe **o que você faz**, não o personagem.
 
 **Tier** vai de 1 a 8 e é **qualidade de material mais profundidade de nó** — não uma lista diferente de armas. A mesma linha atravessa os tiers em material melhor.
 
-**Maestria dá poder de verdade.** Trinta níveis num nó de combate valem quase um tier inteiro contra um alvo acima do seu. É por isso que o grind continua valendo depois que o tier abriu.
+**Tudo desemboca num número só: o Poder de Item.** Tier, qualidade, encantamento e maestria alimentam ele, e ele passa por uma curva que vale mais 9,18% a cada 100 pontos. A curva é achatada de propósito: **é isso que mantém uma peça de tier menor bem trabalhada competitiva**, e sem isso misturar equipamento de eras diferentes não faria sentido.
+
+**Maestria dá poder de verdade.** Sobe o Poder de Item da arma que você usa, e é por isso que o grind continua valendo depois que o tier abriu.
 
 **Afinidade** é um multiplicador que sobe usando a mesma arma e reseta ao trocar. Congela quando você sai; nada acumulado se perde.
 
@@ -149,6 +151,8 @@ Parar significa **parar no lugar**, nunca voltar para a cidade. Poção dispara 
 **Só existe em zona disputada e mortal.** No Emaranhado, entrar é consentir.
 
 Cada zona mostra **quantos sinalizados há nela**, público e gratuito. Isso só é honesto porque todo mundo que aparece ali escolheu aparecer.
+
+**A busca acontece dentro da zona** — o contador mais a fila de prioridade por consentimento. Não há pareamento entre zonas, que moveria o jogador e tornaria a geografia irrelevante.
 
 **O que faz alguém sinalizar:** artefato bruto só cai para sinalizado. É a porta de entrada do conteúdo de T4 em diante.
 

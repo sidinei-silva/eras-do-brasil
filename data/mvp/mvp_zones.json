@@ -34,10 +34,27 @@
         }
       ],
       "camps": [
-        "camp-caranguejal",
-        "camp-cascalho-solto"
+        {
+          "id": "camp-caranguejal",
+          "name": "Caranguejal",
+          "mobIds": ["mob-caranguejo-da-beira"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": null,
+          "factionId": null
+        },
+        {
+          "id": "camp-cascalho-solto",
+          "name": "Cascalho solto",
+          "mobIds": ["mob-cascalho-vivo"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": null,
+          "factionId": null
+        }
       ],
-      "bossId": "mob-o-primeiro-perdido"
+      "bossId": "mob-o-primeiro-perdido",
+      "mobFactionId": "faction-os-perdidos"
     },
     {
       "id": "zone-porto-de-passagem",
@@ -48,19 +65,13 @@
       "factionId": null,
       "hub": true,
       "spawn": false,
-      "services": [
-        "market",
-        "forge",
-        "refinery",
-        "rest",
-        "storage",
-        "trade"
-      ],
+      "services": ["market", "forge", "refinery", "rest", "storage", "trade"],
       "albionEquivalent": "The Cove",
       "description": "Vila de quem espera a travessia. Mercado, estações e a Barqueira.",
       "resources": [],
       "camps": [],
-      "bossId": null
+      "bossId": null,
+      "mobFactionId": null
     },
     {
       "id": "zone-mata-revirada",
@@ -89,10 +100,27 @@
         }
       ],
       "camps": [
-        "camp-copa-revirada",
-        "camp-perdidos-da-mata"
+        {
+          "id": "camp-copa-revirada",
+          "name": "Copa revirada",
+          "mobIds": ["mob-macaco-revirado"],
+          "sizeMin": 2,
+          "sizeMax": 4,
+          "eliteId": null,
+          "factionId": null
+        },
+        {
+          "id": "camp-perdidos-da-mata",
+          "name": "Acampamento dos Perdidos",
+          "mobIds": ["mob-perdido"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": null,
+          "factionId": "faction-os-perdidos"
+        }
       ],
-      "bossId": null
+      "bossId": null,
+      "mobFactionId": "faction-os-perdidos"
     },
     {
       "id": "zone-pedreira-torta",
@@ -121,78 +149,27 @@
         }
       ],
       "camps": [
-        "camp-perdidos-do-corte",
-        "camp-boca-da-fenda"
+        {
+          "id": "camp-perdidos-do-corte",
+          "name": "Perdidos do corte",
+          "mobIds": ["mob-perdido"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": null,
+          "factionId": "faction-os-perdidos"
+        },
+        {
+          "id": "camp-boca-da-fenda",
+          "name": "Boca da fenda",
+          "mobIds": ["mob-morcego-da-torta"],
+          "sizeMin": 3,
+          "sizeMax": 4,
+          "eliteId": null,
+          "factionId": null
+        }
       ],
-      "bossId": null
-    }
-  ],
-  "camps": [
-    {
-      "id": "camp-caranguejal",
-      "name": "Caranguejal",
-      "zoneId": "zone-a-beira",
-      "mobIds": [
-        "mob-caranguejo-da-beira"
-      ],
-      "sizeMin": 2,
-      "sizeMax": 3,
-      "eliteId": null
-    },
-    {
-      "id": "camp-cascalho-solto",
-      "name": "Cascalho solto",
-      "zoneId": "zone-a-beira",
-      "mobIds": [
-        "mob-cascalho-vivo"
-      ],
-      "sizeMin": 2,
-      "sizeMax": 3,
-      "eliteId": null
-    },
-    {
-      "id": "camp-copa-revirada",
-      "name": "Copa revirada",
-      "zoneId": "zone-mata-revirada",
-      "mobIds": [
-        "mob-macaco-revirado"
-      ],
-      "sizeMin": 2,
-      "sizeMax": 4,
-      "eliteId": null
-    },
-    {
-      "id": "camp-perdidos-da-mata",
-      "name": "Acampamento dos Perdidos",
-      "zoneId": "zone-mata-revirada",
-      "mobIds": [
-        "mob-perdido"
-      ],
-      "sizeMin": 2,
-      "sizeMax": 3,
-      "eliteId": null
-    },
-    {
-      "id": "camp-perdidos-do-corte",
-      "name": "Perdidos do corte",
-      "zoneId": "zone-pedreira-torta",
-      "mobIds": [
-        "mob-perdido"
-      ],
-      "sizeMin": 2,
-      "sizeMax": 3,
-      "eliteId": null
-    },
-    {
-      "id": "camp-boca-da-fenda",
-      "name": "Boca da fenda",
-      "zoneId": "zone-pedreira-torta",
-      "mobIds": [
-        "mob-morcego-da-torta"
-      ],
-      "sizeMin": 3,
-      "sizeMax": 4,
-      "eliteId": null
+      "bossId": null,
+      "mobFactionId": "faction-os-perdidos"
     }
   ],
   "connections": [
@@ -221,5 +198,7 @@
       "travelMinutes": 10
     }
   ],
-  "noteGate": "Conexoes nao travam sozinhas. O que libera cada caminho e um passo do tutorial (ver mvp_tutorial.json), e no futuro sera missao. Assim o gate e um sistema so, e nao um campo que aparece numa conexao de um mapa e em nenhuma outra."
+  "noteGate": "Conexoes nao travam sozinhas. O que libera cada caminho e um passo do tutorial (ver mvp_tutorial.json), e no futuro sera missao. Assim o gate e um sistema so, e nao um campo que aparece numa conexao de um mapa e em nenhuma outra.",
+  "noteCamps": "Acampamento e aninhado na zona: e 1:N e cada um carrega os proprios numeros, para variar tamanho e presenca de elite entre dois acampamentos da mesma faccao. factionId nulo no acampamento significa fauna.",
+  "noteMobFaction": "mobFactionId e o que NASCE na zona; factionId e quem CONTROLA a zona. Coincidem quase sempre, e divergem numa zona tomada por inimigos — por isso sao dois campos. Formula do Albion: zona = fauna em qualquer lugar + uma faccao de mob definida pelo bioma."
 }

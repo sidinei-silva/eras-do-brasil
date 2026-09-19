@@ -7,11 +7,7 @@
     "id": "no-forasteiro",
     "name": "Forasteiro",
     "note": "No central. Ganha fama com qualquer acao.",
-    "unlocks": [
-      "item-bolsa-de-couro",
-      "mount-mula",
-      "ferramentas T2"
-    ]
+    "unlocks": ["item-bolsa-de-couro", "mount-mula", "ferramentas T2"]
   },
   "branches": [
     {

@@ -2,45 +2,34 @@
   "schemaVersion": 1,
   "id": "continents",
   "scope": "shared",
-  "note": "Tres continentes. A ilha do tutorial e um continente proprio: nao pertence as eras nem ao Emaranhado.",
+  "note": "Tres continentes. A ilha do tutorial e um continente proprio: nao pertence as eras nem ao Emaranhado. As bandas de risco vivem aqui, nao no balance.",
   "continents": [
     {
       "id": "continent-a-travessia",
       "name": "A Travessia",
-      "tierRange": [
-        1,
-        2
-      ],
-      "riskBands": [
-        "segura"
-      ],
+      "tierRange": [1, 2],
+      "riskBands": ["segura"],
       "note": "A ilha do tutorial. Descartavel: nao se volta a ela depois de atravessar."
     },
     {
       "id": "continent-as-eras",
       "name": "As Eras",
-      "tierRange": [
-        1,
-        6
-      ],
-      "riskBands": [
-        "segura",
-        "disputada",
-        "mortal"
-      ],
+      "tierRange": [1, 6],
+      "riskBands": ["segura", "disputada", "mortal"],
       "note": "O mundo principal. Eras lado a lado ao redor do Coracao da Raiz."
     },
     {
       "id": "continent-o-emaranhado",
       "name": "O Emaranhado",
-      "tierRange": [
-        6,
-        8
-      ],
-      "riskBands": [
-        "selvagem"
-      ],
+      "tierRange": [6, 8],
+      "riskBands": ["selvagem"],
       "note": "Eras misturadas, sem hub fixo, PvP aberto. Conteudo muito posterior ao lancamento."
     }
-  ]
+  ],
+  "riskBands": {
+    "segura": "sem PvP — toda a Travessia e as bordas das eras",
+    "disputada": "PvP consentido, perda parcial",
+    "mortal": "PvP consentido, perda total",
+    "selvagem": "PvP aberto, perda total — so no Emaranhado"
+  }
 }
