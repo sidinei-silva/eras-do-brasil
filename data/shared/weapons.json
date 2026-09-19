@@ -1,159 +1,153 @@
 {
   "schemaVersion": 1,
-  "id": "trees",
+  "id": "weapons",
   "scope": "shared",
-  "note": "As tres arvores de habilidade e a estrutura de slots do loadout. Arvore e o kit de Q, W e passivas, compartilhado por todas as armas dela e por todas as eras. Era nova NUNCA traz arvore nova.",
-  "trees": [
+  "note": "Armas do jogo. A habilidade que cada arma acessa e declarada em skills.json, pelo weaponIds da propria habilidade. Aqui so o eSkillId, que e 1:1.",
+  "weapons": [
     {
-      "id": "tree-fisico",
-      "name": "Físico",
-      "roles": ["role-dano-corpo-a-corpo", "role-controle-impacto"]
+      "id": "weapon-lamina-crua",
+      "name": "Lâmina Crua",
+      "treeId": "tree-fisico",
+      "roleId": "role-dano-corpo-a-corpo",
+      "factionId": null,
+      "entryTier": 1,
+      "starter": true,
+      "hands": "main",
+      "eSkillId": null,
+      "nota": "Primeira arma do jogo. Sucata sem tradicao, craftavel com pedra e madeira T1. Só Q.",
+      "attacksPerSecond": 1.1,
+      "guessedValues": true
     },
     {
-      "id": "tree-projetil",
-      "name": "Projétil",
-      "roles": ["role-precisao", "role-area-desgaste"]
+      "id": "weapon-broquel-cru",
+      "name": "Broquel Cru",
+      "treeId": "tree-fisico",
+      "roleId": "role-controle-impacto",
+      "factionId": null,
+      "entryTier": 1,
+      "starter": false,
+      "hands": "off",
+      "eSkillId": null,
+      "nota": "Off-hand T1. Sem habilidade, so atributo.",
+      "attacksPerSecond": null,
+      "guessedValues": true
     },
     {
-      "id": "tree-magico",
-      "name": "Mágico",
-      "roles": ["role-dano-magico", "role-suporte"]
+      "id": "weapon-espada-de-lado",
+      "name": "Espada de lado",
+      "treeId": "tree-fisico",
+      "roleId": "role-dano-corpo-a-corpo",
+      "factionId": "faction-colonizador",
+      "entryTier": 2,
+      "starter": true,
+      "eSkillId": "skill-estocada-de-fe",
+      "hands": "main",
+      "attacksPerSecond": 1.2,
+      "guessedValues": true
+    },
+    {
+      "id": "weapon-tacape",
+      "name": "Tacape",
+      "treeId": "tree-fisico",
+      "roleId": "role-controle-impacto",
+      "factionId": "faction-indigena",
+      "entryTier": 3,
+      "starter": false,
+      "eSkillId": "skill-quebra-cranio",
+      "hands": "two",
+      "attacksPerSecond": 0.7,
+      "guessedValues": true
+    },
+    {
+      "id": "weapon-zarabatana",
+      "name": "Zarabatana",
+      "treeId": "tree-projetil",
+      "roleId": "role-area-desgaste",
+      "factionId": "faction-indigena",
+      "entryTier": 2,
+      "starter": true,
+      "eSkillId": "skill-dardo-de-curare",
+      "hands": "two",
+      "attacksPerSecond": 0.9,
+      "guessedValues": true
+    },
+    {
+      "id": "weapon-besta-de-mao",
+      "name": "Besta de mão",
+      "treeId": "tree-projetil",
+      "roleId": "role-precisao",
+      "factionId": "faction-colonizador",
+      "entryTier": 3,
+      "starter": false,
+      "eSkillId": "skill-virote-perfurante",
+      "hands": "main",
+      "attacksPerSecond": 1.0,
+      "guessedValues": true
+    },
+    {
+      "id": "weapon-cabaca-de-boitata",
+      "name": "Cabaça de Boitatá",
+      "treeId": "tree-magico",
+      "roleId": "role-dano-magico",
+      "factionId": "faction-folclorico",
+      "entryTier": 2,
+      "starter": true,
+      "eSkillId": "skill-boitata",
+      "hands": "main",
+      "attacksPerSecond": 0.9,
+      "guessedValues": true
+    },
+    {
+      "id": "weapon-maraca",
+      "name": "Maracá",
+      "treeId": "tree-magico",
+      "roleId": "role-suporte",
+      "factionId": "faction-folclorico",
+      "entryTier": 3,
+      "starter": false,
+      "eSkillId": "skill-chamado-dos-espiritos",
+      "hands": "main",
+      "attacksPerSecond": 1.0,
+      "guessedValues": true
+    },
+    {
+      "id": "weapon-rodela",
+      "name": "Rodela",
+      "treeId": "tree-fisico",
+      "roleId": "role-controle-impacto",
+      "factionId": "faction-colonizador",
+      "entryTier": 3,
+      "starter": false,
+      "hands": "off",
+      "eSkillId": "skill-encostar-o-escudo",
+      "attacksPerSecond": null,
+      "guessedValues": true
+    },
+    {
+      "id": "weapon-tocha-de-breu",
+      "name": "Tocha de breu",
+      "treeId": "tree-projetil",
+      "roleId": "role-area-desgaste",
+      "factionId": "faction-colonizador",
+      "entryTier": 3,
+      "starter": false,
+      "hands": "off",
+      "eSkillId": "skill-atear",
+      "attacksPerSecond": null,
+      "guessedValues": true
+    },
+    {
+      "id": "weapon-patua",
+      "name": "Patuá",
+      "treeId": "tree-magico",
+      "roleId": "role-suporte",
+      "factionId": "faction-folclorico",
+      "entryTier": 3,
+      "starter": false,
+      "hands": "off",
+      "eSkillId": "skill-abrir-o-patua",
+      "attacksPerSecond": null,
+      "guessedValues": true
     }
-  ],
-  "roles": [
-    {
-      "id": "role-dano-corpo-a-corpo",
-      "name": "Dano corpo a corpo"
-    },
-    {
-      "id": "role-controle-impacto",
-      "name": "Controle e impacto"
-    },
-    {
-      "id": "role-precisao",
-      "name": "Precisão"
-    },
-    {
-      "id": "role-area-desgaste",
-      "name": "Área e desgaste"
-    },
-    {
-      "id": "role-dano-magico",
-      "name": "Dano"
-    },
-    {
-      "id": "role-suporte",
-      "name": "Suporte"
-    }
-  ],
-  "handRules": {
-    "main": "Ocupa a mão principal e libera o slot de off-hand.",
-    "two": "Ocupa as duas mãos; sem off-hand, em troca de mais poder de item.",
-    "off": "Ocupa apenas a mão secundária; exige uma arma de uma mão da mesma árvore."
-  },
-  "slots": {
-    "note": "Seis slots ativos e quatro passivos. O slot E a restricao: cada um so aceita habilidade da fonte dele. Depois de preenchidos, o jogador ordena a PRIORIDADE entre os seis ativos.",
-    "active": [
-      {
-        "id": "slot-ataque",
-        "label": "Ataque",
-        "source": "arma",
-        "pool": "Q",
-        "fixed": false,
-        "note": "Escolhe entre os Q que a arma equipada acessa."
-      },
-      {
-        "id": "slot-utilidade",
-        "label": "Utilidade",
-        "source": "arma",
-        "pool": "W",
-        "fixed": false,
-        "note": "Escolhe entre os W que a arma equipada acessa."
-      },
-      {
-        "id": "slot-especial",
-        "label": "Especial",
-        "source": "arma",
-        "pool": "E",
-        "fixed": true,
-        "note": "Fixo pela arma. E o que diferencia duas armas da mesma arvore."
-      },
-      {
-        "id": "slot-cabeca",
-        "label": "Cabeça",
-        "source": "armadura-cabeca",
-        "pool": "ativa",
-        "fixed": false
-      },
-      {
-        "id": "slot-torso",
-        "label": "Torso",
-        "source": "armadura-torso",
-        "pool": "ativa",
-        "fixed": false
-      },
-      {
-        "id": "slot-botas",
-        "label": "Botas",
-        "source": "armadura-botas",
-        "pool": "ativa",
-        "fixed": false
-      }
-    ],
-    "passive": [
-      {
-        "id": "slot-passiva-arma",
-        "label": "Passiva da arma",
-        "source": "arma",
-        "pool": "passiva",
-        "fixed": false
-      },
-      {
-        "id": "slot-passiva-cabeca",
-        "label": "Passiva de cabeça",
-        "source": "armadura-cabeca",
-        "pool": "passiva",
-        "fixed": false
-      },
-      {
-        "id": "slot-passiva-torso",
-        "label": "Passiva de torso",
-        "source": "armadura-torso",
-        "pool": "passiva",
-        "fixed": false
-      },
-      {
-        "id": "slot-passiva-botas",
-        "label": "Passiva de botas",
-        "source": "armadura-botas",
-        "pool": "passiva",
-        "fixed": false
-      }
-    ],
-    "fixedPerItem": [
-      {
-        "id": "slot-passiva-montaria",
-        "label": "Passiva da montaria",
-        "source": "montaria"
-      },
-      {
-        "id": "slot-passiva-bolsa",
-        "label": "Passiva da bolsa",
-        "source": "bolsa"
-      }
-    ],
-    "outsidePriority": [
-      {
-        "id": "ataque-basico",
-        "label": "Ataque básico",
-        "note": "Sempre ativo. Vem da arma, nao ocupa slot e nao custa energia."
-      },
-      {
-        "id": "pocao",
-        "label": "Poção",
-        "note": "Dispara por limiar de vida, configurado nas regras de combate. Nao entra na prioridade."
-      }
-    ],
-    "noteNames": "Os labels sao por FONTE, nao por tecla, porque num idle nao ha teclado. Q, W e E seguem como identificadores internos do pool, ja usados no dado."
-  }
+  ]
 }
