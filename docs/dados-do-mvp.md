@@ -24,7 +24,7 @@ Inventário completo do que precisa existir para o MVP rodar, e o que é conteú
 | `balance/combat.json`           | constantes de combate, energia, fuga, retirada e regras de combate                      |
 | `balance/economy.json`          | constantes de coleta, refino, craft, durabilidade, prata, carga e estações              |
 | `balance/progression.json`      | constantes de fama, afinidade, Árvore do Destino e ferramentas                          |
-| `sim.py`                        | simulador, lê as constantes de `balance/`                                               |
+| `sim.py`                        | simulador — **desatualizado**, será reescrito; deve ler as constantes de `balance/`     |
 
 **Sistema é compartilhado por definição.** Era nova nunca traz árvore de skill nova nem linha de armadura nova — traz armas, peças e conteúdo.
 

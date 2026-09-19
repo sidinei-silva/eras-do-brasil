@@ -2,7 +2,7 @@
 
 Documento autossuficiente. Serve para produzir assets e para gerar as pranchas de referência.
 
-Substitui o Manual de Direção de Arte de A Escória e os documentos de Design Visual do Eras.
+Substitui os documentos de Design Visual anteriores.
 
 ---
 

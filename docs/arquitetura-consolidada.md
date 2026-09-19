@@ -8,13 +8,11 @@ Cada decisão traz **o porquê e o que foi descartado**, porque conclusão sem r
 
 ## Como chegamos aqui
 
-O estudo nasceu para *A Escória* e passou por três fases. A primeira propunha **mutex protegendo agregados de estado**. A segunda validou a ideia de HTTP para comandos. A terceira migrou para **single-owner com channel** e, depois de uma virada de premissa, introduziu o `bootstrap`.
+O estudo passou por três fases. A primeira propunha **mutex protegendo agregados de estado**. A segunda validou a ideia de HTTP para comandos. A terceira migrou para **single-owner com channel** e, depois de uma virada de premissa, introduziu o `bootstrap`.
 
 A virada foi esta, e vale citar porque muda tudo: *"nunca gostei de fazer uma arquitetura pensando na MVP e quando crescer mudar; sempre gostei de já da MVP fazer a arquitetura que vai ser mesmo."*
 
 A partir daí a regra passou a ser: **arquitetura definitiva em escala reduzida**, não arquitetura de MVP.
-
-*A Escória* foi depois fundida com *Eras do Brasil*. **A arquitetura sobreviveu inteira; a lore e o vocabulário não.** Ver a seção final.
 
 ---
 
@@ -253,13 +251,3 @@ eras-do-brasil/
 - Formato de wire do WebSocket — JSON ou binário.
 - Como o cliente versiona e baixa o conteúdo estático.
 - Reconexão no meio de um lote de combate.
-
----
-
-## Vocabulário morto
-
-Os estudos originais são de *A Escória*. **Não existem mais:** Lastro; panteões e deuses dentro de armas; a Têmpera como multiplicador divino; gank por adjacência; as zonas A Ressaca, A Bigorna, O Verde Surdo, A Costela e A Encruzilhada; e o módulo Go chamado `escoria`.
-
-**Sobreviveram:** o multiplicador de uso ativo da mesma arma, hoje chamado **Afinidade**; a progressão por uso, hoje chamada **Árvore do Destino**, agora em quatro ramos; o tutorial como máquina de estados; e Fama e recursos encapsulados em vez de campos abertos que qualquer sistema altera.
-
-O PvP mudou: a fila por prioridade continua, mas a busca é por **sinalizados na mesma zona**, com contador público, sem adjacência e sem pareamento entre zonas.

@@ -148,7 +148,12 @@ Parar significa **parar no lugar**, nunca voltar para a cidade. Poção dispara 
 
 **PvP é consentido e mútuo.** Sinalizado pode atacar e ser atacado; não sinalizado não faz nem uma coisa nem outra. A flag liga e desliga só na cidade.
 
-**Só existe em zona disputada e mortal.** No Emaranhado, entrar é consentir.
+| Banda                          | Regra                                             |
+| ------------------------------ | ------------------------------------------------- |
+| Segura                         | ninguém ataca ninguém, mesmo sinalizado           |
+| Disputada                      | sinalizado contra sinalizado, perda parcial       |
+| Mortal                         | sinalizado contra sinalizado, perda total         |
+| Selvagem (Emaranhado)          | entrar é consentir; não há flag e não há contador |
 
 Cada zona mostra **quantos sinalizados há nela**, público e gratuito. Isso só é honesto porque todo mundo que aparece ali escolheu aparecer.
 
@@ -172,7 +177,7 @@ Cada zona mostra **quantos sinalizados há nela**, público e gratuito. Isso só
 
 **MVP** — a ilha da Travessia: quatro zonas, T1 e T2, banda segura, o tutorial inteiro.
 **Era 1** — 22 zonas, T1 a T6, três facções em conflito.
-**Continente 1 completo** — quatro eras.
-**Jogo completo** — mais o Emaranhado.
+**Continente 1 completo** — quatro eras, de 60 a 100 zonas.
+**Jogo completo** — mais o Emaranhado, T6 a T8.
 
 Detalhe do MVP em `dados-do-mvp.md`. Decisões com o porquê em `decisoes-de-design.md`. Números em `formulas-e-balanceamento.md`. Servidor em `arquitetura-consolidada.md`.

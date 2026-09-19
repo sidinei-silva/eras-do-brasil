@@ -1,8 +1,8 @@
 # Fórmulas e balanceamento
 
-> ⚠️ **Duas mudanças pendentes de simulador.** A escala virou multiplicativa (seção 3) e o combate virou orientado a evento com slots e prioridade (seção 8). O simulador ainda roda o modelo antigo — linear, tick fixo, ciclo `Q Q Q Q E`. **Todos os resultados medidos abaixo estão obsoletos** e serão refeitos.
+> ⚠️ **Duas mudanças pendentes de simulador.** A escala virou multiplicativa (seção 3) e o combate virou orientado a evento com slots e prioridade (seção 8). O simulador está desatualizado: `tools/sim.py` ainda modela escala linear, tick fixo e ciclo `Q Q Q Q E`, e ainda abre o `balance.json` antigo, que não existe mais — **não roda** até ser reescrito junto com o modelo orientado a evento. **Todos os resultados medidos abaixo estão obsoletos** e serão refeitos.
 
-Todas as constantes vivem em `data/shared/balance/` (`combat.json`, `economy.json`, `progression.json`). **Nenhum número em código** — servidor e simulador carregam a pasta inteira e mesclam. `sim.py` valida as âncoras sem precisar jogar.
+Todas as constantes vivem em `data/shared/balance/` (`combat.json`, `economy.json`, `progression.json`). **Nenhum número em código** — o servidor e o simulador, quando reescrito, carregam a pasta inteira e mesclam. A função do simulador é validar as âncoras sem precisar jogar.
 
 ---
 
@@ -202,13 +202,13 @@ A cada evento: condição de parada, limiar de retirada, limiar de cura, dispara
 
 ### Todos esses números são chute
 
-Velocidade de ataque, recarga, custo e regeneração estão no dado marcados como `guessedValues`. **Nenhum foi validado.** O simulador ainda itera por tick com ciclo fixo `Q Q Q Q E` e precisa ser reescrito para fila de eventos antes de qualquer calibração valer.
+Velocidade de ataque, recarga, custo e regeneração estão no dado marcados como `guessedValues`. **Nenhum foi validado.** O simulador itera por tick com ciclo fixo `Q Q Q Q E` e precisa ser reescrito para fila de eventos antes de qualquer calibração valer.
 
 Os tempos de morte da seção seguinte foram medidos no modelo antigo e **vão mudar**.
 
 ## 9. Resultado da simulação
 
-Rodando `sim.py` com as âncoras atuais:
+Resultados medidos com o `sim.py` antigo, no modelo linear e por tick. **Obsoletos:** serão refeitos.
 
 ### Tempo para matar, com equipamento do mesmo tier
 
@@ -492,13 +492,15 @@ O que importa é que o formato esteja certo agora, para os números se moverem d
 
 ## 14. Como usar o simulador
 
+> ⚠️ **Desatualizado.** `tools/sim.py` ainda abre o `balance.json` antigo e não roda. Será reescrito junto com o modelo de combate orientado a evento. A descrição abaixo é a do uso pretendido.
+
 ```bash
-python3 sim.py                      # usa data/shared/balance/
+python3 sim.py                      # deve usar data/shared/balance/
 python3 sim.py outro-balance.json   # testa uma variação
 ```
 
-Ele imprime cinco relatórios e uma seção de alertas que avisa quando uma âncora sai da faixa — tier rápido demais, mob arrastado, jogador que morre para o mob do próprio tier.
+O simulador imprime cinco relatórios e uma seção de alertas que avisa quando uma âncora sai da faixa — tier rápido demais, mob arrastado, jogador que morre para o mob do próprio tier.
 
 **O fluxo de trabalho:** mexer num número do JSON, rodar, ler os alertas. Segundos em vez de horas de teste em jogo.
 
-Quando o servidor Go existir, ele deve carregar `data/shared/balance/` diretamente. Se o simulador e o servidor lerem arquivos diferentes, o simulador deixa de valer no dia seguinte.
+Quando o servidor Go existir, ele deve carregar `data/shared/balance/` diretamente, e o simulador reescrito também. Se o simulador e o servidor lerem arquivos diferentes, o simulador deixa de valer no dia seguinte.
