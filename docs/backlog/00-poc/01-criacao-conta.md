@@ -1,6 +1,6 @@
 # Fatia 1 — Criação de conta (Backend)
 
-**Status:** não iniciada
+**Status:** concluída
 
 **Entrega:** o jogador vai conseguir criar uma conta no jogo. Só backend
 por enquanto — o cliente em Godot ainda está em estudo.

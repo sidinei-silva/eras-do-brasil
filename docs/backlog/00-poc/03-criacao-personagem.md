@@ -1,6 +1,6 @@
 # Fatia 3 — Criação de personagem (Backend)
 
-**Status:** não iniciada
+**Status:** concluída
 **Depende de:** Fatia 2 (login existe)
 
 **Entrega:** o jogador vai conseguir criar um personagem no jogo e salvar no banco ainda não entra no mundo. Só

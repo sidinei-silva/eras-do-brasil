@@ -11,7 +11,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: eras-do-brasil
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -31,7 +31,7 @@ services:
     env_file:
       - ./backend/.env
     environment:
-      DATABASE_URL: postgres://postgres:postgres@postgres:5432/eras-do-brasil?sslmode=disable
+      DATABASE_URL: postgres://postgres:postgres@postgres:5433/eras-do-brasil?sslmode=disable
     ports:
       - "8080:8080"
     volumes:
