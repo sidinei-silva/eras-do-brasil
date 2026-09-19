@@ -42,11 +42,11 @@
       "divisor": 2000,
       "min": 0.5,
       "max": 1.8,
-      "note": "Afrouxado de 1000/2.5 para 2000/1.8. Com a curva multiplicativa a diferenca de tier ja vem embutida no multiplicador; manter o peso antigo contaria o tier duas vezes. CHUTE — o simulador decide."
+      "note": "Banda estreitada de 0,4–2,5 (divisor 1000) para 0,5–1,8 (divisor 2000): os TRES valores mudaram juntos. Com a curva multiplicativa a diferenca de tier ja vem embutida no multiplicador; a banda larga contaria o tier duas vezes, nas duas pontas. CHUTE — o simulador decide."
     },
     "skillPower": {
       "Q": 35,
-      "W_dano": 45,
+      "wDamage": 45,
       "E": 90
     },
     "penetrationPerAttackerIp": 2.0,
@@ -58,12 +58,12 @@
     "scaling": {
       "type": "multiplicativa",
       "per100IpPct": 9.18,
-      "formula": "multiplicadorIP = 1.0918 ^ (IP / 100)",
-      "note": "Curva do Albion. Cada 100 de Poder de Item vale mais 9,18%, aplicados sobre o valor anterior. Substitui a escala linear com AP. O conceito de AP nao existe mais: existe o multiplicador. Motivo: com escala linear o tier domina tudo e encantamento vira ruido — e ai peca de era antiga deixa de ser competitiva, que e o oposto da fantasia central do jogo."
+      "formula": "multiplicadorIP = 1.0918 ^ ((IP - 100) / 100)",
+      "note": "Curva do Albion, normalizada em IP 100: o T1 vale exatamente 1,00x. Cada 100 de Poder de Item vale mais 9,18%, aplicados sobre o valor anterior. Substitui a escala linear com AP. O conceito de AP nao existe mais: existe o multiplicador. Motivo: com escala linear o tier domina tudo e encantamento vira ruido — e ai peca de era antiga deixa de ser competitiva, que e o oposto da fantasia central do jogo."
     },
     "baseHp": 600,
     "baseArmor": 240,
-    "noteHpArmor": "Vida e armadura passam pela MESMA curva. Se ficarem lineares com o dano multiplicativo, o tempo de morte dispara com o tier.",
+    "noteHpArmor": "baseHp e baseArmor sao os valores no T1 (IP 100), onde o multiplicador vale 1,00. Vida e armadura passam pela MESMA curva. Se ficarem lineares com o dano multiplicativo, o tempo de morte dispara com o tier.",
     "damageFormula": "dano = poderSkill x multiplicadorIP x (1 - mitigacao) x fatorRelativo",
     "hpFormula": "hp = baseHp x multiplicadorIP",
     "armorFormula": "armadura = baseArmor x multiplicadorIP_medio(cabeca,torso,botas)",
@@ -71,9 +71,9 @@
   },
   "energy": {
     "maxBase": 100,
-    "maxPerIp": 0.1,
-    "regenPerSecond": 3.5,
-    "note": "Recurso das habilidades. Existia implicito — as passivas Poupanca e Cabeca Limpa mexiam num sistema que nao existia. Serve para as tres arvores, e por isso nao se chama mana.",
+    "regenPerSecondBase": 3.5,
+    "formula": "max = maxBase x multiplicadorIP;  regen = regenPerSecondBase x multiplicadorIP",
+    "note": "Maxima e regeneracao passam pela MESMA curva do custo. Se a barra ficar linear e o custo escalar, a habilidade fica progressivamente mais cara em relacao a barra. Recurso das habilidades, comum as tres arvores — por isso nao se chama mana.",
     "guessedValues": true
   },
   "priority": {
@@ -94,7 +94,7 @@
       "elite": 1.5,
       "chefe": 5.0
     },
-    "apMultiplier": {
+    "damageMultiplier": {
       "normal": 0.45,
       "elite": 0.85,
       "chefe": 1.15

@@ -55,10 +55,10 @@ Arma de duas mãos absorve o peso do off-hand e vale 0.45. **Torso é o slot de 
 **Tudo desemboca num número só, o Poder de Item, e ele passa por uma curva multiplicativa.**
 
 ```
-multiplicadorIP = 1.0918 ^ (IP / 100)
+multiplicadorIP = 1.0918 ^ ((IP − 100) / 100)
 ```
 
-Cada 100 de Poder de Item vale **mais 9,18%**, aplicados sobre o valor anterior. É a curva do Albion.
+Cada 100 de Poder de Item vale **mais 9,18%**, aplicados sobre o valor anterior. É a curva do Albion, **normalizada em IP 100: o T1 vale exatamente 1,00×**. É por isso que `baseHp = 600` significa "vida no T1".
 
 | Tier | IP   | multiplicador | linear, o modelo antigo |
 | ---- | ---- | ------------- | ----------------------- |
@@ -87,13 +87,13 @@ dano = poderSkill × multiplicadorIP × (1 − mitigação) × fatorRelativo
 
 **Vida e armadura passam pela mesma curva do dano.** Se ficassem lineares, o tempo de morte dispararia com o tier.
 
-**O fator relativo afrouxou** de `/1000` com teto 2,5 para `/2000` com teto 1,8. Com a curva multiplicativa a diferença de tier já vem embutida no multiplicador; manter o peso antigo contaria o tier duas vezes.
+**A banda do fator relativo estreitou**, e os três valores mudaram juntos: de `/1000` e 0,4–2,5 para `/2000` e 0,5–1,8. Com a curva multiplicativa a diferença de tier já vem embutida no multiplicador; a banda larga contaria o tier duas vezes, nas duas pontas.
 
 ## 5. Mobs e grupos
 
 Derivam do loadout equivalente ao tier deles.
 
-| Tipo            | HP    | AP    | anti-fuga |
+| Tipo            | HP    | dano  | anti-fuga |
 | --------------- | ----- | ----- | --------- |
 | normal (fauna)  | 0.35× | 0.45× | 0.5       |
 | normal (humano) | 0.35× | 0.45× | 1.5       |
@@ -165,7 +165,7 @@ A ferramenta pode estar no máximo um tier abaixo do recurso: para T5, é precis
 
 ```
 intervalo = 1 / velocidadeDeAtaque       (atributo da arma)
-dano      = 20 × (AP/100) × (1 − mitigação) × fatorRelativo
+dano      = poderAtaqueBasico × multiplicadorIP × (1 − mitigação) × fatorRelativo     (poderAtaqueBasico = 20)
 ```
 
 Sempre ativo, não ocupa slot e não custa energia. Mais fraco por golpe que um Q — **o que decide é a velocidade da arma.** Espada de lado bate 1,2 vez por segundo; tacape, 0,7.
@@ -186,9 +186,11 @@ Tags ajustam: área e cura encarecem e alongam, controle e fuga alongam mais.
 ### Energia
 
 ```
-máxima = 100 + IP × 0.1
-regeneração = 3.5 por segundo
+máxima      = 100 × multiplicadorIP
+regeneração = 3.5 × multiplicadorIP   por segundo
 ```
+
+**Barra e regeneração passam pela mesma curva do custo.** Se a barra ficasse linear e o custo escalasse, a habilidade ficaria mais cara em relação à barra a cada tier. Com as duas na mesma curva, **o dano por energia fica praticamente constante entre tiers**: o tier dá volume absoluto maior, não custo-benefício melhor.
 
 ### Prioridade
 

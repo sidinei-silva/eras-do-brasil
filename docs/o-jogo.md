@@ -102,7 +102,7 @@ Não existe lista de desabilitadas: quem não quer uma habilidade simplesmente n
 
 ### Energia
 
-Recurso das habilidades, comum às três árvores. Regenera com o tempo e tem teto que cresce com o poder de item. Habilidade barata e rápida no topo da prioridade seca a barra; habilidade cara exige guardar.
+Recurso das habilidades, comum às três árvores. Regenera com o tempo, e o teto e a regeneração crescem pela mesma curva do poder de item. Habilidade barata e rápida no topo da prioridade seca a barra; habilidade cara exige guardar.
 
 ### Regras de combate
 

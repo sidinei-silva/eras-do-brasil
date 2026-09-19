@@ -14,7 +14,7 @@
       "starter": true,
       "hands": "main",
       "eSkillId": null,
-      "nota": "Primeira arma do jogo. Sucata sem tradicao, craftavel com pedra e madeira T1. Só Q.",
+      "note": "Primeira arma do jogo. Sucata sem tradicao, craftavel com pedra e madeira T1. Só Q.",
       "attacksPerSecond": 1.1,
       "guessedValues": true
     },
@@ -28,7 +28,7 @@
       "starter": false,
       "hands": "off",
       "eSkillId": null,
-      "nota": "Off-hand T1. Sem habilidade, so atributo.",
+      "note": "Off-hand T1. Sem habilidade, so atributo.",
       "attacksPerSecond": null,
       "guessedValues": true
     },
