@@ -15,9 +15,10 @@ Inventário completo do que precisa existir para o MVP rodar, e o que é conteú
 | Arquivo                         | Conteúdo                                                                                |
 | ------------------------------- | --------------------------------------------------------------------------------------- |
 | `continents.json`               | os três continentes: Travessia, As Eras e O Emaranhado                                  |
-| `materials.json`                | catálogo T1 a T6, brutos e refinados, a Essência, e **qual ferramenta cada tipo exige** |
+| `materials.json`                | materiais T1 e T2 que o MVP usa, brutos e refinados, e **qual ferramenta cada tipo exige** |
 | `trees.json`                    | 3 árvores, pool de Q, W e passivas, e a estrutura de slots do loadout                   |
-| `skills.json`                   | todas as habilidades do jogo, num arquivo só                                            |
+| `skills.json`                   | as habilidades de T1 e T2, num arquivo só; o resto está em `design/catalog/`            |
+| `traditions.json`               | as três tradições de equipamento — estilo, não facção política                          |
 | `armor.json`                    | 4 linhas (crua, pesada, média, leve), peças e bônus de conjunto                         |
 | `equipment.json`                | montarias, bolsas e ferramentas                                                         |
 | `destiny.json`                  | a Árvore do Destino: quatro ramos e os nós                                              |
@@ -39,7 +40,7 @@ Inventário completo do que precisa existir para o MVP rodar, e o que é conteú
 | `recipes.json`  | 8 coletas, 4 refinos, 24 crafts                        |
 | `tutorial.json` | 18 passos, como máquina de estados                     |
 
-### Era 1 — conteúdo posterior
+### Era 1 — conteúdo posterior, em `design/era-1/`
 
 | Arquivo         | Conteúdo                                          |
 | --------------- | ------------------------------------------------- |
@@ -208,11 +209,15 @@ PvP, perda de item, durabilidade relevante, T3 em diante, artefatos, encantament
 ```
 data/
   shared/   continents.json materials.json trees.json weapons.json skills.json
-            armor.json equipment.json destiny.json
+            armor.json equipment.json destiny.json traditions.json
             balance/  combat.json economy.json progression.json
   mvp/      zones.json mobs.json npcs.json recipes.json tutorial.json factions.json
-  era1/     zones.json mobs.json npcs.json factions.json
+design/
+  catalog/  skills.json weapons.json materials.json equipment.json   (T3 a T6 e o que é da Era 1)
+  era-1/    zones.json mobs.json npcs.json factions.json
 ```
+
+**`data/` é o que o servidor vai carregar; `design/` é o que já foi projetado e ainda não entra.** Ao chegar a Era 1, `design/era-1/` vira `data/era1/` e o catálogo de T3 a T6 volta para `data/shared/`. O processo está em `como-promover-dado.md`.
 
 **Pasta por escopo, não por domínio.** Adicionar a Era 2 é criar uma pasta e copiar a forma; carregar é ler `shared/` mais um pacote de conteúdo. O escopo vira o diretório, e o campo `scope` dentro do arquivo fica só como conferência.
 

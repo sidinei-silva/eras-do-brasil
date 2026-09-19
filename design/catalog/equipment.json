@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "equipment-design",
+  "scope": "design",
+  "note": "Montarias e bolsas fora do MVP. As habilidades delas estao em design/catalog/skills.json.",
+  "mounts": [
+    {
+      "id": "mount-cavalo-de-sela",
+      "name": "Cavalo de sela",
+      "speedClass": "rapido",
+      "loadClass": "baixo",
+      "activeSkillId": "mskill-meia-volta",
+      "passiveSkillId": "mpass-passo-solto"
+    },
+    {
+      "id": "mount-boi-de-carga",
+      "name": "Boi de carga",
+      "speedClass": "lento",
+      "loadClass": "alto",
+      "activeSkillId": "mskill-parar-tudo",
+      "passiveSkillId": "mpass-cargueiro"
+    }
+  ],
+  "bags": [
+    {
+      "id": "bag-cesto-de-cipo",
+      "name": "Cesto de cipó",
+      "activeSkillId": "bskill-largar-carga",
+      "passiveSkillId": "bpass-trancado"
+    },
+    {
+      "id": "bag-surrao-de-sal",
+      "name": "Surrão de sal",
+      "activeSkillId": "bskill-largar-carga",
+      "passiveSkillId": "bpass-bem-amarrado"
+    }
+  ]
+}

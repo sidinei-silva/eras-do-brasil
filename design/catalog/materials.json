@@ -1,0 +1,230 @@
+{
+  "schemaVersion": 1,
+  "id": "materials-design",
+  "scope": "design",
+  "note": "Materiais projetados e NAO carregados: T3 a T6, as Essências de T1 e T2 (encantamento está fora do MVP) e os quatro materiais da Costa do Pau-Brasil (piaçava, cascalho, arenito, mandioca), que são da Era 1.",
+  "materials": [
+    {
+      "id": "mat-piacava",
+      "name": "Piaçava",
+      "resourceType": "res-fibra",
+      "tier": 1,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-cascalho",
+      "name": "Cascalho",
+      "resourceType": "res-minerio",
+      "tier": 1,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-arenito",
+      "name": "Arenito",
+      "resourceType": "res-pedra",
+      "tier": 2,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-mandioca",
+      "name": "Mandioca",
+      "resourceType": "res-comida",
+      "tier": 1,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-essencia-t1",
+      "name": "Essência T1",
+      "resourceType": "res-essencia",
+      "tier": 1,
+      "requiresTool": false,
+      "source": "drop de mob, chefe ou bau",
+      "note": "O tier do drop e limitado pelo tier do mob morto."
+    },
+    {
+      "id": "mat-essencia-t2",
+      "name": "Essência T2",
+      "resourceType": "res-essencia",
+      "tier": 2,
+      "requiresTool": false,
+      "source": "drop de mob, chefe ou bau",
+      "note": "O tier do drop e limitado pelo tier do mob morto."
+    },
+    {
+      "id": "mat-jatoba",
+      "name": "Jatobá",
+      "resourceType": "res-madeira",
+      "tier": 3,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-aroeira",
+      "name": "Aroeira",
+      "resourceType": "res-madeira",
+      "tier": 4,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-pau-ferro",
+      "name": "Pau-ferro",
+      "resourceType": "res-madeira",
+      "tier": 5,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-castanheira-mae",
+      "name": "Castanheira-mãe",
+      "resourceType": "res-madeira",
+      "tier": 6,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-caroa",
+      "name": "Caroá",
+      "resourceType": "res-fibra",
+      "tier": 3,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-macambira",
+      "name": "Macambira",
+      "resourceType": "res-fibra",
+      "tier": 4,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-curaua",
+      "name": "Curauá",
+      "resourceType": "res-fibra",
+      "tier": 5,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-cipo-titica",
+      "name": "Cipó-titica",
+      "resourceType": "res-fibra",
+      "tier": 6,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-couro-de-anta",
+      "name": "Couro de anta",
+      "resourceType": "res-couro",
+      "tier": 3,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-couro-de-boi",
+      "name": "Couro de boi",
+      "resourceType": "res-couro",
+      "tier": 4,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-couro-de-jacare",
+      "name": "Couro de jacaré",
+      "resourceType": "res-couro",
+      "tier": 5,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-couro-de-sucuri",
+      "name": "Couro de sucuri",
+      "resourceType": "res-couro",
+      "tier": 6,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-ferro-de-serrote",
+      "name": "Ferro-de-serrote",
+      "resourceType": "res-minerio",
+      "tier": 3,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-cobre-do-sertao",
+      "name": "Cobre-do-sertão",
+      "resourceType": "res-minerio",
+      "tier": 4,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-ouro-branco",
+      "name": "Ouro-branco",
+      "resourceType": "res-minerio",
+      "tier": 5,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-ferro-do-ceu",
+      "name": "Ferro-do-céu",
+      "resourceType": "res-minerio",
+      "tier": 6,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-laje-branca",
+      "name": "Laje-branca",
+      "resourceType": "res-pedra",
+      "tier": 3,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-granito-rachado",
+      "name": "Granito rachado",
+      "resourceType": "res-pedra",
+      "tier": 4,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-cristal-de-lapa",
+      "name": "Cristal-de-lapa",
+      "resourceType": "res-pedra",
+      "tier": 5,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-pedra-de-raiz",
+      "name": "Pedra-de-raiz",
+      "resourceType": "res-pedra",
+      "tier": 6,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-essencia-t3",
+      "name": "Essência T3",
+      "resourceType": "res-essencia",
+      "tier": 3,
+      "requiresTool": false,
+      "source": "drop de mob, chefe ou bau",
+      "note": "O tier do drop e limitado pelo tier do mob morto."
+    },
+    {
+      "id": "mat-essencia-t4",
+      "name": "Essência T4",
+      "resourceType": "res-essencia",
+      "tier": 4,
+      "requiresTool": false,
+      "source": "drop de mob, chefe ou bau",
+      "note": "O tier do drop e limitado pelo tier do mob morto."
+    },
+    {
+      "id": "mat-essencia-t5",
+      "name": "Essência T5",
+      "resourceType": "res-essencia",
+      "tier": 5,
+      "requiresTool": false,
+      "source": "drop de mob, chefe ou bau",
+      "note": "O tier do drop e limitado pelo tier do mob morto."
+    },
+    {
+      "id": "mat-essencia-t6",
+      "name": "Essência T6",
+      "resourceType": "res-essencia",
+      "tier": 6,
+      "requiresTool": false,
+      "source": "drop de mob, chefe ou bau",
+      "note": "O tier do drop e limitado pelo tier do mob morto."
+    }
+  ]
+}

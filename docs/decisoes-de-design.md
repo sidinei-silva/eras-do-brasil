@@ -2,7 +2,7 @@
 
 Decisões tomadas, **com o motivo e o que foi descartado**. Conclusão sem raciocínio não impede ninguém de reabrir a discussão.
 
-**Este documento não espelha dado.** Zona, material, arma, mob, skill e número vivem nos JSONs em `data/` e no `formulas-e-balanceamento.md`. Aqui fica só o que não cabe em tabela.
+**Este documento não espelha dado.** Zona, material, arma, mob, skill e número vivem nos JSONs em `data/` e no `formulas-e-balanceamento.md`. O que já foi projetado e ainda não é carregado (T3 a T6, Era 1) vive em `design/`. Aqui fica só o que não cabe em tabela.
 
 Sucede o `compendio-completo.md`, que era uma fotografia de 13/09/2026 e começou a defasar no dia seguinte.
 

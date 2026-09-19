@@ -3,7 +3,7 @@
   "id": "factions-era-1",
   "scope": "era-1",
   "eraId": "era-1-colonizacao",
-  "note": "Facção é propriedade da era, não do jogo — a Era 2 terá outras. O jogador não pertence a nenhuma delas; é forasteiro trazido pela Ruptura. Reputação está ADIADA: na PoC a Aldeia Potiguara usa um booleano (negocia ou não), não uma barra.",
+  "note": "Facção política é propriedade da era, não do jogo — a Era 2 terá outras. Tradição de equipamento (estilo de arma e armadura) é outra coisa: atravessa o jogo inteiro e vive em data/shared/traditions.json. O jogador não pertence a nenhuma delas; é forasteiro trazido pela Ruptura. Reputação está ADIADA: na PoC a Aldeia Potiguara usa um booleano (negocia ou não), não uma barra.",
   "reputationLevels": [
     {
       "id": "rep-inimigo",

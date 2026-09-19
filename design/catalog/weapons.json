@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "weapons-design",
+  "scope": "design",
+  "note": "Armas de T3 a T6. Projetadas, NAO carregadas. Promover para data/shared/weapons.json quando a era entrar.",
+  "weapons": [
+    {
+      "id": "weapon-tacape",
+      "name": "Tacape",
+      "treeId": "tree-fisico",
+      "roleId": "role-controle-impacto",
+      "traditionId": "tradition-indigena",
+      "entryTier": 3,
+      "starter": false,
+      "eSkillId": "skill-quebra-cranio",
+      "hands": "two",
+      "attacksPerSecond": 0.7,
+      "guessedValues": true
+    },
+    {
+      "id": "weapon-besta-de-mao",
+      "name": "Besta de mão",
+      "treeId": "tree-projetil",
+      "roleId": "role-precisao",
+      "traditionId": "tradition-colonial",
+      "entryTier": 3,
+      "starter": false,
+      "eSkillId": "skill-virote-perfurante",
+      "hands": "main",
+      "attacksPerSecond": 1.0,
+      "guessedValues": true
+    },
+    {
+      "id": "weapon-maraca",
+      "name": "Maracá",
+      "treeId": "tree-magico",
+      "roleId": "role-suporte",
+      "traditionId": "tradition-encantada",
+      "entryTier": 3,
+      "starter": false,
+      "eSkillId": "skill-chamado-dos-espiritos",
+      "hands": "main",
+      "attacksPerSecond": 1.0,
+      "guessedValues": true
+    },
+    {
+      "id": "weapon-tocha-de-breu",
+      "name": "Tocha de breu",
+      "treeId": "tree-projetil",
+      "roleId": "role-area-desgaste",
+      "traditionId": "tradition-colonial",
+      "entryTier": 3,
+      "starter": false,
+      "hands": "off",
+      "eSkillId": "skill-atear",
+      "attacksPerSecond": null,
+      "guessedValues": true
+    }
+  ]
+}

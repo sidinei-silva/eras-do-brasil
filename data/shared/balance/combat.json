@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "balance-combat",
   "scope": "shared",
-  "note": "Constantes de balanceamento. O servidor e o simulador carregam a pasta inteira e mesclam.",
+  "note": "Constantes de balanceamento. O servidor e o simulador carregam a pasta inteira e mesclam. balance/ é referência do jogo inteiro e cobre T1 a T6. As tabelas indexadas por id de habilidade contêm entradas para conteúdo ainda não carregado — isso é esperado e inerte. O carregador não deve validar ids dentro de balance/.",
   "itemPower": {
     "baseByTier": {
       "1": 100,

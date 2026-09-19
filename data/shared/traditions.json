@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "traditions",
+  "scope": "shared",
+  "note": "Tradicoes de equipamento: estilo de arma e armadura, atravessa o jogo inteiro. NAO confundir com faccao politica, que pertence a uma era e tem reputacao, territorio e conflito.",
+  "traditions": [
+    {
+      "id": "tradition-colonial",
+      "name": "Colonial"
+    },
+    {
+      "id": "tradition-indigena",
+      "name": "Indígena"
+    },
+    {
+      "id": "tradition-encantada",
+      "name": "Encantada"
+    }
+  ]
+}

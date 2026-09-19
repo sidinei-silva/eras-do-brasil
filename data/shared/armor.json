@@ -8,7 +8,7 @@
       "id": "armorline-crua",
       "name": "Crua",
       "materials": ["res-couro"],
-      "factionId": null,
+      "traditionId": null,
       "identity": "nenhuma — é o que dá para vestir com couro cru",
       "weightClass": "baixo",
       "setBonusId": null
@@ -17,7 +17,7 @@
       "id": "armorline-pesada",
       "name": "Pesada",
       "materials": ["res-minerio", "res-couro"],
-      "factionId": "faction-colonizador",
+      "traditionId": "tradition-colonial",
       "identity": "armadura, autocura instantânea, resistir a controle",
       "weightClass": "alto",
       "setBonusId": "setbonus-pesada"
@@ -26,7 +26,7 @@
       "id": "armorline-media",
       "name": "Média",
       "materials": ["res-couro", "res-fibra"],
-      "factionId": "faction-indigena",
+      "traditionId": "tradition-indigena",
       "identity": "evasão, crítico, viagem, escape",
       "weightClass": "medio",
       "setBonusId": "setbonus-media"
@@ -35,7 +35,7 @@
       "id": "armorline-leve",
       "name": "Leve",
       "materials": ["res-fibra"],
-      "factionId": "faction-folclorico",
+      "traditionId": "tradition-encantada",
       "identity": "recurso, escudo, cura ao longo do tempo, sumir",
       "weightClass": "baixo",
       "setBonusId": "setbonus-leve"

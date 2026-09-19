@@ -1,6 +1,6 @@
 # O jogo
 
-Leitura de cinco minutos. O que é, como se joga, e quais são os sistemas. Sem tabela de dado — para número e conteúdo, os JSONs em `data/` são a verdade.
+Leitura de cinco minutos. O que é, como se joga, e quais são os sistemas. Sem tabela de dado — para número e conteúdo, os JSONs em `data/` são a verdade. O que já foi projetado e ainda não é carregado vive em `design/`.
 
 ---
 

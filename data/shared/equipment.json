@@ -2,16 +2,8 @@
   "schemaVersion": 1,
   "id": "equipment",
   "scope": "shared",
-  "note": "Montarias, bolsas e ferramentas. Substitui transport.json, que misturava passivas de armadura com transporte. Ferramentas nao existiam como entidade: eram ids soltos citados pelas receitas.",
+  "note": "Montarias, bolsas e ferramentas. Substitui transport.json, que misturava passivas de armadura com transporte. Ferramentas nao existiam como entidade: eram ids soltos citados pelas receitas. Só o que o MVP usa. As demais montarias e bolsas estão em design/catalog/equipment.json.",
   "mounts": [
-    {
-      "id": "mount-cavalo-de-sela",
-      "name": "Cavalo de sela",
-      "speedClass": "rapido",
-      "loadClass": "baixo",
-      "activeSkillId": "mskill-meia-volta",
-      "passiveSkillId": "mpass-passo-solto"
-    },
     {
       "id": "mount-mula",
       "name": "Mula",
@@ -19,14 +11,6 @@
       "loadClass": "medio",
       "activeSkillId": "mskill-aguentar-segura",
       "passiveSkillId": "mpass-lombo-largo"
-    },
-    {
-      "id": "mount-boi-de-carga",
-      "name": "Boi de carga",
-      "speedClass": "lento",
-      "loadClass": "alto",
-      "activeSkillId": "mskill-parar-tudo",
-      "passiveSkillId": "mpass-cargueiro"
     }
   ],
   "bags": [
@@ -35,18 +19,6 @@
       "name": "Bolsa de couro",
       "activeSkillId": "bskill-largar-carga",
       "passiveSkillId": "bpass-fundo-largo"
-    },
-    {
-      "id": "bag-cesto-de-cipo",
-      "name": "Cesto de cipó",
-      "activeSkillId": "bskill-largar-carga",
-      "passiveSkillId": "bpass-trancado"
-    },
-    {
-      "id": "bag-surrao-de-sal",
-      "name": "Surrão de sal",
-      "activeSkillId": "bskill-largar-carga",
-      "passiveSkillId": "bpass-bem-amarrado"
     }
   ],
   "tools": [

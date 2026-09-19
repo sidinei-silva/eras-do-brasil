@@ -2,14 +2,14 @@
   "schemaVersion": 1,
   "id": "weapons",
   "scope": "shared",
-  "note": "Armas do jogo. A habilidade que cada arma acessa e declarada em skills.json, pelo weaponIds da propria habilidade. Aqui so o eSkillId, que e 1:1.",
+  "note": "Armas do jogo. A habilidade que cada arma acessa e declarada em skills.json, pelo weaponIds da propria habilidade. Aqui so o eSkillId, que e 1:1. Só T1 e T2. As demais estão em design/catalog/weapons.json.",
   "weapons": [
     {
       "id": "weapon-lamina-crua",
       "name": "Lâmina Crua",
       "treeId": "tree-fisico",
       "roleId": "role-dano-corpo-a-corpo",
-      "factionId": null,
+      "traditionId": null,
       "entryTier": 1,
       "starter": true,
       "hands": "main",
@@ -23,7 +23,7 @@
       "name": "Broquel Cru",
       "treeId": "tree-fisico",
       "roleId": "role-controle-impacto",
-      "factionId": null,
+      "traditionId": null,
       "entryTier": 1,
       "starter": false,
       "hands": "off",
@@ -37,7 +37,7 @@
       "name": "Espada de lado",
       "treeId": "tree-fisico",
       "roleId": "role-dano-corpo-a-corpo",
-      "factionId": "faction-colonizador",
+      "traditionId": "tradition-colonial",
       "entryTier": 2,
       "starter": true,
       "eSkillId": "skill-estocada-de-fe",
@@ -46,24 +46,11 @@
       "guessedValues": true
     },
     {
-      "id": "weapon-tacape",
-      "name": "Tacape",
-      "treeId": "tree-fisico",
-      "roleId": "role-controle-impacto",
-      "factionId": "faction-indigena",
-      "entryTier": 3,
-      "starter": false,
-      "eSkillId": "skill-quebra-cranio",
-      "hands": "two",
-      "attacksPerSecond": 0.7,
-      "guessedValues": true
-    },
-    {
       "id": "weapon-zarabatana",
       "name": "Zarabatana",
       "treeId": "tree-projetil",
       "roleId": "role-area-desgaste",
-      "factionId": "faction-indigena",
+      "traditionId": "tradition-indigena",
       "entryTier": 2,
       "starter": true,
       "eSkillId": "skill-dardo-de-curare",
@@ -72,24 +59,11 @@
       "guessedValues": true
     },
     {
-      "id": "weapon-besta-de-mao",
-      "name": "Besta de mão",
-      "treeId": "tree-projetil",
-      "roleId": "role-precisao",
-      "factionId": "faction-colonizador",
-      "entryTier": 3,
-      "starter": false,
-      "eSkillId": "skill-virote-perfurante",
-      "hands": "main",
-      "attacksPerSecond": 1.0,
-      "guessedValues": true
-    },
-    {
       "id": "weapon-cabaca-de-boitata",
       "name": "Cabaça de Boitatá",
       "treeId": "tree-magico",
       "roleId": "role-dano-magico",
-      "factionId": "faction-folclorico",
+      "traditionId": "tradition-encantada",
       "entryTier": 2,
       "starter": true,
       "eSkillId": "skill-boitata",
@@ -98,56 +72,32 @@
       "guessedValues": true
     },
     {
-      "id": "weapon-maraca",
-      "name": "Maracá",
-      "treeId": "tree-magico",
-      "roleId": "role-suporte",
-      "factionId": "faction-folclorico",
-      "entryTier": 3,
-      "starter": false,
-      "eSkillId": "skill-chamado-dos-espiritos",
-      "hands": "main",
-      "attacksPerSecond": 1.0,
-      "guessedValues": true
-    },
-    {
       "id": "weapon-rodela",
       "name": "Rodela",
       "treeId": "tree-fisico",
       "roleId": "role-controle-impacto",
-      "factionId": "faction-colonizador",
-      "entryTier": 3,
+      "traditionId": "tradition-colonial",
+      "entryTier": 2,
       "starter": false,
       "hands": "off",
       "eSkillId": "skill-encostar-o-escudo",
       "attacksPerSecond": null,
-      "guessedValues": true
-    },
-    {
-      "id": "weapon-tocha-de-breu",
-      "name": "Tocha de breu",
-      "treeId": "tree-projetil",
-      "roleId": "role-area-desgaste",
-      "factionId": "faction-colonizador",
-      "entryTier": 3,
-      "starter": false,
-      "hands": "off",
-      "eSkillId": "skill-atear",
-      "attacksPerSecond": null,
-      "guessedValues": true
+      "guessedValues": true,
+      "note": "Off-hand do MVP. Entrava no T3 por engano: o tutorial e as receitas sempre a trataram como T2, e a arma de uma mao precisa dela desde o T2."
     },
     {
       "id": "weapon-patua",
       "name": "Patuá",
       "treeId": "tree-magico",
       "roleId": "role-suporte",
-      "factionId": "faction-folclorico",
-      "entryTier": 3,
+      "traditionId": "tradition-encantada",
+      "entryTier": 2,
       "starter": false,
       "hands": "off",
       "eSkillId": "skill-abrir-o-patua",
       "attacksPerSecond": null,
-      "guessedValues": true
+      "guessedValues": true,
+      "note": "Off-hand do MVP. Entrava no T3 por engano: o tutorial e as receitas sempre a trataram como T2, e a arma de uma mao precisa dela desde o T2."
     }
   ]
 }

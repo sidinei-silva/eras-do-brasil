@@ -261,7 +261,7 @@ Sem nenhum ponto de fuga, escapar de um elite custa 27 de durabilidade e dez tur
 | Recuar        | W, árvore Projétil, T2        | 1      |
 | Rastro Falso  | W, árvore Projétil, T6        | 2      |
 | Pé Leve       | passiva de arma, Projétil, T3 | 1      |
-| Pé Solto      | botas média, T3               | 1      |
+| Pé Solto      | botas média, T2               | 1      |
 | Sumir no Mato | botas leve, T5                | 2      |
 | Ligeireza     | torso média, T4               | 1      |
 | Sem Rastro    | torso média, T6               | 1      |
