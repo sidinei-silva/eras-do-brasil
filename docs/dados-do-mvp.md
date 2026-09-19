@@ -30,23 +30,23 @@ Inventário completo do que precisa existir para o MVP rodar, e o que é conteú
 
 ### MVP — a ilha da Travessia
 
-| Arquivo             | Conteúdo                                               |
-| ------------------- | ------------------------------------------------------ |
-| `mvp_zones.json`    | 4 zonas, 4 conexões, 6 acampamentos, recursos por zona |
-| `mvp_factions.json` | as facções da ilha                                     |
-| `mvp_mobs.json`     | 6 mobs, um deles mini-chefe — só bestiário             |
-| `mvp_npcs.json`     | 3 NPCs com diálogo                                     |
-| `mvp_recipes.json`  | 8 coletas, 4 refinos, 24 crafts                        |
-| `mvp_tutorial.json` | 18 passos, como máquina de estados                     |
+| Arquivo         | Conteúdo                                               |
+| --------------- | ------------------------------------------------------ |
+| `zones.json`    | 4 zonas, 4 conexões, 6 acampamentos, recursos por zona |
+| `factions.json` | as facções da ilha                                     |
+| `mobs.json`     | 6 mobs, um deles mini-chefe — só bestiário             |
+| `npcs.json`     | 3 NPCs com diálogo                                     |
+| `recipes.json`  | 8 coletas, 4 refinos, 24 crafts                        |
+| `tutorial.json` | 18 passos, como máquina de estados                     |
 
 ### Era 1 — conteúdo posterior
 
-| Arquivo               | Conteúdo                                          |
-| --------------------- | ------------------------------------------------- |
-| `era-1_zones.json`    | 22 zonas, 44 conexões, 5 regiões, 33 acampamentos |
-| `era-1_mobs.json`     | 43 mobs — só bestiário                            |
-| `era-1_npcs.json`     | 17 NPCs                                           |
-| `era-1_factions.json` | 3 facções e 2 grupos independentes                |
+| Arquivo         | Conteúdo                                          |
+| --------------- | ------------------------------------------------- |
+| `zones.json`    | 22 zonas, 44 conexões, 5 regiões, 33 acampamentos |
+| `mobs.json`     | 43 mobs — só bestiário                            |
+| `npcs.json`     | 17 NPCs                                           |
+| `factions.json` | 3 facções e 2 grupos independentes                |
 
 ---
 
@@ -128,7 +128,7 @@ Isso alonga o tutorial e é o ponto — o MVP existe para testar o loop de colet
 
 Acordar sem nada → pedra e pau → a primeira lâmina → primeiro combate → couro de bicho → vestido do jeito que dá → o broquel → o que não passou (mini-chefe, bolsa) → o Porto → a mula → quatro ferramentas → Mata Revirada → Pedreira Torta → refinar → a Árvore do Destino → a escolha da tradição → você é o que veste → a travessia.
 
-Cada passo em `mvp_tutorial.json` tem gatilho de entrada, condição de conclusão, o que ensina, o que libera e o que dá de recompensa. **Está em dado e não em código** para poder ser ajustado sem recompilar.
+Cada passo em `mvp/tutorial.json` tem gatilho de entrada, condição de conclusão, o que ensina, o que libera e o que dá de recompensa. **Está em dado e não em código** para poder ser ajustado sem recompilar.
 
 ---
 
@@ -210,14 +210,13 @@ data/
   shared/   continents.json materials.json trees.json weapons.json skills.json
             armor.json equipment.json destiny.json
             balance/  combat.json economy.json progression.json
-  mvp/      mvp_zones.json mvp_mobs.json mvp_npcs.json mvp_recipes.json
-            mvp_tutorial.json mvp_factions.json
-  era1/     era-1_zones.json era-1_mobs.json era-1_npcs.json era-1_factions.json
+  mvp/      zones.json mobs.json npcs.json recipes.json tutorial.json factions.json
+  era1/     zones.json mobs.json npcs.json factions.json
 ```
 
 **Pasta por escopo, não por domínio.** Adicionar a Era 2 é criar uma pasta e copiar a forma; carregar é ler `shared/` mais um pacote de conteúdo. O escopo vira o diretório, e o campo `scope` dentro do arquivo fica só como conferência.
 
-Os nomes dos arquivos de conteúdo levam o prefixo do escopo (`mvp_zones.json`, `era-1_zones.json`), o que também permite achatá-los no Projeto do Claude, onde não há pasta.
+Os arquivos de conteúdo têm o mesmo nome em todo escopo (`mvp/zones.json`, `era1/zones.json`); quem carrega escolhe o pacote pela pasta.
 
 
 ---
