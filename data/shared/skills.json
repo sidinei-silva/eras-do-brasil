@@ -849,14 +849,13 @@
       "name": "Passo Firme",
       "source": "armadura",
       "pieceId": "armor-botina-crua",
-      "slot": "passiva",
+      "slot": "ativa",
       "tier": 1,
       "effect": "Pequeno aumento de capacidade de carga.",
       "tags": ["carga"],
       "cooldownSeconds": null,
       "energyCostBase": 0,
-      "guessedValues": true,
-      "alwaysOn": true
+      "guessedValues": true
     },
     {
       "id": "askill-cabeca-fria",
@@ -915,14 +914,13 @@
       "name": "Passo Pesado",
       "source": "armadura",
       "pieceId": "armor-grevas",
-      "slot": "passiva",
+      "slot": "ativa",
       "tier": 3,
       "effect": "Aumenta a capacidade de carga.",
       "tags": ["carga"],
       "cooldownSeconds": null,
       "energyCostBase": 0,
-      "guessedValues": true,
-      "alwaysOn": true
+      "guessedValues": true
     },
     {
       "id": "askill-fincar",
@@ -955,14 +953,13 @@
       "name": "Faro",
       "source": "armadura",
       "pieceId": "armor-cocar",
-      "slot": "passiva",
+      "slot": "ativa",
       "tier": 5,
       "effect": "Revela quem está com postura de gank na zona.",
       "tags": ["pvp", "percepcao"],
       "cooldownSeconds": null,
       "energyCostBase": 0,
-      "guessedValues": true,
-      "alwaysOn": true
+      "guessedValues": true
     },
     {
       "id": "askill-rolar",
@@ -1008,14 +1005,13 @@
       "name": "Trilha Conhecida",
       "source": "armadura",
       "pieceId": "armor-alpercatas",
-      "slot": "passiva",
+      "slot": "ativa",
       "tier": 5,
       "effect": "Reduz o tempo de viagem entre zonas.",
       "tags": ["viagem"],
       "cooldownSeconds": null,
       "energyCostBase": 0,
-      "guessedValues": true,
-      "alwaysOn": true
+      "guessedValues": true
     },
     {
       "id": "askill-cabeca-limpa",
@@ -1074,14 +1070,13 @@
       "name": "Passo Leve",
       "source": "armadura",
       "pieceId": "armor-sandalias-de-piacava",
-      "slot": "passiva",
+      "slot": "ativa",
       "tier": 3,
       "effect": "Reduz o peso do que você carrega.",
       "tags": ["carga"],
       "cooldownSeconds": null,
       "energyCostBase": 0,
-      "guessedValues": true,
-      "alwaysOn": true
+      "guessedValues": true
     },
     {
       "id": "askill-sumir-no-mato",
