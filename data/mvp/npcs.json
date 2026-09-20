@@ -52,16 +52,5 @@
         "delivery": "Quatro ferramentas, quatro recursos. Sem elas você só cata pedra e pau."
       }
     }
-  ],
-  "stationsWithoutDialogue": [
-    "estacao-fundicao",
-    "estacao-curtume",
-    "estacao-tecelagem",
-    "estacao-serraria",
-    "estacao-canteiro",
-    "estacao-forja",
-    "estacao-posto-de-caca",
-    "estacao-terreiro",
-    "estacao-ferramentaria"
   ]
 }

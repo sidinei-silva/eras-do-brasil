@@ -1,0 +1,2 @@
+// Package gamedata
+package gamedata

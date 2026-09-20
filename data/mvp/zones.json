@@ -16,9 +16,10 @@
       "factionId": null,
       "hub": false,
       "spawn": true,
-      "services": [],
       "albionEquivalent": "The Lighthouse",
       "description": "Faixa de praia onde a Raiz deposita quem não é daqui. Sem estrutura e sem ninguém além do Língua.",
+      "bossId": "mob-o-primeiro-perdido",
+      "mobFactionId": "faction-os-perdidos",
       "resources": [
         {
           "materialId": "mat-seixo-de-praia",
@@ -52,9 +53,7 @@
           "eliteId": null,
           "factionId": null
         }
-      ],
-      "bossId": "mob-o-primeiro-perdido",
-      "mobFactionId": "faction-os-perdidos"
+      ]
     },
     {
       "id": "zone-porto-de-passagem",
@@ -65,7 +64,6 @@
       "factionId": null,
       "hub": true,
       "spawn": false,
-      "services": ["mercado", "forja", "refino", "descanso", "armazém", "troca"],
       "albionEquivalent": "The Cove",
       "description": "Vila de quem espera a travessia. Mercado, estações e a Barqueira.",
       "resources": [],
@@ -82,7 +80,6 @@
       "factionId": null,
       "hub": false,
       "spawn": false,
-      "services": [],
       "albionEquivalent": "The Forgotten Woods",
       "description": "Mata que a Raiz embaralhou: árvore de três eras no mesmo terreno.",
       "resources": [
@@ -131,7 +128,6 @@
       "factionId": null,
       "hub": false,
       "spawn": false,
-      "services": [],
       "albionEquivalent": "Mountain Fort",
       "description": "Corte de pedra que ninguém terminou. Fibra e minério.",
       "resources": [

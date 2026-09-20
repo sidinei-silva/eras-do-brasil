@@ -6,6 +6,7 @@ import (
 	"eras-do-brasil/internal/account"
 	"eras-do-brasil/internal/auth"
 	"eras-do-brasil/internal/character"
+	"eras-do-brasil/internal/gamedata"
 	httpnetwork "eras-do-brasil/internal/network/http"
 	"eras-do-brasil/internal/persistence/postgres"
 	"eras-do-brasil/internal/persistence/postgres/repositories"
@@ -13,6 +14,7 @@ import (
 	"log"
 	"log/slog"
 	"os"
+	"path/filepath"
 	"time"
 
 	"github.com/jackc/pgx/v5"
@@ -33,6 +35,23 @@ func New() (*Application, error) {
 	if err := godotenv.Load(); err != nil {
 		log.Println("warning: .env not found")
 	}
+
+	dataPath, err := loadDataPath()
+	if err != nil {
+		return nil, err
+	}
+
+	data, err := gamedata.Load(dataPath)
+	if err != nil {
+		return nil, err
+	}
+
+	world, err := BuildWorld(data.ZoneMaps)
+	if err != nil {
+		return nil, err
+	}
+
+	slog.Info("Game world loaded", "zones", len(world.Zones))
 
 	// Database
 	databaseURL := os.Getenv("DATABASE_URL")
@@ -111,4 +130,27 @@ func initLogger() {
 	}
 
 	slog.SetDefault(logger)
+}
+
+func loadDataPath() (string, error) {
+	path, err := os.Getwd()
+
+	if err != nil {
+		return "", err
+	}
+
+	var dataPathDir = path + "/../data"
+
+	absolutePath, err := filepath.Abs(dataPathDir)
+
+	if err != nil {
+		slog.Error(
+			"Falha ao obter caminho absoluto do arquivo",
+			"dataPathDir", dataPathDir,
+			"err", err,
+		)
+		log.Fatal(err)
+	}
+
+	return absolutePath, nil
 }
