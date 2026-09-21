@@ -27,19 +27,15 @@ func (g *Game) EnterWorld(cmd EnterWorldCommand, now time.Time) ([]Event, error)
 		return nil, fmt.Errorf("zona %q não existe", cmd.ZoneID)
 	}
 
-	// Verificar se o jogador já está no estado
-	//Esta bugado deixar comentado até quando eu descobrir quando identificar que é um reconect ou um novo connect ou até ter um snapshot para descobrir
-	// if _, exists := g.state.Players[cmd.CharacterID]; exists {
-	// 	return nil, fmt.Errorf("jogador %q já está no estado", cmd.CharacterID)
-	// }
+	if _, exists := g.state.Players[cmd.CharacterID]; !exists {
+		player := &Player{
+			CharacterID: cmd.CharacterID,
+			ZoneID:      cmd.ZoneID,
+		}
 
-	// Adicionar o jogador ao estado
-	player := &Player{
-		CharacterID: cmd.CharacterID,
-		ZoneID:      cmd.ZoneID,
+		// Adicionar o jogador ao estado
+		g.state.Players[cmd.CharacterID] = player
 	}
-
-	g.state.Players[cmd.CharacterID] = player
 
 	events = append(events, PlayerEnteredWorldEvent{
 		CharacterID: cmd.CharacterID,
