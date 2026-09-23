@@ -1,18 +1,10 @@
 # Arquitetura do servidor — decisões consolidadas
 
-Consolidação de três estudos feitos entre 25/08 e 12/09/2026, mais as decisões fechadas depois. Substitui os chats originais como referência.
+Este documento registra a **arquitetura técnica atual** do servidor de Eras do Brasil e as decisões que definem suas fronteiras.
 
-Cada decisão traz **o porquê e o que foi descartado**, porque conclusão sem raciocínio não impede ninguém de reabrir a discussão.
+Ele é uma referência normativa de arquitetura. O histórico de alternativas, estudos anteriores e evolução das decisões fica em `docs/historico-e-estudos.md`.
 
----
-
-## Como chegamos aqui
-
-O estudo passou por três fases. A primeira propunha **mutex protegendo agregados de estado**. A segunda validou a ideia de HTTP para comandos. A terceira migrou para **single-owner com channel** e, depois de uma virada de premissa, introduziu o `bootstrap`.
-
-A virada foi esta, e vale citar porque muda tudo: *"nunca gostei de fazer uma arquitetura pensando na MVP e quando crescer mudar; sempre gostei de já da MVP fazer a arquitetura que vai ser mesmo."*
-
-A partir daí a regra passou a ser: **arquitetura definitiva em escala reduzida**, não arquitetura de MVP.
+Uma decisão registrada aqui representa a arquitetura adotada até que seja explicitamente revisada. Quando uma decisão mudar, o documento deve refletir a nova arquitetura atual; o motivo da mudança e a alternativa anterior devem ser preservados no histórico.
 
 ---
 
@@ -34,21 +26,15 @@ A partir daí a regra passou a ser: **arquitetura definitiva em escala reduzida*
 
 **Decisão.** Uma goroutine possui o `GameState`. A rede coloca comandos num channel; só o game loop modifica o estado.
 
-```
+```text
 WS 1 ─┐
 WS 2 ─┼──► commands chan ──► Game Loop ──► GameState
 WS 3 ─┘
 ```
 
-**Por quê.** Com estado compartilhado protegido por mutex, toda função carrega perguntas: quem segura o lock, por quanto tempo, posso fazer I/O segurando, posso publicar evento segurando. Com ownership, a pergunta vira uma só — *isto está rodando no game loop?* — e sumiu uma classe inteira de bug.
+**Por quê.** O jogo é naturalmente sequencial — comando, valida, transiciona, evento. A posse exclusiva do estado evita que cada operação precise coordenar locks e permite que dois comandos de craft do mesmo jogador sejam processados em ordem, sem observarem o mesmo saldo simultaneamente.
 
-E há um ganho concreto: dois comandos de craft do mesmo jogador nunca veem o mesmo saldo, porque a fila serializa.
-
-**Descartado: mutex no estado principal.** Não está errado, e foi a primeira proposta. Perde porque o jogo é naturalmente sequencial — comando, valida, transiciona, evento. Mutex continua válido para infraestrutura genuinamente compartilhada: registro de conexões, sessões, métricas, cache.
-
-**Descartado: Actor Model.** Uma goroutine por jogador ou por zona. Ganha isolamento e caminho para distribuição; custa mailbox, ciclo de vida, supervisão e troca de mensagens entre atores para uma ação trivial. Fica como evolução possível **quando aparecer contenção medida**, não antes.
-
-**Limite conhecido.** Um loop único é um gargalo global. Para a escala atual, excelente. Para dezenas de milhares de jogadores simultâneos, vai exigir particionar estado — o que é bem diferente de começar com microserviço.
+**Limite conhecido.** Um loop único é um gargalo global. Para a escala atual, ele mantém o modelo simples. Se surgir contenção real, o estado poderá ser particionado; isso é diferente de introduzir microserviços antecipadamente.
 
 ---
 
@@ -67,7 +53,7 @@ for {
 }
 ```
 
-**Por quê.** `Tick` não é pedido do cliente. Tratá-lo como `Command` funciona, mas confunde quem lê — parece que o tempo é uma solicitação externa.
+**Por quê.** `Tick` não é pedido do cliente. Tratá-lo como `Command` funciona, mas confunde a origem da operação — o tempo é responsabilidade do servidor.
 
 **Nota.** O ticker não é o relógio do jogo; o relógio é `time.Time`. O ticker só pergunta se algo já venceu. Por isso o engine deve **receber `now` como parâmetro** em vez de chamar `time.Now()` internamente: isso torna o núcleo testável e determinístico.
 
@@ -77,7 +63,7 @@ for {
 
 **Decisão.**
 
-```
+```text
 data/*.json  →  gamedata  →  bootstrap  →  game
    dados      definições    montagem    runtime
 ```
@@ -86,9 +72,9 @@ data/*.json  →  gamedata  →  bootstrap  →  game
 - `game` é o domínio e o estado. Não lê JSON.
 - `bootstrap` conecta os dois.
 
-**Por quê.** Houve uma versão em que `gamedata` construía `game.Zone` diretamente, e ela até funcionou melhor que a alternativa da época. Foi descartada porque criava duas responsabilidades no mesmo pacote — interpretar formato de arquivo e construir objeto de domínio — e porque **definição estática e estado mutável têm ciclos de vida diferentes**. Um `GameData` que guarda objetos de runtime não é mais "data".
+**Por quê.** Definição estática e estado mutável têm ciclos de vida diferentes. A camada de dados interpreta o formato dos arquivos; o domínio trabalha com o runtime; o bootstrap faz a composição entre os dois.
 
-**Formato dos arquivos.** **Um arquivo por tipo de entidade**, não por contexto de uso nem por instância. Categorias como chave dentro do arquivo. Dividir quando o arquivo mistura tipos diferentes ou passa de umas quinhentas linhas — nunca por instância.
+**Formato dos arquivos.** **Um arquivo por tipo de entidade**, não por contexto de uso nem por instância. Categorias podem existir como chaves dentro do arquivo. Dividir quando o arquivo mistura tipos diferentes ou passa de umas quinhentas linhas — nunca por instância.
 
 **`data/` fica fora do backend**, na raiz do monorepo, porque é conteúdo do jogo e não configuração de servidor. Configuração do servidor e migrations ficam em `backend/`.
 
@@ -100,7 +86,7 @@ data/*.json  →  gamedata  →  bootstrap  →  game
 
 **Decisão.** `main` é quase vazio. `bootstrap` monta tudo e devolve uma `Application` com `Run()` e `Shutdown()`.
 
-```
+```text
 main → bootstrap.New() → Application
          ├── gamedata.Load()
          ├── construir World
@@ -110,11 +96,9 @@ main → bootstrap.New() → Application
          └── game loop
 ```
 
-**Por quê.** Existe uma responsabilidade real que não é de ninguém mais: **compor a aplicação e conectar dependências**. Sem ela, ou o `main` vira um composition root gigante, ou `gamedata` e `game` passam a se conhecer.
+**Por quê.** Existe uma responsabilidade real de composição que não pertence a outro componente: conectar as dependências e montar a aplicação. Sem essa fronteira, `main` cresce ou as camadas passam a conhecer infraestrutura que não deveriam conhecer.
 
-**Descartado: um arquivo de bootstrap por componente.** `bootstrap/server.go`, `bootstrap/postgres.go`, `bootstrap/websocket.go` transformam o pacote numa coleção de builders. Separar só quando uma montagem específica ficar realmente complexa.
-
-**Direção de dependência:** `bootstrap` conhece todo mundo; ninguém conhece `bootstrap`; o domínio não conhece infraestrutura.
+**Direção de dependência:** `bootstrap` conhece os componentes que precisa montar; os componentes não dependem de `bootstrap`; o domínio não conhece infraestrutura.
 
 ---
 
@@ -122,14 +106,14 @@ main → bootstrap.New() → Application
 
 **Decisão.** Conta, autenticação e sessão ficam **fora** do Game Core.
 
-```
+```text
 Criar conta:  HTTP → Handler → Service → Repository → Postgres
 Jogar:        WS → Command → Game Core → State → Event → WS
 ```
 
-**Por quê.** São problemas diferentes e merecem fluxos diferentes. Conta é identidade persistente e CRUD legítimo; o jogo é transição de estado autoritativa. **Arquitetura não significa forçar toda feature pelo mesmo caminho.**
+**Por quê.** São problemas diferentes e merecem fluxos diferentes. Conta é identidade persistente e CRUD legítimo; o jogo é transição de estado autoritativa. Arquitetura não significa forçar toda feature pelo mesmo caminho.
 
-E o banco participa do caminho da criação de conta, o que é correto — mas não deve participar do caminho crítico do game loop.
+O banco participa do caminho da criação de conta, mas não deve participar do caminho crítico do game loop.
 
 ---
 
@@ -139,15 +123,11 @@ E o banco participa do caminho da criação de conta, o que é correto — mas n
 
 **Por quê o corte é aí.** Tudo antes da entrada precisa funcionar sem conexão aberta e é naturalmente requisição e resposta. Tudo depois é bidirecional e contínuo.
 
-**Por quê comandos vão pelo WebSocket.** A conexão já está aberta; usar HTTP em paralelo exigiria autenticar duas vias. E o mais importante é **ordenação**: comando e evento no mesmo canal garantem que o cliente nunca receba um resultado antes da confirmação do que pediu. Em web, evita ainda preflight e overhead por requisição.
+**Por quê comandos vão pelo WebSocket.** A conexão já está aberta e o mesmo canal carrega comandos e eventos, preservando a ordenação da comunicação entre o jogador e o núcleo. Em web, isso também evita manter um fluxo de polling paralelo para o gameplay.
 
-**Descartado: tudo por HTTP com polling.** Funcionaria para coleta, mas quebra em combate, onde o servidor produz eventos espontaneamente por minutos. Polling em web é caro em latência e bateria.
+**Isto é decisão de transporte, e é reversível.** O Game Core não conhece HTTP ou WebSocket — ambos são adaptadores que produzem `Command`.
 
-**Descartado: WebSocket desde o login.** Autenticação é requisição e resposta; abrir socket antes de existir sessão complica sem ganho.
-
-**Isto é decisão de transporte, e é reversível.** O Game Core não conhece nenhum dos dois — ambos são adaptadores que produzem `Command`.
-
-**Queda de conexão não interrompe nada.** O estado vive no servidor; reconectar é refazer a entrada no mundo e receber o snapshot. **O WebSocket não é o estado do jogador.**
+**Queda de conexão não interrompe o estado do jogo.** O estado vive no servidor; a conexão é apenas o canal de comunicação.
 
 ---
 
@@ -155,11 +135,11 @@ E o banco participa do caminho da criação de conta, o que é correto — mas n
 
 **Decisão.** O servidor **nunca manda posição**. Layout de terreno, onde fica cada nó, onde nascem os mobs, pathing, colisão, câmera e animação são inteiramente do cliente.
 
-O servidor diz *"você está coletando o nó `wood_01` da zona X, termina às 14:32"*. O cliente sabe onde `wood_01` fica no terreno dele e anima o personagem andando até lá.
+O servidor informa, por exemplo, que o personagem está coletando o nó `wood_01` da zona X e informa o estado temporal da atividade. O cliente sabe onde `wood_01` fica no terreno dele e anima o personagem andando até lá.
 
-**Por quê.** O combate não tem posicionamento — "área" significa número de alvos, não formato nem alcance. Sem posicionamento, posição é pura apresentação. Mandar coordenada seria pagar banda e complexidade por algo que não afeta nenhuma regra.
+**Por quê.** O combate não tem posicionamento — "área" significa número de alvos, não formato nem alcance. Sem posicionamento como regra de jogo, posição é apresentação. Mandar coordenada adicionaria banda e complexidade sem alterar o resultado autoritativo.
 
-**Consequência.** Layout de zona é **conteúdo estático versionado**, distribuído com o cliente. E fica claro o que nunca sai do servidor: dano, prata, drop, Fama, durabilidade e **o sorteio do elite**. O cliente recebe quais mobs nasceram e instancia os modelos que já tem.
+**Consequência.** Layout de zona é **conteúdo estático versionado**, distribuído com o cliente. O servidor continua responsável por dano, prata, drop, Fama, durabilidade e demais regras de gameplay.
 
 ---
 
@@ -167,23 +147,21 @@ O servidor diz *"você está coletando o nó `wood_01` da zona X, termina às 14
 
 **Decisão.** O jogador escolhe um grupo na zona e ele nasce como **onda fechada**. Só nasce a próxima quando a onda inteira morre. O servidor **resolve a luta completa e envia a linha do tempo pronta**; o cliente apenas anima.
 
-**Por quê.** Numa primeira versão o combate era contínuo, com mob nascendo a cada morte. Isso tornava a luta **aberta**, sem fim previsível, e obrigava o servidor a enviar lotes adiantados de alguns segundos por vez para o cliente não engasgar com a jitter da rede.
+**Por quê.** A onda fechada permite que uma luta seja resolvida como um lote com começo e fim definidos. Isso reduz a necessidade de manter o servidor enviando pequenos lotes de eventos de combate continuamente.
 
-Com onda fechada, o problema some: **cada onda já é um lote.** O servidor resolve, envia uma vez, e o cliente anima com folga total. Menos mensagem, menos estado intermediário, animação que nunca pisca.
-
-**Teto de 50 rodadas por onda.** Se estourar, a luta termina em **impasse**: ninguém morre, não há loot dos sobreviventes, e o jogador volta ao terreno da zona. É limite de segurança contra luta que não fecha, e limita o tamanho da linha do tempo que trafega.
+**Teto de 50 rodadas por onda.** Se estourar, a luta termina em **impasse**: ninguém morre, não há loot dos sobreviventes, e o jogador volta ao terreno da zona. É limite de segurança contra luta que não fecha e limita o tamanho da linha do tempo que trafega.
 
 **Parar no meio.** Se o jogador mandar parar, o servidor corta a linha do tempo no ponto certo e envia o resultado final. O que não foi animado simplesmente não aconteceu.
 
-**Nada é decidido no cliente.** Ele recebe o futuro já resolvido e apenas o representa.
+**Nada é decidido no cliente.** Ele recebe o resultado resolvido e apenas o representa.
+
+---
 
 ## Decisão 9 — Tópicos, não salas
 
 **Decisão.** Uma conexão por jogador, sempre. O servidor **inscreve** essa conexão em tópicos — zona, guilda, global — conforme o jogador se move. Mudar de zona é trocar de inscrição.
 
-**Por quê.** "Sala" tende a virar objeto com estado e goroutine própria, e isso é **Actor Model entrando pela porta dos fundos**, contra a Decisão 1. Tópico é apenas uma lista de conexões para fan-out; sala seria dona de estado.
-
-A conexão pertence ao jogador, não ao lugar.
+**Por quê.** Tópico é apenas uma estrutura para fan-out de mensagens. A conexão pertence ao jogador, não ao lugar, e o tópico não se torna dono de estado de gameplay.
 
 ---
 
@@ -193,13 +171,9 @@ A conexão pertence ao jogador, não ao lugar.
 
 **Por quê.** `UPDATE` a cada tick transforma o banco numa extensão lenta da RAM.
 
-**O que salvar.** Estado suficiente para reconstruir, não o loop. Se a atividade termina às 10:05 e o servidor reinicia às 10:03, o `EndsAt` persistido faz o engine simplesmente continuar. **Essa propriedade é especialmente valiosa num idle.**
+**O que salvar.** Estado suficiente para reconstruir, não o loop. Se a atividade termina às 10:05 e o servidor reinicia às 10:03, o `EndsAt` persistido permite que o engine continue a partir do estado salvo.
 
-**Simplificação aceita.** O fluxo comando → muta → salva → publica pode ficar inconsistente se o banco falhar depois do evento ter saído. Aceitável agora; em produção exige transação, ordenação, retry ou outbox.
-
-**Descartado: Event Sourcing.** Eventos existem como contrato entre núcleo e rede. Isso não os torna a fonte de verdade persistente. São coisas diferentes.
-
-**Descartado: Redis, Kafka, NATS, microserviço, sharding.** Nenhum resolve um problema que existe hoje.
+**Simplificação atual.** O fluxo comando → muta → salva → publica pode ficar inconsistente se o banco falhar depois do evento ter saído. Isso é uma simplificação do estudo; em uma implementação de produção, transação, ordenação, retry ou outbox podem ser necessários conforme os requisitos.
 
 ---
 
@@ -223,7 +197,7 @@ Interfaces **pequenas e definidas no consumidor**. `account.Repository` existe p
 
 ## Estrutura
 
-```
+```text
 eras-do-brasil/
 ├── backend/
 │   ├── cmd/server/main.go
@@ -246,7 +220,7 @@ eras-do-brasil/
 
 ## Deliberadamente não decidido
 
-- Particionamento de estado e sharding. Só com contenção medida.
+- Particionamento de estado e sharding.
 - Transação, outbox e recuperação na persistência.
 - Formato de wire do WebSocket — JSON ou binário.
 - Como o cliente versiona e baixa o conteúdo estático.
