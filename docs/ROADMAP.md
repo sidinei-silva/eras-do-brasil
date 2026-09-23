@@ -1,18 +1,16 @@
-# Roadmap - Eras do Brasil Idle
+# Roadmap — Eras do Brasil Idle
 
-> Nível macro. Cada **fase** entrega um estado jogável novo - algo que o
+> Nível macro. Cada **fase** entrega um estado jogável novo — algo que o
 > jogador passa a poder fazer e não podia antes. Dentro de cada fase, o
-> detalhe fica no `BACKLOG.md` dela, organizado em **fatias** (slices).
-> Fatia é a unidade que vira Milestone no github - ver
-> [BACKLOG.md](backlog/00-poc/BACKLOG.md) para detalhes.
-
+> detalhe fica no `BACKLOG.md` dela, organizado em **fatias**.
+> A fatia é a unidade de trabalho que pode virar Milestone no GitHub.
 
 ## Fases
 
-### Fase 0 - POC
+### Fase 0 — PoC
 
-Poc validada quando: 
-1. O jogador completa os passos do tutorial sem travar
-2. O loop fecha: zona -> ação -> recurso e fama -> novo conteúdo
+A PoC valida o fluxo inicial do jogo de ponta a ponta, evoluindo
+incrementalmente da infraestrutura de conta e personagem até a entrada
+no mundo e os primeiros sistemas necessários para o fluxo inicial.
 
 → [backlog/00-poc/BACKLOG.md](backlog/00-poc/BACKLOG.md)
