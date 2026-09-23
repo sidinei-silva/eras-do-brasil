@@ -1,15 +1,35 @@
 # Como promover dado
 
-`data/` e `design/` não são a mesma coisa, e confundir os dois foi o que inflou os arquivos.
+`data/` e `design/` não são a mesma coisa, e confundir os dois foi o que
+inflou os arquivos.
 
-| Pasta | O que é | Quem lê |
-|---|---|---|
-| `data/` | o que o servidor **vai carregar**; a regra vale a partir de agora | o código |
-| `design/` | o que já foi projetado e **ainda não é carregado** | você |
+| Pasta     | O que é                                                           | Quem lê    |
+| --------- | ----------------------------------------------------------------- | ---------- |
+| `data/`   | o que o servidor **vai carregar**; a regra vale a partir de agora | `gamedata` |
+| `design/` | o que já foi projetado e **ainda não é carregado**                | você       |
 
-**Regra:** nada entra em `data/` antes de existir código que o leia.
+**Regra:** `data/` só deve conter conteúdo para o qual exista código
+responsável por carregá-lo e representá-lo.
 
-Hoje nenhum código lê `data/`. A primeira fatia que ler será a de entrar no mundo.
+O fluxo é:
+
+```text
+design
+   ↓
+data
+   ↓
+gamedata
+   ↓
+bootstrap
+   ↓
+game
+```
+
+- `design/` contém conteúdo já projetado, mas ainda não carregado pelo servidor.
+- `data/` contém o conteúdo que já pode ser carregado pelo servidor.
+- `gamedata` carrega e representa os dados estáticos. Não conhece `game`.
+- `bootstrap` conecta os dados carregados ao runtime.
+- `game` usa as definições para construir e operar o estado do jogo.
 
 ---
 
@@ -38,7 +58,7 @@ O passo 3 é o que mais dá errado. Uma habilidade T2 pode listar armas de T3 no
 
 ## O que está em `design/` hoje
 
-```
+```text
 design/
   catalog/     armas, habilidades, materiais e equipamento de T3 a T6
   era-1/       as 22 zonas, 43 mobs, 17 NPCs e 3 facções da Era 1
@@ -46,7 +66,7 @@ design/
 
 ## O que está em `data/`
 
-```
+```text
 data/
   shared/   trees, armor, traditions, equipment, destiny, balance, continents, materials, skills, weapons
   mvp/      zones, mobs, npcs, factions, recipes, tutorial
@@ -73,4 +93,4 @@ Promover `design/era-1/` para `data/era1/` e o catálogo de T3 a T6 para `data/s
 `docs/dados-do-mvp.md` diz o que o MVP terá **quando estiver completo**.
 `data/` diz o que já entrou para o servidor carregar.
 
-Os dois divergem durante o desenvolvimento, e isso é esperado. Quem mede o progresso é o backlog.
+Os dois divergem durante o desenvolvimento, e **isso é esperado**. Quem mede o progresso é o backlog.
