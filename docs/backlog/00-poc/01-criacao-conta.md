@@ -2,8 +2,7 @@
 
 **Status:** concluída
 
-**Entrega:** o jogador vai conseguir criar uma conta no jogo. Só backend
-por enquanto — o cliente em Godot ainda está em estudo.
+**Entrega:** o jogador consegue criar uma conta no jogo.
 
 ## Servidor
 

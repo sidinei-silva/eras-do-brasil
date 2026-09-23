@@ -1,58 +1,73 @@
-# Fatia 4 - Entrar no mundo (Backend)
+# Fatia 4 — Entrar no mundo (Backend)
 
-Status: não iniciada
+**Status:** não iniciada
 
-Depende:
-- Fatia 2 — autenticação
-- Fatia 3 — criação de personagem
+**Depende de:**
+- Fatia 2 — Login
+- Fatia 3 — Criação de personagem
 
-Entrega:
-O jogador autenticado consegue entrar no mundo
-com um personagem criado.
+**Entrega:** o jogador autenticado consegue entrar no mundo com um personagem criado.
 
 ## Pré-requisitos
 
 ### Identidade
+
 - Auth/JWT funcionando
 - Middleware de autenticação funcionando
-- AccountID disponível no contexto
+- `AccountID` disponível no contexto
 
 ### Personagem
-- Character definido
-- CharacterRepository definido
-- CharacterService definido
+
+- `Character` definido
+- `CharacterRepository` definido
+- `CharacterService` definido
 - Personagem persistido
-- Validação de ownership Account → Character
+- Validação de ownership entre conta e personagem
 
 ### Mundo
-- GameData carregado
-- World criado
-- World disponível em runtime
+
+- `GameData` carregado
+- `World` criado
+- `World` disponível em runtime
 
 ### Game
-- Game criado
-- GameState criado
+
+- `Game` criado
+- `GameState` criado
 - Game loop/tick criado
 
 ## Fluxo
 
-Client
-→ autenticação
-→ seleção de personagem
-→ EnterWorld
-→ Game
-→ GameState
-→ estado inicial do personagem
+```text
+HTTP
+  │
+  ├── autenticação
+  ├── seleção de personagem
+  └── EnterWorld
+          │
+          ▼
+        Game
+          │
+          ▼
+      GameState
+          │
+          ▼
+   estado inicial
+          │
+          ▼
+      WebSocket
+```
 
 ## Servidor
 
-- Criar World
-- Criar GameState
-- Criar Game
-- Criar tick
-- Criar operação EnterWorld
-- Validar CharacterID
-- Validar ownership
-- Criar estado runtime do personagem
-- Registrar personagem no GameState
-- Retornar estado inicial
+- [x] Criar `World`
+- [x] Criar `Game`
+- [ ] Criar `GameState`
+- [ ] Criar game loop/tick
+- [ ] Implementar entrada no mundo
+- [ ] Validar `CharacterID`
+- [ ] Validar ownership entre conta e personagem
+- [ ] Criar estado runtime do personagem
+- [ ] Registrar personagem no `GameState`
+- [ ] Retornar o estado inicial
+- [ ] Estabelecer o WebSocket após a entrada no mundo
