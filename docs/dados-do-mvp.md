@@ -1,251 +1,408 @@
 # Dados e sistemas do MVP
 
-Inventário completo do que precisa existir para o MVP rodar, e o que é conteúdo da Era 1 e fica para depois.
-
-**O MVP é a ilha da Travessia**: quatro zonas, T1 e T2, banda segura, no modelo do tutorial do Albion. Não é um recorte da Era 1 — é conteúdo próprio e desacoplado. Por isso não se chama mais PoC: dá para testar o loop inteiro nela.
-
-**A ilha não pertence a era nenhuma.** É o meio do caminho, montado pela Raiz com pedaço de tudo. Ninguém é de lá, e não se volta a ela depois de atravessar.
+> **Estado do documento:** este arquivo descreve o recorte de dados do MVP, a separação entre dados compartilhados e conteúdo por escopo e a forma como esses dados entram no servidor. Os detalhes de conteúdo pertencem aos arquivos JSON; este documento não é uma segunda fonte de verdade para eles.
+>
+> Histórico de modelagem, alternativas descartadas e versões anteriores pertencem a `docs/historico-e-estudos.md`.
 
 ---
 
-## Os arquivos, em três escopos
+## 1. Escopo do MVP
 
-### Compartilhado — vale para o jogo inteiro
+O MVP é **A Travessia**: uma ilha tutorial composta por quatro zonas, trabalhando com T1 e T2.
 
-| Arquivo                         | Conteúdo                                                                                |
-| ------------------------------- | --------------------------------------------------------------------------------------- |
-| `continents.json`               | os três continentes: Travessia, As Eras e O Emaranhado                                  |
-| `materials.json`                | materiais T1 e T2 que o MVP usa, brutos e refinados, e **qual ferramenta cada tipo exige** |
-| `trees.json`                    | 3 árvores, pool de Q, W e passivas, e a estrutura de slots do loadout                   |
-| `skills.json`                   | as habilidades de T1 e T2, num arquivo só; o resto está em `design/catalog/`            |
-| `traditions.json`               | as três tradições de equipamento — estilo, não facção política                          |
-| `armor.json`                    | 4 linhas (crua, pesada, média, leve), peças e bônus de conjunto                         |
-| `equipment.json`                | montarias, bolsas e ferramentas                                                         |
-| `destiny.json`                  | a Árvore do Destino: quatro ramos e os nós                                              |
-| `balance/combat.json`           | constantes de combate, energia, fuga, retirada e regras de combate                      |
-| `balance/economy.json`          | constantes de coleta, refino, craft, durabilidade, prata, carga e estações              |
-| `balance/progression.json`      | constantes de fama, afinidade, Árvore do Destino e ferramentas                          |
-| `sim.py`                        | simulador — **desatualizado**, será reescrito; deve ler as constantes de `balance/`     |
+Ela é conteúdo próprio e desacoplado da Era 1.
 
-**Sistema é compartilhado por definição.** Era nova nunca traz árvore de skill nova nem linha de armadura nova — traz armas, peças e conteúdo.
+A Travessia não pertence a uma era histórica específica. É o espaço de passagem construído pela Raiz para o início da jornada do jogador.
 
-### MVP — a ilha da Travessia
+A ilha é segura:
 
-| Arquivo         | Conteúdo                                               |
-| --------------- | ------------------------------------------------------ |
-| `zones.json`    | 4 zonas, 4 conexões, 6 acampamentos, recursos por zona |
-| `factions.json` | as facções da ilha                                     |
-| `mobs.json`     | 6 mobs, um deles mini-chefe — só bestiário             |
-| `npcs.json`     | 3 NPCs com diálogo                                     |
-| `recipes.json`  | 8 coletas, 4 refinos, 24 crafts                        |
-| `tutorial.json` | 18 passos, como máquina de estados                     |
+- não há PvP;
+- não há perda de equipamento;
+- o conteúdo de risco do jogo completo fica fora deste escopo.
 
-### Era 1 — conteúdo posterior, em `design/era-1/`
+O MVP deve validar o loop fundamental:
 
-| Arquivo         | Conteúdo                                          |
-| --------------- | ------------------------------------------------- |
-| `zones.json`    | 22 zonas, 44 conexões, 5 regiões, 33 acampamentos |
-| `mobs.json`     | 43 mobs — só bestiário                            |
-| `npcs.json`     | 17 NPCs                                           |
-| `factions.json` | 3 facções e 2 grupos independentes                |
-
----
-
-## As quatro zonas
-
-| Zona                  | Papel                                | Equivalente no Albion | Tier |
-| --------------------- | ------------------------------------ | --------------------- | ---- |
-| **A Beira**           | onde nasce, o Língua, o mini-chefe   | The Lighthouse        | T1   |
-| **Porto de Passagem** | vila, mercado, estações, a Barqueira | The Cove              | T1   |
-| **Mata Revirada**     | madeira e couro                      | The Forgotten Woods   | T2   |
-| **Pedreira Torta**    | fibra e minério                      | Mountain Fort         | T2   |
-
-A saída de A Beira é liberada pelo passo 8 do tutorial, que exige o mini-chefe — o gate é do tutorial, não da conexão. Toda a ilha é banda segura: sem PvP e sem perda.
-
----
-
-## Materiais
-
-### T1 — sem ferramenta
-
-Seixo de praia, pau-mole e couro de capivara. **Essa exceção é o que dá partida ao sistema** — sem ela você precisaria de ferramenta para fazer ferramenta.
-
-Couro de capivara é esfolado de qualquer bicho T1 morto, em qualquer zona.
-
-### T2 — exigem ferramenta
-
-| Material       | Ferramenta      | Onde           |
-| -------------- | --------------- | -------------- |
-| Pau-brasil     | machado         | Mata Revirada  |
-| Couro de veado | faca de esfolar | Mata Revirada  |
-| Algodão-bravo  | foice           | Pedreira Torta |
-| Ferro-de-brejo | picareta        | Pedreira Torta |
-
-### Refinados T2
-
-Tábua de pau-brasil, couro curtido, pano de algodão e barra de ferro. **No T1 não há refino** — os brutos vão direto para o craft, e a cascata começa no T2.
-
----
-
-## Itens
-
-### Armas
-
-| Item              | Tier | Árvore          | Craft                 |
-| ----------------- | ---- | --------------- | --------------------- |
-| Lâmina Crua       | T1   | Físico          | seixo + pau-mole      |
-| Broquel Cru       | T1   | off-hand        | seixo                 |
-| Espada de lado    | T2   | Físico          | barra + couro curtido |
-| Zarabatana        | T2   | Projétil        | tábua                 |
-| Cabaça de Boitatá | T2   | Mágico          | barra + tábua         |
-| Rodela            | T2   | off-hand físico | barra + tábua         |
-| Patuá             | T2   | off-hand mágico | pano + couro curtido  |
-
-T1 é sucata sem tradição, e é onde o jogador aprende a forjar. **A tradição só aparece no T2**, e escolher a arma é a primeira decisão de identidade do jogo.
-
-### Armaduras
-
-**T1, linha crua:** Capuz, Colete e Botina. Craft com couro de capivara, uma habilidade cada, sem passiva.
-
-**T2, três linhas:** pesada (morrião, couraça, grevas), média (cocar, escaupil, alpercatas) e leve (carapuça, manto de retalhos, sandálias). Duas ativas e uma passiva por peça, com bônus de conjunto.
-
-### Ferramentas e transporte
-
-Machado, picareta, foice e faca de esfolar, todas T1 de seixo mais pau-mole. Bolsa de couro T2, que **cai do mini-chefe**. Mula T2, **comprada no mercado**.
-
----
-
-## A diferença deliberada em relação ao Albion
-
-No tutorial do Albion várias peças são **entregues prontas**: o jogador nasce com jaqueta e sapatos, acha um capacete num baú, ganha o escudo e ganha duas das quatro ferramentas.
-
-Aqui **o jogador coleta e fabrica tudo**: as três peças T1, as quatro ferramentas, a arma T2 e o conjunto T2 inteiro. Só a bolsa vem de drop e só a montaria é comprada.
-
-Isso alonga o tutorial e é o ponto — o MVP existe para testar o loop de coletar, refinar e forjar, não para ser rápido.
-
----
-
-## Os 18 passos
-
-Acordar sem nada → pedra e pau → a primeira lâmina → primeiro combate → couro de bicho → vestido do jeito que dá → o broquel → o que não passou (mini-chefe, bolsa) → o Porto → a mula → quatro ferramentas → Mata Revirada → Pedreira Torta → refinar → a Árvore do Destino → a escolha da tradição → você é o que veste → a travessia.
-
-Cada passo em `mvp/tutorial.json` tem gatilho de entrada, condição de conclusão, o que ensina, o que libera e o que dá de recompensa. **Está em dado e não em código** para poder ser ajustado sem recompilar.
-
----
-
-## Cobertura de sistemas
-
-| Sistema                               | Passo   |
-| ------------------------------------- | ------- |
-| Equipar e inventário                  | 3       |
-| Combate, onda fechada e ataque básico | 4       |
-| Slots, prioridade e energia           | 3, 16   |
-| Coleta sem ferramenta                 | 2, 5    |
-| Craft                                 | 3, 6, 7 |
-| Slots de armadura                     | 6       |
-| Off-hand                              | 7       |
-| Mini-chefe e recompensa               | 8       |
-| Mercado e armazém                     | 9, 10   |
-| Montaria e carga                      | 10      |
-| Ferramenta destrava recurso           | 11      |
-| Tier de recurso e viagem              | 12, 13  |
-| Refino e cascata                      | 14      |
-| Árvore do Destino, quatro ramos       | 15      |
-| Escolha de tradição e de habilidade   | 16      |
-| Conjunto completo e bônus             | 17      |
-
----
-
-## Fora do MVP
-
-PvP, perda de item, durabilidade relevante, T3 em diante, artefatos, encantamento e Essência, qualidade, reputação e facções, teleporte, montaria rápida e lenta, estado de zona, migração de mob, economia entre jogadores, e o mundo da Era 1.
-
----
-
-## Contagem
-
-| Categoria                | Quantidade          |
-| ------------------------ | ------------------- |
-| Zonas                    | 4                   |
-| Acampamentos             | 6                   |
-| Materiais em uso         | 11                  |
-| Armas e off-hands        | 7                   |
-| Peças de armadura        | 12                  |
-| Ferramentas e transporte | 6                   |
-| Mobs                     | 6, com 1 mini-chefe |
-| NPCs com diálogo         | 3                   |
-| Receitas                 | 36                  |
-| Passos do tutorial       | 18                  |
-| Modelos 3D               | cerca de 32         |
-
----
-
-## Faseamento
-
-| Escopo       | Conteúdo                          |
-| ------------ | --------------------------------- |
-| **MVP**      | ilha da Travessia, 4 zonas, T1–T2 |
-| Era 1        | 22 zonas, T1–T6, três facções     |
-| Continente 1 | 4 eras, 60 a 100 zonas            |
-| Completo     | mais o Emaranhado, T6–T8          |
-
-
----
-
-## Esquema dos dados
-
-**MVP e Era 1 usam exatamente o mesmo esquema.** A única diferença é o conteúdo.
-
-**Chaves em inglês, valores em português.** Antes havia mistura — `name` e `nome`, `description` e `descricao` no mesmo conjunto.
-
-**Ferramenta mora no material**, não no nó de zona. A zona diz que tem pau-brasil; o catálogo diz que pau-brasil exige machado. Um lugar só.
-
-**Acampamento mora no mapa.** A zona lista os acampamentos que tem, e cada acampamento diz quais mobs e em que tamanho. O arquivo de mobs virou bestiário puro: define o mob uma vez, e o mapa decide onde ele aparece e em que grupo. Antes a relação era bidirecional e redundante.
-
-**Conexão não trava sozinha.** O `requerBossId` saiu: o que libera cada caminho é um passo do tutorial, e no futuro será missão. Gate é um sistema só, e não um campo que aparece numa conexão de um mapa e em nenhuma outra.
-
-### Estrutura de pastas no repositório
-
+```text
+coletar
+   ↓
+produzir
+   ↓
+equipar
+   ↓
+combater
+   ↓
+progredir
+   ↓
+atravessar
 ```
+
+O conteúdo concreto de cada zona, mob, NPC, receita e passo do tutorial é definido nos arquivos de dados correspondentes.
+
+---
+
+## 2. Organização dos dados
+
+Os dados são divididos em dois grandes escopos:
+
+```text
 data/
-  shared/   continents.json materials.json trees.json weapons.json skills.json
-            armor.json equipment.json destiny.json traditions.json
-            balance/  combat.json economy.json progression.json
-  mvp/      zones.json mobs.json npcs.json recipes.json tutorial.json factions.json
+├── shared/       sistemas e catálogos compartilhados
+├── mvp/          conteúdo da Travessia
+└── era1/         conteúdo da Era 1, quando promovido
+
 design/
-  catalog/  skills.json weapons.json materials.json equipment.json   (T3 a T6 e o que é da Era 1)
-  era-1/    zones.json mobs.json npcs.json factions.json
+├── catalog/      conteúdo projetado, ainda não carregado
+└── era-1/        conteúdo da Era 1 ainda não promovido
 ```
 
-**`data/` é o que o servidor vai carregar; `design/` é o que já foi projetado e ainda não entra.** Ao chegar a Era 1, `design/era-1/` vira `data/era1/` e o catálogo de T3 a T6 volta para `data/shared/`. O processo está em `como-promover-dado.md`.
+A regra é:
 
-**Pasta por escopo, não por domínio.** Adicionar a Era 2 é criar uma pasta e copiar a forma; carregar é ler `shared/` mais um pacote de conteúdo. O escopo vira o diretório, e o campo `scope` dentro do arquivo fica só como conferência.
+> **`data/` é o que o servidor carrega. `design/` é o que já foi projetado, mas ainda não entra no runtime.**
 
-Os arquivos de conteúdo têm o mesmo nome em todo escopo (`mvp/zones.json`, `era1/zones.json`); quem carrega escolhe o pacote pela pasta.
-
-
----
-
-## Loadout no MVP
-
-**Seis slots ativos e quatro passivos**, mesmo com poucas habilidades. É a alma do combate e por isso entra desde o MVP.
-
-| Momento               | O que o jogador tem                   |
-| --------------------- | ------------------------------------- |
-| Passo 3, Lâmina Crua  | 1 slot: Ataque, entre dois Q          |
-| Passo 6, armadura T1  | 4 slots: Ataque, Cabeça, Torso, Botas |
-| Passo 16, arma T2     | 6 slots: mais Utilidade e Especial    |
-| Passo 17, conjunto T2 | os 6 ativos mais os 4 passivos        |
-
-**Com poucas habilidades a prioridade já decide.** Uma arma rápida com Q barato no topo bate muitas vezes fraco; uma lenta guardando energia para o Especial bate poucas vezes forte. Isso existe desde o passo 3, com dois Q e uma arma só.
-
-O tutorial ensina o sistema em três momentos: escolher a habilidade do slot (passo 3), ordenar a prioridade (passo 16) e fechar as passivas (passo 17).
-
+O processo de promoção de `design/` para `data/` está documentado em `docs/como-promover-dado.md`.
 
 ---
 
-## Facção de mob
+## 3. Dados compartilhados
 
-**Os Perdidos são a facção do tutorial.** A ilha segue a fórmula do Albion: fauna em qualquer lugar mais **uma** facção de mob.
+Os dados compartilhados representam sistemas ou catálogos que não pertencem exclusivamente a uma era ou ao MVP.
 
-A Beira tem só fauna nos acampamentos, mas o chefe é um Perdido — **o jogador conhece a facção primeiro pelo chefe dela**, e só depois encontra os acampamentos na Mata Revirada e na Pedreira Torta.
+| Arquivo                    | Responsabilidade                                 |
+| -------------------------- | ------------------------------------------------ |
+| `continents.json`          | estrutura dos continentes                        |
+| `materials.json`           | catálogo de materiais e requisitos de ferramenta |
+| `trees.json`               | árvores, habilidades e estrutura de slots        |
+| `skills.json`              | habilidades disponíveis no escopo carregado      |
+| `traditions.json`          | tradições de equipamento                         |
+| `armor.json`               | linhas, peças e conjuntos de armadura            |
+| `equipment.json`           | montarias, bolsas e ferramentas                  |
+| `destiny.json`             | Árvore do Destino e seus ramos                   |
+| `balance/combat.json`      | constantes e regras quantitativas de combate     |
+| `balance/economy.json`     | constantes econômicas                            |
+| `balance/progression.json` | constantes de progressão                         |
+
+O conteúdo efetivo desses arquivos é a fonte de verdade dos valores. Este documento registra apenas **para que cada conjunto de dados existe**.
+
+### Regra de escopo
+
+Sistema é compartilhado por definição.
+
+Uma nova era adiciona conteúdo usando os sistemas existentes; não cria automaticamente uma nova árvore de habilidades, uma nova linha de armadura ou uma cópia paralela do sistema.
+
+Se uma decisão futura alterar essa regra, ela deve ser registrada separadamente como decisão de design.
+
+---
+
+## 4. Conteúdo do MVP
+
+O conteúdo específico da Travessia fica em `data/mvp/`.
+
+| Arquivo         | Responsabilidade                                     |
+| --------------- | ---------------------------------------------------- |
+| `zones.json`    | zonas, conexões, acampamentos e recursos disponíveis |
+| `factions.json` | facções usadas pelo conteúdo do MVP                  |
+| `mobs.json`     | bestiário dos mobs do MVP                            |
+| `npcs.json`     | NPCs e seus dados de diálogo                         |
+| `recipes.json`  | receitas disponíveis                                 |
+| `tutorial.json` | passos e estado do tutorial                          |
+
+O `tutorial.json` representa o tutorial como **máquina de estados**, contendo para cada passo os dados necessários para entrada, conclusão, ensino, desbloqueio e recompensa.
+
+A lógica do servidor interpreta esses dados; os passos não devem virar uma sequência hardcoded no código.
+
+---
+
+## 5. Conteúdo posterior
+
+A Era 1 permanece separada do MVP.
+
+O conteúdo ainda não promovido fica em:
+
+```text
+design/era-1/
+```
+
+Quando chegar o momento de colocá-lo no runtime, o conteúdo será promovido seguindo `docs/como-promover-dado.md`.
+
+A organização planejada é:
+
+```text
+data/
+├── shared/
+├── mvp/
+└── era1/
+```
+
+O mesmo esquema de dados deve ser usado entre MVP e Era 1. O que muda é o conteúdo.
+
+---
+
+## 6. Quatro zonas da Travessia
+
+A Travessia possui quatro zonas com funções distintas no tutorial:
+
+| Zona                  | Função no fluxo                      |
+| --------------------- | ------------------------------------ |
+| **A Beira**           | início da jornada e primeiro combate |
+| **Porto de Passagem** | vila, mercado e estações             |
+| **Mata Revirada**     | primeiro espaço de coleta T2         |
+| **Pedreira Torta**    | segundo espaço de coleta T2          |
+
+Os detalhes de conexões, recursos, acampamentos e gates pertencem a `data/mvp/zones.json`.
+
+A saída de A Beira é controlada pelo fluxo do tutorial. O gate é responsabilidade do sistema de progressão/tutorial, e não uma regra duplicada em cada conexão do mapa.
+
+---
+
+## 7. Materiais e produção
+
+O MVP começa com materiais T1 que podem ser coletados sem ferramenta.
+
+Isso permite iniciar o ciclo:
+
+```text
+material T1
+    ↓
+primeiro equipamento
+    ↓
+ferramentas
+    ↓
+coleta T2
+    ↓
+refino
+    ↓
+equipamento T2
+```
+
+Os materiais, ferramentas exigidas, receitas e estações concretas pertencem aos respectivos arquivos de dados.
+
+Uma regra estrutural importante é:
+
+> **O requisito de ferramenta pertence ao material, não ao nó da zona.**
+
+Assim, o catálogo do material define o requisito uma única vez, enquanto a zona apenas declara que aquele recurso está disponível.
+
+---
+
+## 8. Itens e progressão do tutorial
+
+O MVP utiliza T1 e T2.
+
+A progressão do tutorial apresenta gradualmente:
+
+1. primeiro equipamento;
+2. combate;
+3. armadura;
+4. off-hand;
+5. ferramentas;
+6. coleta T2;
+7. refino;
+8. Árvore do Destino;
+9. escolha de tradição;
+10. conjunto T2;
+11. travessia para fora da ilha.
+
+A composição exata de itens e receitas é definida pelos arquivos de dados.
+
+O objetivo desta documentação é registrar **quais sistemas o MVP precisa exercitar**, não repetir o catálogo de itens.
+
+---
+
+## 9. Cobertura de sistemas
+
+O MVP foi desenhado para exercitar o núcleo dos sistemas que serão reutilizados posteriormente.
+
+| Sistema                     | Exercitado no MVP |
+| --------------------------- | ----------------- |
+| Inventário e equipamento    | sim               |
+| Combate e ataque básico     | sim               |
+| Onda fechada                | sim               |
+| Slots e prioridade          | sim               |
+| Energia                     | sim               |
+| Coleta                      | sim               |
+| Coleta sem ferramenta no T1 | sim               |
+| Ferramentas                 | sim               |
+| Craft                       | sim               |
+| Off-hand                    | sim               |
+| Armadura                    | sim               |
+| Mini-chefe e recompensa     | sim               |
+| Mercado e armazém           | sim               |
+| Montaria e carga            | sim               |
+| Refino                      | sim               |
+| Árvore do Destino           | sim               |
+| Escolha de tradição         | sim               |
+| Conjunto completo           | sim               |
+| PvP                         | não               |
+| Conteúdo T3+                | não               |
+| Artefatos                   | não               |
+| Encantamento e Essência     | não               |
+| Qualidade                   | não               |
+| Reputação                   | não               |
+| Economia entre jogadores    | não               |
+| Mundo da Era 1              | não               |
+
+A tabela serve para registrar **cobertura de escopo**, não para substituir os arquivos que implementam cada sistema.
+
+---
+
+## 10. Modelo de loadout no MVP
+
+O MVP já exercita a estrutura de slots de combate.
+
+A progressão de habilidades ocorre gradualmente:
+
+```text
+primeiro equipamento
+        ↓
+primeiro slot
+        ↓
+armadura
+        ↓
+mais slots
+        ↓
+arma T2
+        ↓
+loadout completo
+```
+
+A prioridade já é relevante mesmo com poucas habilidades.
+
+O catálogo de habilidades e a configuração concreta dos slots pertencem aos dados compartilhados e ao conteúdo do MVP.
+
+---
+
+## 11. Organização estrutural dos arquivos
+
+Algumas regras evitam duplicação entre os dados.
+
+### Chaves
+
+Os arquivos usam chaves em inglês e valores de conteúdo em português.
+
+A intenção é manter uma convenção única entre os arquivos.
+
+### Materiais e ferramentas
+
+O material declara a ferramenta necessária.
+
+```text
+material
+   └── requisito de ferramenta
+```
+
+A zona declara apenas a disponibilidade do recurso.
+
+```text
+zona
+   └── recurso disponível
+```
+
+### Acampamentos e mobs
+
+O bestiário define o mob.
+
+O mapa define onde ele aparece e em qual grupo.
+
+```text
+mobs.json
+   └── definição do mob
+
+zones.json
+   └── acampamento
+        └── grupo
+             └── mob
+```
+
+Isso evita manter uma relação bidirecional e redundante.
+
+### Gates
+
+O desbloqueio de progressão pertence ao sistema que controla a progressão.
+
+Uma conexão do mapa não deve carregar uma segunda implementação paralela da mesma regra de gate.
+
+---
+
+## 12. Esquema por escopo
+
+MVP e Era 1 usam o mesmo formato conceitual de dados.
+
+```text
+shared/
+  sistemas e catálogos compartilhados
+
+mvp/
+  conteúdo da Travessia
+
+era1/
+  conteúdo da Era 1
+```
+
+Os nomes dos arquivos de conteúdo podem se repetir entre escopos:
+
+```text
+mvp/zones.json
+era1/zones.json
+```
+
+O escopo é definido pela pasta que contém o pacote.
+
+Isso permite que o carregador componha:
+
+```text
+shared + pacote de conteúdo
+```
+
+sem precisar criar uma arquitetura diferente para cada era.
+
+---
+
+## 13. O que pertence a este documento e o que não pertence
+
+Este documento deve responder:
+
+- qual é o escopo do MVP;
+- quais pacotes de dados existem;
+- onde cada pacote fica;
+- qual responsabilidade cada arquivo possui;
+- quais sistemas o MVP cobre;
+- como os dados são relacionados;
+- como o conteúdo passa de `design/` para `data/`.
+
+Este documento **não deve duplicar**:
+
+- catálogo completo de itens;
+- números de balanceamento;
+- fórmulas;
+- lista completa de habilidades;
+- estatísticas de mobs;
+- receitas completas;
+- diálogos;
+- detalhes de cada zona;
+- conteúdo histórico de versões anteriores.
+
+Essas informações pertencem aos dados ou aos documentos especializados.
+
+---
+
+## 14. Relação com o histórico
+
+Durante a modelagem do MVP existiram alternativas sobre:
+
+- estrutura de zonas;
+- relacionamento entre mobs, acampamentos e zonas;
+- localização dos requisitos de ferramenta;
+- organização de `data/` e `design/`;
+- gates de conexão;
+- conteúdo inicial do tutorial;
+- composição e quantidade de conteúdo.
+
+Essas decisões só devem permanecer neste documento quando ainda forem necessárias para entender a estrutura atual.
+
+As versões anteriores, alternativas descartadas e a evolução dessas decisões pertencem a:
+
+```text
+docs/historico-e-estudos.md
+```
+
+Assim, este arquivo pode continuar sendo usado como referência do **estado atual dos dados do MVP**, sem transformar cada decisão histórica em uma regra vigente.
