@@ -1,113 +1,108 @@
 # Manual de Direção de Arte — Eras do Brasil
 
-Documento autossuficiente. Serve para produzir assets e para gerar as pranchas de referência.
+Documento de referência para produção visual do jogo e para criação das pranchas de referência.
 
-Substitui os documentos de Design Visual anteriores.
+Este documento descreve **regras visuais e de produção atuais**. Catálogos de conteúdo, listas de itens, criaturas, zonas e valores pertencem aos documentos de design e dados correspondentes.
 
 ---
 
-## 0. Decisões de base
+## 1. Decisões de base
 
-| Decisão | Escolha | Motivo |
-|---|---|---|
-| Estilo | **3D low poly estilizado** | equipamento modular custa uma peça, não uma peça por direção por pose |
-| Engine | **Godot** | cliente fino com backend Go autoritativo; cena pequena; já está no pipeline |
-| Plataforma | **web primeiro**, depois desktop e mobile | migrar de web para desktop é mais fácil que o contrário; web impõe o orçamento desde o começo |
-| Câmera | isométrica fixa, 3/4 | mesma leitura do plano original, sem custo de arte por direção |
-| Ferramenta | **Blender** para modelo e animação | gratuito, exporta glTF direto para Godot |
+| Decisão    | Escolha                                   |
+| ---------- | ----------------------------------------- |
+| Estilo     | **3D low poly estilizado**                |
+| Engine     | **Godot**                                 |
+| Plataforma | **web primeiro**, depois desktop e mobile |
+| Câmera     | isométrica fixa, 3/4                      |
+| Ferramenta | **Blender** para modelo e animação        |
 
-### Por que 3D e não 2D chibi
+### Direção geral
 
-O jogo tem **nove peças de armadura × três linhas × seis tiers** só na Era 1, mais armas e off-hands, e a premissa é que tudo apareça no personagem.
+O 3D deve favorecer a reutilização de personagens, equipamentos, criaturas e cenários.
 
-Em 2D, o custo de uma peça é *peça × direções × poses*: um capacete não é um desenho, são quatro, e mais variantes para os quadros em que a cabeça inclina. Em 3D, o custo de uma peça é **uma peça** — modelada uma vez, plugada no osso, funciona em toda direção, toda animação e toda era.
+O objetivo não é produzir assets altamente detalhados. O objetivo é criar um conjunto modular em que:
 
-A diferença não é de porcentagem. É de ordem de grandeza, e cresce a cada era.
-
-**O custo honesto do 3D não é modelar, é rigging.** Mitigação: um esqueleto humano só, compartilhado por jogador, colono, capanga, feitor, vaqueiro e contrabandista. Paga-se uma vez. Fauna e Encantados precisam dos seus, mas são menos e mais simples.
+- o equipamento seja visível no personagem;
+- as silhuetas sejam reconhecíveis;
+- os assets possam ser reutilizados e combinados;
+- o mesmo esqueleto e as mesmas animações possam atender vários personagens quando apropriado;
+- a produção consiga crescer sem exigir um modelo completamente novo para cada variação.
 
 ### Orçamento técnico
 
-Apertado de propósito, e agora **obrigatório**: web-first significa que o orçamento não é folga, é requisito. Tamanho de build, tempo de carregamento e limitação de threading são o teto real.
+O orçamento visual deve ser definido desde o início porque o projeto é **web-first**.
 
-| Item | Orçamento |
-|---|---|
-| Personagem completo com equipamento | até 3.000 tris |
-| Peça de equipamento | 150 a 500 tris |
-| Mob de fauna | 800 a 1.500 tris |
-| Chefe | até 4.000 tris |
-| Prop de cenário | 50 a 300 tris |
-| Textura | atlas de paleta 256×256, uma por família |
-| Material | sem PBR, sem normal map, sem metal/rough |
+Os valores abaixo são referências de produção atuais:
 
-**Cor vem de atlas de paleta, não de textura pintada.** Um único atlas de 256×256 com faixas de cor atende dezenas de modelos, o que reduz draw call e mantém consistência sozinho.
+| Item                                | Orçamento                                |
+| ----------------------------------- | ---------------------------------------- |
+| Personagem completo com equipamento | até 3.000 tris                           |
+| Peça de equipamento                 | 150 a 500 tris                           |
+| Mob de fauna                        | 800 a 1.500 tris                         |
+| Chefe                               | até 4.000 tris                           |
+| Prop de cenário                     | 50 a 300 tris                            |
+| Textura                             | atlas de paleta 256×256, uma por família |
+| Material                            | sem PBR, sem normal map, sem metal/rough |
 
-**Antes de modelar cem assets:** faça um personagem, uma arma e uma arena e exporte para web. Um dia de trabalho, e você descobre o teto real de polígono e de tamanho de build antes de estar no formato errado.
+**Cor vem de atlas de paleta, não de textura pintada.**
+
+Antes de produzir muitos assets, o pipeline deve ser validado com um personagem, uma peça de equipamento, uma criatura e um pequeno trecho de cenário exportados para a web.
 
 ---
 
-## 1. Fórmula visual
+## 2. Fórmula visual
 
-> **3D LOW POLY + SILHUETA FORTE + CORES CHAPADAS DE PALETA + SOMBRA SIMPLES + EQUIPAMENTO VISÍVEL + ANIMAÇÃO CURTA + CENÁRIO MODULAR + BRASIL COLONIAL**
+> **3D LOW POLY + SILHUETA FORTE + CORES CHAPADAS DE PALETA + SOMBRA SIMPLES + EQUIPAMENTO VISÍVEL + ANIMAÇÃO CURTA + CENÁRIO MODULAR**
 
-Em inglês, para ferramentas de geração: *stylized low poly 3D game art, flat palette colors, chunky readable silhouettes, isometric 3/4 camera, soft ambient light, colonial Brazil setting*.
+Para ferramentas de geração visual:
+
+*stylized low poly 3D game art, flat palette colors, chunky readable silhouettes, isometric 3/4 camera, soft ambient light, Brazilian colonial setting*
 
 ### Princípios
 
 - Estilizado, nunca realista. Forma antes de detalhe.
-- **Silhueta vem antes de tudo.** É o que sobra quando o modelo tem 300 tris.
+- **Silhueta vem antes de tudo.**
 - Paleta limitada por família e por região.
 - Sem textura pintada; cor por face e por atlas.
 - Personagem e equipamento mais limpos que o cenário.
 - Cenário feito de poucas peças reutilizadas muitas vezes.
-- Animação curta e legível: o jogo é idle, mas o mundo não parece parado.
-- Proporção levemente estilizada — cabeça um pouco maior, membros simplificados. Não é chibi extremo, mas também não é realista.
+- Animação curta e legível.
+- Proporção levemente estilizada: cabeça um pouco maior, membros simplificados.
+- A identidade visual deve vir da combinação de personagem, equipamento, zona, materiais e interface, não de complexidade individual de cada asset.
 
 ### Regra de ouro
 
 > **Deve ser simples de modelar, fácil de animar e difícil de confundir com outro jogo.**
 
-A complexidade vem da combinação de personagem, equipamento, zona e interface — nunca de cada asset isolado.
-
-**A armadilha do low poly comprado:** parecer com todo jogo que usou o mesmo pacote. O antídoto é a paleta e o conteúdo — urucum, jenipapo, escaupil, cocar, Curupira. Nenhum pacote tem isso.
-
----
-
-## 2. O jogo, em três frases
-
-MMORPG idle de Brasil colonial. Não há classe: **você é o que veste**, e o equipamento tem que aparecer no modelo.
-
-O jogador não controla movimento. Ele escolhe uma ação na zona e **observa** o personagem executá-la: anda até o nó e entra em loop de coleta, vai para a arena e luta, ou parte em viagem.
-
-A primeira era é **1500 a 1654**, no Nordeste e na Amazônia. Três forças em conflito — a Coroa portuguesa, os povos indígenas e os Encantados do mato. O jogador não é nenhuma das três.
+Low poly comprado pode ser usado como base quando fizer sentido, mas elementos que definem a identidade visual do jogo precisam manter direção própria.
 
 ---
 
 ## 3. Escala e unidades
 
-**1 unidade do Godot = 1 metro.** O personagem define a escala de tudo.
+**1 unidade do Godot = 1 metro.** O personagem define a escala de referência.
 
-| Elemento | Altura |
-|---|---|
-| Personagem base | 1,8 u |
-| Fauna pequena (caranguejo, rato) | 0,4 a 0,8 u |
-| Fauna média (capivara, porco-do-mato) | 1,0 u |
-| Fauna grande (boi, sucuri estendida) | 1,8 a 3,0 u |
-| Encantado comum | 1,6 a 2,2 u |
-| Chefe | 2,5 a 4,0 u |
-| Tile de chão | 2 × 2 u |
-| Árvore pequena | 4 u |
-| Castanheira | 12 u |
-| Oca | 4 × 6 u |
-| Casa de engenho | 8 × 12 u |
+| Elemento                        | Altura                   |
+| ------------------------------- | ------------------------ |
+| Personagem base                 | 1,8 u                    |
+| Fauna pequena                   | 0,4 a 0,8 u              |
+| Fauna média                     | 1,0 u                    |
+| Fauna grande                    | 1,8 a 3,0 u              |
+| Criatura humanoide sobrenatural | 1,6 a 2,2 u              |
+| Chefe                           | 2,5 a 4,0 u              |
+| Tile de chão                    | 2 × 2 u                  |
+| Árvore pequena                  | 4 u                      |
+| Árvore grande                   | até aproximadamente 12 u |
 
-**Tudo alinhado à grade de 0,5 u.** Props e construções encaixam na grade de 2 u do tile.
+**Tudo deve ser alinhado à grade de 0,5 u.** Props e construções devem respeitar a grade adotada pelo cenário.
 
 ### Ícones de interface
 
-Continuam 2D, renderizados do modelo 3D em câmera ortográfica fixa e exportados como PNG. Tamanhos: 24, 32, 48 e 64 px.
+Continuam 2D, mas podem ser renderizados a partir dos próprios modelos 3D em câmera ortográfica fixa e exportados como PNG.
 
-**Renderizar o ícone do próprio modelo é o maior ganho de produção da mudança para 3D.** Nunca desenhe um ícone à mão: monte a cena, aponte a câmera, exporte em lote.
+Tamanhos de referência: 24, 32, 48 e 64 px.
+
+Sempre que possível, o ícone deve derivar do asset real em vez de ser desenhado novamente à mão.
 
 ---
 
@@ -115,132 +110,81 @@ Continuam 2D, renderizados do modelo 3D em câmera ortográfica fixa e exportado
 
 ### Proporção
 
-Cerca de 6 cabeças, com cabeça e mãos levemente aumentadas para leitura à distância. Membros simplificados, sem musculatura definida, rosto com poucos volumes.
+Cerca de 6 cabeças, com cabeça e mãos levemente aumentadas para leitura à distância.
 
-O rosto quase não aparece na câmera isométrica — **não gaste polígono nele.** Gaste em ombro, cabeça e arma, que são o que a silhueta mostra.
+Membros simplificados e rosto com poucos volumes.
+
+O rosto não deve receber polígonos que não contribuam para a leitura na câmera do jogo.
 
 ### Prioridade de leitura
 
-**Silhueta → cor → equipamento → detalhe.** O personagem precisa ser reconhecível a três metros da câmera, em movimento.
+**Silhueta → cor → equipamento → detalhe.**
 
-### O forasteiro
-
-O jogador começa **sem nada**: roupa crua, mãos vazias, nenhuma marca de facção. A identidade é construída peça por peça, e a primeira arma T2 é o primeiro momento em que ele parece de algum lugar.
-
-Curva visual do tutorial: **descartável → equipado → competente → alinhado.**
+O personagem precisa continuar reconhecível em movimento e à distância.
 
 ### Esqueleto
 
-Um esqueleto humano único para todo personagem humanoide do jogo. Ossos essenciais apenas:
+Um esqueleto humano compartilhado deve ser usado para personagens humanoides compatíveis.
 
-```
+Estrutura mínima de referência:
+
+```text
 raiz
   quadril
     coluna → peito → pescoço → cabeça
-      ombro.E → braço.E → antebraço.E → mão.E   ← socket arma
-      ombro.D → braço.D → antebraço.D → mão.D   ← socket off-hand
+      ombro.E → braço.E → antebraço.E → mão.E
+      ombro.D → braço.D → antebraço.D → mão.D
     coxa.E → canela.E → pé.E
     coxa.D → canela.D → pé.D
 ```
 
 ### Sockets de equipamento
 
-Substituem os anchors do plano 2D. Mesma função, custo muito menor.
+Os sockets substituem anchors manuais.
 
-| Socket | Osso | Recebe |
-|---|---|---|
-| `socket_mao_principal` | mão esquerda | arma |
-| `socket_mao_secundaria` | mão direita | off-hand, escudo, tocha, patuá |
-| `socket_cabeca` | cabeça | capacete, cocar, carapuça |
-| `socket_torso` | peito | armadura de torso, manto |
-| `socket_pes` | pé E e D | botas, alpercatas, sandálias |
-| `socket_costas` | peito | mochila, bolsa, estandarte |
+| Socket                  | Recebe                                          |
+| ----------------------- | ----------------------------------------------- |
+| `socket_mao_principal`  | arma                                            |
+| `socket_mao_secundaria` | off-hand, escudo, tocha, acessórios compatíveis |
+| `socket_cabeca`         | equipamentos de cabeça                          |
+| `socket_torso`          | equipamentos de torso                           |
+| `socket_pes`            | botas e equipamentos de pés                     |
+| `socket_costas`         | bolsas, mochilas, estandartes e similares       |
 
-**Toda peça é modelada na origem, na orientação do socket.** Se o pivô estiver certo, a troca é instantânea e nunca precisa de ajuste manual.
+**Toda peça deve ser modelada na origem, na orientação do socket.**
 
-Peças de torso e botas podem ser *skinned* ao mesmo esqueleto em vez de plugadas, quando precisarem deformar com o corpo. Capacete, arma e off-hand são sempre plugados.
+Peças que precisam deformar com o corpo podem usar skinning no mesmo esqueleto. Elementos rígidos devem ser plugados.
 
 ---
 
 ## 5. Equipamento
 
-Equipamento é identidade visual, não número de atributo. O loadout aparece sempre.
+Equipamento é parte da identidade visual do personagem e deve permanecer visível na cena.
 
 ### Regras
 
-- Cada peça com silhueta própria, reconhecível sozinha na tela de inventário.
-- Uma forma básica que possa ser variada muitas vezes.
-- **Evolução de tier muda proporção, material e acabamento — nunca exige modelo do zero.**
-- Arma recebe mais polígono que acessório pequeno.
-- Toda peça usa o socket padrão; pivô na origem, orientação fixa.
+- Cada peça deve possuir uma silhueta própria.
+- A forma básica deve permitir variações.
+- Evoluções de tier devem poder alterar proporção, material e acabamento sem obrigatoriamente exigir um modelo completamente novo.
+- Armas podem receber mais geometria que acessórios pequenos quando isso melhorar a leitura.
+- Toda peça deve usar os sockets e convenções de pivô definidos acima.
 
-### Leitura por tier
+### Evolução visual
 
-| Tier | Leitura |
-|---|---|
-| T1 | sucata: forma tosca, material cru, sem acabamento |
-| T2 | primeira forja: forma limpa, material honesto, tradição reconhecível |
-| T3 | trabalhado: mais volume, marca de oficina |
-| T4–T6 | especializado: silhueta própria da facção, acento de cor exclusivo |
+A leitura visual de progressão deve ser feita principalmente por:
 
-### As nove armas da Era 1
+- forma;
+- proporção;
+- material;
+- acabamento;
+- acessórios;
+- acentos de cor.
 
-| Arma | Árvore | Mãos | Tradição | Entra | Leitura visual |
-|---|---|---|---|---|---|
-| Espada de lado | Físico | uma mão | colonizador | T2 | lâmina reta curta, guarda em cruz simples, punho de madeira escura |
-| Tacape | Físico | duas mãos | indigena | T3 | bloco de madeira densa, seção achatada, gravação geométrica na face |
-| Zarabatana | Projétil | duas mãos | indigena | T2 | tubo longo e fino, quase sem volume — a silhueta é uma linha |
-| Besta de mão | Projétil | uma mão | colonizador | T3 | arco horizontal curto, corpo de madeira, mecanismo visível |
-| Cabaça de Boitatá | Mágico | uma mão | folclorico | T2 | cabaça seca com furos; brasa visível por dentro |
-| Maracá | Mágico | uma mão | folclorico | T3 | cabaça menor em haste, franja de fibra, sementes |
-| Rodela | Físico | off-hand | colonizador | T3 | broquel redondo pequeno, umbo central, borda de ferro |
-| Tocha de breu | Projétil | off-hand | colonizador | T3 | cabo de madeira, breu enrolado no topo, chama baixa |
-| Patuá | Mágico | off-hand | folclorico | T3 | bolsinha de couro costurada, cordão, medalha presa |
-
-**As três do T2 — espada de lado, zarabatana e cabaça de Boitatá — são as primeiras armas do jogo** e aparecem no tutorial. São as três primeiras a modelar.
-
-### As nove peças de armadura
-
-| Peça | Linha | Slot | Tradição | Leitura visual |
-|---|---|---|---|---|
-| Morrião | Pesada | Cabeça | colonizador | capacete de aba curva erguida nas pontas, ferro batido |
-| Couraça | Pesada | Torso | colonizador | peitoral de ferro sobre gibão de couro, rebites visíveis |
-| Grevas | Pesada | Botas | colonizador | bota alta de couro grosso com reforço de ferro na canela |
-| Cocar | Média | Cabeça | indigena | faixa na testa com penas verticais curtas; não é cocar cerimonial grande |
-| Escaupil | Média | Torso | indigena | colete acolchoado de algodão, costura em linhas horizontais marcadas |
-| Alpercatas | Média | Botas | indigena | sandália de couro cru com tiras cruzadas até o tornozelo |
-| Carapuça | Leve | Cabeça | folclorico | capuz de pano solto, borda desfiada, sombra sobre o rosto |
-| Manto de Retalhos | Leve | Torso | folclorico | manto de retalhos costurados em tons diferentes, caimento solto |
-| Sandálias de Piaçava | Leve | Botas | folclorico | solado de fibra trançada, amarração simples |
-
-**O escaupil é peça histórica real** — armadura acolchoada de algodão usada no Brasil colonial pelos dois lados do conflito. Modele como colete grosso costurado, nunca como couro batido.
-
-### Montarias e bolsas
-
-| Item | Leitura visual |
-|---|---|
-| Cavalo de sela | sela portuguesa, arreio simples, porte leve |
-| Mula | carga lateral em dois fardos, passo curto |
-| Boi de carga | carro de boi ou cangalha, volume grande, lento |
-| Bolsa de couro | bolsa simples de tiracolo |
-| Cesto de cipó | cesto trançado alto, carregado nas costas |
-| Surrão de sal | saco de couro grosso, boca amarrada |
+A progressão não deve depender de remodelar integralmente a mesma peça a cada variação.
 
 ### Raridade
 
-Cinco níveis, comunicados por **borda e brilho no ícone e por acento de cor no modelo** — nunca por modelo novo. Comum (cinza), incomum (verde), raro (azul), épico (roxo), lendário (dourado).
-
-### Contagem de assets da Era 1
-
-| Categoria | Quantidade |
-|---|---|
-| Armas e off-hands | 9 |
-| Peças de armadura | 9 |
-| Montarias e bolsas | 6 |
-| Ferramentas | 2 |
-| **Total de equipamento** | **26 modelos** |
-
-Era nova custa 18 modelos: seis armas, três off-hands e nove peças de armadura. Sem esqueleto novo, sem animação nova.
+A raridade deve ser comunicada por **ícone, borda, brilho e acento de cor**, quando aplicável, sem exigir um modelo completamente diferente.
 
 ---
 
@@ -248,41 +192,31 @@ Era nova custa 18 modelos: seis armas, três off-hands e nove peças de armadura
 
 ### Base do mundo
 
-Terrosos, madeira, palha, dourado envelhecido, verdes profundos, azuis dessaturados e roxos espirituais. **Mundo rústico e vivo — não é um mundo sujo nem arruinado.**
+Terrosos, madeira, palha, dourado envelhecido, verdes profundos, azuis dessaturados e roxos espirituais.
 
-### Por facção
+O mundo deve parecer rústico e vivo, não necessariamente sujo ou arruinado.
 
-| Facção | Cores | Materiais |
-|---|---|---|
-| A Coroa | ferro, madeira escura, linho cru, vermelho-tijolo, dourado envelhecido | metal, couro curtido, tecido pesado |
-| Os Potiguara e aliados | urucum (vermelho-laranja), jenipapo (azul quase preto), palha, penas, couro claro | fibra, madeira, osso, pena |
-| Os Encantados | verde profundo, azul místico, roxo espiritual, amarelo-esverdeado de fogo-fátuo | folha, barro, fumaça, brasa |
+### Identidade cultural
 
-Urucum e jenipapo são as duas tintas corporais reais dos povos tupis. São a marca cromática mais forte e mais específica que o jogo tem — use com parcimônia para que não se gaste.
+Materiais, cores e formas devem reforçar a identidade histórica e folclórica brasileira do jogo.
 
-### Por região da Era 1
-
-| Região | Paleta |
-|---|---|
-| Costa do Pau-Brasil | areia clara, verde-mata, azul-mar, e o vermelho da madeira cortada |
-| Mata dos Engenhos | verde denso, terra vermelha, cana verde-clara, fuligem de fornalha |
-| Sertão de Dentro | branco-acinzentado, ocre, verde-seco, céu lavado |
-| Rio das Almas | água escura, várzea verde-clara, madeira molhada |
-| Mata Sem Fim | verde quase preto, luz filtrada em feixe, marrom de castanha |
-
-**A luz muda de região para região.** Costa é luz dura e aberta; Mata Sem Fim é penumbra com feixe vertical. É o recurso mais barato de diferenciação que existe.
+Elementos culturais específicos devem ser tratados como referências de design e não como decoração genérica.
 
 ### Regra prática
 
-Objeto comum: **2 a 3 cores**. Personagem: **3 a 6 cores principais**. Todas vindas do atlas de paleta — nada de cor solta nem gradiente.
+Objeto comum: **2 a 3 cores**.
+
+Personagem: **3 a 6 cores principais**.
+
+Todas devem vir do atlas de paleta sempre que possível.
 
 ### Acentos
 
-Reservados para seleção, progresso, alerta, raridade e recompensa. Nunca decorativos.
+Reservados para seleção, progresso, alerta, raridade e recompensa. Não devem ser usados apenas como decoração.
 
 ### Leitura de recompensa
 
-Recurso, prata e Fama precisam de tratamento visual distinto e consistente, de modo que o jogador saiba o que ganhou sem ler o texto.
+Recursos, prata, Fama e outras recompensas importantes devem possuir tratamento visual consistente para que o jogador reconheça o tipo de ganho sem depender exclusivamente do texto.
 
 ---
 
@@ -290,53 +224,54 @@ Recurso, prata e Fama precisam de tratamento visual distinto e consistente, de m
 
 ### Regras gerais
 
-- Silhueta diferente da do jogador.
-- Formas simples, poucas cores do atlas.
+- Silhueta diferente da do jogador quando a função exigir.
+- Formas simples.
+- Poucas cores do atlas.
 - **Um elemento marcante por tipo**, visível na silhueta.
-- Variações por tier partem do mesmo modelo, com troca de material e acessório.
+- Variações devem partir do mesmo modelo quando isso for adequado.
 
-### As quatro famílias
+### Fauna
 
-**Fauna** — bicho real do Brasil. É o que o jogador mais mata, e por isso precisa ser o mais barato. Nenhum elemento sobrenatural.
+Fauna deve partir de animais reconhecíveis e de formas compatíveis com a direção low poly.
 
-**Gente** — mesmo esqueleto e mesmas animações do jogador, com roupa e ferramenta de trabalho. **A reutilização aqui é total e é o maior ganho de produção do projeto.**
+### Personagens humanos
 
-**Encantados** — formas que não fecham direito: contorno que não se resolve, membro a mais, luz vindo de dentro. **Nunca como monstro de fantasia europeia.**
+Quando compatível, NPCs e inimigos humanos devem reutilizar o mesmo esqueleto e animações do jogador.
 
-**Chefes** — silhueta única, um elemento inconfundível, e um acento de cor que nenhum outro mob usa.
+A diferenciação deve vir principalmente de:
 
-### Elenco da Era 1
+- roupa;
+- equipamento;
+- ferramenta;
+- proporção;
+- acessórios;
+- postura e animação quando necessário.
 
-**Fauna** — 27 modelos
+### Criaturas sobrenaturais
 
-Caranguejo-uçá grande, Bando de atobás, Lama viva, Cria de Ipupiara, Capivara brava, Cão assilvestrado, Macacos-prego, Jacaré-do-papo-amarelo, Garça de sal, Rato-do-canavial, Queixada, Sombra de mata, Teiú de brasa, Fogo-fátuo, Matilha de caça, Bode branco, Cascavel, Espírito de pedra, Morcego-vampiro, Boi bravo, Calango de lajedo, Espírito rachado, Sucuri, Cardume de piranha, Canoa vazia, Bando de guariba, Sombra de igarapé.
+Criaturas sobrenaturais devem possuir uma linguagem própria e não parecer apenas versões de monstros de fantasia medieval europeia.
 
-**Gente** — 8 modelos
+A estranheza pode vir de:
 
-Todos sobre o esqueleto e as animações do jogador: Cortador clandestino, Capanga do canavial, Capanga de espingarda, Feitor, Capitão do mato, Vaqueiro perdido, Remador afogado, Mensageiro de Jurupari.
+- proporções inesperadas;
+- silhuetas incomuns;
+- elementos que parecem deslocados;
+- luz ou material vindo de dentro;
+- combinação controlada de formas familiares.
 
-**Elites** — 2 modelos
+### Chefes
 
-Sucuri anciã, Castanheira velha.
+Cada chefe deve possuir:
 
-**Chefes** — 6 modelos
-
-| Chefe | Elemento marcante |
-|---|---|
-| Curupira | pés virados para trás e cabelo vermelho. A silhueta inteira se resolve pelos pés |
-| Boitatá | corpo é uma linha de brasa; só a cabeça é sólida |
-| Mula sem cabeça | fogo no lugar do pescoço; o resto é cavalo comum |
-| Ipupiara | braços compridos demais para o corpo, sem rosto legível |
-| Anhangá | silhueta de caça com a cor errada |
-| O que fica na borda | não é de nenhuma era; formas que não combinam entre si |
-
-**Os cinco Encantados nomeados estão documentados no século XVI**, por Anchieta e por Gandavo. Não invente aparência genérica para eles.
+- silhueta facilmente identificável;
+- um elemento visual inconfundível;
+- tratamento visual próprio sem abandonar a linguagem low poly do jogo.
 
 ### NPCs
 
-Função comunicada por elemento no modelo e por indicador flutuante: bolsa e balança para comércio, martelo para forja, ferramenta para produção, exclamação para missão.
+A função do NPC deve ser comunicada pelo próprio modelo e por indicadores de interface.
 
-**O Língua**, NPC do tutorial, precisa de um detalhe que sinalize que ele não pertence a nenhum dos três lados: roupa portuguesa gasta com adereço indígena, ou o contrário.
+O modelo não deve depender exclusivamente do texto para dizer ao jogador o que aquele personagem faz.
 
 ---
 
@@ -346,127 +281,180 @@ A regra continua: **parecer cheio sem modelar muito.**
 
 ### Composição mínima de uma zona
 
-Duas ou três pedras, uma ou duas madeiras, uma caixa ou barril, **um elemento exclusivo da zona**, e chão. O elemento exclusivo é o que faz a zona ser ela mesma; todo o resto se reaproveita.
+Poucas peças reutilizáveis devem formar a maior parte do cenário.
+
+Cada zona deve possuir elementos suficientemente específicos para ser reconhecida, enquanto pedras, vegetação, madeira, recipientes e outros props podem ser reutilizados.
 
 ### Terreno
 
-Tile de 2 × 2 u, alinhado à grade. Variação por material do atlas, não por modelo novo. Peças de borda e de desnível para relevo.
+Tile de 2 × 2 u, alinhado à grade.
 
-### Elemento exclusivo por região
+Variações devem vir principalmente de:
 
-| Região | O que só existe ali |
-|---|---|
-| Costa do Pau-Brasil | tora de pau-brasil cortada, vermelha por dentro |
-| Mata dos Engenhos | moenda de cana e a fornalha do engenho |
-| Sertão de Dentro | mandacaru e a cabeça de gado seca |
-| Rio das Almas | canoa de casco escavado |
-| Mata Sem Fim | castanheira de tronco largo demais para o quadro |
+- material;
+- paleta;
+- altura;
+- composição;
+- peças de borda;
+- pequenos props.
 
-### Os três terrenos da zona
+### Terrenos observáveis
 
-O jogador nunca controla movimento, mas a zona tem três espaços, e cada um é uma cena:
+O cenário deve suportar diferentes estados de atividade sem transformar cada atividade em uma tela visual completamente independente.
 
-| Terreno | Contém |
-|---|---|
-| **Terreno da zona** | nós de recurso, acampamentos de mob, saídas para zonas vizinhas |
-| **Arena de combate** | espaço menor onde a onda nasce inteira e a luta acontece; a próxima onda só nasce quando a anterior morre |
-| **Transição de viagem** | plano simples de estrada; serve de tela de carregamento |
+Quando aplicável, o jogo pode representar:
 
-Coletar leva o personagem até o nó e entra em loop. Lutar carrega a arena. Viajar toca a transição.
+| Terreno             | Função                                            |
+| ------------------- | ------------------------------------------------- |
+| Terreno da zona     | nós de recurso, acampamentos, estruturas e saídas |
+| Arena de combate    | espaço dedicado à resolução visual da luta        |
+| Transição de viagem | representação simples da viagem/carregamento      |
 
-**A arena pode ser uma só por região**, com troca de material e props. Não precisa de arena por zona.
+### Construções
 
-### Construções da Era 1
+A arquitetura deve reforçar o contexto brasileiro definido pelo jogo.
 
-Feitoria de taipa com cobertura de palha, casa de engenho, senzala, oca, mocambo de pau a pique, capela pequena. **Nada de arquitetura medieval europeia** — sem torre de pedra, sem muralha, sem telhado pontudo com bandeirola.
+Evitar importar automaticamente formas de fantasia medieval europeia como castelos, muralhas de pedra, torres ornamentadas e construções equivalentes.
 
 ### Luz
 
-Uma luz direcional e uma ambiente. Sem sombra dinâmica complexa; sombra de contato simples embaixo do personagem.
+Uma luz direcional e uma ambiente devem ser suficientes para a maior parte das cenas.
 
-**A luz é o recurso mais barato de diferenciar região.** Costa é luz dura e aberta; Mata Sem Fim é penumbra com feixe vertical.
+Evitar depender de iluminação dinâmica complexa.
+
+A luz também pode diferenciar regiões e estados sem exigir novos modelos.
 
 ---
 
 ## 9. Animação
 
-**Câmera isométrica fixa e animação no esqueleto.** Some o custo por direção: o personagem gira, e a mesma animação vale para qualquer ângulo.
+**Câmera isométrica fixa e animação no esqueleto.**
 
-### Conjunto mínimo, no esqueleto humano
+### Conjunto mínimo do esqueleto humano
 
-| Animação | Duração | Nota |
-|---|---|---|
-| Parado | 2 s, loop | respiração e pequeno ajuste de peso |
-| Andar | 1 s, loop | usado para ir até o nó e para a transição |
-| Coletar | 1,5 s, loop | corte, escavação e colheita podem ser a mesma base |
-| Atacar leve | 0,6 s | Q |
-| Atacar forte | 1,0 s | E |
-| Receber dano | 0,3 s | |
-| Morrer | 1,2 s | |
-| Forjar | 1,5 s, loop | |
+| Animação        | Uso                  |
+| --------------- | -------------------- |
+| Parado          | loop de espera       |
+| Andar           | deslocamento         |
+| Coletar         | ações de coleta      |
+| Ataque leve     | ataque básico        |
+| Ataque forte    | ataque de habilidade |
+| Receber dano    | reação               |
+| Morrer          | morte                |
+| Produzir/forjar | ações de produção    |
 
-Oito animações cobrem todo humano do jogo — jogador e mobs de gente.
+As animações devem ser curtas, legíveis e reutilizáveis.
 
-### Fauna e Encantados
+### Fauna e criaturas
 
-Parado, andar, atacar, receber dano e morrer. Cinco por esqueleto. Fauna quadrúpede compartilha um esqueleto; fauna rastejante outro; ave outro.
+Devem possuir apenas o conjunto necessário para comunicar:
+
+- espera;
+- movimento;
+- ataque;
+- reação;
+- morte.
+
+Esqueletos podem ser compartilhados entre criaturas de anatomia semelhante.
 
 ### Movimento observável
 
-O personagem faz pequenos deslocamentos em loop: **anda alguns passos → para → executa a ação → repete.** O objetivo é um mundo observável, não uma cena parada.
+O personagem deve apresentar pequenos deslocamentos e ações em loop quando a atividade exigir observação contínua:
+
+**anda → para → executa a ação → repete.**
+
+O objetivo é que o mundo pareça vivo sem transformar a experiência em controle manual de movimento.
 
 ---
 
 ## 10. Efeitos
 
-Complementam a leitura, nunca encobrem o personagem. Impacto simples, faísca pequena, brilho curto, número de dano flutuante, barra de progresso.
+Efeitos complementam a leitura, nunca encobrem o personagem.
 
-Partícula com sprite chapado e poucas cores do atlas. **Sem neon, sem bloom pesado, sem partícula em excesso.**
+Exemplos:
 
-**Por facção:** aço e faísca para a Coroa, folha e poeira para os povos indígenas, brasa e fumaça esverdeada para os Encantados.
+- impacto simples;
+- faísca;
+- brilho curto;
+- número de dano;
+- barra de progresso;
+- efeitos de recompensa.
+
+Partículas devem usar formas simples e poucas cores do atlas.
+
+Evitar:
+
+- neon excessivo;
+- bloom pesado;
+- partículas em excesso;
+- efeitos que escondam equipamento ou silhueta.
+
+Efeitos podem possuir variações visuais coerentes com materiais, regiões, equipamentos ou tradições do mundo.
 
 ---
 
 ## 11. Interface
 
-A UI é **2D sobre a cena 3D**, e é construída como **blocos independentes**, não como uma tela única.
+A UI é **2D sobre a cena 3D** e deve ser construída como **blocos independentes**, não como uma tela monolítica.
 
-Essa é a decisão que permite mobile depois sem redesenhar: no desktop os blocos aparecem lado a lado; no telefone viram abas ou gaveta. É estrutura de UI, não arte, e tomá-la agora economiza uma reescrita.
+Essa estrutura permite reorganização para diferentes tamanhos de tela sem transformar a UI em uma nova arte para cada plataforma.
 
-### Os blocos
+### Blocos de referência
 
-| Bloco | Conteúdo |
-|---|---|
-| Topo | Fama, prata, zona, menu |
-| Personagem | retrato, vida, atributos |
-| Equipamento | sete slots |
-| Cena | a janela 3D — sempre o maior elemento |
-| Ação | ação atual, progresso, cancelar |
-| Ações da zona | coletar, lutar, viajar |
-| Inventário | itens, peso, capacidade |
-| Eventos | log |
+| Bloco         | Conteúdo                             |
+| ------------- | ------------------------------------ |
+| Topo          | recursos principais, zona e menu     |
+| Personagem    | retrato, vida e atributos            |
+| Equipamento   | slots do personagem                  |
+| Cena          | janela 3D                            |
+| Ação          | ação atual, progresso e cancelamento |
+| Ações da zona | ações disponíveis                    |
+| Inventário    | itens, peso e capacidade             |
+| Eventos       | log                                  |
+
+A composição exata pode evoluir conforme a interface real seja implementada.
 
 ### Regra de leitura
 
 **Personagem → ação → zona → consequência → informação secundária.**
 
-A cena 3D é observacional. **Nada competitivamente relevante pode existir só na imagem** — tudo importante vive também num bloco.
+A cena 3D é observacional. Informação relevante para o gameplay não deve existir exclusivamente como detalhe visual impossível de consultar na interface.
 
 ### Estados da cena
 
-Parado, coletando, lutando, forjando, viajando. **Não criar telas independentes** para combate, coleta ou viagem: são estados da mesma tela, com troca de terreno.
+A mesma cena deve conseguir representar estados como:
+
+- parado;
+- coletando;
+- lutando;
+- produzindo;
+- viajando.
+
+Não criar uma tela completamente independente para cada estado quando uma mudança de estado visual da mesma estrutura resolver o problema.
 
 ### Linguagem visual
 
-Retângulo arredondado, contorno escuro, fundo escuro, ícone simples, título curto, número destacado. Botão com três estados. **Sem UI dourada e ornamental.**
+- retângulo arredondado;
+- contorno escuro;
+- fundo escuro;
+- ícone simples;
+- título curto;
+- número destacado;
+- botão com estados claros.
+
+Evitar UI excessivamente ornamental ou dourada.
 
 ---
 
 ## 12. Tipografia
 
-Sem serifa, grossa, legível, formas arredondadas, alto contraste. Títulos e valores em tamanho grande. **Suporte completo a português: acento, til e cedilha são obrigatórios.**
+Sem serifa, grossa, legível, com formas arredondadas e alto contraste.
 
-Texto diegético curto, oral e concreto. Sem jargão de interface dentro do mundo.
+Títulos e valores importantes devem possuir tamanho suficiente para leitura rápida.
+
+**Suporte completo ao português é obrigatório:** acentos, til e cedilha.
+
+Texto diegético deve ser curto, oral e concreto.
 
 ---
 
@@ -474,118 +462,147 @@ Texto diegético curto, oral e concreto. Sem jargão de interface dentro do mund
 
 ### Ferramentas
 
-**Blender** para modelo, rig e animação. **Godot** para implementação. **Git** para versionamento. Krita permanece só para ícone de interface e textura de atlas.
+- **Blender** para modelo, rig e animação.
+- **Godot** para implementação.
+- **Git** para versionamento.
+- Ferramenta 2D apenas quando necessária para UI, atlas ou ajustes específicos.
 
 ### Formato
 
-**glTF (.glb)** para tudo que vai ao jogo. Blender exporta nativo e Godot importa nativo. Arquivo `.blend` fica em `source/`, nunca em `exports/`.
+**glTF (`.glb`)** para assets que entram no jogo.
 
-### Estrutura de pastas
+O arquivo-fonte do Blender fica separado dos exports.
 
-```
+Exemplo:
+
+```text
 art/
-  source/     characters/ equipment/ environment/ creatures/ ui/
-  exports/    characters/ equipment/ environment/ creatures/ ui/
-  palettes/   atlas de cor
+  source/
+    characters/
+    equipment/
+    environment/
+    creatures/
+    ui/
+  exports/
+    characters/
+    equipment/
+    environment/
+    creatures/
+    ui/
+  palettes/
   references/
 ```
 
 ### Nomenclatura
 
-Inglês, minúsculas, underscore, sufixo numérico quando houver variação.
+Inglês, minúsculas, underscore e sufixo numérico quando houver variação.
 
-```
+```text
 char_player_base.glb
 char_skeleton_human.blend
 equip_weapon_sword_t2.glb
-equip_armor_chest_plate_t2.glb
-creature_curupira.glb
-env_tree_brazilwood_01.glb
+equip_armor_chest_t2.glb
+creature_example.glb
+env_tree_01.glb
 anim_human_gather.glb
-ui_icon_ore_t4.png
+ui_icon_resource.png
 ```
 
-### Checklist antes de considerar pronto
+### Checklist
 
-- Dentro do orçamento de tris?
-- Pivô na origem e orientação correta do socket?
-- Usa o atlas de paleta, sem cor solta?
-- Escala certa em relação ao personagem?
-- Nome de arquivo correto?
-- Exportado em .glb?
-- Testado no Godot, na câmera do jogo?
-- Silhueta legível a três metros?
-- Reutilizável ou variável sem remodelar?
+Antes de considerar um asset pronto:
+
+- está dentro do orçamento de tris?
+- possui pivô e orientação corretos?
+- usa o atlas de paleta quando aplicável?
+- está na escala correta?
+- possui nome de arquivo correto?
+- foi exportado no formato esperado?
+- foi testado no Godot, na câmera do jogo?
+- possui silhueta legível?
+- pode ser reutilizado ou variado sem remodelagem desnecessária?
 
 ---
 
 ## 14. O que evitar
 
-Realismo. PBR, normal map, metal e roughness. Textura pintada à mão por modelo. Iluminação cinematográfica. Sombra dinâmica pesada. Partícula em excesso. Neon. Rosto detalhado. **Fantasia medieval europeia.** Arquitetura de castelo. Elfo, anão, orc, goblin. UI dourada e luxuosa.
+- Realismo.
+- PBR, normal map, metal e roughness quando não forem necessários ao estilo.
+- Textura pintada individualmente para cada modelo.
+- Iluminação cinematográfica pesada.
+- Sombra dinâmica complexa sem benefício claro.
+- Partículas em excesso.
+- Neon gratuito.
+- Rosto excessivamente detalhado.
+- Fantasia medieval europeia genérica.
+- Arquitetura de castelo como linguagem padrão.
+- Criaturas genéricas de fantasia medieval.
+- UI dourada e luxuosa sem função.
+- Assets que só funcionam em uma combinação e não podem ser reutilizados.
 
-**A armadilha mais provável:** modelar Brasil colonial e acabar com fantasia medieval genérica, porque é o que a mão e as ferramentas de geração já sabem fazer. **Toda prancha e todo asset precisa ser conferido contra isso.**
+### Duas armadilhas principais
 
-**A segunda armadilha:** low poly comprado pronto que faz o jogo parecer com todos os outros que usaram o mesmo pacote. Base humana e prop genérico podem ser comprados; **arma, armadura, Encantado e construção são o que te diferencia e têm que ser seus.**
+**1. Brasil colonial transformado em fantasia medieval genérica.**
+
+Toda prancha e todo asset deve ser conferido contra o contexto histórico, cultural e folclórico definido pelo projeto.
+
+**2. Low poly genérico comprado pronto.**
+
+Base humana e props genéricos podem ser úteis, mas os elementos que definem a identidade visual do jogo devem possuir direção própria.
 
 ---
 
-## 15. Briefs das pranchas
+## 15. Pranchas de referência
 
-Doze pranchas. Cada brief é autossuficiente e pode ser usado direto numa ferramenta de geração de imagem.
+As pranchas devem documentar **regras visuais**, não funcionar como catálogo duplicado de conteúdo.
 
-**Cabeçalho comum:** logo "Eras do Brasil" no canto superior esquerdo, título do guia ao lado, fundo azul-escuro de documento técnico, painéis com contorno claro, texto em português, estilo de infográfico de game design. **Os exemplos visuais devem ser renders low poly 3D, não desenhos 2D.**
+Cada prancha deve ser autossuficiente o suficiente para orientar produção, mas não deve se tornar outra fonte de verdade para listas de itens, criaturas ou sistemas.
 
-### Prancha 01 — Guia do Personagem
-Personagem base low poly em três vistas, wireframe ao lado do render mostrando o orçamento de polígono, proporção de cerca de 6 cabeças, exemplos com equipamento das três tradições (colonial, indígena, encantado), variações de pele e cabelo, câmera isométrica do jogo, estados do personagem.
+### Pranchas recomendadas
 
-### Prancha 02 — Guia de Escala e Orçamento
-Personagem de 1,8 u com grade de 0,5 u, proporção entre personagem, fauna pequena, fauna média, Encantado, chefe, árvore e construção. Tabela de orçamento de tris por categoria. Tile de 2 × 2 u. Tamanhos de ícone. Configuração de exportação glTF e checklist.
+1. **Guia do Personagem** — proporção, silhueta, câmera e leitura à distância.
+2. **Guia de Escala e Orçamento** — escala, grade, orçamento de polígonos e tamanhos de ícone.
+3. **Guia de Esqueleto e Sockets** — esqueleto humano, sockets, pivôs e montagem modular.
+4. **Guia de Cenário** — grade, tiles, props, composição e iluminação.
+5. **Guia de Equipamento** — slots, modularização, evolução visual e raridade.
+6. **Guia de Armas** — linguagem formal, escala, materiais e silhueta.
+7. **Guia de Armaduras** — linhas visuais, materiais e modularização.
+8. **Guia de Fauna e Personagens Humanos** — escala, esqueletos compartilhados e leitura.
+9. **Guia de Criaturas Sobrenaturais** — silhueta, estranheza e linguagem visual.
+10. **Guia de Animação** — conjunto mínimo, reutilização e movimento observável.
+11. **Guia de UI e Blocos** — blocos, hierarquia e adaptação de tela.
+12. **Guia de Produção** — fluxo Blender → Godot, pastas, nomenclatura e checklist.
 
-### Prancha 03 — Guia de Esqueleto e Sockets
-Esqueleto humano único com os ossos nomeados, os seis sockets de equipamento destacados em cores, exemplo de peça modelada na origem, montagem modular de personagem equipado, diferença entre peça plugada e peça com skin, convenção de pivô e orientação.
-
-### Prancha 04 — Guia de Cenário e Terrenos
-Grade de 2 u, tiles de terreno das cinco regiões, peças de borda e desnível, props reutilizáveis (pedra, tora de pau-brasil, tronco, arbusto, mandacaru), construções coloniais em low poly, os três terrenos (zona, arena, transição), exemplo de composição, luz por região.
-
-### Prancha 05 — Guia de Equipamento e Modularização
-Sete slots no personagem, as nove armas da Era 1 em render, as nove peças de armadura, montagem por socket, variação por tier do T1 ao T6 numa mesma peça, raridade por acento de cor e borda de ícone, inventário e comparação.
-
-### Prancha 06 — Guia de Armas da Era 1
-Prancha específica. As nove armas em render isolado e na mão do personagem: espada de lado, tacape, zarabatana, besta de mão, cabaça de Boitatá, maracá, rodela, tocha de breu, patuá. Tradição de cada uma, silhueta em contraluz, e a evolução visual T2 a T6 de uma delas.
-
-### Prancha 07 — Guia de Armaduras da Era 1
-Prancha específica. As três linhas completas: morrião, couraça e grevas (pesada colonial); cocar, escaupil e alpercatas (média indígena); carapuça, manto de retalhos e sandálias de piaçava (leve encantada). Conjunto montado no personagem, bônus de conjunto, e nota sobre o escaupil ser peça histórica real.
-
-### Prancha 08 — Guia de Fauna e Gente
-Fauna do Brasil em low poly com os esqueletos compartilhados (quadrúpede, rastejante, ave), escala comparada, e os oito mobs humanos mostrando que todos usam o mesmo esqueleto e as mesmas animações do jogador, mudando só roupa e ferramenta.
-
-### Prancha 09 — Guia dos Encantados
-Os cinco Encantados documentados no século XVI — Curupira, Boitatá, Ipupiara, Anhangá e Jurupari — com o elemento marcante de cada um, estudo de silhueta em preto, paleta espiritual, a regra de "formas que não fecham direito", e a proibição explícita de modelar como monstro de fantasia europeia.
-
-### Prancha 10 — Guia de Animação
-Câmera isométrica fixa e por que não há custo por direção. As oito animações do esqueleto humano com quadros-chave, as cinco de fauna, ciclo de movimento observável (anda, para, executa, repete), duração de cada uma, e a regra de reutilização entre jogador e mobs humanos.
-
-### Prancha 11 — Guia de UI e Blocos
-Os oito blocos independentes, arranjo em desktop lado a lado e em mobile como abas, HUD em exploração, HUD em combate, tela de zona com ações, inventário, equipamento com os sete slots, mapa, A Árvore do Destino com os quatro ramos, crafting, e a regra de que nada relevante existe só na cena 3D.
-
-### Prancha 12 — Guia de Produção
-Fluxo do conceito ao asset final em Blender e Godot, estrutura de pastas, nomenclatura, atlas de paleta, exportação glTF, controle de versão, checklist de qualidade, erros comuns, e a regra de o que comprar contra o que modelar.
+Os exemplos concretos de cada prancha devem ser derivados dos dados e do design atuais do projeto, em vez de manter listas duplicadas neste documento.
 
 ---
 
 ## 16. Ordem de produção
 
-Não modele tudo. Comece por um conjunto mínimo que exercite todas as regras:
+Não produzir todos os assets de uma vez.
 
-1. **Esqueleto humano e personagem base**, sem equipamento, com parado e andar.
-2. **Atlas de paleta** com as cores das três facções e das cinco regiões.
-3. **As três armas do T2**: espada de lado, zarabatana, cabaça de Boitatá.
-4. **Um conjunto de armadura T2 completo**, de uma linha só.
-5. **Kit da ilha da Travessia**: chão de praia, duas pedras, palmeira, tora, barril.
-6. **Dois mobs**: um caranguejo-uçá e um cortador clandestino — que usa o esqueleto do jogador.
-7. **O Língua.**
-8. **Ícones dos cinco recursos**, renderizados dos modelos.
+Começar por um conjunto mínimo que exercite todas as regras:
 
-Com isso a MVP inteira fica jogável, e você já exercitou escala, socket, atlas, silhueta, animação e exportação. **Tudo depois disso é repetição do mesmo método.**
+1. **Esqueleto humano e personagem base**, com parado e andar.
+2. **Atlas de paleta** com as cores fundamentais do projeto.
+3. **Um pequeno conjunto de equipamentos representativos**, cobrindo as principais linguagens visuais.
+4. **Um conjunto de armadura modular**.
+5. **Kit de cenário da primeira área jogável**.
+6. **Dois tipos de criatura**, preferencialmente de famílias diferentes.
+7. **Um NPC representativo**.
+8. **Ícones dos primeiros recursos e itens**, derivados dos modelos quando possível.
+
+Esse conjunto deve validar:
+
+- escala;
+- sockets;
+- atlas;
+- silhueta;
+- animação;
+- exportação;
+- integração com Godot;
+- leitura na câmera real do jogo.
+
+Depois disso, a produção deve repetir o método em vez de criar uma regra nova para cada asset.
 
 > **Modele como se tivesse que modelar a mesma peça cem vezes.**
