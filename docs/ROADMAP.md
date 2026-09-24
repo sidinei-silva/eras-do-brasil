@@ -7,10 +7,11 @@
 
 ## Fases
 
-### Fase 0 — PoC
+### Fase 0 — MVP
 
-A PoC valida o fluxo inicial do jogo de ponta a ponta, evoluindo
-incrementalmente da infraestrutura de conta e personagem até a entrada
-no mundo e os primeiros sistemas necessários para o fluxo inicial.
+O MVP corresponde à construção completa de **A Travessia**, desde o fluxo
+inicial de conta, login e personagem até a experiência tutorial de ponta a
+ponta. Sua construção é incremental: cada fatia entrega uma parte do fluxo,
+e novas fatias podem ser definidas conforme a anterior for concluída.
 
-→ [backlog/00-poc/BACKLOG.md](backlog/00-poc/BACKLOG.md)
+→ [backlog/00-mvp/BACKLOG.md](backlog/00-mvp/BACKLOG.md)
