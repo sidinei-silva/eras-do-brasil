@@ -1,6 +1,6 @@
 # O jogo
 
-Leitura de cinco minutos. O que é, como se joga, e quais são os sistemas. Sem tabela de dado — para número e conteúdo, os JSONs em `data/` são a verdade. O que já foi projetado e ainda não é carregado vive em `design/`.
+Leitura de cinco minutos. O que é, como se joga e quais são os sistemas. Para conteúdo e valores efetivamente carregados, os JSONs em `data/` são a fonte de verdade. O que foi projetado e ainda não é carregado vive em `design/`.
 
 ---
 
@@ -8,7 +8,7 @@ Leitura de cinco minutos. O que é, como se joga, e quais são os sistemas. Sem 
 
 **MMORPG idle de fantasia folclórica brasileira, com a gramática de progressão do Albion Online.**
 
-Não há classe: **você é o que veste**. O mundo é feito de eras do Brasil dispostas lado a lado ao redor da Raiz do Mundo, e o jogador é um forasteiro que a Raiz puxou, sem origem e sem lado.
+Não há classe tradicional: **você é o que veste**. O mundo é formado por eras do Brasil dispostas ao redor da Raiz do Mundo, e o jogador é um forasteiro que a Raiz puxou.
 
 **A fantasia central:** montar uma build com peças de séculos diferentes.
 
@@ -16,168 +16,123 @@ Não há classe: **você é o que veste**. O mundo é feito de eras do Brasil di
 
 ## O que o jogador faz
 
-Ele **não controla movimento**. Escolhe uma ação numa zona e observa o personagem executá-la.
+O jogador não controla o movimento diretamente. Escolhe uma ação numa zona e observa o personagem executá-la.
 
-```
+```text
 escolher zona → escolher ação → observar → recolher o resultado → decidir de novo
 ```
 
-**Coletar** — o personagem anda até o recurso e entra em loop de coleta.
-**Lutar** — a cena troca para a arena, a onda de mobs nasce e a luta acontece.
-**Viajar** — a animação de viagem serve de carregamento até a zona seguinte.
-**Produzir** — no hub, refinar material e fabricar equipamento.
+- **Coletar** — o personagem vai até o recurso e entra no loop de coleta.
+- **Lutar** — escolhe um acampamento e enfrenta uma onda de inimigos.
+- **Viajar** — a viagem consome tempo e leva à zona seguinte.
+- **Produzir** — no hub, refina materiais e fabrica equipamento.
 
-Sessão curta funciona; sessão longa rende mais. O jogo **recompensa presença e nunca pune ausência**.
+Sessões curtas funcionam; sessões longas rendem mais. O jogo recompensa presença e não pune ausência.
 
 ---
 
 ## Progressão
 
-Sobe **o que você faz**, não o personagem.
+Sobe **o que você faz**, não um nível global do personagem.
 
-**A Árvore do Destino** tem quatro ramos independentes: combate, coleta, refino e craft. Cada ação alimenta o nó correspondente. Nada de nível global.
+A **Árvore do Destino** possui quatro ramos independentes: combate, coleta, refino e craft.
 
-**Tier** vai de 1 a 8 e é **qualidade de material mais profundidade de nó** — não uma lista diferente de armas. A mesma linha atravessa os tiers em material melhor.
+O **Tier** vai de 1 a 8. A progressão combina qualidade de material e profundidade de nó, enquanto a mesma linha de equipamento atravessa os tiers.
 
-**Tudo desemboca num número só: o Poder de Item.** Tier, qualidade, encantamento e maestria alimentam ele, e ele passa por uma curva que vale mais 9,18% a cada 100 pontos. A curva é achatada de propósito: **é isso que mantém uma peça de tier menor bem trabalhada competitiva**, e sem isso misturar equipamento de eras diferentes não faria sentido.
+O **Poder de Item** reúne os principais componentes da força do equipamento. Maestria aumenta o poder da arma usada, e Afinidade recompensa o uso continuado da mesma arma.
 
-**Maestria dá poder de verdade.** Sobe o Poder de Item da arma que você usa, e é por isso que o grind continua valendo depois que o tier abriu.
+Não há rebirth. A progressão é acumulativa; a variedade vem de outras árvores, eras e facções.
 
-**Afinidade** é um multiplicador que sobe usando a mesma arma e reseta ao trocar. Congela quando você sai; nada acumulado se perde.
-
-**Não há rebirth.** Progressão é catraca. O que substitui recomeço é largura: outra árvore, outra era, outra facção.
+Os números e fórmulas pertencem a `docs/formulas-e-balanceamento.md`.
 
 ---
 
 ## Identidade e equipamento
 
-Sete slots: mão principal, off-hand, cabeça, torso, botas, montaria e bolsa. Até catorze habilidades equipadas ao mesmo tempo.
+O personagem constrói sua identidade pelo equipamento e pela progressão.
 
-**Três árvores de habilidade** — físico, projétil e mágico — e cada uma comporta dois papéis. A árvore é o kit de Q, W e passivas, compartilhado por todas as armas dela. **A arma acrescenta arte e um E exclusivo**, e a identidade vem de qual subconjunto do pool ela acessa.
+Há sete slots principais:
 
-**Era nova nunca traz árvore nova.** Traz armas dentro das que existem.
+- mão principal;
+- off-hand;
+- cabeça;
+- torso;
+- botas;
+- montaria;
+- bolsa.
 
-**Armadura tem três linhas** — pesada, média e leve — com três slots cada. O torso declara a linha; cabeça e botas são intercambiáveis. Conjunto puro dá bônus; misturar dá combinação de habilidade que nenhum conjunto puro alcança.
+Existem três árvores de habilidade — físico, projétil e mágico — e a arma acrescenta sua habilidade especial. Armaduras se organizam em linhas pesada, média e leve.
 
-**Arma cara com armadura ruim performa pior que um conjunto inteiro um tier abaixo.** Isso é desenhado, e mata o vício de todo jogo gear-based.
+A mesma estrutura de habilidades e equipamento deve sustentar diferentes eras; uma nova era não cria automaticamente uma nova árvore.
+
+As regras detalhadas estão em `docs/decisoes-de-design.md`.
 
 ---
 
 ## Combate
 
-**Auto-battler, sem posicionamento.** "Área" significa número de alvos — não formato nem alcance.
+Combate é **auto-battler e sem posicionamento como regra de jogo**.
 
-O jogador escolhe um acampamento na zona e a **onda nasce fechada**: só nasce a próxima quando a anterior morre inteira. Teto de cinquenta rodadas por onda; se estourar, é impasse.
+O jogador escolhe um acampamento e configura previamente seu loadout, prioridades e condições de parada. Ataques básicos e habilidades possuem seus próprios tempos.
 
-Como a onda é fechada, **o servidor resolve a luta inteira e manda a linha do tempo pronta**. O cliente só anima.
+A luta é organizada em **ondas fechadas**. O servidor resolve a luta e produz o resultado; o cliente apresenta a animação.
 
-### Os dois relógios
+A decisão de build envolve a combinação de arma, habilidades, energia e prioridade.
 
-Não há turno nem tick. Duas coisas correm em paralelo:
-
-**O ataque básico** dispara a cada `1 ÷ velocidade de ataque` segundos. Velocidade de ataque é atributo da arma — espada rápida e fraca por golpe, tacape lento e pesado. Não ocupa slot, não custa energia e nunca para.
-
-**As habilidades** têm recarga própria e custam energia. Quando ficam prontas, disparam pela ordem de prioridade.
-
-É daí que sai a primeira decisão real de build: **bater muitas vezes fraco ou poucas vezes forte.**
-
-### O loadout é o combate
-
-Seis slots ativos, e o slot é a restrição — cada um só aceita habilidade da fonte dele:
-
-| Slot      | Vem de            | Escolha                      |
-| --------- | ----------------- | ---------------------------- |
-| Ataque    | arma              | entre os Q que a arma acessa |
-| Utilidade | arma              | entre os W que a arma acessa |
-| Especial  | arma              | **fixo pela arma**           |
-| Cabeça    | capacete          | entre as ativas da peça      |
-| Torso     | armadura de torso | entre as ativas da peça      |
-| Botas     | botas             | entre as ativas da peça      |
-
-Mais quatro slots de passiva, um por peça e um da arma, e as passivas fixas da montaria e da bolsa.
-
-**Depois de preencher, o jogador ordena a prioridade entre os seis.** Quando mais de uma está pronta e há energia, dispara a de prioridade mais alta.
-
-Não existe lista de desabilitadas: quem não quer uma habilidade simplesmente não a escolhe no slot.
-
-### Energia
-
-Recurso das habilidades, comum às três árvores. Regenera com o tempo, e o teto e a regeneração crescem pela mesma curva do poder de item. Habilidade barata e rápida no topo da prioridade seca a barra; habilidade cara exige guardar.
-
-### Regras de combate
-
-Configuradas antes, porque num idle ninguém está olhando. A cada evento o servidor verifica, nesta ordem: condição de parada, limiar de retirada, limiar de cura, e então dispara o que estiver pronto.
-
-Parar significa **parar no lugar**, nunca voltar para a cidade. Poção dispara por limiar de vida e fica fora da prioridade.
-
-**Retirada usa a mesma matemática da fuga em PvP.** Pontos de fuga vêm do equipamento; falhar custa tempo e durabilidade. O atributo significa *escapar barato*, não *escapar*.
+As regras detalhadas estão em `docs/decisoes-de-design.md`. Fórmulas e parâmetros estão em `docs/formulas-e-balanceamento.md`.
 
 ---
 
 ## Mundo
 
-**Três continentes.** A Travessia é a ilha do tutorial, não revisitavel. As Eras é o mundo principal. O Emaranhado é o fim de jogo, muito posterior.
+O mundo é organizado em continentes, eras e zonas.
 
-**Era é um cluster de zonas** com hub na borda externa e tier subindo em direção ao centro. Eras ficam **lado a lado**, não empilham no tempo nem no nível, e todas encostam no Coração da Raiz.
+**Zona é a unidade de gameplay** para recursos, risco, facção, mobs e viagem. Cidade também é uma zona.
 
-**Zona é a unidade de tudo** — recurso, risco, facção, mob e viagem. Cidade é uma zona. Não há portão entre regiões: região é só rótulo de bioma.
+Viagem consome minutos reais e funciona como parte importante do ritmo idle.
 
-**Viagem custa minutos reais**, e é o relógio do idle.
-
-**Quatro bandas de risco:** segura, disputada, mortal e selvagem.
+O mundo possui quatro bandas de risco: segura, disputada, mortal e selvagem.
 
 ---
 
 ## Economia
 
-**Cinco tipos de recurso**, cada um em seis tiers. Material não defasa, porque o refino de tier alto consome o tier anterior — zona T1 nunca morre. Arma defasa, e tudo bem.
+A economia gira em torno de recursos, refino, craft, equipamento, prata, durabilidade, carga e mercado.
 
-**Coleta é escolha de nó, nunca sorteio de tier.** A zona garante o material; o sorteio fica na qualidade e no encantamento. Piso garantido, teto aberto.
+Materiais de tiers inferiores continuam úteis porque participam das cadeias de produção de tiers superiores.
 
-**Estações de produção**: cinco de refino, uma por material, e quatro de craft, ligadas às três árvores mais as ferramentas.
+Coleta, produção e equipamento formam um ciclo contínuo de progressão.
 
-**Vestir custa material e prata em paralelo.** No começo vestir custa mais que subir de tier; no fim, subir custa o dobro de vestir. **É essa inversão que empurra o jogo de tier alto para o mercado.**
-
-**Durabilidade cai por uso, morte e fuga fracassada.** Abaixo de 50% o item perde poder de item; abaixo de 10% não serve. Conserto é o principal sumidouro de prata. E morrer tem chance de itens quebrarem 100% e não ter serventia.
-
-**Carga não teleporta de graça.** Montaria rápida carrega pouco, lenta carrega muito. Armazém só nas cidades.
+Os detalhes quantitativos e as fórmulas estão em `docs/formulas-e-balanceamento.md`. O conteúdo do MVP está em `docs/dados-do-mvp.md`.
 
 ---
 
 ## Risco e PvP
 
-**PvP é consentido e mútuo.** Sinalizado pode atacar e ser atacado; não sinalizado não faz nem uma coisa nem outra. A flag liga e desliga só na cidade.
+PvP é **consentido e mútuo**.
 
-| Banda                          | Regra                                             |
-| ------------------------------ | ------------------------------------------------- |
-| Segura                         | ninguém ataca ninguém, mesmo sinalizado           |
-| Disputada                      | sinalizado contra sinalizado, perda parcial       |
-| Mortal                         | sinalizado contra sinalizado, perda total         |
-| Selvagem (Emaranhado)          | entrar é consentir; não há flag e não há contador |
+Jogadores sinalizados podem enfrentar outros jogadores sinalizados nas zonas em que o PvP é permitido. O sinal é ligado e desligado na cidade.
 
-Cada zona mostra **quantos sinalizados há nela**, público e gratuito. Isso só é honesto porque todo mundo que aparece ali escolheu aparecer.
+As bandas de risco determinam as consequências do combate.
 
-**A busca acontece dentro da zona** — o contador mais a fila de prioridade por consentimento. Não há pareamento entre zonas, que moveria o jogador e tornaria a geografia irrelevante.
-
-**O que faz alguém sinalizar:** artefato bruto só cai para sinalizado. É a porta de entrada do conteúdo de T4 em diante.
+O sistema detalhado, suas decisões e exceções estão em `docs/decisoes-de-design.md`.
 
 ---
 
-## O que o servidor decide e o que o cliente decide
+## Escopo atual
 
-**Servidor:** dano, prata, drop, fama, durabilidade, quem morreu, qual mob nasceu e se veio elite. Tudo que é regra.
+O MVP é **A Travessia completa**: a ilha tutorial, do fluxo inicial de conta/login/personagem até o fim da experiência tutorial.
 
-**Cliente:** posição, colisão, pathing, câmera, animação, onde fica cada nó no terreno. Tudo que é apresentação.
+A Travessia trabalha com quatro zonas, T1 e T2 e uma experiência segura.
 
-**O servidor nunca manda coordenada.** Layout de zona é conteúdo estático, versionado e distribuído com o cliente.
+A cobertura de sistemas e a organização dos dados do MVP estão em `docs/dados-do-mvp.md`.
+
+O roadmap e as fatias de implementação estão em `docs/ROADMAP.md` e `docs/backlog/`.
 
 ---
 
-## Estado
+## Servidor e cliente
 
-**MVP** — a ilha da Travessia: quatro zonas, T1 e T2, banda segura, o tutorial inteiro.
-**Era 1** — 22 zonas, T1 a T6, três facções em conflito.
-**Continente 1 completo** — quatro eras, de 60 a 100 zonas.
-**Jogo completo** — mais o Emaranhado, T6 a T8.
+O servidor é autoritativo: o cliente expressa intenção e apresenta a experiência; o servidor decide regras e resultados.
 
-Detalhe do MVP em `dados-do-mvp.md`. Decisões com o porquê em `decisoes-de-design.md`. Números em `formulas-e-balanceamento.md`. Servidor em `arquitetura-consolidada.md`.
+A arquitetura técnica, incluindo Game Core, HTTP, WebSocket, Game Loop, estado e persistência, está em `docs/arquitetura-consolidada.md`.
