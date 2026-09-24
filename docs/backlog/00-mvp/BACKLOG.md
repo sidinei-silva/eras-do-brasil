@@ -13,6 +13,8 @@ O MVP corresponde à experiência completa de **A Travessia**. Sua construção
 é incremental e as próximas fatias podem ser definidas conforme as anteriores
 forem concluídas.
 
+As fatias listadas abaixo são apenas as que estão atualmente definidas no backlog; elas não representam todo o escopo do MVP.
+
 | Fatia | Arquivo | Entrega | Status |
 | ----- | ------- | ------- | ------ |
 | 1 | `01-criacao-conta.md` | Criação de conta | concluída |
