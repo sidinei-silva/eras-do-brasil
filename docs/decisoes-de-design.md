@@ -263,8 +263,10 @@ Os nomes atuais dos sistemas devem seguir a regra de não poetizar mecânicas ne
 | Regras de execução do combate | **Regras de combate**         |
 | Estruturas de produção        | **Estações**                  |
 | Recurso das habilidades       | **Energia**                   |
-| Bandas de risco               | **Segura, Disputada, Mortal** |
+| Bandas de risco do mundo principal | **Segura, Disputada, Mortal** |
 | Conteúdo de memória do mundo  | **Ecos**                      |
+
+> **Escopo da nomenclatura:** a banda **Selvagem** também existe no modelo do mundo completo, mas é exclusiva do Emaranhado e pertence a conteúdo posterior ao lançamento. Ela não faz parte das bandas do mundo principal nem do escopo atual do MVP.
 
 ---
 
