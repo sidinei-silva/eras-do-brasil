@@ -51,7 +51,7 @@ O projeto não deve ser tratado, nesta fase, como uma implementação completa d
 
 ---
 
-## 4. Escopo atual do MVP / PoC
+## 4. Escopo atual do MVP
 
 O conteúdo inicial utilizado para validar o jogo é **A Travessia**.
 
