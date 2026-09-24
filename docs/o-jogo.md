@@ -91,7 +91,9 @@ O mundo é organizado em continentes, eras e zonas.
 
 Viagem consome minutos reais e funciona como parte importante do ritmo idle.
 
-O mundo possui quatro bandas de risco: segura, disputada, mortal e selvagem.
+O mundo completo possui quatro bandas de risco: segura, disputada, mortal e selvagem.
+
+No mundo principal, as bandas são segura, disputada e mortal. A banda selvagem é exclusiva do Emaranhado e pertence a conteúdo posterior ao lançamento.
 
 ---
 
