@@ -70,7 +70,7 @@ O escopo inicial trabalha com:
 
 A implementação deve priorizar somente o que é necessário para esse fluxo.
 
-Sistemas futuros podem ser representados de forma simplificada quando isso ajudar a demonstrar uma arquitetura, mas não devem transformar a PoC em uma implementação antecipada do MMORPG completo.
+Sistemas futuros podem ser representados de forma simplificada quando isso ajudar a demonstrar uma arquitetura, mas não devem transformar o MVP em uma implementação antecipada do MMORPG completo.
 
 ---
 
@@ -273,7 +273,10 @@ Dados como zonas, criaturas, itens e outras definições de conteúdo devem ser 
 A ideia atual é:
 
 ```text
-data/*.json
+data/
+├── shared/*.json
+├── mvp/*.json
+└── era1/*.json
      ↓
   gamedata
      ↓
