@@ -9,6 +9,8 @@
 
 ### Fase 0 — MVP
 
+O roadmap atualmente detalha apenas a Fase 0. As fases posteriores serão definidas quando o MVP estiver suficientemente consolidado.
+
 O MVP corresponde à construção completa de **A Travessia**, desde o fluxo
 inicial de conta, login e personagem até a experiência tutorial de ponta a
 ponta. Sua construção é incremental: cada fatia entrega uma parte do fluxo,
