@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "npcs-era-1",
   "scope": "era-1",
-  "note": "NPCs da Era 1. O campo naPoC foi removido: os NPCs do tutorial vivem em mvp.npcs.json e sao outros — o Lingua, a Barqueira e o Ferramenteiro, na ilha da Travessia.",
+  "note": "NPCs da Era 1. O antigo campo de seleção do tutorial foi removido: os NPCs do tutorial vivem em mvp.npcs.json e sao outros — o Lingua, a Barqueira e o Ferramenteiro, na ilha da Travessia.",
   "npcs": [
     {
       "id": "npc-o-lingua",
