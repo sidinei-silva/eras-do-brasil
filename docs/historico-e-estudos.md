@@ -790,7 +790,7 @@ Na revisão da documentação atual do projeto foram encontrados exemplos claros
 - `docs/formulas-e-balanceamento.md`, que registrava valores anteriores e tentativas de balanceamento;
 - `docs/dados-do-mvp.md`, que registrava algumas mudanças estruturais anteriores;
 - `docs/direcao-de-arte.md`, que continha partes de processo e justificativa;
-- `docs/backlog/00-poc/VISAO_DEV.md`, que possuía material de visão e exploração anterior.
+- o backlog da antiga PoC, que possuía material de visão e exploração anterior.
 
 Isso não significa que esses arquivos devam ser simplesmente apagados.
 
