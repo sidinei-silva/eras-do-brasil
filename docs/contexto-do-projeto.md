@@ -1,526 +1,108 @@
 # Contexto do Projeto — Eras do Brasil
 
-## 1. Natureza deste documento
+## 1. Para que serve este arquivo
 
-Este arquivo registra o contexto atual do projeto **Eras do Brasil** para uso como fonte de contexto no Project do ChatGPT.
+Este arquivo é um contexto curto para o Project do ChatGPT.
 
-Ele não substitui o código, o GDD ou a documentação normativa do repositório.
+Ele não substitui o código, o GDD nem a documentação normativa do repositório. Seu objetivo é ensinar uma conversa nova a **entender o projeto e encontrar a fonte correta**, evitando duplicar as regras mantidas nos documentos específicos.
 
-Seu objetivo é permitir que uma conversa nova compreenda rapidamente:
-
-- o que é o projeto;
-- qual é o escopo atual;
-- quais princípios orientam o desenvolvimento;
-- como o projeto organiza design, dados e arquitetura;
-- quais fontes devem ser consultadas para cada tipo de afirmação;
-- como tratar decisões, hipóteses e material histórico.
-
-Quando este arquivo divergir de uma fonte normativa mais específica e atual do repositório, a fonte específica prevalece.
+Quando houver conflito, a fonte mais específica e atual prevalece.
 
 ---
 
-## 2. O que é Eras do Brasil
+## 2. O projeto
 
-**Eras do Brasil** é um MMORPG idle ambientado em uma representação histórica e ficcional do Brasil colonial e de seus períodos históricos.
+**Eras do Brasil** é um MMORPG idle de fantasia folclórica brasileira. A progressão usa equipamento, especialização por uso, combate, coleta, refino, craft e tiers, com referências de estrutura de jogos como Albion Online sem obrigação de copiá-los.
 
-O projeto utiliza como referência de design a gramática de progressão de jogos como Albion Online em aspectos como:
-
-- progressão por equipamento;
-- ausência de classes tradicionais;
-- especialização por aquilo que o personagem utiliza;
-- progressão de combate, coleta, refino e criação;
-- evolução vertical por tiers.
-
-Essas referências são referências de estrutura de jogo, não uma obrigação de copiar Albion.
-
-A identidade de mundo, narrativa, conteúdo e regras de Eras é própria do projeto.
+A identidade de mundo, narrativa, conteúdo e regras é própria do projeto.
 
 ---
 
-## 3. Objetivo atual
+## 3. Escopo atual
 
-O projeto está em fase de construção e estudo.
+O MVP corresponde à construção completa de **A Travessia**, desde o fluxo inicial de conta, login e personagem até o fim da experiência tutorial.
 
-O objetivo atual é desenvolver uma primeira versão jogável pequena, capaz de validar o núcleo da experiência antes de expandir o jogo para todo o escopo de um MMORPG.
+A construção é incremental. O backlog organiza as fatias que levam ao MVP completo.
 
-A prioridade atual é o fluxo inicial do jogador, especialmente:
-
-**criar conta → entrar → criar personagem → entrar no mundo → executar o fluxo inicial da experiência.**
-
-O projeto não deve ser tratado, nesta fase, como uma implementação completa de MMORPG.
-
----
-
-## 4. Escopo atual do MVP
-
-O conteúdo inicial utilizado para validar o jogo é **A Travessia**.
-
-A Travessia funciona como o espaço inicial da experiência e contém um conjunto pequeno de zonas descartáveis destinado a apresentar a progressão inicial do jogo.
-
-O escopo inicial trabalha com:
-
-- T1 e T2;
-- progressão inicial;
-- combate;
-- coleta;
-- refino;
-- criação;
-- fluxo de entrada no mundo;
-- sistemas necessários para sustentar a experiência inicial.
-
-A implementação deve priorizar somente o que é necessário para esse fluxo.
-
-Sistemas futuros podem ser representados de forma simplificada quando isso ajudar a demonstrar uma arquitetura, mas não devem transformar o MVP em uma implementação antecipada do MMORPG completo.
-
----
-
-## 5. Princípios de design
-
-### 5.1 Ausência de classes tradicionais
-
-O personagem não escolhe uma classe fixa.
-
-A identidade mecânica do personagem emerge principalmente daquilo que ele utiliza e desenvolve.
-
-A estrutura de progressão deve permitir especialização sem exigir uma classe tradicional de RPG.
-
-### 5.2 Progressão
-
-A progressão combina:
-
-- equipamento;
-- tiers;
-- combate;
-- coleta;
-- refino;
-- criação.
-
-A árvore de progressão deve representar a evolução dessas atividades sem transformar o sistema em um conjunto de classes fechadas.
-
-### 5.3 Mundo
-
-O mundo possui uma organização histórica própria e é construído em torno de eras, regiões, progressão e risco.
-
-Detalhes concretos de lore, zonas, criaturas, conteúdo e regras não devem ser inventados a partir deste arquivo.
-
-Para esses detalhes, consultar as fontes de design do repositório.
-
-### 5.4 Jogador
-
-O jogador participa do mundo como personagem dentro dessa estrutura histórica e não deve ser tratado automaticamente como uma figura escolhida ou central à história.
-
-A definição concreta da narrativa e da posição do jogador no mundo deve ser obtida do GDD e das decisões de design atuais.
-
----
-
-## 6. Princípios técnicos atuais
-
-O backend é planejado em **Go** e deve ser **autoritativo**.
-
-O cliente solicita ações.
-
-O servidor:
-
-1. recebe a intenção;
-2. valida a ação;
-3. aplica as regras;
-4. altera o estado;
-5. produz os resultados/eventos necessários;
-6. comunica o resultado ao cliente.
-
-A ideia central pode ser resumida como:
+O MVP trabalha com T1 e T2 e exercita o núcleo necessário para o loop:
 
 ```text
-Command
-   ↓
-Game Core
-   ↓
-State
-   ↓
-Event
-   ↓
-Client
+coletar → produzir → equipar → combater → progredir → atravessar
 ```
 
-O cliente não é a autoridade sobre regras, resultados ou estado do jogo.
+Não ampliar o MVP antecipando o MMORPG completo.
 
 ---
 
-## 7. Organização do servidor
+## 4. Onde cada assunto vive
 
-A arquitetura atual separa conceitualmente:
+| Pergunta | Fonte |
+|---|---|
+| O que é o jogo? | `docs/o-jogo.md` |
+| Qual é a regra de design e por quê? | `docs/decisoes-de-design.md` |
+| Quais dados e sistemas entram no MVP? | `docs/dados-do-mvp.md` |
+| Como funcionam fórmulas e balanceamento? | `docs/formulas-e-balanceamento.md` |
+| Como o jogo deve ser representado visualmente? | `docs/direcao-de-arte.md` |
+| Como o servidor é estruturado? | `docs/arquitetura-consolidada.md` |
+| Para onde o projeto evolui? | `docs/ROADMAP.md` |
+| O que está sendo trabalhado? | `docs/backlog/` |
+| Como chegamos às decisões atuais? | `docs/historico-e-estudos.md` |
 
-- network;
-- game core;
-- state;
-- commands;
-- events;
-- persistence;
-- static game data;
-- bootstrap.
-
-O objetivo dessa separação é evitar que regras de jogo fiquem espalhadas pelos handlers HTTP/WebSocket, pela persistência ou pelo carregamento de dados.
-
-O núcleo do jogo deve permanecer independente da forma como a mensagem chegou.
-
----
-
-## 8. HTTP e WebSocket
-
-A arquitetura atual utiliza HTTP e WebSocket com responsabilidades diferentes.
-
-### Antes de entrar no mundo
-
-HTTP atende operações como:
-
-- criação de conta;
-- login;
-- criação de personagem;
-- entrada no mundo;
-- outras operações de natureza semelhante que não exigem o canal contínuo de gameplay.
-
-### Durante o gameplay
-
-Depois de entrar no mundo, o WebSocket fornece o canal contínuo entre cliente e servidor para:
-
-- enviar comandos de gameplay;
-- receber eventos/atualizações do servidor;
-- manter a comunicação necessária durante a sessão.
-
-O WebSocket não é a fonte da verdade.
-
-A autoridade continua no núcleo do jogo.
+Os JSONs em `data/` são a fonte de verdade para conteúdo e valores efetivamente carregados. `design/` contém conteúdo projetado que ainda não entrou no runtime.
 
 ---
 
-## 9. Game Loop e concorrência
+## 5. Hierarquia de fontes
 
-A proposta atual privilegia um modelo no qual uma goroutine é responsável pela posse do estado mutável do mundo/jogo.
+Para afirmações sobre o estado atual do projeto:
 
-A rede não deve modificar diretamente o estado do jogo.
+1. código atual, quando a questão for comportamento implementado;
+2. documentação normativa específica;
+3. dados atuais;
+4. histórico.
 
-O fluxo conceitual é:
+O histórico serve para entender evolução e alternativas. Não é autoridade sobre o estado atual.
 
-```text
-HTTP / WebSocket
-        │
-        ▼
-     Command
-        │
-        ▼
-     Channel
-        │
-        ▼
-   Game Loop
-        │
-        ▼
-   Game State
-```
-
-Isso reduz a quantidade de concorrência necessária dentro das regras do jogo.
-
-### Mutex
-
-Mutex não é proibido.
-
-Ele deve ser usado quando houver estado realmente compartilhado entre goroutines e quando a sincronização por posse exclusiva do Game Loop não resolver o problema.
-
-### Channels
-
-Channels são utilizados para comunicação entre partes concorrentes, especialmente para encaminhar comandos ao núcleo do jogo.
-
-### Actor Model
-
-Actor Model não é um requisito da arquitetura atual.
-
-Ele pode ser estudado futuramente se surgir uma necessidade concreta que justifique sua adoção.
+Quando uma fonte não for suficiente, tratar a questão como aberta em vez de inventar uma resolução.
 
 ---
 
-## 10. Tempo e ações temporizadas
+## 6. Distinções importantes
 
-Ações temporizadas devem ser representadas pelo estado necessário para determinar sua evolução.
+Durante o trabalho, separar:
 
-Um modelo conceitual é:
+**Decisão atual** — regra estabelecida em fonte normativa.
 
-```text
-StartedAt
-EndsAt
-Action
-Parameters
-```
+**Decisão proposta** — solução sugerida que ainda não deve ser tratada como regra definitiva.
 
-O servidor utiliza seu próprio conceito de tempo para determinar o estado da ação.
+**Hipótese** — possibilidade usada para raciocinar.
 
-O avanço temporal deve ser determinístico a partir do estado armazenado e do tempo atual fornecido ao núcleo.
-
-Um padrão estudado é:
-
-```text
-Tick(now)
-```
-
-Isso permite que o Game Loop atualize atividades sem depender do cliente para determinar quando algo terminou.
-
-O cliente pode animar ou apresentar visualmente uma ação, mas o servidor continua responsável por determinar o resultado.
+**Histórico** — ideia ou regra considerada anteriormente que não representa necessariamente o estado atual.
 
 ---
 
-## 11. Dados estáticos do jogo
+## 7. Como o ChatGPT deve trabalhar
 
-Dados como zonas, criaturas, itens e outras definições de conteúdo devem ser separados das regras de execução do servidor.
-
-A ideia atual é:
-
-```text
-data/
-├── shared/*.json
-├── mvp/*.json
-└── era1/*.json
-     ↓
-  gamedata
-     ↓
-  bootstrap
-     ↓
-    game
-```
-
-O carregamento dos arquivos de dados não deve fazer o núcleo do jogo depender diretamente de JSON.
-
-A camada `gamedata` interpreta os dados estáticos.
-
-O bootstrap conecta os dados carregados ao runtime.
-
-O núcleo do jogo trabalha com estruturas apropriadas ao domínio/runtime.
-
----
-
-## 12. Bootstrap
-
-O bootstrap funciona como composição da aplicação.
-
-Sua responsabilidade é conectar:
-
-- configurações;
-- carregadores de dados;
-- banco/persistência;
-- Game State;
-- Game Loop;
-- HTTP;
-- WebSocket;
-- demais dependências.
-
-A ideia é manter `main` pequeno e evitar que o núcleo do jogo conheça detalhes de infraestrutura.
-
----
-
-## 13. Persistência
-
-PostgreSQL faz parte da arquitetura estudada para persistência.
-
-A persistência não deve transformar cada atualização do Game Loop em uma escrita obrigatória no banco.
-
-O banco representa a persistência necessária do estado.
-
-O runtime do jogo é responsável pela execução em memória.
-
-Persistência e gameplay devem ser desacoplados o suficiente para que o caminho crítico do jogo não dependa de uma escrita no banco a cada tick.
-
-Eventos também não significam automaticamente Event Sourcing.
-
----
-
-## 14. Arquitetura não distribuída
-
-O projeto não parte da premissa de que precisa de:
-
-- microservices;
-- Redis;
-- Kafka;
-- NATS;
-- Kubernetes;
-- sharding;
-- múltiplos processos de game server distribuídos.
-
-Essas tecnologias podem existir em um futuro projeto real caso uma necessidade concreta apareça.
-
-Neste estudo, introduzi-las antecipadamente prejudica o objetivo didático e aumenta a complexidade sem benefício comprovado.
-
----
-
-## 15. Estado atual do desenvolvimento
-
-O desenvolvimento atual está trabalhando no fluxo de entrada no mundo.
-
-A branch de referência registrada neste contexto é:
-
-`04-entrar-no-mundo`
-
-Essa etapa envolve conceitos como:
-
-- bootstrap do mundo;
-- Game State;
-- entrada do personagem no mundo;
-- preparação do núcleo do jogo para receber comandos;
-- evolução posterior para Game Loop e comunicação por channels.
-
-O estado real do código deve sempre ser verificado diretamente no repositório antes de afirmar que determinada implementação já existe.
-
----
-
-## 16. Hierarquia de fontes
-
-Para informações sobre o projeto, usar a fonte mais específica e atual disponível.
-
-### 1. Código do repositório
-
-É a fonte de verdade para o comportamento que já está efetivamente implementado.
-
-### 2. `o-jogo.md`
-
-Resumo normativo atual do jogo.
-
-### 3. `decisoes-de-design.md`
-
-Decisões atuais de design e seus fundamentos.
-
-### 4. `arquitetura-consolidada.md`
-
-Arquitetura técnica consolidada e decisões arquiteturais atuais.
-
-### 5. `como-promover-dado.md`
-
-Regras sobre como dados e informações devem evoluir dentro do projeto.
-
-### 6. `formulas-e-balanceamento.md` / `dados-do-mvp.md`
-
-Fontes específicas para fórmulas, balanceamento e dados atuais do MVP.
-
-### 7. Demais documentos do repositório
-
-Consultar conforme o assunto.
-
-### 8. `historico-e-estudos.md`
-
-Material histórico e exploratório.
-
-Esse arquivo serve para recuperar contexto e entender como ideias evoluíram.
-
-Ele não substitui uma fonte normativa atual.
-
----
-
-## 17. Como tratar conflitos
-
-Quando duas fontes divergirem:
-
-1. verificar qual delas é mais atual;
-2. verificar se uma é normativa e outra histórica;
-3. priorizar código para comportamento já implementado;
-4. priorizar o documento específico para a regra que ele define;
-5. não transformar automaticamente uma hipótese histórica em regra atual.
-
-Se o conflito não puder ser resolvido pelas fontes, deve ser apresentado como questão em aberto.
-
-Não inventar uma resolução.
-
----
-
-## 18. Repositório versus Project do ChatGPT
-
-O repositório deve concentrar aquilo que precisa acompanhar o desenvolvimento do projeto:
-
-- código;
-- regras atuais;
-- decisões atuais;
-- especificações;
-- dados;
-- fórmulas;
-- backlog;
-- documentação operacional.
-
-O Project do ChatGPT pode concentrar:
-
-- contexto geral;
-- histórico de estudos;
-- alternativas descartadas;
-- raciocínios arquiteturais;
-- discussões de design;
-- material exploratório;
-- contexto necessário para interpretar decisões atuais.
-
-A existência de uma informação no Project não deve ser usada para justificar uma regra que contradiga uma fonte normativa atual do repositório.
-
----
-
-## 19. Como o ChatGPT deve trabalhar neste projeto
-
-O objetivo principal das conversas é **ensinar e apoiar o raciocínio**, não substituir o desenvolvimento feito pelo usuário.
+O objetivo das conversas é apoiar o raciocínio e ensinar, não substituir o desenvolvimento feito pelo usuário.
 
 Ao discutir arquitetura:
 
-1. explicar a arquitetura primeiro;
-2. explicar a responsabilidade dos componentes;
+1. explicar a arquitetura;
+2. explicar responsabilidades;
 3. explicar o fluxo;
-4. explicar os trade-offs;
-5. só então apresentar código quando ele for útil.
+4. explicar trade-offs;
+5. apresentar código pequeno quando ele for útil.
 
-O código deve ser pequeno, didático e idiomático.
+Não inventar regras de gameplay nem tratar discussões antigas como decisões atuais.
 
-Não produzir grandes implementações de produção quando o objetivo for estudar um conceito.
+Quando uma simplificação for feita para estudo, identificá-la como tal.
 
-Quando uma simplificação for feita para fins didáticos, identificá-la explicitamente.
-
----
-
-## 20. Decisão, proposta e hipótese
-
-As conversas devem distinguir claramente:
-
-### Decisão atual
-
-Algo que já está estabelecido em uma fonte normativa atual.
-
-### Decisão proposta
-
-Uma solução sugerida durante o estudo, mas que ainda não deve ser tratada como regra definitiva.
-
-### Hipótese
-
-Uma possibilidade utilizada para raciocinar sobre uma solução.
-
-### Histórico
-
-Uma ideia, arquitetura ou regra que foi considerada anteriormente, mas não representa necessariamente o estado atual.
-
-Essa distinção é importante para evitar que o estudo do projeto seja confundido com o projeto em si.
+A arquitetura estudada deve ser tratada como referência e não como decisão definitiva de um futuro projeto de desenvolvimento separado.
 
 ---
 
-## 21. O que não deve ser feito
+## 8. Regra de ouro
 
-Não:
+**Consultar a fonte atual e específica antes de concluir.**
 
-- inventar regras de gameplay;
-- tratar discussões antigas como decisões atuais;
-- ampliar o MVP sem necessidade;
-- antecipar infraestrutura distribuída;
-- colocar regras de jogo diretamente nos handlers;
-- fazer o cliente determinar resultados;
-- usar o banco como mecanismo de execução do Game Loop;
-- assumir que um evento significa Event Sourcing;
-- transformar uma proposta arquitetural deste estudo em decisão definitiva do projeto real.
-
----
-
-## 22. Regra de ouro
-
-Quando houver dúvida sobre o estado atual de Eras do Brasil:
-
-**consultar a fonte atual e específica antes de concluir.**
-
-Quando a fonte não for suficiente:
-
-**declarar a lacuna e separar claramente fato, interpretação, proposta e hipótese.**
-
-O objetivo deste Project é ajudar a compreender e construir Eras do Brasil com clareza, sem transformar material de estudo em regra definitiva por acidente.
+Separar claramente fato, decisão, proposta, hipótese e histórico.
