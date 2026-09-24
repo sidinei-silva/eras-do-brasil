@@ -64,8 +64,11 @@ for {
 **Decisão.**
 
 ```text
-data/*.json  →  gamedata  →  bootstrap  →  game
-   dados      definições    montagem    runtime
+data/                 →  gamedata  →  bootstrap  →  game
+├── shared/*.json         definições    montagem    runtime
+├── mvp/*.json
+└── era1/*.json
+      dados
 ```
 
 - `gamedata` **carrega e representa** dados estáticos. Não conhece `game`.
