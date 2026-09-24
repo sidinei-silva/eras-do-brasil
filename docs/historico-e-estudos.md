@@ -10,7 +10,7 @@
 
 ## 1. Para que este histórico existe
 
-O projeto Eras do Brasil passou por várias fases de exploração de design, lore, arquitetura, dados, balanceamento e direção de arte. Parte desse raciocínio ficou registrada em conversas com ChatGPT e Claude e parte acabou incorporada aos documentos do repositório.
+O projeto Eras do Brasil passou por várias fases de exploração de design, lore, arquitetura, dados, balanceamento e direção de arte. Parte desse raciocínio ficou registrada em conversas com ChatGPT e Claude e parte acabou incorporada aos documentos do projeto.
 
 Isso criou uma mistura entre:
 
@@ -23,7 +23,7 @@ Isso criou uma mistura entre:
 
 A intenção deste documento é separar essas coisas.
 
-O repositório deve continuar contendo aquilo que precisa ser consultado para construir o jogo. Este histórico preserva apenas o contexto que é útil para compreender a evolução do projeto.
+Os documentos atuais do projeto devem continuar contendo aquilo que precisa ser consultado para construir o jogo. Este histórico preserva apenas o contexto que é útil para compreender a evolução do projeto.
 
 ---
 
@@ -115,7 +115,7 @@ A visão que acabou se aproximando do projeto atual foi:
 - a Raiz do Mundo funciona como elemento estrutural para a organização desse mundo;
 - o Emaranhado pode reunir conteúdo de eras sobrepostas em uma etapa posterior.
 
-O desenho atual do mundo está documentado nos arquivos normativos do projeto. As formulações anteriores são apenas histórico.
+O desenho atual do mundo está documentado nos arquivos atuais do projeto. As formulações anteriores são apenas histórico.
 
 ---
 
@@ -642,19 +642,13 @@ A ideia de PvP passou por mudanças importantes.
 
 Em uma formulação antiga, havia mais espaço para interpretações assimétricas da flag.
 
-Depois foi consolidada uma regra de consentimento:
-
-- sinalizado pode atacar e ser atacado;
-- não sinalizado não participa;
-- a flag é alterada na cidade;
-- cada banda de risco determina as consequências;
-- no Emaranhado existe uma forma diferente de consentimento.
+Depois foi consolidada uma regra de consentimento.
 
 Também foi discutida a ideia de usar o número de jogadores sinalizados na zona como informação pública.
 
 O histórico mostra que algumas regras antigas foram removidas porque permitiam situações em que um jogador poderia interferir no farm de outros sem assumir o risco de combate.
 
-A regra atual deve ser consultada em `o-jogo.md` e `decisoes-de-design.md`.
+O objetivo desta seção é registrar essa evolução. A regra vigente deve ser consultada nos documentos atuais do projeto, especialmente `o-jogo.md` e `decisoes-de-design.md`.
 
 ---
 
@@ -707,7 +701,31 @@ Essa metodologia pode ser reutilizada, mas não é uma regra do jogo em si.
 
 ---
 
-# 23. O que o histórico não deve fazer
+# 23. Conceitos de A Escória que não foram carregados para Eras
+
+A transição de A Escória para Eras também deixou para trás conceitos que pertenciam ao projeto anterior ou a fases antigas de exploração.
+
+Entre os conceitos que apareceram nos estudos e **não fazem parte do modelo atual de Eras** estão:
+
+- **Lastro**;
+- **D20** como estrutura de resolução;
+- **classes** como estrutura tradicional de personagem;
+- **gank adjacente** como modelo de PvP;
+- conceitos antigos de zonas, como **A Ressaca**, **A Bigorna**, **O Verde Surdo** e **A Costela**;
+- **panteões/deuses associados às armas**;
+- outras regras, nomes e sistemas específicos de A Escória que não foram adotados por Eras.
+
+Esses conceitos podem continuar aparecendo em conversas e materiais antigos porque fizeram parte da evolução do estudo.
+
+Eles devem ser entendidos como **histórico do projeto anterior ou de exploração abandonada**, não como conteúdo ou regra de Eras.
+
+A regra geral permanece:
+
+> arquitetura e aprendizados técnicos podem ser reaproveitados; lore, mundo, nomes e mecânicas específicas só pertencem a Eras quando foram efetivamente adotados pelo projeto.
+
+---
+
+# 24. O que o histórico não deve fazer
 
 Este arquivo não deve:
 
@@ -734,12 +752,12 @@ não:
 
 ---
 
-# 24. Regra para conflitos
+# 25. Regra para conflitos
 
 Quando uma informação deste histórico divergir do projeto atual, seguir esta ordem:
 
 1. código atual, quando a questão for comportamento implementado;
-2. documentação normativa atual;
+2. documentação atual do projeto;
 3. dados atuais;
 4. decisões atuais;
 5. este histórico;
@@ -749,36 +767,36 @@ O histórico é contexto, não autoridade.
 
 ---
 
-# 25. Fontes que originaram este histórico
+# 26. Fontes que originaram este histórico
 
 Este documento foi consolidado a partir de:
 
 - conversas anteriores deste Project;
 - conversas arquivadas sobre Eras do Brasil;
 - conversas do Claude analisadas durante a preparação do novo Project;
-- documentação atual do repositório `eras-do-brasil`;
+- documentação atual do projeto `eras-do-brasil`;
 - decisões arquiteturais e de design já registradas.
 
 As conversas originais não precisam continuar sendo carregadas como contexto permanente quando o conteúdo relevante já estiver consolidado aqui.
 
 ---
 
-# 26. Migração de histórico para fora do repositório
+# 27. Migração de histórico para fora dos documentos atuais
 
-Na revisão da documentação atual do repositório foram encontrados exemplos claros de raciocínio histórico misturados à documentação normativa, especialmente:
+Na revisão da documentação atual do projeto foram encontrados exemplos claros de raciocínio histórico misturados à documentação normativa, especialmente:
 
-- `docs/arquitetura-consolidada.md`, que descreve as fases do estudo e alternativas descartadas;
-- `docs/decisoes-de-design.md`, que mantém motivos e versões antigas de regras;
-- `docs/formulas-e-balanceamento.md`, que registra valores anteriores e tentativas de balanceamento;
-- `docs/dados-do-mvp.md`, que registra algumas mudanças estruturais anteriores;
-- `docs/direcao-de-arte.md`, que contém partes de processo e justificativa;
-- `docs/backlog/00-poc/VISAO_DEV.md`, que possui material de visão e exploração anterior.
+- `docs/arquitetura-consolidada.md`, que descrevia as fases do estudo e alternativas descartadas;
+- `docs/decisoes-de-design.md`, que mantinha motivos e versões antigas de regras;
+- `docs/formulas-e-balanceamento.md`, que registrava valores anteriores e tentativas de balanceamento;
+- `docs/dados-do-mvp.md`, que registrava algumas mudanças estruturais anteriores;
+- `docs/direcao-de-arte.md`, que continha partes de processo e justificativa;
+- `docs/backlog/00-poc/VISAO_DEV.md`, que possuía material de visão e exploração anterior.
 
 Isso não significa que esses arquivos devam ser simplesmente apagados.
 
 A distinção proposta é:
 
-### Deve continuar no repositório
+### Deve continuar nos documentos do projeto
 
 - regra atual;
 - decisão atual;
@@ -789,7 +807,7 @@ A distinção proposta é:
 - dados e fórmulas que o projeto realmente usa;
 - documentação necessária para quem trabalha no código.
 
-### Pode migrar para este histórico
+### Pode permanecer neste histórico
 
 - narrativa detalhada de como uma decisão surgiu;
 - alternativas antigas que já não precisam ser consultadas durante implementação;
@@ -798,17 +816,15 @@ A distinção proposta é:
 - raciocínio exploratório vindo de chats;
 - ideias abandonadas que não têm função operacional.
 
-### Não deve ser duplicado
+### Não deve ser duplicado desnecessariamente
 
-Uma decisão atual não precisa aparecer integralmente aqui e no repositório.
+Uma decisão atual deve ter sua definição nos documentos atuais do projeto.
 
-O repositório mantém a decisão atual.
-
-Este documento mantém apenas o contexto histórico necessário para entender sua evolução.
+Este histórico pode mencionar essa decisão quando isso for necessário para explicar sua evolução, mas não deve reproduzi-la integralmente.
 
 ---
 
-# 27. Síntese da evolução
+# 28. Síntese da evolução
 
 A evolução do projeto pode ser resumida assim:
 
