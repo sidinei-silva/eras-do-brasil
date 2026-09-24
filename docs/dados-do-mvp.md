@@ -59,7 +59,7 @@ A regra é:
 
 > **`data/` é o que o servidor carrega. `design/` é o que já foi projetado, mas ainda não entra no runtime.**
 
-O processo de promoção de `design/` para `data/` está documentado em `docs/como-promover-dado.md`.
+O processo de promoção é descrito na seção 14 deste documento.
 
 ---
 
@@ -67,21 +67,21 @@ O processo de promoção de `design/` para `data/` está documentado em `docs/co
 
 Os dados compartilhados representam sistemas ou catálogos que não pertencem exclusivamente a uma era ou ao MVP.
 
-| Arquivo                    | Responsabilidade                                 |
-| -------------------------- | ------------------------------------------------ |
-| `continents.json`          | estrutura dos continentes                        |
-| `materials.json`           | catálogo de materiais e requisitos de ferramenta |
-| `trees.json`               | árvores, habilidades e estrutura de slots        |
-| `skills.json`              | habilidades disponíveis no escopo carregado      |
-| `traditions.json`          | tradições de equipamento                         |
-| `armor.json`               | linhas, peças e conjuntos de armadura            |
-| `equipment.json`           | montarias, bolsas e ferramentas                  |
-| `destiny.json`             | Árvore do Destino e seus ramos                   |
-| `balance/combat.json`      | constantes e regras quantitativas de combate     |
-| `balance/economy.json`     | constantes econômicas                            |
-| `balance/progression.json` | constantes de progressão                         |
+| Arquivo | Responsabilidade |
+|---|---|
+| `continents.json` | estrutura dos continentes |
+| `materials.json` | catálogo de materiais e requisitos de ferramenta |
+| `trees.json` | árvores, habilidades e estrutura de slots |
+| `skills.json` | habilidades disponíveis no escopo carregado |
+| `traditions.json` | tradições de equipamento |
+| `armor.json` | linhas, peças e conjuntos de armadura |
+| `equipment.json` | montarias, bolsas e ferramentas |
+| `destiny.json` | Árvore do Destino e seus ramos |
+| `balance/combat.json` | constantes e regras quantitativas de combate |
+| `balance/economy.json` | constantes econômicas |
+| `balance/progression.json` | constantes de progressão |
 
-O conteúdo efetivo desses arquivos é a fonte de verdade dos valores. Este documento registra apenas **para que cada conjunto de dados existe**.
+O conteúdo efetivo desses arquivos é a fonte de verdade dos valores. Este documento registra apenas para que cada conjunto de dados existe.
 
 ### Regra de escopo
 
@@ -89,26 +89,22 @@ Sistema é compartilhado por definição.
 
 Uma nova era adiciona conteúdo usando os sistemas existentes; não cria automaticamente uma nova árvore de habilidades, uma nova linha de armadura ou uma cópia paralela do sistema.
 
-Se uma decisão futura alterar essa regra, ela deve ser registrada separadamente como decisão de design.
-
 ---
 
 ## 4. Conteúdo do MVP
 
 O conteúdo específico da Travessia fica em `data/mvp/`.
 
-| Arquivo         | Responsabilidade                                     |
-| --------------- | ---------------------------------------------------- |
-| `zones.json`    | zonas, conexões, acampamentos e recursos disponíveis |
-| `factions.json` | facções usadas pelo conteúdo do MVP                  |
-| `mobs.json`     | bestiário dos mobs do MVP                            |
-| `npcs.json`     | NPCs e seus dados de diálogo                         |
-| `recipes.json`  | receitas disponíveis                                 |
-| `tutorial.json` | passos e estado do tutorial                          |
+| Arquivo | Responsabilidade |
+|---|---|
+| `zones.json` | zonas, conexões, acampamentos e recursos disponíveis |
+| `factions.json` | facções usadas pelo conteúdo do MVP |
+| `mobs.json` | bestiário dos mobs do MVP |
+| `npcs.json` | NPCs e seus dados de diálogo |
+| `recipes.json` | receitas disponíveis |
+| `tutorial.json` | passos e estado do tutorial |
 
-O `tutorial.json` representa o tutorial como **máquina de estados**, contendo para cada passo os dados necessários para entrada, conclusão, ensino, desbloqueio e recompensa.
-
-A lógica do servidor interpreta esses dados; os passos não devem virar uma sequência hardcoded no código.
+O `tutorial.json` representa o tutorial como máquina de estados. A lógica do servidor interpreta esses dados; os passos não devem virar uma sequência hardcoded no código.
 
 ---
 
@@ -122,7 +118,7 @@ O conteúdo ainda não promovido fica em:
 design/era-1/
 ```
 
-Quando chegar o momento de colocá-lo no runtime, o conteúdo será promovido seguindo `docs/como-promover-dado.md`.
+Quando chegar o momento de colocá-lo no runtime, o conteúdo será promovido seguindo o processo deste documento.
 
 A organização planejada é:
 
@@ -141,12 +137,12 @@ O mesmo esquema de dados deve ser usado entre MVP e Era 1. O que muda é o conte
 
 A Travessia possui quatro zonas com funções distintas no tutorial:
 
-| Zona                  | Função no fluxo                      |
-| --------------------- | ------------------------------------ |
-| **A Beira**           | início da jornada e primeiro combate |
-| **Porto de Passagem** | vila, mercado e estações             |
-| **Mata Revirada**     | primeiro espaço de coleta T2         |
-| **Pedreira Torta**    | segundo espaço de coleta T2          |
+| Zona | Função no fluxo |
+|---|---|
+| **A Beira** | início da jornada e primeiro combate |
+| **Porto de Passagem** | vila, mercado e estações |
+| **Mata Revirada** | primeiro espaço de coleta T2 |
+| **Pedreira Torta** | segundo espaço de coleta T2 |
 
 Os detalhes de conexões, recursos, acampamentos e gates pertencem a `data/mvp/zones.json`.
 
@@ -204,44 +200,40 @@ A progressão do tutorial apresenta gradualmente:
 
 A composição exata de itens e receitas é definida pelos arquivos de dados.
 
-O objetivo desta documentação é registrar **quais sistemas o MVP precisa exercitar**, não repetir o catálogo de itens.
-
 ---
 
 ## 9. Cobertura de sistemas
 
 O MVP foi desenhado para exercitar o núcleo dos sistemas que serão reutilizados posteriormente.
 
-| Sistema                     | Exercitado no MVP |
-| --------------------------- | ----------------- |
-| Inventário e equipamento    | sim               |
-| Combate e ataque básico     | sim               |
-| Onda fechada                | sim               |
-| Slots e prioridade          | sim               |
-| Energia                     | sim               |
-| Coleta                      | sim               |
-| Coleta sem ferramenta no T1 | sim               |
-| Ferramentas                 | sim               |
-| Craft                       | sim               |
-| Off-hand                    | sim               |
-| Armadura                    | sim               |
-| Mini-chefe e recompensa     | sim               |
-| Mercado e armazém           | sim               |
-| Montaria e carga            | sim               |
-| Refino                      | sim               |
-| Árvore do Destino           | sim               |
-| Escolha de tradição         | sim               |
-| Conjunto completo           | sim               |
-| PvP                         | não               |
-| Conteúdo T3+                | não               |
-| Artefatos                   | não               |
-| Encantamento e Essência     | não               |
-| Qualidade                   | não               |
-| Reputação                   | não               |
-| Economia entre jogadores    | não               |
-| Mundo da Era 1              | não               |
-
-A tabela serve para registrar **cobertura de escopo**, não para substituir os arquivos que implementam cada sistema.
+| Sistema | Exercitado no MVP |
+|---|---|
+| Inventário e equipamento | sim |
+| Combate e ataque básico | sim |
+| Onda fechada | sim |
+| Slots e prioridade | sim |
+| Energia | sim |
+| Coleta | sim |
+| Coleta sem ferramenta no T1 | sim |
+| Ferramentas | sim |
+| Craft | sim |
+| Off-hand | sim |
+| Armadura | sim |
+| Mini-chefe e recompensa | sim |
+| Mercado e armazém | sim |
+| Montaria e carga | sim |
+| Refino | sim |
+| Árvore do Destino | sim |
+| Escolha de tradição | sim |
+| Conjunto completo | sim |
+| PvP | não |
+| Conteúdo T3+ | não |
+| Artefatos | não |
+| Encantamento e Essência | não |
+| Qualidade | não |
+| Reputação | não |
+| Economia entre jogadores | não |
+| Mundo da Era 1 | não |
 
 ---
 
@@ -267,8 +259,6 @@ loadout completo
 
 A prioridade já é relevante mesmo com poucas habilidades.
 
-O catálogo de habilidades e a configuração concreta dos slots pertencem aos dados compartilhados e ao conteúdo do MVP.
-
 ---
 
 ## 11. Organização estrutural dos arquivos
@@ -279,29 +269,13 @@ Algumas regras evitam duplicação entre os dados.
 
 Os arquivos usam chaves em inglês e valores de conteúdo em português.
 
-A intenção é manter uma convenção única entre os arquivos.
-
 ### Materiais e ferramentas
 
-O material declara a ferramenta necessária.
-
-```text
-material
-   └── requisito de ferramenta
-```
-
-A zona declara apenas a disponibilidade do recurso.
-
-```text
-zona
-   └── recurso disponível
-```
+O material declara a ferramenta necessária. A zona declara apenas a disponibilidade do recurso.
 
 ### Acampamentos e mobs
 
-O bestiário define o mob.
-
-O mapa define onde ele aparece e em qual grupo.
+O bestiário define o mob. O mapa define onde ele aparece e em qual grupo.
 
 ```text
 mobs.json
@@ -313,13 +287,9 @@ zones.json
              └── mob
 ```
 
-Isso evita manter uma relação bidirecional e redundante.
-
 ### Gates
 
-O desbloqueio de progressão pertence ao sistema que controla a progressão.
-
-Uma conexão do mapa não deve carregar uma segunda implementação paralela da mesma regra de gate.
+O desbloqueio de progressão pertence ao sistema que controla a progressão. Uma conexão do mapa não deve carregar uma segunda implementação paralela da mesma regra.
 
 ---
 
@@ -347,14 +317,6 @@ era1/zones.json
 
 O escopo é definido pela pasta que contém o pacote.
 
-Isso permite que o carregador componha:
-
-```text
-shared + pacote de conteúdo
-```
-
-sem precisar criar uma arquitetura diferente para cada era.
-
 ---
 
 ## 13. O que pertence a este documento e o que não pertence
@@ -369,7 +331,7 @@ Este documento deve responder:
 - como os dados são relacionados;
 - como o conteúdo passa de `design/` para `data/`.
 
-Este documento **não deve duplicar**:
+Este documento não deve duplicar:
 
 - catálogo completo de itens;
 - números de balanceamento;
@@ -381,28 +343,90 @@ Este documento **não deve duplicar**:
 - detalhes de cada zona;
 - conteúdo histórico de versões anteriores.
 
-Essas informações pertencem aos dados ou aos documentos especializados.
+---
+
+## 14. Promoção de dados: design → data
+
+`data/` e `design/` não são a mesma coisa:
+
+| Pasta | O que é | Quem lê |
+|---|---|---|
+| `data/` | conteúdo que o servidor já pode carregar | `gamedata` |
+| `design/` | conteúdo projetado que ainda não entra no runtime | projeto/design |
+
+### Regra
+
+`data/` só deve conter conteúdo para o qual exista código responsável por carregá-lo e representá-lo.
+
+O fluxo é:
+
+```text
+design
+   ↓
+data
+   ↓
+gamedata
+   ↓
+bootstrap
+   ↓
+game
+```
+
+### Como promover
+
+Para cada fatia do backlog, perguntar:
+
+**que dado precisa existir para esta fatia funcionar?**
+
+Promover exatamente isso de `design/` para `data/`. Nada a mais.
+
+Exemplo: para “personagem entra no mundo”, basta a zona e o ponto de nascimento necessários para essa fatia. Não é necessário promover mobs, receitas ou habilidades ainda não usadas.
+
+A promoção pode editar o mesmo arquivo várias vezes ao longo do desenvolvimento. Isso é esperado.
+
+Ao promover:
+
+1. recortar de `design/` apenas o conteúdo necessário;
+2. colocar no arquivo correspondente em `data/`;
+3. conferir se as referências usadas pelo conteúdo promovido existem em `data/`;
+4. remover de `design/` o que foi promovido para não manter duas versões.
+
+A exceção é `balance/`: suas referências podem incluir conteúdo ainda não carregado, conforme a regra da seção seguinte.
+
+### Estado dos diretórios
+
+Hoje:
+
+```text
+design/
+  catalog/     armas, habilidades, materiais e equipamento de T3 a T6
+  era-1/       conteúdo da Era 1 ainda não promovido
+
+data/
+  shared/      sistemas, catálogos carregados e balanceamento
+  mvp/         conteúdo da Travessia
+```
+
+### Balanceamento
+
+`balance/` permanece inteiro em `data/`. Ele cobre T1 a T6 e pode conter entradas para conteúdo que ainda não está carregado. Isso é esperado e o carregador não deve exigir que todos esses ids já existam no conteúdo promovido.
+
+### Quando a Era 1 chegar
+
+Promover o conteúdo de `design/era-1/` para `data/era1/` e o catálogo correspondente de T3 a T6 para `data/shared/`.
+
+### Contrato
+
+`dados-do-mvp.md` descreve o que o MVP terá quando estiver completo.
+
+`data/` mostra o que já entrou para o servidor carregar.
+
+Eles podem divergir durante o desenvolvimento. Quem mede o progresso é o backlog.
 
 ---
 
-## 14. Relação com o histórico
+## 15. Relação com o histórico
 
-Durante a modelagem do MVP existiram alternativas sobre:
+Alternativas sobre estrutura de zonas, dados, gates, conteúdo do tutorial e organização de `data/` e `design/` pertencem ao histórico quando já não forem necessárias para entender o estado atual.
 
-- estrutura de zonas;
-- relacionamento entre mobs, acampamentos e zonas;
-- localização dos requisitos de ferramenta;
-- organização de `data/` e `design/`;
-- gates de conexão;
-- conteúdo inicial do tutorial;
-- composição e quantidade de conteúdo.
-
-Essas decisões só devem permanecer neste documento quando ainda forem necessárias para entender a estrutura atual.
-
-As versões anteriores, alternativas descartadas e a evolução dessas decisões pertencem a:
-
-```text
-docs/historico-e-estudos.md
-```
-
-Assim, este arquivo pode continuar sendo usado como referência do **estado atual dos dados do MVP**, sem transformar cada decisão histórica em uma regra vigente.
+Consulte `docs/historico-e-estudos.md` para a evolução dessas decisões.
