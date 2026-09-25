@@ -112,6 +112,8 @@ Sempre que possível, o ícone deve derivar do asset real em vez de ser desenhad
 
 Cerca de 6 cabeças, com cabeça e mãos levemente aumentadas para leitura à distância.
 
+**Em aberto.** Depois de feedback de amigos num teste (15/09/2026), está em avaliação uma proporção chibi em 3D, de cerca de 2,5 a 3 cabeças. Até haver decisão, 6 cabeças segue como referência de produção.
+
 Membros simplificados e rosto com poucos volumes.
 
 O rosto não deve receber polígonos que não contribuam para a leitura na câmera do jogo.
@@ -490,8 +492,11 @@ art/
     creatures/
     ui/
   palettes/
+  fonts/
   references/
 ```
+
+`clients/godot/assets/` é sincronizado a partir de `art/exports/`, `art/palettes/` e `art/fonts/`.
 
 ### Nomenclatura
 

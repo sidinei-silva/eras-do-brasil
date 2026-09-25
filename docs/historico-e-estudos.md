@@ -149,7 +149,7 @@ A ideia central desenvolvida nos estudos foi:
 - a Travessia é uma passagem entre esse estado e o mundo;
 - o tutorial pode ensinar os sistemas enquanto a própria situação narrativa justifica a presença do jogador.
 
-Também foi explorada a ideia de a Raiz permanecer visualmente presente durante a Travessia e desaparecer quando o jogador é expulso/segue para o mundo.
+A ideia de a Raiz permanecer visualmente presente durante a Travessia e desaparecer quando o jogador é expulso para o mundo começou como exploração e foi fechada como decisão em 20/09/2026. A formulação vigente está em `decisoes-de-design.md`.
 
 Alguns conceitos foram explicitamente abandonados durante esse processo, entre eles:
 

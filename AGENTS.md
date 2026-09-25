@@ -21,4 +21,4 @@ entrega coleta é `feat`, mesmo que 80% das linhas sejam markdown.
 
 **A fatia inteira num commit só.** A receita manda fechar fluxo, regra, conteúdo,
 código, teste e lore juntos. Então o assunto resume a entrega e o corpo lista as
-peças:
+peças

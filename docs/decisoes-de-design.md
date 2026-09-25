@@ -14,6 +14,7 @@ O histórico de alternativas, decisões substituídas, experimentos e discussõe
 
 - Nos documentos, separar o que está escrito do que é proposta.
 - **Lore é puxada, não empurrada:** escreve-se quando uma fatia precisa.
+- Material feito com IA vale como mockup ou brainstorm, nunca como texto final; o que sobreviver é reescrito à mão.
 - **Arquitetura definitiva em escala reduzida.** Nada de desenho descartável porque é MVP.
 - **Mecânica não se poetiza.** Item e habilidade podem ter nome próprio; sistema não.
 - Nome de sistema global não deve vir de uma era nem de uma facção.
@@ -77,6 +78,24 @@ O histórico de alternativas, decisões substituídas, experimentos e discussõe
 **Consequência.** O MVP fica desacoplado dos dados do mundo principal e a Costa do Pau-Brasil pode começar em T2.
 
 **Restrição de produção.** As quatro zonas do tutorial devem reutilizar o mesmo kit de assets da Costa sempre que possível. Não deve existir um bioma exclusivo da ilha apenas para o tutorial.
+
+### A Raiz puxa continuamente
+
+**Decisão.** A Raiz puxa gente para a Travessia de forma contínua. Não existe um evento único fundador.
+
+**Motivo.** É o que explica personagens que chegaram muito antes do jogador, como o Primeiro Perdido.
+
+### A Raiz visível durante a Travessia
+
+**Decisão.** Durante toda A Travessia, a Raiz do Mundo aparece no skybox como uma silhueta colossal, sempre visível e sem geometria navegável. Ela some quando o jogador é expulso para o mundo, na Feitoria da Cruz (Costa do Pau-Brasil), e reaparece lá como o Coração da Raiz.
+
+**Em aberto, de propósito.** A causa da Ruptura continua sem data e sem evento fundador.
+
+### Nome
+
+**Decisão.** "A Travessia" nomeia o continente, o lugar e o ato de embarcar.
+
+**Reservado.** "O Ventre da Raiz", nome cogitado para o instante do puxão que antecede A Travessia, fica guardado, sem uso agora.
 
 ### T1 é craftável
 
@@ -303,4 +322,3 @@ Ele não é a fonte dos valores concretos de conteúdo.
 - `docs/historico-e-estudos.md` registra a evolução e as alternativas descartadas.
 
 Quando uma regra deste documento entrar em conflito com uma implementação já existente, o conflito deve ser explicitamente resolvido; não se deve assumir silenciosamente qual versão prevalece.
-

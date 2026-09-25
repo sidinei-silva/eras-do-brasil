@@ -176,7 +176,7 @@ O servidor informa, por exemplo, que o personagem está coletando o nó `wood_01
 
 **O que salvar.** Estado suficiente para reconstruir, não o loop. Se a atividade termina às 10:05 e o servidor reinicia às 10:03, o `EndsAt` persistido permite que o engine continue a partir do estado salvo.
 
-**Simplificação atual.** O fluxo comando → muta → salva → publica pode ficar inconsistente se o banco falhar depois do evento ter saído. Isso é uma simplificação do estudo; em uma implementação de produção, transação, ordenação, retry ou outbox podem ser necessários conforme os requisitos.
+**Simplificação atual.** O fluxo comando → muta → salva → publica pode ficar inconsistente se o banco falhar depois do evento ter saído. É uma simplificação aceita no escopo atual, não um desenho provisório: transação, ordenação, retry ou outbox entram quando um requisito concreto pedir, e estão listados em "Deliberadamente não decidido".
 
 ---
 
@@ -228,3 +228,4 @@ eras-do-brasil/
 - Formato de wire do WebSocket — JSON ou binário.
 - Como o cliente versiona e baixa o conteúdo estático.
 - Reconexão no meio de um lote de combate.
+- **Personagem offline.** A intenção é que o jogo renda mais com ele aberto, mesmo minimizado, e limite bastante o ganho de quem está fechado ou offline. Há um esboço, não decidido: ao desconectar, o personagem sai do GameState com a atividade e o horário persistidos; ao reconectar, o ganho do período é recalculado com um teto configurável. Decidir quando existir a primeira Activity de coleta.
