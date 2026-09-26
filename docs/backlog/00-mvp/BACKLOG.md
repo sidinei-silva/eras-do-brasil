@@ -20,7 +20,7 @@ As fatias listadas abaixo são apenas as que estão atualmente definidas no back
 | 1 | `01-criacao-conta.md` | Criação de conta | concluída |
 | 2 | `02-login.md` | Login | concluída |
 | 3 | `03-criacao-personagem.md` | Criação e persistência de personagem | concluída |
-| 4 | `04-entrar-no-mundo.md` | Entrada no mundo com personagem criado | não iniciada |
+| 4 | `04-entrar-no-mundo.md` | Entrada no mundo com personagem criado | iniciada |
 
 ## Regra do backlog
 
