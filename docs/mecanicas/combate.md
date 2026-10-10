@@ -154,4 +154,5 @@ Para o combate ativo pve o jogador consegue ver a intenção do inimigo, se ele 
 | 2026-10-06 | Todas as árvores fogem, cada uma do seu jeito          | Ninguém fica sem saída por causa da arma                            |
 | 2026-10-06 | Quem foge fica protegido de qualquer luta por um tempo | Evita reengajar na hora e o abutre que espera a vida baixa          |
 | 2026-10-06 | Qualquer ação manual faz a morte contar como ativa     | Fecha o exploit de trocar para o automatizado para morrer barato    |
+| 2026-10-06 | Foi removido o botão de pânico                         | No PvE o turno já espera; no PvP o automatizado assume              |
 <!-- registrar: o botão de pânico saiu (no PvE o turno já espera; no PvP o automatizado assume) -->
