@@ -22,6 +22,8 @@ A area de combate é o local onde o combate acontece, é recortado um pedaço do
 
 A area de combate é dividida em 3 filas, uma central e duas laterais. O jogador começa na fila central no canto esquerdo e o inimigo vem do canto direito podendo vim em qualquer uma das 3 filas, dependendo do inimigo e da sua configuração de spawn, elite e boss sempre vem na fila central. Caso o combate seja com mais de um inimigo, eles podem vim em qualquer uma das 3 filas, podendo vim 2 inimigos na mesma fila ou 1 inimigo em cada fila. Isso é definido por um algoritmo de spawn de inimigos que é definido pelo designer do jogo.
 
+As filas organizam a área de combate, as skills de área e o bloqueio. Para a distância, só a fila oposta conta: atravessar de cima para baixo soma +1. Quem está numa fila bloqueia a passagem de quem anda na mesma fila.
+
 ---
 
 ### Formato do combate
@@ -50,12 +52,32 @@ Se o jogador fez qualquer ação manual durante a luta, incluindo tentar fugir, 
 ---
 
 ### Movimentação
-A movimentação do jogador e do inimigo é sempre feita em linha reta dentro da sua própria fila o mesmo não pode pular para uma fila adjacente. A movimentação acontece de maneira automática um passo por vez em cada turno, até onde o jogador pode se movimentar é configurável ou respeitado o tipo de arma que o jogador esta usando se é curta, média ou longa distância. O inimigo também se movimenta de maneira automática respeitando o mesmo tipo de arma que ele esta usando.
+O movimento comum é automático, um passo por turno, sempre em linha reta na própria fila.
+Quem luta de perto anda até o alvo ficar ao alcance; quem ataca à distância não anda.
+Ninguém muda de fila andando. Só skills de movimento mudam de fila.
 
 Além da movimentação comum existe habilidades que podem fazer com que o jogador ou inimigo se mova sendo habilidades de avanço ou recuo de maneira ativa ou reativa.
 
 Também existo habilidades de controle de grupo que podem fazer com que o inimigo ou jogador se mova de maneira forçada, podendo ser empurrado, puxado ou paralisado, dependendo da skill usada.
 
+#### Distância e alcance
+- Distância = diferença de passos.
+- Fila vizinha não soma. Fila oposta soma +1.
+- Arma à distância perde dano efetivo colada no alvo.
+
+#### Bloqueio
+- Quem está na fila bloqueia a passagem de quem anda nela.
+- Skill de movimento não é bloqueada.
+
+#### Skills de movimento
+O jogador escolhe o alvo, não o caminho. A skill leva até ele e pode acertar quem estiver no trajeto.
+
+Onde termina:
+1. No passo vizinho ao alvo, na fila do alvo, do lado de quem atacou.
+2. Ocupado: no espaço livre mais próximo do alvo, na mesma fila ou numa vizinha, com o alvo ainda dentro do alcance da skill.
+3. Sem espaço livre: a skill não pode ser usada naquele alvo.
+
+Empate entre espaços igualmente próximos: primeiro a fila do alvo, depois a fila vizinha mais perto da origem, depois o passo mais perto de quem atacou.
 ---
 
 ### Habilidades
@@ -143,16 +165,56 @@ Para o combate ativo pve o jogador consegue ver a intenção do inimigo, se ele 
 - Como evitar que aproximar e prender trave a fuga para sempre.
 - Qual atributo define a ordem dos turnos.
 - A fuga precisa de tempo de recarga entre tentativas, ou o turno perdido basta?
+- Posição dos jogadores em grupo (proposta: um por fila).
+- Formato dos efeitos das skills em data/ (mover, quem acerta, dano).
+- Quanto dano a arma à distância perde colada no alvo.
 
 ## Decisões
-| Data       | Decisão                                                | Por quê                                                             |
-| ---------- | ------------------------------------------------------ | ------------------------------------------------------------------- |
-| 2026-10-06 | A chance de fuga não aumenta a cada falha              | Fuga alta tem que significar fugir barato, não só fugir mais rápido |
-| 2026-10-06 | A anti-fuga cresce com o número de inimigos            | Sem isso, uma build de fuga ficava imune                            |
-| 2026-10-06 | Tentar fugir é a ação do turno                         | Cria o jogo de preparar a fuga e de impedi-la                       |
-| 2026-10-06 | A fuga que falha custa durabilidade, não teto          | Teto fica reservado para consequências graves: morte e upgrade      |
-| 2026-10-06 | Todas as árvores fogem, cada uma do seu jeito          | Ninguém fica sem saída por causa da arma                            |
-| 2026-10-06 | Quem foge fica protegido de qualquer luta por um tempo | Evita reengajar na hora e o abutre que espera a vida baixa          |
-| 2026-10-06 | Qualquer ação manual faz a morte contar como ativa     | Fecha o exploit de trocar para o automatizado para morrer barato    |
-| 2026-10-06 | Foi removido o botão de pânico                         | No PvE o turno já espera; no PvP o automatizado assume              |
-<!-- registrar: o botão de pânico saiu (no PvE o turno já espera; no PvP o automatizado assume) -->
+
+### A chance de fuga não aumenta a cada falha  
+- **Data:** 2026-10-06
+- **Por quê:** Fuga alta tem que significar fugir barato, não só fugir mais rápido.
+
+### A anti-fuga cresce com o número de inimigos
+- **Data:** 2026-10-06
+- **Por quê:** Sem isso, uma build de fuga ficava imune.
+
+### Tentar fugir é a ação do turno
+- **Data:** 2026-10-06
+- **Por quê:** Cria o jogo de preparar a fuga e de impedi-la.
+
+### A fuga que falha custa durabilidade, não teto
+- **Data:** 2026-10-06
+- **Por quê:** Teto fica reservado para consequências graves: morte e upgrade.
+
+### Todas as árvores fogem, cada uma do seu jeito
+- **Data:** 2026-10-06
+- **Por quê:** Ninguém fica sem saída por causa da arma.
+
+### Quem foge fica protegido de qualquer luta por um tempo
+- **Data:** 2026-10-06
+- **Por quê:** Evita reengajar na hora e o abutre que espera a vida baixa.
+
+### Qualquer ação manual faz a morte contar como ativa
+- **Data:** 2026-10-06
+- **Por quê:** Fecha o exploit de trocar para o automatizado para morrer barato.
+
+### Foi removido o botão de pânico
+- **Data:** 2026-10-06
+- **Por quê:** No PvE o turno já espera; no PvP o automatizado assume.
+
+### Fila só pesa na distância quando é a oposta (+1)
+- **Data:** 2026-10-10
+- **Por quê:** Filas organizam o visual; atravessar duas custa mais.
+
+### Mob bloqueia a passagem na mesma fila
+- **Data:** 2026-10-10
+- **Por quê:** Dá função ao tank.
+
+### Só skill de movimento muda de fila; não é bloqueada
+- **Data:** 2026-10-10
+- **Por quê:** Resposta do corpo a corpo ao tank e a quem ataca de longe.
+
+### Arma à distância perde dano colada no alvo
+- **Data:** 2026-10-10
+- **Por quê:** Contrapeso de quem ataca de longe.

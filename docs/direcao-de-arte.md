@@ -86,6 +86,8 @@
 - Vida e energia do jogador fixas no painel. Vida e nível sobre cada inimigo.
 - Diário de combate: curto, com filtro.
 - Sem inventário completo no combate. Só consumíveis.
+- Ao mirar uma skill de movimento: mostrar o caminho, quem será atingido e onde ele termina.
+- Alvo em que a skill não pode ser usada aparece desabilitado.
 
 ### Mundo
 - Retrato com vida e energia, zona e risco, minimapa, chat, atalhos.
