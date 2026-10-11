@@ -1,0 +1,127 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Primeiro combate de teste > Deve iniciar o combate com o state correto 1`] = `
+{
+  "activeCombatantId": "",
+  "combatConfig": {
+    "arena": {
+      "laneCount": 2,
+      "laneLength": 10,
+      "oppositeLanePenalty": 2,
+    },
+    "rangedPointBlankPenalty": 1,
+    "turnTimeLimitMs": 1000,
+  },
+  "combatants": [
+    {
+      "equipments": {
+        "body": {
+          "id": "b2",
+          "name": "Cota de Malha",
+          "tier": 1,
+        },
+        "feet": {
+          "id": "f1",
+          "name": "Botas",
+          "tier": 1,
+        },
+        "head": {
+          "id": "h2",
+          "name": "Elmo",
+          "tier": 1,
+        },
+        "secondaryWeapon": {
+          "id": "sw1",
+          "name": "Escudo",
+          "tier": 1,
+        },
+        "weapon": {
+          "id": "w3",
+          "name": "Cajado",
+          "range": "medium",
+          "tier": 1,
+        },
+      },
+      "id": "1",
+      "position": {
+        "lane": 0,
+        "step": 2,
+      },
+      "spawnSide": "left",
+    },
+    {
+      "equipments": {
+        "body": {
+          "id": "b1",
+          "name": "Armadura de Peito",
+          "tier": 1,
+        },
+        "feet": {
+          "id": "f1",
+          "name": "Botas",
+          "tier": 1,
+        },
+        "head": {
+          "id": "h2",
+          "name": "Elmo",
+          "tier": 1,
+        },
+        "secondaryWeapon": {
+          "id": "sw2",
+          "name": "Adaga",
+          "tier": 1,
+        },
+        "weapon": {
+          "id": "w1",
+          "name": "Espada",
+          "range": "short",
+          "tier": 1,
+        },
+      },
+      "id": "mob-1",
+      "position": {
+        "lane": 0,
+        "step": 8,
+      },
+      "spawnSide": "right",
+    },
+    {
+      "equipments": {
+        "body": {
+          "id": "b2",
+          "name": "Cota de Malha",
+          "tier": 1,
+        },
+        "feet": {
+          "id": "f2",
+          "name": "Grevas",
+          "tier": 1,
+        },
+        "head": {
+          "id": "h1",
+          "name": "Capacete",
+          "tier": 1,
+        },
+        "secondaryWeapon": {
+          "id": "sw2",
+          "name": "Adaga",
+          "tier": 1,
+        },
+        "weapon": {
+          "id": "w3",
+          "name": "Cajado",
+          "range": "medium",
+          "tier": 1,
+        },
+      },
+      "id": "mob-2",
+      "position": {
+        "lane": 0,
+        "step": 8,
+      },
+      "spawnSide": "right",
+    },
+  ],
+  "currentTurn": 0,
+}
+`;

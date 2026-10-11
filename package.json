@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/sidinei-silva/eras-do-brasil/issues"
   },
-  "homepage": "https://github.com/sidinei-silva/eras-do-brasil#readme"
+  "homepage": "https://github.com/sidinei-silva/eras-do-brasil#readme",
+  "devDependencies": {
+    "vitest": "^5.0.3"
+  }
 }
