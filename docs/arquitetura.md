@@ -72,21 +72,11 @@ sequenceDiagram
   C->>C: anima em sequência
 ```
 
-## Stack
-- TypeScript strict em tudo → um core para server, cliente e playground
-- Node LTS → conhecido; Electron usa por baixo
-- npm workspaces → monorepo sem ferramenta extra
-- Vite → playground e cliente
-- `node:test` → nativo
-- Depois: Fastify + ws + Zod + Postgres com lib leve
-- Depois: Three.js puro na cena 3D; interface em HTML/CSS
-- Depois: Electron para a Steam
 
 ## Decisões
 
 ### TypeScript em tudo · 2026-10-09
 - **Por quê:** core compartilhado com cliente e playground.
-- **Não:** Go, sem código compartilhado com o cliente. Bun/Deno, variável nova sem ganho.
 - **Reabrir:** após fatias 1–4, com lista escrita de travas da tecnologia.
 
 ### Cliente web, Steam via Electron · 2026-10-09

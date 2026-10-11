@@ -1,0 +1,27 @@
+{
+  "name": "eras-do-brasil",
+  "private": "true",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidinei-silva/eras-do-brasil.git"
+  },
+  "keywords": [],
+  "author": "sidinei-silva",
+  "bugs": {
+    "url": "https://github.com/sidinei-silva/eras-do-brasil/issues"
+  },
+  "homepage": "https://github.com/sidinei-silva/eras-do-brasil#readme"
+}
