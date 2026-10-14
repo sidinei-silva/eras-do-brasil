@@ -8,6 +8,8 @@ export type BaseEquipment = {
 };
 
 export type WeaponRange = "medium" | "long" | "short";
+// Só quem ataca à distância foge; o curto nunca foge.
+export type RangedWeaponRange = Exclude<WeaponRange, "short">;
 
 export type Weapon = BaseEquipment & {
   range: WeaponRange;
@@ -48,8 +50,8 @@ export type CombatConfig = {
   rangedPointBlankPenalty: number;
   // Alcance de ataque, em passos, de cada tipo de arma.
   weaponRangeSteps: Record<WeaponRange, number>;
-  // Quantos passos abaixo do alcance o ranged aceita antes de fugir.
-  rangedFleeMargin: number;
+  // Por arma à distância: quantos passos abaixo do alcance ela aceita antes de fugir.
+  rangedFleeMargin: Record<RangedWeaponRange, number>;
   arena: CombatArenaConfig;
 };
 

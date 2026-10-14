@@ -2,7 +2,8 @@
 // Para um cenário novo, adicione um "Dado" dentro da funcionalidade certa;
 // para um resultado novo do mesmo cenário, adicione um "Então" no "Quando" existente.
 // Convenção dos cenários: R = ranged (aliado, esquerda), M/N = corpo a corpo (mobs, direita).
-// Alcances da fixture: curto 1, médio 3, longo 5; o ranged foge com mais de 1 passo dentro do alcance.
+// Alcances da fixture: curto 1, médio 3, longo 5. Margem de fuga: médio 1, longo 3,
+// ou seja, os dois só fogem com o inimigo a 1 passo ou menos.
 
 import { describe, expect, it } from "vitest";
 import {
@@ -197,8 +198,8 @@ describe("Movimentação", () => {
       });
     });
 
-    describe.each([5, 4])(
-      "Dado um ranged longo a %i passos do inimigo (no limite ou 1 dentro)",
+    describe.each([5, 4, 3, 2])(
+      "Dado um ranged longo a %i passos do inimigo (dentro da margem de fuga)",
       (distance) => {
         it("Então fica parado", () => {
           const state = createPositionedCombatState({
@@ -211,10 +212,10 @@ describe("Movimentação", () => {
       },
     );
 
-    describe("Dado um ranged longo a 3 passos do inimigo (perto demais)", () => {
+    describe("Dado um ranged longo a 1 passo do inimigo (perto demais)", () => {
       it("Então foge 1 passo para longe do inimigo", () => {
         const state = createPositionedCombatState({
-          combatants: [ranged("long", 4), melee("M", 7)],
+          combatants: [ranged("long", 4), melee("M", 5)],
         });
 
         expect(getMoveIntent(state, findCombatant(state, "R"))).toBe("flee");
@@ -240,7 +241,7 @@ describe("Movimentação", () => {
       describe("E o outro lado tem menos inimigos e a fila está livre", () => {
         it("Então vira e foge para o outro lado, guardando a direção", () => {
           const state = createPositionedCombatState({
-            combatants: [ranged("long", 0, 1), melee("M", 2, 0)],
+            combatants: [ranged("long", 0, 1), melee("M", 1, 0)],
           });
 
           const after = move(state, "R");
@@ -251,7 +252,7 @@ describe("Movimentação", () => {
 
         it("Então no turno seguinte continua na mesma direção, sem voltar para a parede", () => {
           const state = createPositionedCombatState({
-            combatants: [ranged("long", 0, 1), melee("M", 2, 0)],
+            combatants: [ranged("long", 0, 1), melee("M", 1, 0)],
           });
 
           const after = move(move(state, "R"), "R");
@@ -319,7 +320,7 @@ describe("Movimentação", () => {
         it("Então fica parado, encurralado", () => {
           const state = createPositionedCombatState({
             laneCount: 1,
-            combatants: [ranged("long", 0, 0), melee("M", 2, 0)],
+            combatants: [ranged("long", 0, 0), melee("M", 1, 0)],
           });
 
           expect(findCombatant(move(state, "R"), "R").position).toEqual({ lane: 0, step: 0 });

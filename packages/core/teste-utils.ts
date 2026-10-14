@@ -117,7 +117,7 @@ export function createCombatConfig(
     turnTimeLimitMs: 1000,
     rangedPointBlankPenalty: 1,
     weaponRangeSteps: { short: 1, medium: 3, long: 5 },
-    rangedFleeMargin: 1,
+    rangedFleeMargin: { medium: 1, long: 3 },
     arena: {
       laneCount,
       laneLength,

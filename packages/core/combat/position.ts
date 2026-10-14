@@ -3,7 +3,7 @@
 // Movimento: o passo automático do começo do turno, na própria fila.
 // - Curta distância: se aproxima até o inimigo ficar ao alcance.
 // - Média e longa: se aproximam até o limite do alcance; se ficarem perto demais
-//   (mais de `rangedFleeMargin` passos dentro do alcance), fogem.
+//   (mais de `rangedFleeMargin[alcance]` passos dentro do alcance), fogem.
 // - Quem foge e bate na parede vira para o outro lado, a não ser que lá tenha mais inimigos
 //   que conseguem atacá-lo. Ele guarda essa direção (fleeDirection) até parar de fugir,
 //   para não voltar para a parede no turno seguinte.
@@ -160,8 +160,11 @@ export function getMoveIntent(
   const range = getAttackRange(combatant, combatConfig);
 
   if (distance > range) return "approach";
-  const isRanged = combatant.equipments.weapon.range !== "short";
-  if (isRanged && distance < range - combatConfig.rangedFleeMargin) {
+  const weaponRange = combatant.equipments.weapon.range;
+  if (
+    weaponRange !== "short" &&
+    distance < range - combatConfig.rangedFleeMargin[weaponRange]
+  ) {
     return "flee";
   }
   return "hold";

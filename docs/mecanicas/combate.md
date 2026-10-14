@@ -54,9 +54,18 @@ Se o jogador fez qualquer ação manual durante a luta, incluindo tentar fugir, 
 ### Movimentação
 O movimento comum é automático, um passo por turno, em linha reta na própria fila.
 Quem luta de perto anda até o alvo ficar ao alcance.
-Quem ataca à distância (médio e longo) anda até o limite do alcance e foge quando fica mais de 1 passo dentro dele.
+Quem ataca à distância (médio e longo) anda até o limite do alcance e foge quando fica perto demais (margem de fuga, por arma).
 Quem foge e bate na parede vira para o outro lado, a não ser que lá tenha mais inimigos que conseguem atacá-lo.
 Ninguém muda de fila andando, com uma exceção: quem foge e tem a própria fila fechada à frente passa para uma fila vizinha livre, no mesmo passo. Fora isso, só skills de movimento mudam de fila.
+
+#### Posição inicial e margem de fuga — rascunho
+> Valores de teste, achados simulando no playground. Não são decisão.
+
+- **Alcance:** curto 1, médio 3, longo 5.
+- **Margem de fuga = alcance − 2:** médio 1, longo 3. Os dois só fogem com o inimigo a 1 passo ou menos.
+- **Posição inicial:** `[sobra 2] [jogador] — distância 3 — [mobs da frente] [mobs de trás] [sobra 2]`. Fila de 9 passos.
+- **Resultado (1 ranged × 1 corpo a corpo):** o ranged faz 2 ataques antes do primeiro golpe do corpo a corpo, que depois ataca em ~95% dos turnos. Cada passo a mais de distância inicial dá +1 ataque grátis ao ranged.
+- **Margem 1 no longo era o problema:** ele fugia até a parede e fazia 5 a 9 ataques grátis.
 
 Além da movimentação comum existe habilidades que podem fazer com que o jogador ou inimigo se mova sendo habilidades de avanço ou recuo de maneira ativa ou reativa.
 
@@ -170,6 +179,8 @@ Para o combate ativo pve o jogador consegue ver a intenção do inimigo, se ele 
 - Posição dos jogadores em grupo (proposta: um por fila).
 - Formato dos efeitos das skills em data/ (mover, quem acerta, dano).
 - Quanto dano a arma à distância perde colada no alvo.
+- Com distância inicial 3, médio e longo se comportam igual no começo da luta. Onde o alcance longo passa a valer?
+- Os ataques grátis do ranged precisam ficar abaixo dos turnos que ele leva para matar. Conferir quando o dano existir.
 
 ## Decisões
 
