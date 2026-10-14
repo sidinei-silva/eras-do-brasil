@@ -33,6 +33,8 @@ export type Combatant = {
   spawnSide: "left" | "right";
   equipments: Equipments;
   position?: CombatantPosition;
+  // Direção em que está fugindo depois de bater na parede; some quando para de fugir.
+  fleeDirection?: -1 | 1;
 };
 
 export type CombatArenaConfig = {
@@ -44,6 +46,10 @@ export type CombatArenaConfig = {
 export type CombatConfig = {
   turnTimeLimitMs: number;
   rangedPointBlankPenalty: number;
+  // Alcance de ataque, em passos, de cada tipo de arma.
+  weaponRangeSteps: Record<WeaponRange, number>;
+  // Quantos passos abaixo do alcance o ranged aceita antes de fugir.
+  rangedFleeMargin: number;
   arena: CombatArenaConfig;
 };
 
@@ -53,3 +59,6 @@ export type CombatState = {
   currentTurn: number;
   activeCombatantId: string;
 };
+
+// Uma ação por vez; cada uma encerra a vez de quem age. Por enquanto só existe passar.
+export type Action = { type: "pass" };

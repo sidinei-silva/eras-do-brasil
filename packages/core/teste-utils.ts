@@ -1,6 +1,6 @@
 //  fábricas: um combatente, um mob, uma luta pronta
 
-import { initializeCombat } from "./combat/combat";
+import { initializeCombat } from "./combat/fight";
 import {
   Armor,
   Combatant,
@@ -9,6 +9,7 @@ import {
   Equipments,
   SecondaryWeapon,
   Weapon,
+  WeaponRange,
 } from "./combat/types";
 
 export function generateRandomWeapon(): Weapon {
@@ -87,22 +88,93 @@ export function createMob(id: string): Combatant {
   return createCombatant(id, "right");
 }
 
-export function createCombatState(mobsCount: number): CombatState {
+export type CombatScenario = {
+  mobsCount?: number;
+  laneCount?: number;
+  laneLength?: number;
+};
+
+// Monta uma luta pronta; cada teste sobrescreve só o que importa para o cenário.
+export function createCombatState({
+  mobsCount = 1,
+  laneCount = 1,
+  laneLength = 11,
+}: CombatScenario = {}): CombatState {
   const mobs: Combatant[] = [];
   for (let i = 0; i < mobsCount; i++) {
     mobs.push(createMob(`mob-${i + 1}`));
   }
   const combatants: Combatant[] = [createAlly("1"), ...mobs];
 
-  const config: CombatConfig = {
+  return initializeCombat(createCombatConfig(laneCount, laneLength), combatants);
+}
+
+export function createCombatConfig(
+  laneCount: number,
+  laneLength: number,
+): CombatConfig {
+  return {
     turnTimeLimitMs: 1000,
     rangedPointBlankPenalty: 1,
+    weaponRangeSteps: { short: 1, medium: 3, long: 5 },
+    rangedFleeMargin: 1,
     arena: {
-      laneCount: 2,
-      laneLength: 10,
-      oppositeLanePenalty: 2,
+      laneCount,
+      laneLength,
+      oppositeLanePenalty: 1,
     },
   };
+}
 
-  return initializeCombat(config, combatants);
+export type CombatantSetup = {
+  id: string;
+  side: "left" | "right";
+  range: WeaponRange;
+  lane: number;
+  step: number;
+};
+
+// Monta uma luta com cada combatente já posicionado, sem passar pelo spawn.
+// A vez começa com o primeiro da lista.
+export function createPositionedCombatState({
+  laneCount = 3,
+  laneLength = 11,
+  combatants,
+}: {
+  laneCount?: number;
+  laneLength?: number;
+  combatants: CombatantSetup[];
+}): CombatState {
+  return {
+    combatants: combatants.map(({ id, side, range, lane, step }) => {
+      const combatant = createCombatant(id, side);
+      return {
+        ...combatant,
+        equipments: {
+          ...combatant.equipments,
+          weapon: { ...combatant.equipments.weapon, range },
+        },
+        position: { lane, step },
+      };
+    }),
+    combatConfig: createCombatConfig(laneCount, laneLength),
+    currentTurn: 0,
+    activeCombatantId: combatants[0].id,
+  };
+}
+
+export function findCombatant(state: CombatState, id: string): Combatant {
+  const combatant = state.combatants.find((c) => c.id === id);
+  if (combatant === undefined) throw new Error(`Combatant ${id} not found.`);
+  return combatant;
+}
+
+export function getAllies(state: CombatState): Combatant[] {
+  return state.combatants.filter((combatant) => combatant.spawnSide === "left");
+}
+
+export function getMobs(state: CombatState): Combatant[] {
+  return state.combatants.filter(
+    (combatant) => combatant.spawnSide === "right",
+  );
 }
