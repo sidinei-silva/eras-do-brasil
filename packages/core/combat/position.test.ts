@@ -260,14 +260,16 @@ describe("Movimentação", () => {
         });
       });
 
-      describe("E o outro lado tem mais inimigos", () => {
+      describe("E do outro lado tem mais inimigos que o alcançam", () => {
         it("Então fica parado", () => {
+          // Fila de 7 passos: o meio é o passo 3. M (esquerda) alcança; N e O (direita, longo) também.
           const state = createPositionedCombatState({
+            laneLength: 7,
             combatants: [
               ranged("long", 0, 1),
-              melee("M", 2, 0),
-              melee("N", 7, 0),
-              melee("O", 8, 2),
+              melee("M", 1, 0),
+              { id: "N", side: "right", range: "long", lane: 0, step: 4 },
+              { id: "O", side: "right", range: "long", lane: 2, step: 5 },
             ],
           });
 
@@ -275,13 +277,52 @@ describe("Movimentação", () => {
         });
       });
 
-      describe("E um inimigo fecha a própria fila", () => {
-        it("Então fica parado, porque não atravessa ninguém", () => {
+      describe("E do outro lado tem o mesmo número de inimigos que o alcançam", () => {
+        it("Então vira", () => {
           const state = createPositionedCombatState({
-            combatants: [ranged("long", 0, 1), melee("M", 2, 1)],
+            laneLength: 7,
+            combatants: [
+              ranged("long", 0, 1),
+              melee("M", 1, 0),
+              { id: "N", side: "right", range: "long", lane: 2, step: 4 },
+            ],
           });
 
-          expect(stepOf(move(state, "R"), "R")).toBe(0);
+          expect(stepOf(move(state, "R"), "R")).toBe(1);
+        });
+      });
+
+      describe("E um inimigo fecha a própria fila", () => {
+        it("Então troca para uma fila vizinha livre, no mesmo passo", () => {
+          const state = createPositionedCombatState({
+            combatants: [ranged("long", 0, 1), melee("M", 1, 1)],
+          });
+
+          const after = move(state, "R");
+
+          expect(findCombatant(after, "R").position).toEqual({ lane: 0, step: 0 });
+          expect(findCombatant(after, "R").fleeDirection).toBe(1);
+        });
+
+        it("Então no turno seguinte passa pelo inimigo pela fila nova", () => {
+          const state = createPositionedCombatState({
+            combatants: [ranged("long", 0, 1), melee("M", 1, 1)],
+          });
+
+          const after = move(move(state, "R"), "R");
+
+          expect(findCombatant(after, "R").position).toEqual({ lane: 0, step: 1 });
+        });
+      });
+
+      describe("E a arena tem 1 fila só, com o inimigo fechando o caminho", () => {
+        it("Então fica parado, encurralado", () => {
+          const state = createPositionedCombatState({
+            laneCount: 1,
+            combatants: [ranged("long", 0, 0), melee("M", 2, 0)],
+          });
+
+          expect(findCombatant(move(state, "R"), "R").position).toEqual({ lane: 0, step: 0 });
         });
       });
     });

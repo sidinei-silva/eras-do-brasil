@@ -47,8 +47,13 @@ export function describeTurn(before: CombatState, after: CombatState): TurnEvent
       ? " (virou na parede)"
       : "";
 
+  const fromLane = prev.position.lane;
+  const toLane = next.position.lane;
+
   let move: string;
-  if (from !== to) {
+  if (fromLane !== toLane) {
+    move = `${INTENT_TEXT[intent]}: fila fechada, ↕ fila ${fromLane} → ${toLane} no passo ${to}`;
+  } else if (from !== to) {
     const arrow = to > from ? "→" : "←";
     move = `${INTENT_TEXT[intent]}: ${arrow} passo ${from} → ${to}${turned}`;
   } else if (intent === "hold") {

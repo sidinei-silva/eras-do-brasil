@@ -52,9 +52,11 @@ Se o jogador fez qualquer ação manual durante a luta, incluindo tentar fugir, 
 ---
 
 ### Movimentação
-O movimento comum é automático, um passo por turno, sempre em linha reta na própria fila.
-Quem luta de perto anda até o alvo ficar ao alcance; quem ataca à distância não anda.
-Ninguém muda de fila andando. Só skills de movimento mudam de fila.
+O movimento comum é automático, um passo por turno, em linha reta na própria fila.
+Quem luta de perto anda até o alvo ficar ao alcance.
+Quem ataca à distância (médio e longo) anda até o limite do alcance e foge quando fica mais de 1 passo dentro dele.
+Quem foge e bate na parede vira para o outro lado, a não ser que lá tenha mais inimigos que conseguem atacá-lo.
+Ninguém muda de fila andando, com uma exceção: quem foge e tem a própria fila fechada à frente passa para uma fila vizinha livre, no mesmo passo. Fora isso, só skills de movimento mudam de fila.
 
 Além da movimentação comum existe habilidades que podem fazer com que o jogador ou inimigo se mova sendo habilidades de avanço ou recuo de maneira ativa ou reativa.
 
@@ -214,6 +216,15 @@ Para o combate ativo pve o jogador consegue ver a intenção do inimigo, se ele 
 ### Só skill de movimento muda de fila; não é bloqueada
 - **Data:** 2026-10-10
 - **Por quê:** Resposta do corpo a corpo ao tank e a quem ataca de longe.
+
+### Quem foge com a fila fechada passa para uma fila vizinha
+- **Data:** 2026-10-13
+- **Por quê:** Sem isso, o ranged encurralado na parede fica preso para sempre na mesma fila do corpo a corpo.
+- Exceção à regra acima: vale só para a fuga, um passo de lado, no mesmo passo.
+
+### Na parede, quem foge vira se do outro lado não tiver mais quem o alcança
+- **Data:** 2026-10-13
+- **Por quê:** Conta só os inimigos que conseguem atacá-lo; empate vira. Evita fugir para onde vai apanhar mais.
 
 ### Arma à distância perde dano colada no alvo
 - **Data:** 2026-10-10
