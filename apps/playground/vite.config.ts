@@ -14,6 +14,8 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      // Os dados do jogo são lidos direto de data/, sem cópia.
+      "@data": path.resolve(__dirname, "../../data"),
     },
   },
 });
