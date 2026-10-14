@@ -52,11 +52,21 @@ Se o jogador fez qualquer ação manual durante a luta, incluindo tentar fugir, 
 ---
 
 ### Movimentação
-O movimento comum é automático, um passo por turno, em linha reta na própria fila.
-Quem luta de perto anda até o alvo ficar ao alcance.
+O movimento comum é automático: a cada turno, andar 1 passo. Trocar de fila não gasta o turno: vai junto com o passo, na diagonal (rascunho).
+Quem luta de perto anda até o alvo ficar ao alcance e fica frente a frente com ele (ver rascunho abaixo).
 Quem ataca à distância (médio e longo) anda até o limite do alcance e foge quando fica perto demais (margem de fuga, por arma).
 Quem foge e bate na parede vira para o outro lado, a não ser que lá tenha mais inimigos que conseguem atacá-lo.
-Ninguém muda de fila andando, com uma exceção: quem foge e tem a própria fila fechada à frente passa para uma fila vizinha livre, no mesmo passo. Fora isso, só skills de movimento mudam de fila.
+Troca de fila andando só em dois casos: quem foge com a própria fila fechada à frente, e o corpo a corpo indo para a frente a frente (rascunho). Fora isso, só skills de movimento mudam de fila.
+
+#### Frente a frente — rascunho
+> Regra em teste no playground. Não é decisão.
+
+- O corpo a corpo quer ficar **na frente do alvo, na fila dele**.
+- Fora do alcance, anda na própria fila. O passo que chega ao alcance já entra na fila do alvo (diagonal).
+- Se a frente do alvo já tem um aliado, vai para a **diagonal da frente**, numa fila vizinha (ainda ao alcance). Dá para cercar um alvo com 3.
+- Bloqueado por alguém na própria fila, contorna pela diagonal.
+- Quem foge com a fila fechada também foge pela diagonal. Fila é leitura, não custo: subir e descer não gasta turno.
+- Efeito: o corpo a corpo fecha a fila de quem foge, e quem foge usa outras filas.
 
 #### Posição inicial e margem de fuga — rascunho
 > Valores de teste, achados simulando no playground. Não são decisão.
@@ -181,6 +191,8 @@ Para o combate ativo pve o jogador consegue ver a intenção do inimigo, se ele 
 - Quanto dano a arma à distância perde colada no alvo.
 - Com distância inicial 3, médio e longo se comportam igual no começo da luta. Onde o alcance longo passa a valer?
 - Os ataques grátis do ranged precisam ficar abaixo dos turnos que ele leva para matar. Conferir quando o dano existir.
+- Frente a frente: aliados disputam a mesma casa e o de trás perde turnos contornando. Reservar a casa de quem já está indo?
+- Frente a frente: mob contornando por outra fila tira função do tank? Hoje só vale para quem tem aliado na frente.
 
 ## Decisões
 

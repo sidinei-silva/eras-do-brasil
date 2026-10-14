@@ -175,12 +175,60 @@ describe("Movimentação", () => {
 
     describe("Dado um corpo a corpo com outro mob no quadrado da frente", () => {
       describe("Quando ele anda", () => {
-        it("Então não ocupa o quadrado e fica parado", () => {
+        it("Então não ocupa o quadrado e contorna pela diagonal", () => {
           const state = createPositionedCombatState({
             combatants: [melee("M", 8), melee("N", 7), ranged("long", 2)],
           });
 
-          expect(stepOf(move(state, "M"), "M")).toBe(8);
+          expect(findCombatant(move(state, "M"), "M").position).toEqual({ lane: 0, step: 7 });
+        });
+      });
+    });
+
+    describe("Frente a frente (rascunho)", () => {
+      describe("Dado um corpo a corpo longe, em outra fila", () => {
+        it("Então anda na própria fila", () => {
+          const state = createPositionedCombatState({
+            combatants: [melee("M", 8, 0), ranged("long", 2, 1)],
+          });
+
+          expect(findCombatant(move(state, "M"), "M").position).toEqual({ lane: 0, step: 7 });
+        });
+      });
+
+      describe("Dado um corpo a corpo cujo passo chega ao alcance, vindo da fila vizinha", () => {
+        it("Então chega na fila do alvo no mesmo passo (diagonal), sem gastar outro turno", () => {
+          const state = createPositionedCombatState({
+            combatants: [melee("M", 4, 0), ranged("long", 2, 1)],
+          });
+
+          expect(findCombatant(move(state, "M"), "M").position).toEqual({ lane: 1, step: 3 });
+        });
+      });
+
+      describe("Dado um corpo a corpo a 1 passo do alvo, na fila vizinha", () => {
+        it("Então troca para a fila do alvo, ficando frente a frente", () => {
+          const state = createPositionedCombatState({
+            combatants: [melee("M", 3, 0), ranged("long", 2, 1)],
+          });
+
+          const after = move(state, "M");
+
+          expect(findCombatant(after, "M").position).toEqual({ lane: 1, step: 3 });
+          expect(getMoveIntent(after, findCombatant(after, "M"))).toBe("hold");
+        });
+      });
+
+      describe("Dado um mob frente a frente e outro logo atrás, na mesma fila", () => {
+        it("Então o de trás vai num passo só para a diagonal da frente do alvo", () => {
+          const state = createPositionedCombatState({
+            combatants: [melee("M", 3), melee("N", 4), ranged("long", 2)],
+          });
+
+          const after = move(state, "N");
+
+          expect(findCombatant(after, "N").position).toEqual({ lane: 0, step: 3 });
+          expect(canAttack(after, findCombatant(after, "N"))).toBe(true);
         });
       });
     });
@@ -294,25 +342,25 @@ describe("Movimentação", () => {
       });
 
       describe("E um inimigo fecha a própria fila", () => {
-        it("Então troca para uma fila vizinha livre, no mesmo passo", () => {
+        it("Então foge pela diagonal, para uma fila vizinha livre", () => {
           const state = createPositionedCombatState({
             combatants: [ranged("long", 0, 1), melee("M", 1, 1)],
           });
 
           const after = move(state, "R");
 
-          expect(findCombatant(after, "R").position).toEqual({ lane: 0, step: 0 });
+          expect(findCombatant(after, "R").position).toEqual({ lane: 0, step: 1 });
           expect(findCombatant(after, "R").fleeDirection).toBe(1);
         });
 
-        it("Então no turno seguinte passa pelo inimigo pela fila nova", () => {
+        it("Então no turno seguinte segue em frente pela fila nova, passando pelo inimigo", () => {
           const state = createPositionedCombatState({
             combatants: [ranged("long", 0, 1), melee("M", 1, 1)],
           });
 
           const after = move(move(state, "R"), "R");
 
-          expect(findCombatant(after, "R").position).toEqual({ lane: 0, step: 1 });
+          expect(findCombatant(after, "R").position).toEqual({ lane: 0, step: 2 });
         });
       });
 

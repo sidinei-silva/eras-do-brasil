@@ -1,14 +1,17 @@
 // Tudo sobre a posição na arena.
 // Distância: só responde perguntas, sem alterar nada (distância, alcance, inimigo mais próximo).
-// Movimento: o passo automático do começo do turno, na própria fila.
-// - Curta distância: se aproxima até o inimigo ficar ao alcance.
+// Movimento: o passo automático do começo do turno. Cada turno é andar 1 passo na fila;
+// trocar de fila não gasta o turno, vai junto com o passo (anda na diagonal). Rascunho.
+// - Curta distância (rascunho): vai para a frente do alvo, na fila dele (frente a frente).
+//   Fora do alcance, anda na própria fila; o passo que chega ao alcance já entra na fila do alvo.
+//   Se a frente do alvo já tem um aliado, fica na diagonal da frente, numa fila vizinha.
+//   Bloqueado por alguém na própria fila, contorna pela diagonal.
 // - Média e longa: se aproximam até o limite do alcance; se ficarem perto demais
 //   (mais de `rangedFleeMargin[alcance]` passos dentro do alcance), fogem.
 // - Quem foge e bate na parede vira para o outro lado, a não ser que lá tenha mais inimigos
 //   que conseguem atacá-lo. Ele guarda essa direção (fleeDirection) até parar de fugir,
 //   para não voltar para a parede no turno seguinte.
-// - Única troca de fila andando: quem foge e tem a própria fila fechada à frente dá um passo
-//   para uma fila vizinha livre, no mesmo passo, e segue a fuga por ela.
+// - Quem foge e tem a própria fila fechada à frente foge pela diagonal, para uma fila vizinha livre.
 // - Ninguém ocupa um quadrado ocupado nem sai da arena.
 
 import type {
@@ -158,15 +161,17 @@ export function getMoveIntent(
 
   const distance = getDistance(combatant, enemy, combatConfig.arena);
   const range = getAttackRange(combatant, combatConfig);
+  const weaponRange = combatant.equipments.weapon.range;
+
+  // Corpo a corpo: só fica parado quando já está frente a frente (ou sem lugar livre e ao alcance).
+  if (weaponRange === "short") {
+    const cell = getEngageCell(state, combatant, enemy);
+    if (cell === undefined) return distance > range ? "approach" : "hold";
+    return samePosition(cell, combatant.position) ? "hold" : "approach";
+  }
 
   if (distance > range) return "approach";
-  const weaponRange = combatant.equipments.weapon.range;
-  if (
-    weaponRange !== "short" &&
-    distance < range - combatConfig.rangedFleeMargin[weaponRange]
-  ) {
-    return "flee";
-  }
+  if (distance < range - combatConfig.rangedFleeMargin[weaponRange]) return "flee";
   return "hold";
 }
 
@@ -270,7 +275,7 @@ export function isLaneBlockedByEnemy(
 
 // Onde quem foge vai parar com um passo na direção indicada.
 // Fila livre: um passo nela. Fila fechada (quadrado ocupado ou inimigo à frente):
-// troca para uma fila vizinha livre, no mesmo passo, sem inimigo à frente.
+// passo na diagonal, para uma fila vizinha livre e sem inimigo à frente.
 // Empate entre as vizinhas: a de cima. Sem saída: undefined (fica parado).
 export function getFleePosition(
   state: CombatState,
@@ -289,11 +294,12 @@ export function getFleePosition(
   if (laneOpen) return ahead;
 
   for (const lane of [position.lane - 1, position.lane + 1]) {
-    const side = { lane, step: position.step };
-    if (!isInsideArena(side, arena) || isPositionOccupied(state, side)) continue;
-    const inSideLane = { ...combatant, position: side };
-    if (!isLaneBlockedByEnemy(state, inSideLane, direction)) return side;
+    const diagonal = { lane, step: position.step + direction };
+    if (!isInsideArena(diagonal, arena) || isPositionOccupied(state, diagonal)) continue;
+    const inSideLane = { ...combatant, position: { lane, step: position.step } };
+    if (!isLaneBlockedByEnemy(state, inSideLane, direction)) return diagonal;
   }
+
   return undefined;
 }
 
@@ -323,29 +329,115 @@ export function moveStep(
   return { ...combatant, position: next };
 }
 
-// O passo automático do começo do turno: decide a direção e anda, se o quadrado estiver vazio.
-// Quem foge pode trocar de fila quando a própria está fechada (getFleePosition).
+// ===== Corpo a corpo: frente a frente =====
+
+function samePosition(a?: CombatantPosition, b?: CombatantPosition): boolean {
+  return a !== undefined && b !== undefined && a.lane === b.lane && a.step === b.step;
+}
+
+function isFreeFor(state: CombatState, combatant: Combatant, position: CombatantPosition) {
+  return (
+    isInsideArena(position, state.combatConfig.arena) &&
+    (samePosition(position, combatant.position) || !isPositionOccupied(state, position))
+  );
+}
+
+// Onde o corpo a corpo quer ficar para atacar o alvo.
+// 1º a frente do alvo, na fila dele; 2º a diagonal da frente, numa fila vizinha
+// (a mais perto da fila atual; empate: a de cima). Sem lugar livre: undefined.
+export function getEngageCell(
+  state: CombatState,
+  combatant: Combatant,
+  target: Combatant,
+): CombatantPosition | undefined {
+  const me = combatant.position;
+  const t = target.position;
+  if (me === undefined || t === undefined) return undefined;
+
+  const side = Math.sign(me.step - t.step) || (combatant.spawnSide === "right" ? 1 : -1);
+  const front = { lane: t.lane, step: t.step + side };
+  const diagonals = [t.lane - 1, t.lane + 1]
+    .map((lane) => ({ lane, step: t.step + side }))
+    .sort((a, b) => Math.abs(a.lane - me.lane) - Math.abs(b.lane - me.lane));
+
+  return [front, ...diagonals].find((cell) => isFreeFor(state, combatant, cell));
+}
+
+function getMeleeNextPosition(
+  state: CombatState,
+  combatant: Combatant,
+): CombatantPosition | undefined {
+  const me = combatant.position;
+  const { arena } = state.combatConfig;
+  const target = getClosestEnemy(combatant, getEnemies(state, combatant), arena);
+  if (me === undefined || target?.position === undefined) return undefined;
+
+  const range = getAttackRange(combatant, state.combatConfig);
+  const reaches = (position: CombatantPosition) =>
+    getDistance({ ...combatant, position }, target, arena) <= range;
+  const free = (position: CombatantPosition) =>
+    isFreeFor(state, combatant, position) && !samePosition(position, me);
+
+  const goal = getEngageCell(state, combatant, target);
+  if (goal === undefined) {
+    // Sem lugar livre na frente do alvo: só anda na fila enquanto estiver fora do alcance.
+    if (reaches(me)) return undefined;
+    const ahead = { ...me, step: me.step + Math.sign(target.position.step - me.step) };
+    return free(ahead) ? ahead : undefined;
+  }
+  if (samePosition(goal, me)) return undefined;
+
+  const ds = Math.sign(goal.step - me.step);
+  const dl = Math.sign(goal.lane - me.lane);
+  const straight = ds !== 0 ? { ...me, step: me.step + ds } : undefined;
+  const diagonal = ds !== 0 && dl !== 0 ? { lane: me.lane + dl, step: me.step + ds } : undefined;
+  const laneOnly = dl !== 0 ? { ...me, lane: me.lane + dl } : undefined;
+  // Contornar quem bloqueia a própria fila: diagonal para qualquer vizinha (de cima primeiro).
+  const around =
+    ds !== 0
+      ? [me.lane - 1, me.lane + 1].map((lane) => ({ lane, step: me.step + ds }))
+      : [];
+
+  // O passo que chega ao alcance já entra na fila do alvo (trocar de fila não gasta o turno).
+  if (diagonal && free(diagonal) && reaches(diagonal)) return diagonal;
+  if (straight && free(straight)) return straight;
+  if (diagonal && free(diagonal)) return diagonal;
+  // Já ao alcance e só falta a fila: troca de fila.
+  if (laneOnly && free(laneOnly) && reaches(laneOnly)) return laneOnly;
+  return around.find(free);
+}
+
+// Para onde o combatente vai neste turno; undefined = fica onde está.
+export function getNextPosition(
+  state: CombatState,
+  combatant: Combatant,
+): CombatantPosition | undefined {
+  if (combatant.equipments.weapon.range === "short") {
+    return getMeleeNextPosition(state, combatant);
+  }
+
+  const direction = getMoveDirection(state, combatant);
+  if (direction === 0) return undefined;
+  if (getMoveIntent(state, combatant) === "flee") {
+    return getFleePosition(state, combatant, direction);
+  }
+  const stepped = moveStep(combatant, direction, state.combatConfig.arena);
+  if (stepped === combatant || isPositionOccupied(state, stepped.position!)) return undefined;
+  return stepped.position;
+}
+
+// O passo automático do começo do turno: decide para onde vai e anda (getNextPosition).
 // Quem está fugindo guarda a direção do passo; quem para de fugir esquece.
 export function move(state: CombatState, combatantId: string): CombatState {
   const combatant = state.combatants.find((c) => c.id === combatantId);
   if (combatant === undefined) return state;
 
   const isFleeing = getMoveIntent(state, combatant) === "flee";
-  const direction = getMoveDirection(state, combatant);
-
-  let position = combatant.position;
-  if (isFleeing && direction !== 0) {
-    position = getFleePosition(state, combatant, direction) ?? position;
-  } else {
-    const stepped = moveStep(combatant, direction, state.combatConfig.arena);
-    if (stepped !== combatant && !isPositionOccupied(state, stepped.position!)) {
-      position = stepped.position;
-    }
-  }
+  const direction = isFleeing ? getMoveDirection(state, combatant) : 0;
 
   const moved: Combatant = {
     ...combatant,
-    position,
+    position: getNextPosition(state, combatant) ?? combatant.position,
     fleeDirection: isFleeing && direction !== 0 ? direction : undefined,
   };
 

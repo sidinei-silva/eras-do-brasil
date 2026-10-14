@@ -5,6 +5,8 @@ export { initializeCombat, resolveAction, simulateCombat } from "./combat/fight"
 export {
   canAttack,
   getAttackRange,
+  getEngageCell,
+  getNextPosition,
   getClosestEnemy,
   getEnemies,
   getEnemiesInRange,

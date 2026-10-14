@@ -56,7 +56,7 @@ describe("Luta", () => {
     });
 
     describe("Dado 3 filas com o corpo a corpo na fila de cima", () => {
-      it("Então o ranged vira na parede e passa pelo corpo a corpo pela própria fila", () => {
+      it("Então o ranged vira na parede e escapa, e o corpo a corpo segue pela diagonal", () => {
         const state = createPositionedCombatState({
           combatants: [
             { id: "R", side: "left", range: "long", lane: 1, step: 4 },
