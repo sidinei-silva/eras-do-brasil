@@ -67,6 +67,8 @@ export type Scenario = {
   key: string;
   label: string;
   description: string;
+  // Filas da arena; o padrão é 3.
+  laneCount?: number;
   playerLane: number;
   mobs: MobSetup[];
 };
@@ -81,10 +83,11 @@ export const SCENARIOS: Scenario[] = [
   },
   {
     key: "encurralado",
-    label: "Mesma fila",
-    description: "Os dois na mesma fila: ninguém atravessa ninguém.",
-    playerLane: 1,
-    mobs: [{ mobId: "mob-caranguejo-da-beira", range: "short", lane: 1, depth: 0 }],
+    label: "1 fila",
+    description: "Arena de 1 fila só: ninguém atravessa ninguém e não há para onde trocar.",
+    laneCount: 1,
+    playerLane: 0,
+    mobs: [{ mobId: "mob-caranguejo-da-beira", range: "short", lane: 0, depth: 0 }],
   },
   {
     key: "dois",
@@ -148,7 +151,7 @@ export function buildScenario(
     weaponRangeSteps: settings.rangeSteps,
     rangedFleeMargin: settings.rangedFleeMargin,
     arena: {
-      laneCount: 3,
+      laneCount: scenario.laneCount ?? 3,
       laneLength: settings.laneLength,
       oppositeLanePenalty: settings.oppositeLanePenalty,
     },

@@ -5,12 +5,13 @@
 import {
   getAttackRange,
   getDistance,
-  getMoveDirection,
+  getNextPosition,
   getMoveIntent,
   type CombatState,
   type Combatant,
 } from "core";
 import { cn } from "cn";
+import { moveArrow } from "./events";
 import { RANGE_LABEL, type Roster } from "./scenarios";
 
 const INTENT_LABEL = {
@@ -21,8 +22,8 @@ const INTENT_LABEL = {
 
 function intentChip(state: CombatState, combatant: Combatant) {
   const intent = getMoveIntent(state, combatant);
-  const direction = getMoveDirection(state, combatant);
-  const arrow = direction === 1 ? "→ " : direction === -1 ? "← " : "· ";
+  const next = getNextPosition(state, combatant) ?? combatant.position;
+  const arrow = moveArrow(combatant.position, next) + " ";
   return { intent, text: arrow + INTENT_LABEL[intent] };
 }
 
@@ -46,7 +47,10 @@ export function Arena({
   const top = (lane: number) => `${((lane + 0.5) / laneCount) * 100}%`;
 
   return (
-    <div className="relative h-[460px] overflow-hidden rounded-xl border bg-card px-12 pb-6 sm:h-[520px]">
+    <div
+      className="relative overflow-hidden rounded-xl border bg-card px-12 pb-6"
+      style={{ height: 80 + laneCount * 140 }}
+    >
       <div className="relative h-full">
         {Array.from({ length: laneCount }, (_, lane) => (
           <div

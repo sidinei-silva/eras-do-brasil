@@ -8,9 +8,22 @@ import {
   getEnemies,
   getEnemiesInRange,
   getMoveIntent,
+  type CombatantPosition,
   type CombatState,
   type MoveIntent,
 } from "core";
+
+// Seta do movimento: → ← no passo, ↑ ↓ na fila (fila 0 é a de cima), diagonal quando muda os dois.
+export function moveArrow(from?: CombatantPosition, to?: CombatantPosition): string {
+  if (!from || !to) return "·";
+  const ds = Math.sign(to.step - from.step);
+  const dl = Math.sign(to.lane - from.lane);
+  const arrows: Record<string, string> = {
+    "0,0": "·", "1,0": "→", "-1,0": "←", "0,-1": "↑", "0,1": "↓",
+    "1,-1": "↗", "-1,-1": "↖", "1,1": "↘", "-1,1": "↙",
+  };
+  return arrows[`${ds},${dl}`];
+}
 
 const INTENT_TEXT: Record<MoveIntent, string> = {
   approach: "quer se aproximar",
@@ -50,11 +63,13 @@ export function describeTurn(before: CombatState, after: CombatState): TurnEvent
   const fromLane = prev.position.lane;
   const toLane = next.position.lane;
 
+  const arrow = moveArrow(prev.position, next.position);
   let move: string;
   if (fromLane !== toLane) {
-    move = `${INTENT_TEXT[intent]}: fila fechada, ↕ fila ${fromLane} → ${toLane} no passo ${to}`;
+    const why = intent === "flee" ? "fila fechada" : "frente a frente";
+    const steps = from !== to ? `passo ${from} → ${to}, ` : "";
+    move = `${INTENT_TEXT[intent]}: ${arrow} ${steps}fila ${fromLane} → ${toLane} (${why})${turned}`;
   } else if (from !== to) {
-    const arrow = to > from ? "→" : "←";
     move = `${INTENT_TEXT[intent]}: ${arrow} passo ${from} → ${to}${turned}`;
   } else if (intent === "hold") {
     move = `${INTENT_TEXT[intent]}, fica`;
