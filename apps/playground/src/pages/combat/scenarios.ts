@@ -8,6 +8,7 @@ import type {
   CombatConfig,
   CombatState,
   Combatant,
+  RangedWeaponRange,
   WeaponRange,
 } from "core";
 
@@ -42,23 +43,31 @@ export type ArenaSettings = {
   laneLength: number;
   oppositeLanePenalty: number;
   rangeSteps: Record<WeaponRange, number>;
-  rangedFleeMargin: number;
+  rangedFleeMargin: Record<RangedWeaponRange, number>;
+  // [sobra] [jogador] ---- distância inicial ---- [mobs da frente] [mobs de trás] [sobra]
+  spawnBackSpace: number;
+  startDistance: number;
 };
 
+// Valores achados simulando 1 ranged contra 1 corpo a corpo (rascunho em combate.md):
+// margem = alcance − 2 faz o ranged fugir só colado; distância 3 dá 2 ataques grátis ao ranged.
 export const DEFAULT_SETTINGS: ArenaSettings = {
-  laneLength: 11,
+  laneLength: 9,
   oppositeLanePenalty: 1,
   rangeSteps: { short: 1, medium: 3, long: 5 },
-  rangedFleeMargin: 1,
+  rangedFleeMargin: { medium: 1, long: 3 },
+  spawnBackSpace: 2,
+  startDistance: 3,
 };
 
-type MobSetup = { mobId: string; range: WeaponRange; lane: number; step: number };
+// depth: 0 = linha da frente; 1 = um passo atrás dela.
+type MobSetup = { mobId: string; range: WeaponRange; lane: number; depth: number };
 
 export type Scenario = {
   key: string;
   label: string;
   description: string;
-  player: { lane: number; step: number };
+  playerLane: number;
   mobs: MobSetup[];
 };
 
@@ -66,36 +75,36 @@ export const SCENARIOS: Scenario[] = [
   {
     key: "perseguicao",
     label: "Perseguição",
-    description: "Mob corpo a corpo na fila de cima, perto do jogador.",
-    player: { lane: 1, step: 4 },
-    mobs: [{ mobId: "mob-caranguejo-da-beira", range: "short", lane: 0, step: 6 }],
+    description: "Mob corpo a corpo na fila de cima.",
+    playerLane: 1,
+    mobs: [{ mobId: "mob-caranguejo-da-beira", range: "short", lane: 0, depth: 0 }],
   },
   {
     key: "encurralado",
     label: "Mesma fila",
     description: "Os dois na mesma fila: ninguém atravessa ninguém.",
-    player: { lane: 1, step: 4 },
-    mobs: [{ mobId: "mob-caranguejo-da-beira", range: "short", lane: 1, step: 6 }],
+    playerLane: 1,
+    mobs: [{ mobId: "mob-caranguejo-da-beira", range: "short", lane: 1, depth: 0 }],
   },
   {
     key: "dois",
     label: "Dois corpo a corpo",
-    description: "Um mob em cada lado da fila do jogador.",
-    player: { lane: 1, step: 3 },
+    description: "Um mob na fila de cima e outro atrás, na fila do jogador.",
+    playerLane: 1,
     mobs: [
-      { mobId: "mob-caranguejo-da-beira", range: "short", lane: 0, step: 6 },
-      { mobId: "mob-cascalho-vivo", range: "short", lane: 1, step: 8 },
+      { mobId: "mob-caranguejo-da-beira", range: "short", lane: 0, depth: 0 },
+      { mobId: "mob-cascalho-vivo", range: "short", lane: 1, depth: 1 },
     ],
   },
   {
     key: "tres-filas",
     label: "3 filas",
     description: "Um mob por fila; o chefe vem na fila central.",
-    player: { lane: 1, step: 2 },
+    playerLane: 1,
     mobs: [
-      { mobId: "mob-caranguejo-da-beira", range: "short", lane: 0, step: 8 },
-      { mobId: "mob-o-primeiro-perdido", range: "short", lane: 1, step: 8 },
-      { mobId: "mob-cascalho-vivo", range: "medium", lane: 2, step: 8 },
+      { mobId: "mob-caranguejo-da-beira", range: "short", lane: 0, depth: 0 },
+      { mobId: "mob-o-primeiro-perdido", range: "short", lane: 1, depth: 0 },
+      { mobId: "mob-cascalho-vivo", range: "medium", lane: 2, depth: 0 },
     ],
   },
 ];
@@ -146,11 +155,13 @@ export function buildScenario(
   };
 
   const lastStep = settings.laneLength - 1;
-  const clamp = (step: number) => Math.min(step, lastStep);
+  const clamp = (step: number) => Math.max(0, Math.min(step, lastStep));
+  const playerStep = clamp(settings.spawnBackSpace);
+  const mobStep = (depth: number) => clamp(playerStep + settings.startDistance + depth);
 
   const roster: Roster = { J: { name: "Jogador", weapon: weapon.name } };
   const combatants = [
-    combatant("J", "left", weapon, scenario.player.lane, clamp(scenario.player.step)),
+    combatant("J", "left", weapon, scenario.playerLane, playerStep),
     ...scenario.mobs.map((mob, i) => {
       const id = `M${i + 1}`;
       const label = `Ataque ${RANGE_LABEL[mob.range]}`;
@@ -160,7 +171,7 @@ export function buildScenario(
         "right",
         { id: `${mob.mobId}-attack`, name: label, range: mob.range },
         mob.lane,
-        clamp(mob.step),
+        mobStep(mob.depth),
       );
     }),
   ];

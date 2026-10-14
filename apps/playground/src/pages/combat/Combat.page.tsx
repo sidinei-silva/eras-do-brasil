@@ -3,7 +3,13 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "cn";
-import { resolveAction, simulateCombat, type CombatState, type WeaponRange } from "core";
+import {
+  resolveAction,
+  simulateCombat,
+  type CombatState,
+  type RangedWeaponRange,
+  type WeaponRange,
+} from "core";
 import { ChevronLeft, FastForward, Pause, Play, RotateCcw, StepForward } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Arena } from "./Arena";
@@ -171,11 +177,30 @@ export function CombatPage() {
                   }
                 />
               ))}
+              {(["medium", "long"] as RangedWeaponRange[]).map((range) => (
+                <NumberField
+                  key={range}
+                  label={`Margem fuga ${RANGE_LABEL[range]}`}
+                  value={setup.settings.rangedFleeMargin[range]}
+                  min={0}
+                  onChange={(value) =>
+                    changeSettings({
+                      rangedFleeMargin: { ...setup.settings.rangedFleeMargin, [range]: value },
+                    })
+                  }
+                />
+              ))}
               <NumberField
-                label="Margem de fuga"
-                value={setup.settings.rangedFleeMargin}
+                label="Sobra atrás"
+                value={setup.settings.spawnBackSpace}
                 min={0}
-                onChange={(value) => changeSettings({ rangedFleeMargin: value })}
+                onChange={(value) => changeSettings({ spawnBackSpace: value })}
+              />
+              <NumberField
+                label="Distância inicial"
+                value={setup.settings.startDistance}
+                min={1}
+                onChange={(value) => changeSettings({ startDistance: value })}
               />
               <NumberField
                 label="Passos na fila"

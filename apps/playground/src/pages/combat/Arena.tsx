@@ -46,7 +46,7 @@ export function Arena({
   const top = (lane: number) => `${((lane + 0.5) / laneCount) * 100}%`;
 
   return (
-    <div className="relative h-[420px] overflow-hidden rounded-xl border bg-card px-12 sm:h-[480px]">
+    <div className="relative h-[460px] overflow-hidden rounded-xl border bg-card px-12 pb-6 sm:h-[520px]">
       <div className="relative h-full">
         {Array.from({ length: laneCount }, (_, lane) => (
           <div
@@ -66,7 +66,7 @@ export function Arena({
                 )}
               >
                 {lane === laneCount - 1 && (
-                  <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 font-mono text-[11px] text-muted-foreground">
+                  <span className="absolute -bottom-11 left-1/2 -translate-x-1/2 font-mono text-[11px] text-muted-foreground">
                     {step}
                   </span>
                 )}
