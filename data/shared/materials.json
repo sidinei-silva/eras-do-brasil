@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "id": "materials",
+  "scope": "shared",
+  "note": "Catalogo de materiais do jogo inteiro. A FERRAMENTA mora aqui, no tipo de recurso — nao no no de zona. T1 se coleta sem ferramenta (requiresTool false); do T2 em diante exige a ferramenta do tipo, no maximo um tier abaixo. A Essencia nao e coletada: cai de mob. Só o que o MVP usa. As Essências e os materiais da Costa do Pau-Brasil estão em design/catalog/materials.json, junto com T3 a T6.",
+  "resourceTypes": [
+    {
+      "id": "res-madeira",
+      "name": "Madeira",
+      "gathering": "corte",
+      "tool": "tool-machado"
+    },
+    {
+      "id": "res-fibra",
+      "name": "Fibra",
+      "gathering": "colheita",
+      "tool": "tool-foice"
+    },
+    {
+      "id": "res-couro",
+      "name": "Couro",
+      "gathering": "esfola",
+      "tool": "tool-faca-de-esfolar"
+    },
+    {
+      "id": "res-minerio",
+      "name": "Minério",
+      "gathering": "mineracao",
+      "tool": "tool-picareta"
+    },
+    {
+      "id": "res-pedra",
+      "name": "Pedra",
+      "gathering": "mineracao",
+      "tool": null
+    },
+    {
+      "id": "res-comida",
+      "name": "Comida",
+      "gathering": "colheita",
+      "tool": null
+    },
+    {
+      "id": "res-essencia",
+      "name": "Essência",
+      "gathering": "drop de combate",
+      "note": "Equivale as Runas/Almas/Reliquias do Albion: sobe o nivel de encantamento de um item ja pronto.",
+      "tool": null
+    },
+    {
+      "id": "res-refinado",
+      "name": "Refinado",
+      "gathering": "refino",
+      "tool": null
+    }
+  ],
+  "materials": [
+    {
+      "id": "mat-pau-mole",
+      "name": "Pau-mole",
+      "resourceType": "res-madeira",
+      "tier": 1,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-pau-brasil",
+      "name": "Pau-brasil",
+      "resourceType": "res-madeira",
+      "tier": 2,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-algodao-bravo",
+      "name": "Algodão-bravo",
+      "resourceType": "res-fibra",
+      "tier": 2,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-couro-de-capivara",
+      "name": "Couro de capivara",
+      "resourceType": "res-couro",
+      "tier": 1,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-couro-de-veado",
+      "name": "Couro de veado",
+      "resourceType": "res-couro",
+      "tier": 2,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-ferro-de-brejo",
+      "name": "Ferro-de-brejo",
+      "resourceType": "res-minerio",
+      "tier": 2,
+      "requiresTool": true
+    },
+    {
+      "id": "mat-seixo-de-praia",
+      "name": "Seixo de praia",
+      "resourceType": "res-pedra",
+      "tier": 1,
+      "requiresTool": false
+    },
+    {
+      "id": "mat-tabua-de-pau-brasil",
+      "name": "Tábua de pau-brasil",
+      "resourceType": "res-madeira",
+      "tier": 2,
+      "requiresTool": false,
+      "refined": true,
+      "stationId": "estacao-serraria",
+      "note": "Refinado T2. No T1 nao ha refino: os brutos vao direto para o craft."
+    },
+    {
+      "id": "mat-couro-curtido",
+      "name": "Couro curtido",
+      "resourceType": "res-couro",
+      "tier": 2,
+      "requiresTool": false,
+      "refined": true,
+      "stationId": "estacao-curtume",
+      "note": "Refinado T2. No T1 nao ha refino: os brutos vao direto para o craft."
+    },
+    {
+      "id": "mat-pano-de-algodao",
+      "name": "Pano de algodão",
+      "resourceType": "res-fibra",
+      "tier": 2,
+      "requiresTool": false,
+      "refined": true,
+      "stationId": "estacao-tecelagem",
+      "note": "Refinado T2. No T1 nao ha refino: os brutos vao direto para o craft."
+    },
+    {
+      "id": "mat-barra-de-ferro",
+      "name": "Barra de ferro",
+      "resourceType": "res-minerio",
+      "tier": 2,
+      "requiresTool": false,
+      "refined": true,
+      "stationId": "estacao-fundicao",
+      "note": "Refinado T2. No T1 nao ha refino: os brutos vao direto para o craft."
+    }
+  ]
+}

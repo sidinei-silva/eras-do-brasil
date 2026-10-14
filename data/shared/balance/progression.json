@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "id": "balance-progression",
+  "scope": "shared",
+  "note": "Constantes de balanceamento. O servidor e o simulador carregam a pasta inteira e mesclam.",
+  "fame": {
+    "perLevel": {
+      "1": 3600,
+      "2": 22000,
+      "3": 132000,
+      "4": 800000,
+      "5": 4800000
+    },
+    "perLevelFormula": "~3600 * 6^(N-1)",
+    "perMobTier": {
+      "1": 20,
+      "2": 50,
+      "3": 125,
+      "4": 313,
+      "5": 781,
+      "6": 1953
+    },
+    "perGatheringTier": {
+      "1": 15,
+      "2": 38,
+      "3": 94,
+      "4": 234,
+      "5": 586,
+      "6": 1465
+    },
+    "perRefiningTier": {
+      "1": 10,
+      "2": 25,
+      "3": 63,
+      "4": 156,
+      "5": 391,
+      "6": 977
+    },
+    "combatTimeFraction": 0.7
+  },
+  "affinity": {
+    "min": 1.0,
+    "max": 1.5,
+    "actionsToCap": 60,
+    "freezesOffline": true,
+    "resetsOnWeaponSwap": true
+  },
+  "destinyTree": {
+    "branches": {
+      "combate": {
+        "note": "um no por linha de arma e por linha de armadura",
+        "bonus": "poder de item"
+      },
+      "coleta": {
+        "note": "um no por tipo de recurso: madeira, fibra, couro, minerio, pedra",
+        "bonus": "acesso a tier e rendimento"
+      },
+      "refino": {
+        "note": "um no por tipo de refinado",
+        "bonus": "taxa de retorno de material"
+      },
+      "craft": {
+        "note": "um no por familia de item",
+        "bonus": "chance de qualidade"
+      }
+    },
+    "combatMastery": {
+      "ipPerLevel": 12,
+      "levelsPerTier": 10,
+      "note": "Maestria da Poder de Item. Uma T6 de quem grindou bate mais que a T6 de quem acabou de destravar.",
+      "noteAlbion": "No Albion a especializacao vai a 100 niveis e da +2 de Poder de Item por nivel: +200 no topo, 1,19x sob a curva. A nossa da +12 por nivel e chega a +360 em 30 niveis, 1,36x — bem mais generosa. Nao esta errado, mas vale saber que a maestria aqui vale quase um tier e meio."
+    },
+    "gatheringMastery": {
+      "yieldPerLevelPct": 1.5,
+      "levelsPerTier": 10,
+      "note": "Aumenta unidades por no. E o que faz coletar valer a pena a longo prazo."
+    },
+    "refiningMastery": {
+      "baseReturnRatePct": 15,
+      "returnRatePerLevelPct": 0.8,
+      "levelsPerTier": 10,
+      "note": "Parte do material volta ao refinar. Reduz o custo real de vestir."
+    },
+    "craftMastery": {
+      "baseQualityChancePct": 10,
+      "qualityChancePerLevelPct": 1.2,
+      "levelsPerTier": 10,
+      "note": "Chance de sair acima de normal. E o valor economico do crafter."
+    },
+    "famePerLevelByBranch": {
+      "combate": 1.0,
+      "coleta": 0.35,
+      "refino": 0.15,
+      "craft": 0.2
+    },
+    "noteFame": "Multiplicadores sobre a curva base. Coleta, refino e craft sobem mais rapido que combate porque cada acao rende menos fama.",
+    "noteName": "Equivalente a Destiny Board do Albion. Nome de sistema global nao pode vir de uma era nem de uma faccao — antes se chamava Litania, vocabulario religioso da Era 1.",
+    "deferred": [
+      {
+        "id": "camada-ampla-de-especializacao",
+        "note": "No Albion, especializar numa arma da um pouco para TODAS as armas do arquetipo — +0,2 por nivel para a categoria estreita, +0,025 para a ampla. Isso faz trocar de arma nao recomecar do zero. Para um jogo cuja fantasia e misturar equipamento, e o que torna experimentar barato."
+      },
+      {
+        "id": "reset-da-afinidade",
+        "note": "Ha DOIS sistemas punindo troca de arma: Afinidade, que reseta, e maestria, que e por arma. O Albion tem so o segundo. Somados, empurram o jogador a ficar com uma arma para sempre — contra o pitch de montar build com pecas de eras diferentes. Rever se a Afinidade deve resetar ou so pausar."
+      },
+      {
+        "id": "teto-de-poder-de-item",
+        "note": "O Albion usa teto rigido e teto suave por conteudo, para veterano nao ficar intocavel. Registrado, nao implementado."
+      }
+    ]
+  },
+  "tools": {
+    "rule": "A ferramenta pode estar no maximo um tier abaixo do recurso. Para T5 e preciso ferramenta T4 ou melhor.",
+    "qualityRequiresSameTier": true,
+    "noteQuality": "Para tirar recurso acima de normal, a ferramenta precisa ser do mesmo tier do no."
+  }
+}

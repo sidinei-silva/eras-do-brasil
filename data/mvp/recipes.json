@@ -1,0 +1,452 @@
+{
+  "schemaVersion": 1,
+  "id": "recipes-mvp",
+  "scope": "mvp",
+  "note": "Tres verbos em listas separadas, de proposito. GATHERING: zona mais material dao bruto; a ferramenta exigida vem do material, nao daqui. REFINING: brutos mais o refinado do tier anterior dao refinado. CRAFTING: refinados dao item.",
+  "toolRule": "A ferramenta pode estar no maximo um tier abaixo do recurso. Para qualidade acima de normal, precisa ser do mesmo tier.",
+  "gathering": [
+    {
+      "id": "col-seixo",
+      "zoneId": "zone-a-beira",
+      "materialId": "mat-seixo-de-praia",
+      "seconds": 16,
+      "units": 2
+    },
+    {
+      "id": "col-pau-mole",
+      "zoneId": "zone-a-beira",
+      "materialId": "mat-pau-mole",
+      "seconds": 16,
+      "units": 2
+    },
+    {
+      "id": "col-seixo-mata",
+      "zoneId": "zone-mata-revirada",
+      "materialId": "mat-seixo-de-praia",
+      "seconds": 16,
+      "units": 2
+    },
+    {
+      "id": "col-pau-brasil",
+      "zoneId": "zone-mata-revirada",
+      "materialId": "mat-pau-brasil",
+      "seconds": 25,
+      "units": 2
+    },
+    {
+      "id": "col-couro-veado",
+      "zoneId": "zone-mata-revirada",
+      "materialId": "mat-couro-de-veado",
+      "seconds": 25,
+      "units": 2
+    },
+    {
+      "id": "col-algodao",
+      "zoneId": "zone-pedreira-torta",
+      "materialId": "mat-algodao-bravo",
+      "seconds": 25,
+      "units": 2
+    },
+    {
+      "id": "col-ferro",
+      "zoneId": "zone-pedreira-torta",
+      "materialId": "mat-ferro-de-brejo",
+      "seconds": 25,
+      "units": 2
+    },
+    {
+      "id": "col-couro-capivara",
+      "zoneId": null,
+      "materialId": "mat-couro-de-capivara",
+      "seconds": 6,
+      "units": 1,
+      "note": "Esfolado de qualquer bicho T1 morto, sem ferramenta. E a excecao que da partida no sistema."
+    }
+  ],
+  "refining": [
+    {
+      "id": "ref-tabua",
+      "stationId": "estacao-serraria",
+      "produces": "mat-tabua-de-pau-brasil",
+      "tier": 2,
+      "raw": [
+        {
+          "materialId": "mat-pau-brasil",
+          "qty": 3
+        }
+      ],
+      "previousRefined": null
+    },
+    {
+      "id": "ref-couro-curtido",
+      "stationId": "estacao-curtume",
+      "produces": "mat-couro-curtido",
+      "tier": 2,
+      "raw": [
+        {
+          "materialId": "mat-couro-de-veado",
+          "qty": 3
+        }
+      ],
+      "previousRefined": null
+    },
+    {
+      "id": "ref-pano",
+      "stationId": "estacao-tecelagem",
+      "produces": "mat-pano-de-algodao",
+      "tier": 2,
+      "raw": [
+        {
+          "materialId": "mat-algodao-bravo",
+          "qty": 3
+        }
+      ],
+      "previousRefined": null
+    },
+    {
+      "id": "ref-barra",
+      "stationId": "estacao-fundicao",
+      "produces": "mat-barra-de-ferro",
+      "tier": 2,
+      "raw": [
+        {
+          "materialId": "mat-ferro-de-brejo",
+          "qty": 3
+        }
+      ],
+      "previousRefined": null
+    }
+  ],
+  "noteRefiningT1": "No T1 nao ha refino: seixo, pau-mole e couro de capivara vao direto para o craft. A cascata comeca no T2.",
+  "crafting": [
+    {
+      "id": "cra-lamina-crua",
+      "stationId": "estacao-forja",
+      "produces": "weapon-lamina-crua",
+      "tier": 1,
+      "cost": [
+        {
+          "materialId": "mat-seixo-de-praia",
+          "qty": 6
+        },
+        {
+          "materialId": "mat-pau-mole",
+          "qty": 6
+        }
+      ]
+    },
+    {
+      "id": "cra-broquel-cru",
+      "stationId": "estacao-forja",
+      "produces": "weapon-broquel-cru",
+      "tier": 1,
+      "cost": [
+        {
+          "materialId": "mat-seixo-de-praia",
+          "qty": 6
+        }
+      ]
+    },
+    {
+      "id": "cra-capuz-cru",
+      "stationId": "estacao-forja",
+      "produces": "armor-capuz-cru",
+      "tier": 1,
+      "cost": [
+        {
+          "materialId": "mat-couro-de-capivara",
+          "qty": 4
+        }
+      ]
+    },
+    {
+      "id": "cra-colete-cru",
+      "stationId": "estacao-forja",
+      "produces": "armor-colete-cru",
+      "tier": 1,
+      "cost": [
+        {
+          "materialId": "mat-couro-de-capivara",
+          "qty": 8
+        }
+      ]
+    },
+    {
+      "id": "cra-botina-crua",
+      "stationId": "estacao-forja",
+      "produces": "armor-botina-crua",
+      "tier": 1,
+      "cost": [
+        {
+          "materialId": "mat-couro-de-capivara",
+          "qty": 4
+        }
+      ]
+    },
+    {
+      "id": "cra-machado",
+      "stationId": "estacao-ferramentaria",
+      "produces": "tool-machado",
+      "tier": 1,
+      "cost": [
+        {
+          "materialId": "mat-seixo-de-praia",
+          "qty": 3
+        },
+        {
+          "materialId": "mat-pau-mole",
+          "qty": 3
+        }
+      ]
+    },
+    {
+      "id": "cra-picareta",
+      "stationId": "estacao-ferramentaria",
+      "produces": "tool-picareta",
+      "tier": 1,
+      "cost": [
+        {
+          "materialId": "mat-seixo-de-praia",
+          "qty": 3
+        },
+        {
+          "materialId": "mat-pau-mole",
+          "qty": 3
+        }
+      ]
+    },
+    {
+      "id": "cra-foice",
+      "stationId": "estacao-ferramentaria",
+      "produces": "tool-foice",
+      "tier": 1,
+      "cost": [
+        {
+          "materialId": "mat-seixo-de-praia",
+          "qty": 3
+        },
+        {
+          "materialId": "mat-pau-mole",
+          "qty": 3
+        }
+      ]
+    },
+    {
+      "id": "cra-faca",
+      "stationId": "estacao-ferramentaria",
+      "produces": "tool-faca-de-esfolar",
+      "tier": 1,
+      "cost": [
+        {
+          "materialId": "mat-seixo-de-praia",
+          "qty": 3
+        },
+        {
+          "materialId": "mat-pau-mole",
+          "qty": 3
+        }
+      ]
+    },
+    {
+      "id": "cra-espada-de-lado",
+      "stationId": "estacao-forja",
+      "produces": "weapon-espada-de-lado",
+      "tier": 2,
+      "cost": [
+        {
+          "materialId": "mat-barra-de-ferro",
+          "qty": 10
+        },
+        {
+          "materialId": "mat-couro-curtido",
+          "qty": 6
+        }
+      ]
+    },
+    {
+      "id": "cra-zarabatana",
+      "stationId": "estacao-posto-de-caca",
+      "produces": "weapon-zarabatana",
+      "tier": 2,
+      "cost": [
+        {
+          "materialId": "mat-tabua-de-pau-brasil",
+          "qty": 16
+        }
+      ]
+    },
+    {
+      "id": "cra-cabaca",
+      "stationId": "estacao-terreiro",
+      "produces": "weapon-cabaca-de-boitata",
+      "tier": 2,
+      "cost": [
+        {
+          "materialId": "mat-barra-de-ferro",
+          "qty": 8
+        },
+        {
+          "materialId": "mat-tabua-de-pau-brasil",
+          "qty": 8
+        }
+      ]
+    },
+    {
+      "id": "cra-rodela",
+      "stationId": "estacao-forja",
+      "produces": "weapon-rodela",
+      "tier": 2,
+      "cost": [
+        {
+          "materialId": "mat-barra-de-ferro",
+          "qty": 5
+        },
+        {
+          "materialId": "mat-tabua-de-pau-brasil",
+          "qty": 3
+        }
+      ]
+    },
+    {
+      "id": "cra-patua",
+      "stationId": "estacao-terreiro",
+      "produces": "weapon-patua",
+      "tier": 2,
+      "cost": [
+        {
+          "materialId": "mat-pano-de-algodao",
+          "qty": 5
+        },
+        {
+          "materialId": "mat-couro-curtido",
+          "qty": 3
+        }
+      ]
+    },
+    {
+      "id": "cra-morriao",
+      "stationId": "estacao-forja",
+      "produces": "armor-morriao",
+      "tier": 2,
+      "cost": [
+        {
+          "materialId": "mat-barra-de-ferro",
+          "qty": 8
+        }
+      ]
+    },
+    {
+      "id": "cra-couraca",
+      "stationId": "estacao-forja",
+      "produces": "armor-couraca",
+      "tier": 2,
+      "cost": [
+        {
+          "materialId": "mat-barra-de-ferro",
+          "qty": 16
+        }
+      ]
+    },
+    {
+      "id": "cra-grevas",
+      "stationId": "estacao-forja",
+      "produces": "armor-grevas",
+      "tier": 2,
+      "cost": [
+        {
+          "materialId": "mat-barra-de-ferro",
+          "qty": 8
+        }
+      ]
+    },
+    {
+      "id": "cra-cocar",
+      "stationId": "estacao-posto-de-caca",
+      "produces": "armor-cocar",
+      "tier": 2,
+      "cost": [
+        {
+          "materialId": "mat-couro-curtido",
+          "qty": 8
+        }
+      ]
+    },
+    {
+      "id": "cra-escaupil",
+      "stationId": "estacao-posto-de-caca",
+      "produces": "armor-escaupil",
+      "tier": 2,
+      "cost": [
+        {
+          "materialId": "mat-couro-curtido",
+          "qty": 16
+        }
+      ]
+    },
+    {
+      "id": "cra-alpercatas",
+      "stationId": "estacao-posto-de-caca",
+      "produces": "armor-alpercatas",
+      "tier": 2,
+      "cost": [
+        {
+          "materialId": "mat-couro-curtido",
+          "qty": 8
+        }
+      ]
+    },
+    {
+      "id": "cra-carapuca",
+      "stationId": "estacao-terreiro",
+      "produces": "armor-carapuca",
+      "tier": 2,
+      "cost": [
+        {
+          "materialId": "mat-pano-de-algodao",
+          "qty": 8
+        }
+      ]
+    },
+    {
+      "id": "cra-manto",
+      "stationId": "estacao-terreiro",
+      "produces": "armor-manto-de-retalhos",
+      "tier": 2,
+      "cost": [
+        {
+          "materialId": "mat-pano-de-algodao",
+          "qty": 16
+        }
+      ]
+    },
+    {
+      "id": "cra-sandalias",
+      "stationId": "estacao-terreiro",
+      "produces": "armor-sandalias-de-piacava",
+      "tier": 2,
+      "cost": [
+        {
+          "materialId": "mat-pano-de-algodao",
+          "qty": 8
+        }
+      ]
+    },
+    {
+      "id": "cra-bolsa",
+      "stationId": "estacao-ferramentaria",
+      "produces": "item-bolsa-de-couro",
+      "tier": 2,
+      "cost": [
+        {
+          "materialId": "mat-pano-de-algodao",
+          "qty": 4
+        },
+        {
+          "materialId": "mat-couro-curtido",
+          "qty": 4
+        }
+      ]
+    }
+  ],
+  "noteAlbionDifference": "No Albion o tutorial ENTREGA varias pecas prontas. Aqui o jogador coleta e fabrica tudo: as tres pecas T1, as quatro ferramentas, a arma T2 e o conjunto T2 inteiro. So a bolsa vem de drop do mini-chefe e so a montaria e comprada."
+}

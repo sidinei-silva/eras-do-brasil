@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "id": "weapons",
+  "scope": "shared",
+  "note": "Armas do jogo. A habilidade que cada arma acessa e declarada em skills.json, pelo weaponIds da propria habilidade. Aqui so o eSkillId, que e 1:1. Só T1 e T2. As demais estão em design/catalog/weapons.json.",
+  "weapons": [
+    {
+      "id": "weapon-lamina-crua",
+      "name": "Lâmina Crua",
+      "treeId": "tree-fisico",
+      "roleId": "role-dano-corpo-a-corpo",
+      "traditionId": null,
+      "entryTier": 1,
+      "starter": true,
+      "hands": "main",
+      "eSkillId": null,
+      "note": "Primeira arma do jogo. Sucata sem tradicao, craftavel com pedra e madeira T1. Só Q.",
+      "attacksPerSecond": 1.1,
+      "guessedValues": true
+    },
+    {
+      "id": "weapon-broquel-cru",
+      "name": "Broquel Cru",
+      "treeId": "tree-fisico",
+      "roleId": "role-controle-impacto",
+      "traditionId": null,
+      "entryTier": 1,
+      "starter": false,
+      "hands": "off",
+      "eSkillId": null,
+      "note": "Off-hand T1. Sem habilidade, so atributo.",
+      "attacksPerSecond": null,
+      "guessedValues": true
+    },
+    {
+      "id": "weapon-espada-de-lado",
+      "name": "Espada de lado",
+      "treeId": "tree-fisico",
+      "roleId": "role-dano-corpo-a-corpo",
+      "traditionId": "tradition-colonial",
+      "entryTier": 2,
+      "starter": true,
+      "eSkillId": "skill-estocada-de-fe",
+      "hands": "main",
+      "attacksPerSecond": 1.2,
+      "guessedValues": true
+    },
+    {
+      "id": "weapon-zarabatana",
+      "name": "Zarabatana",
+      "treeId": "tree-projetil",
+      "roleId": "role-area-desgaste",
+      "traditionId": "tradition-indigena",
+      "entryTier": 2,
+      "starter": true,
+      "eSkillId": "skill-dardo-de-curare",
+      "hands": "two",
+      "attacksPerSecond": 0.9,
+      "guessedValues": true
+    },
+    {
+      "id": "weapon-cabaca-de-boitata",
+      "name": "Cabaça de Boitatá",
+      "treeId": "tree-magico",
+      "roleId": "role-dano-magico",
+      "traditionId": "tradition-encantada",
+      "entryTier": 2,
+      "starter": true,
+      "eSkillId": "skill-boitata",
+      "hands": "main",
+      "attacksPerSecond": 0.9,
+      "guessedValues": true
+    },
+    {
+      "id": "weapon-rodela",
+      "name": "Rodela",
+      "treeId": "tree-fisico",
+      "roleId": "role-controle-impacto",
+      "traditionId": "tradition-colonial",
+      "entryTier": 2,
+      "starter": false,
+      "hands": "off",
+      "eSkillId": "skill-encostar-o-escudo",
+      "attacksPerSecond": null,
+      "guessedValues": true,
+      "note": "Off-hand do MVP. Entrava no T3 por engano: o tutorial e as receitas sempre a trataram como T2, e a arma de uma mao precisa dela desde o T2."
+    },
+    {
+      "id": "weapon-patua",
+      "name": "Patuá",
+      "treeId": "tree-magico",
+      "roleId": "role-suporte",
+      "traditionId": "tradition-encantada",
+      "entryTier": 2,
+      "starter": false,
+      "hands": "off",
+      "eSkillId": "skill-abrir-o-patua",
+      "attacksPerSecond": null,
+      "guessedValues": true,
+      "note": "Off-hand do MVP. Entrava no T3 por engano: o tutorial e as receitas sempre a trataram como T2, e a arma de uma mao precisa dela desde o T2."
+    }
+  ]
+}

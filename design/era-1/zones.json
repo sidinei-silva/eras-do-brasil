@@ -1,0 +1,1196 @@
+{
+  "schemaVersion": 1,
+  "id": "zones-era-1",
+  "scope": "era-1",
+  "continentId": "continent-as-eras",
+  "eraId": "era-1-colonizacao",
+  "note": "Conteudo da Era 1. NAO e o MVP — o MVP roda na ilha da Travessia. Mesmo esquema de mvp_zones.json: recursos por material e acampamentos no mapa.",
+  "era": {
+    "id": "era-1-colonizacao",
+    "name": "Descoberta e Colonização",
+    "yearStart": 1500,
+    "yearEnd": 1654,
+    "factionIds": [
+      "faction-colonizador",
+      "faction-indigena",
+      "faction-folclorico"
+    ]
+  },
+  "regions": [
+    {
+      "id": "region-costa-do-pau-brasil",
+      "name": "Costa do Pau-Brasil",
+      "biome": "mata-atlantica-litoranea",
+      "tierRange": [1, 2]
+    },
+    {
+      "id": "region-mata-dos-engenhos",
+      "name": "Mata dos Engenhos",
+      "biome": "mata-atlantica",
+      "tierRange": [2, 3]
+    },
+    {
+      "id": "region-sertao-de-dentro",
+      "name": "Sertão de Dentro",
+      "biome": "caatinga",
+      "tierRange": [4, 4]
+    },
+    {
+      "id": "region-rio-das-almas",
+      "name": "Rio das Almas",
+      "biome": "varzea-fluvial",
+      "tierRange": [5, 5]
+    },
+    {
+      "id": "region-mata-sem-fim",
+      "name": "Mata Sem Fim",
+      "biome": "floresta-amazonica",
+      "tierRange": [6, 6]
+    }
+  ],
+  "zones": [
+    {
+      "id": "zone-feitoria-da-cruz",
+      "name": "Feitoria da Cruz",
+      "regionId": "region-costa-do-pau-brasil",
+      "tier": 1,
+      "risk": "segura",
+      "factionId": "faction-colonizador",
+      "hub": true,
+      "spawn": false,
+      "services": ["mercado", "forja", "refino", "descanso", "armazém"],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [],
+      "camps": [],
+      "bossId": null,
+      "mobFactionId": null
+    },
+    {
+      "id": "zone-praia-de-coqueiros",
+      "name": "Praia de Coqueiros",
+      "regionId": "region-costa-do-pau-brasil",
+      "tier": 1,
+      "risk": "segura",
+      "factionId": null,
+      "hub": false,
+      "spawn": false,
+      "services": [],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-piacava",
+          "abundance": "primaria"
+        },
+        {
+          "materialId": "mat-couro-de-capivara",
+          "abundance": "secundaria"
+        }
+      ],
+      "camps": [
+        {
+          "id": "camp-caranguejal",
+          "name": "Caranguejal",
+          "mobIds": ["mob-caranguejo-gigante"],
+          "sizeMin": 2,
+          "sizeMax": 4,
+          "eliteId": null,
+          "factionId": null
+        },
+        {
+          "id": "camp-bando-de-atobas",
+          "name": "Bando de atobás",
+          "mobIds": ["mob-gaivota-brava"],
+          "sizeMin": 3,
+          "sizeMax": 4,
+          "eliteId": null,
+          "factionId": null
+        }
+      ],
+      "bossId": null,
+      "mobFactionId": null
+    },
+    {
+      "id": "zone-manguezal-do-sal",
+      "name": "Manguezal do Sal",
+      "regionId": "region-costa-do-pau-brasil",
+      "tier": 1,
+      "risk": "segura",
+      "factionId": "faction-folclorico",
+      "hub": false,
+      "spawn": false,
+      "services": [],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-seixo-de-praia",
+          "abundance": "primaria"
+        },
+        {
+          "materialId": "mat-cascalho",
+          "abundance": "secundaria"
+        }
+      ],
+      "camps": [
+        {
+          "id": "camp-lodacal",
+          "name": "Lodaçal",
+          "mobIds": ["mob-lama-viva"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": null,
+          "factionId": "faction-folclorico"
+        },
+        {
+          "id": "camp-poca-salobra",
+          "name": "Poça salobra",
+          "mobIds": ["mob-ipupiara-menor", "mob-lama-viva"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": null,
+          "factionId": "faction-folclorico"
+        }
+      ],
+      "bossId": null,
+      "mobFactionId": "faction-folclorico"
+    },
+    {
+      "id": "zone-roca-de-mandioca",
+      "name": "Roça de Mandioca",
+      "regionId": "region-costa-do-pau-brasil",
+      "tier": 1,
+      "risk": "segura",
+      "factionId": "faction-colonizador",
+      "hub": false,
+      "spawn": false,
+      "services": [],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-mandioca",
+          "abundance": "primaria"
+        },
+        {
+          "materialId": "mat-pau-mole",
+          "abundance": "secundaria"
+        }
+      ],
+      "camps": [
+        {
+          "id": "camp-roca-invadida",
+          "name": "Roça invadida",
+          "mobIds": ["mob-capivara-brava"],
+          "sizeMin": 2,
+          "sizeMax": 4,
+          "eliteId": null,
+          "factionId": null
+        },
+        {
+          "id": "camp-matilha-do-cercado",
+          "name": "Matilha do cercado",
+          "mobIds": ["mob-cao-selvagem"],
+          "sizeMin": 3,
+          "sizeMax": 4,
+          "eliteId": null,
+          "factionId": null
+        }
+      ],
+      "bossId": null,
+      "mobFactionId": null
+    },
+    {
+      "id": "zone-mata-do-pau-brasil",
+      "name": "Mata do Pau-Brasil",
+      "regionId": "region-costa-do-pau-brasil",
+      "tier": 2,
+      "risk": "segura",
+      "factionId": null,
+      "hub": false,
+      "spawn": false,
+      "services": [],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-pau-brasil",
+          "abundance": "primaria"
+        },
+        {
+          "materialId": "mat-couro-de-veado",
+          "abundance": "secundaria"
+        }
+      ],
+      "camps": [
+        {
+          "id": "camp-copa-alta",
+          "name": "Copa alta",
+          "mobIds": ["mob-macaco-ladrao"],
+          "sizeMin": 3,
+          "sizeMax": 4,
+          "eliteId": null,
+          "factionId": null
+        },
+        {
+          "id": "camp-corte-ilegal",
+          "name": "Corte ilegal",
+          "mobIds": ["mob-cortador-clandestino"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": null,
+          "factionId": "grupo-contrabandistas"
+        }
+      ],
+      "bossId": null,
+      "mobFactionId": "grupo-contrabandistas"
+    },
+    {
+      "id": "zone-aldeia-potiguara",
+      "name": "Aldeia Potiguara",
+      "regionId": "region-costa-do-pau-brasil",
+      "tier": 2,
+      "risk": "segura",
+      "factionId": "faction-indigena",
+      "hub": false,
+      "spawn": false,
+      "services": ["troca"],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-couro-de-veado",
+          "abundance": "primaria"
+        },
+        {
+          "materialId": "mat-algodao-bravo",
+          "abundance": "secundaria"
+        }
+      ],
+      "camps": [],
+      "bossId": null,
+      "mobFactionId": null
+    },
+    {
+      "id": "zone-baixio-das-garcas",
+      "name": "Baixio das Garças",
+      "regionId": "region-costa-do-pau-brasil",
+      "tier": 2,
+      "risk": "segura",
+      "factionId": null,
+      "hub": false,
+      "spawn": false,
+      "services": [],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-couro-de-veado",
+          "abundance": "primaria"
+        },
+        {
+          "materialId": "mat-arenito",
+          "abundance": "secundaria"
+        }
+      ],
+      "camps": [
+        {
+          "id": "camp-banco-de-lama",
+          "name": "Banco de lama",
+          "mobIds": ["mob-jacare-jovem"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": null,
+          "factionId": null
+        },
+        {
+          "id": "camp-revoada-branca",
+          "name": "Revoada branca",
+          "mobIds": ["mob-garca-espectral"],
+          "sizeMin": 2,
+          "sizeMax": 4,
+          "eliteId": null,
+          "factionId": "faction-folclorico"
+        }
+      ],
+      "bossId": null,
+      "mobFactionId": "faction-folclorico"
+    },
+    {
+      "id": "zone-canavial-velho",
+      "name": "Canavial Velho",
+      "regionId": "region-mata-dos-engenhos",
+      "tier": 2,
+      "risk": "segura",
+      "factionId": "faction-colonizador",
+      "hub": false,
+      "spawn": false,
+      "services": [],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-algodao-bravo",
+          "abundance": "primaria"
+        },
+        {
+          "materialId": "mat-ferro-de-brejo",
+          "abundance": "secundaria"
+        }
+      ],
+      "camps": [
+        {
+          "id": "camp-ronda-do-canavial",
+          "name": "Ronda do canavial",
+          "mobIds": ["mob-capanga"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": null,
+          "factionId": "faction-colonizador"
+        },
+        {
+          "id": "camp-praga-da-cana",
+          "name": "Praga da cana",
+          "mobIds": ["mob-rato-de-cana"],
+          "sizeMin": 3,
+          "sizeMax": 4,
+          "eliteId": null,
+          "factionId": null
+        }
+      ],
+      "bossId": null,
+      "mobFactionId": "faction-colonizador"
+    },
+    {
+      "id": "zone-engenho-da-cruz",
+      "name": "Engenho da Cruz",
+      "regionId": "region-mata-dos-engenhos",
+      "tier": 3,
+      "risk": "disputada",
+      "factionId": "faction-colonizador",
+      "hub": false,
+      "spawn": false,
+      "services": ["refino"],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-ferro-de-serrote",
+          "abundance": "primaria"
+        }
+      ],
+      "camps": [
+        {
+          "id": "camp-guarda-do-engenho",
+          "name": "Guarda do engenho",
+          "mobIds": ["mob-capanga-armado"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": "mob-feitor",
+          "factionId": "faction-colonizador"
+        }
+      ],
+      "bossId": null,
+      "mobFactionId": "faction-colonizador"
+    },
+    {
+      "id": "zone-mata-fechada",
+      "name": "Mata Fechada",
+      "regionId": "region-mata-dos-engenhos",
+      "tier": 3,
+      "risk": "disputada",
+      "factionId": "faction-folclorico",
+      "hub": false,
+      "spawn": false,
+      "services": [],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-jatoba",
+          "abundance": "primaria"
+        },
+        {
+          "materialId": "mat-couro-de-anta",
+          "abundance": "secundaria"
+        }
+      ],
+      "camps": [
+        {
+          "id": "camp-vara-de-queixada",
+          "name": "Vara de queixada",
+          "mobIds": ["mob-porco-do-mato"],
+          "sizeMin": 3,
+          "sizeMax": 4,
+          "eliteId": null,
+          "factionId": null
+        },
+        {
+          "id": "camp-lado-escuro",
+          "name": "Lado escuro",
+          "mobIds": ["mob-sombra-de-mata"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": null,
+          "factionId": "faction-folclorico"
+        }
+      ],
+      "bossId": "mob-curupira",
+      "mobFactionId": "faction-folclorico"
+    },
+    {
+      "id": "zone-olho-de-boitata",
+      "name": "Olho de Boitatá",
+      "regionId": "region-mata-dos-engenhos",
+      "tier": 3,
+      "risk": "disputada",
+      "factionId": "faction-folclorico",
+      "hub": false,
+      "spawn": false,
+      "services": [],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-laje-branca",
+          "abundance": "primaria"
+        },
+        {
+          "materialId": "mat-caroa",
+          "abundance": "secundaria"
+        }
+      ],
+      "camps": [
+        {
+          "id": "camp-pedra-quente",
+          "name": "Pedra quente",
+          "mobIds": ["mob-lagarto-de-fogo"],
+          "sizeMin": 2,
+          "sizeMax": 4,
+          "eliteId": null,
+          "factionId": null
+        },
+        {
+          "id": "camp-luzes-baixas",
+          "name": "Luzes baixas",
+          "mobIds": ["mob-fogo-fatuo"],
+          "sizeMin": 3,
+          "sizeMax": 4,
+          "eliteId": null,
+          "factionId": "faction-folclorico"
+        }
+      ],
+      "bossId": "mob-boitata",
+      "mobFactionId": "faction-folclorico"
+    },
+    {
+      "id": "zone-serra-da-barriga",
+      "name": "Serra da Barriga",
+      "regionId": "region-mata-dos-engenhos",
+      "tier": 3,
+      "risk": "disputada",
+      "factionId": null,
+      "hub": false,
+      "spawn": false,
+      "services": ["descanso"],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-couro-de-anta",
+          "abundance": "primaria"
+        },
+        {
+          "materialId": "mat-caroa",
+          "abundance": "secundaria"
+        }
+      ],
+      "camps": [
+        {
+          "id": "camp-batida-na-serra",
+          "name": "Batida na serra",
+          "mobIds": ["mob-capitao-do-mato", "mob-cao-de-caca"],
+          "sizeMin": 3,
+          "sizeMax": 4,
+          "eliteId": null,
+          "factionId": "faction-colonizador"
+        }
+      ],
+      "bossId": null,
+      "mobFactionId": "faction-colonizador"
+    },
+    {
+      "id": "zone-caatinga-branca",
+      "name": "Caatinga Branca",
+      "regionId": "region-sertao-de-dentro",
+      "tier": 4,
+      "risk": "disputada",
+      "factionId": "faction-indigena",
+      "hub": false,
+      "spawn": false,
+      "services": [],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-macambira",
+          "abundance": "primaria"
+        },
+        {
+          "materialId": "mat-aroeira",
+          "abundance": "secundaria"
+        }
+      ],
+      "camps": [
+        {
+          "id": "camp-sol-a-pino",
+          "name": "Sol a pino",
+          "mobIds": ["mob-bode-espectral"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": null,
+          "factionId": "faction-folclorico"
+        },
+        {
+          "id": "camp-ninho-de-cascavel",
+          "name": "Ninho de cascavel",
+          "mobIds": ["mob-cascavel"],
+          "sizeMin": 2,
+          "sizeMax": 4,
+          "eliteId": null,
+          "factionId": null
+        }
+      ],
+      "bossId": null,
+      "mobFactionId": "faction-folclorico"
+    },
+    {
+      "id": "zone-serrote-das-pedras",
+      "name": "Serrote das Pedras",
+      "regionId": "region-sertao-de-dentro",
+      "tier": 4,
+      "risk": "disputada",
+      "factionId": null,
+      "hub": false,
+      "spawn": false,
+      "services": [],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-cobre-do-sertao",
+          "abundance": "primaria"
+        },
+        {
+          "materialId": "mat-granito-rachado",
+          "abundance": "secundaria"
+        }
+      ],
+      "camps": [
+        {
+          "id": "camp-pedra-que-anda",
+          "name": "Pedra que anda",
+          "mobIds": ["mob-espirito-de-pedra"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": null,
+          "factionId": "faction-folclorico"
+        },
+        {
+          "id": "camp-boca-da-gruta",
+          "name": "Boca da gruta",
+          "mobIds": ["mob-morcego-grande"],
+          "sizeMin": 3,
+          "sizeMax": 4,
+          "eliteId": null,
+          "factionId": null
+        }
+      ],
+      "bossId": null,
+      "mobFactionId": "faction-folclorico"
+    },
+    {
+      "id": "zone-curral-do-gado",
+      "name": "Curral do Gado",
+      "regionId": "region-sertao-de-dentro",
+      "tier": 4,
+      "risk": "disputada",
+      "factionId": "faction-colonizador",
+      "hub": false,
+      "spawn": false,
+      "services": [],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-couro-de-boi",
+          "abundance": "primaria"
+        },
+        {
+          "materialId": "mat-macambira",
+          "abundance": "secundaria"
+        }
+      ],
+      "camps": [
+        {
+          "id": "camp-boiada-solta",
+          "name": "Boiada solta",
+          "mobIds": ["mob-boi-bravo"],
+          "sizeMin": 2,
+          "sizeMax": 4,
+          "eliteId": null,
+          "factionId": "faction-colonizador"
+        },
+        {
+          "id": "camp-ronda-do-curral",
+          "name": "Ronda do curral",
+          "mobIds": ["mob-vaqueiro-perdido"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": null,
+          "factionId": "faction-colonizador"
+        }
+      ],
+      "bossId": "mob-mula-sem-cabeca",
+      "mobFactionId": "faction-colonizador"
+    },
+    {
+      "id": "zone-lajedo-rachado",
+      "name": "Lajedo Rachado",
+      "regionId": "region-sertao-de-dentro",
+      "tier": 4,
+      "risk": "disputada",
+      "factionId": "faction-folclorico",
+      "hub": false,
+      "spawn": false,
+      "services": [],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-granito-rachado",
+          "abundance": "primaria"
+        },
+        {
+          "materialId": "mat-macambira",
+          "abundance": "secundaria"
+        }
+      ],
+      "camps": [
+        {
+          "id": "camp-fenda-do-lajedo",
+          "name": "Fenda do lajedo",
+          "mobIds": ["mob-lagarto-de-lajedo"],
+          "sizeMin": 3,
+          "sizeMax": 4,
+          "eliteId": null,
+          "factionId": null
+        },
+        {
+          "id": "camp-racha-viva",
+          "name": "Racha viva",
+          "mobIds": ["mob-espirito-rachado"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": null,
+          "factionId": "faction-folclorico"
+        }
+      ],
+      "bossId": null,
+      "mobFactionId": "faction-folclorico"
+    },
+    {
+      "id": "zone-varzea-alagada",
+      "name": "Várzea Alagada",
+      "regionId": "region-rio-das-almas",
+      "tier": 5,
+      "risk": "mortal",
+      "factionId": "faction-indigena",
+      "hub": false,
+      "spawn": false,
+      "services": [],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-curaua",
+          "abundance": "primaria"
+        },
+        {
+          "materialId": "mat-couro-de-jacare",
+          "abundance": "secundaria"
+        }
+      ],
+      "camps": [
+        {
+          "id": "camp-alagado",
+          "name": "Alagado",
+          "mobIds": ["mob-sucuri"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": "mob-mae-dagua",
+          "factionId": null
+        }
+      ],
+      "bossId": null,
+      "mobFactionId": null
+    },
+    {
+      "id": "zone-porto-de-canoas",
+      "name": "Porto de Canoas",
+      "regionId": "region-rio-das-almas",
+      "tier": 5,
+      "risk": "mortal",
+      "factionId": null,
+      "hub": false,
+      "spawn": false,
+      "services": ["descanso", "troca"],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-pau-ferro",
+          "abundance": "primaria"
+        }
+      ],
+      "camps": [
+        {
+          "id": "camp-atracadouro",
+          "name": "Atracadouro",
+          "mobIds": ["mob-remador-afogado"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": null,
+          "factionId": "faction-folclorico"
+        }
+      ],
+      "bossId": null,
+      "mobFactionId": "faction-folclorico"
+    },
+    {
+      "id": "zone-corredeira-negra",
+      "name": "Corredeira Negra",
+      "regionId": "region-rio-das-almas",
+      "tier": 5,
+      "risk": "mortal",
+      "factionId": "faction-folclorico",
+      "hub": false,
+      "spawn": false,
+      "services": [],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-ouro-branco",
+          "abundance": "primaria"
+        },
+        {
+          "materialId": "mat-cristal-de-lapa",
+          "abundance": "secundaria"
+        }
+      ],
+      "camps": [
+        {
+          "id": "camp-agua-preta",
+          "name": "Água preta",
+          "mobIds": ["mob-piranha-negra"],
+          "sizeMin": 4,
+          "sizeMax": 4,
+          "eliteId": null,
+          "factionId": null
+        },
+        {
+          "id": "camp-correnteza-errada",
+          "name": "Correnteza errada",
+          "mobIds": ["mob-canoa-vazia"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": null,
+          "factionId": "faction-folclorico"
+        }
+      ],
+      "bossId": "mob-ipupiara",
+      "mobFactionId": "faction-folclorico"
+    },
+    {
+      "id": "zone-castanhal-antigo",
+      "name": "Castanhal Antigo",
+      "regionId": "region-mata-sem-fim",
+      "tier": 6,
+      "risk": "mortal",
+      "factionId": "faction-indigena",
+      "hub": false,
+      "spawn": false,
+      "services": [],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-castanheira-mae",
+          "abundance": "primaria"
+        },
+        {
+          "materialId": "mat-couro-de-sucuri",
+          "abundance": "secundaria"
+        }
+      ],
+      "camps": [
+        {
+          "id": "camp-copa-do-castanhal",
+          "name": "Copa do castanhal",
+          "mobIds": ["mob-macaco-guariba"],
+          "sizeMin": 3,
+          "sizeMax": 4,
+          "eliteId": "mob-castanheiro-velho",
+          "factionId": null
+        }
+      ],
+      "bossId": null,
+      "mobFactionId": null
+    },
+    {
+      "id": "zone-igarape-de-anhanga",
+      "name": "Igarapé de Anhangá",
+      "regionId": "region-mata-sem-fim",
+      "tier": 6,
+      "risk": "mortal",
+      "factionId": "faction-folclorico",
+      "hub": false,
+      "spawn": false,
+      "services": [],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-pedra-de-raiz",
+          "abundance": "primaria"
+        },
+        {
+          "materialId": "mat-cipo-titica",
+          "abundance": "secundaria"
+        }
+      ],
+      "camps": [
+        {
+          "id": "camp-margem-do-igarape",
+          "name": "Margem do igarapé",
+          "mobIds": ["mob-sombra-de-igarape"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": null,
+          "factionId": "faction-folclorico"
+        },
+        {
+          "id": "camp-mascarados",
+          "name": "Os mascarados",
+          "mobIds": ["mob-jurupari-menor"],
+          "sizeMin": 2,
+          "sizeMax": 3,
+          "eliteId": null,
+          "factionId": "faction-folclorico"
+        }
+      ],
+      "bossId": "mob-anhanga",
+      "mobFactionId": "faction-folclorico"
+    },
+    {
+      "id": "zone-a-raiz",
+      "name": "A Raiz",
+      "regionId": "region-mata-sem-fim",
+      "tier": 6,
+      "risk": "mortal",
+      "factionId": null,
+      "hub": false,
+      "spawn": false,
+      "services": [],
+      "albionEquivalent": null,
+      "description": null,
+      "resources": [
+        {
+          "materialId": "mat-ferro-do-ceu",
+          "abundance": "primaria"
+        },
+        {
+          "materialId": "mat-pedra-de-raiz",
+          "abundance": "secundaria"
+        }
+      ],
+      "camps": [],
+      "bossId": "mob-guardiao-da-fenda",
+      "passage": {
+        "toContinentId": "continent-o-emaranhado",
+        "requiresTier": 6
+      },
+      "mobFactionId": null
+    }
+  ],
+  "connections": [
+    {
+      "id": "conn-001",
+      "from": "zone-feitoria-da-cruz",
+      "to": "zone-praia-de-coqueiros",
+      "travelMinutes": 10
+    },
+    {
+      "id": "conn-002",
+      "from": "zone-feitoria-da-cruz",
+      "to": "zone-manguezal-do-sal",
+      "travelMinutes": 12
+    },
+    {
+      "id": "conn-003",
+      "from": "zone-feitoria-da-cruz",
+      "to": "zone-roca-de-mandioca",
+      "travelMinutes": 10
+    },
+    {
+      "id": "conn-004",
+      "from": "zone-praia-de-coqueiros",
+      "to": "zone-manguezal-do-sal",
+      "travelMinutes": 8
+    },
+    {
+      "id": "conn-005",
+      "from": "zone-manguezal-do-sal",
+      "to": "zone-roca-de-mandioca",
+      "travelMinutes": 8
+    },
+    {
+      "id": "conn-006",
+      "from": "zone-praia-de-coqueiros",
+      "to": "zone-mata-do-pau-brasil",
+      "travelMinutes": 20
+    },
+    {
+      "id": "conn-007",
+      "from": "zone-praia-de-coqueiros",
+      "to": "zone-aldeia-potiguara",
+      "travelMinutes": 18
+    },
+    {
+      "id": "conn-008",
+      "from": "zone-manguezal-do-sal",
+      "to": "zone-aldeia-potiguara",
+      "travelMinutes": 15
+    },
+    {
+      "id": "conn-009",
+      "from": "zone-manguezal-do-sal",
+      "to": "zone-canavial-velho",
+      "travelMinutes": 22
+    },
+    {
+      "id": "conn-010",
+      "from": "zone-roca-de-mandioca",
+      "to": "zone-canavial-velho",
+      "travelMinutes": 18
+    },
+    {
+      "id": "conn-011",
+      "from": "zone-roca-de-mandioca",
+      "to": "zone-baixio-das-garcas",
+      "travelMinutes": 20
+    },
+    {
+      "id": "conn-012",
+      "from": "zone-mata-do-pau-brasil",
+      "to": "zone-aldeia-potiguara",
+      "travelMinutes": 12
+    },
+    {
+      "id": "conn-013",
+      "from": "zone-canavial-velho",
+      "to": "zone-baixio-das-garcas",
+      "travelMinutes": 12
+    },
+    {
+      "id": "conn-014",
+      "from": "zone-mata-do-pau-brasil",
+      "to": "zone-mata-fechada",
+      "travelMinutes": 30
+    },
+    {
+      "id": "conn-015",
+      "from": "zone-aldeia-potiguara",
+      "to": "zone-mata-fechada",
+      "travelMinutes": 28
+    },
+    {
+      "id": "conn-016",
+      "from": "zone-aldeia-potiguara",
+      "to": "zone-engenho-da-cruz",
+      "travelMinutes": 25
+    },
+    {
+      "id": "conn-017",
+      "from": "zone-canavial-velho",
+      "to": "zone-engenho-da-cruz",
+      "travelMinutes": 15
+    },
+    {
+      "id": "conn-018",
+      "from": "zone-canavial-velho",
+      "to": "zone-olho-de-boitata",
+      "travelMinutes": 30
+    },
+    {
+      "id": "conn-019",
+      "from": "zone-baixio-das-garcas",
+      "to": "zone-olho-de-boitata",
+      "travelMinutes": 28
+    },
+    {
+      "id": "conn-020",
+      "from": "zone-baixio-das-garcas",
+      "to": "zone-serra-da-barriga",
+      "travelMinutes": 35
+    },
+    {
+      "id": "conn-021",
+      "from": "zone-mata-fechada",
+      "to": "zone-caatinga-branca",
+      "travelMinutes": 45
+    },
+    {
+      "id": "conn-022",
+      "from": "zone-mata-fechada",
+      "to": "zone-serrote-das-pedras",
+      "travelMinutes": 50
+    },
+    {
+      "id": "conn-023",
+      "from": "zone-engenho-da-cruz",
+      "to": "zone-serrote-das-pedras",
+      "travelMinutes": 40
+    },
+    {
+      "id": "conn-024",
+      "from": "zone-olho-de-boitata",
+      "to": "zone-curral-do-gado",
+      "travelMinutes": 45
+    },
+    {
+      "id": "conn-025",
+      "from": "zone-olho-de-boitata",
+      "to": "zone-lajedo-rachado",
+      "travelMinutes": 50
+    },
+    {
+      "id": "conn-026",
+      "from": "zone-serra-da-barriga",
+      "to": "zone-curral-do-gado",
+      "travelMinutes": 42
+    },
+    {
+      "id": "conn-027",
+      "from": "zone-serra-da-barriga",
+      "to": "zone-lajedo-rachado",
+      "travelMinutes": 48
+    },
+    {
+      "id": "conn-028",
+      "from": "zone-caatinga-branca",
+      "to": "zone-serrote-das-pedras",
+      "travelMinutes": 18
+    },
+    {
+      "id": "conn-029",
+      "from": "zone-curral-do-gado",
+      "to": "zone-lajedo-rachado",
+      "travelMinutes": 18
+    },
+    {
+      "id": "conn-030",
+      "from": "zone-caatinga-branca",
+      "to": "zone-varzea-alagada",
+      "travelMinutes": 60
+    },
+    {
+      "id": "conn-031",
+      "from": "zone-serrote-das-pedras",
+      "to": "zone-varzea-alagada",
+      "travelMinutes": 55
+    },
+    {
+      "id": "conn-032",
+      "from": "zone-serrote-das-pedras",
+      "to": "zone-porto-de-canoas",
+      "travelMinutes": 60
+    },
+    {
+      "id": "conn-033",
+      "from": "zone-curral-do-gado",
+      "to": "zone-porto-de-canoas",
+      "travelMinutes": 58
+    },
+    {
+      "id": "conn-034",
+      "from": "zone-curral-do-gado",
+      "to": "zone-corredeira-negra",
+      "travelMinutes": 65
+    },
+    {
+      "id": "conn-035",
+      "from": "zone-lajedo-rachado",
+      "to": "zone-corredeira-negra",
+      "travelMinutes": 62
+    },
+    {
+      "id": "conn-036",
+      "from": "zone-varzea-alagada",
+      "to": "zone-porto-de-canoas",
+      "travelMinutes": 20
+    },
+    {
+      "id": "conn-037",
+      "from": "zone-porto-de-canoas",
+      "to": "zone-corredeira-negra",
+      "travelMinutes": 22
+    },
+    {
+      "id": "conn-038",
+      "from": "zone-varzea-alagada",
+      "to": "zone-castanhal-antigo",
+      "travelMinutes": 75
+    },
+    {
+      "id": "conn-039",
+      "from": "zone-porto-de-canoas",
+      "to": "zone-castanhal-antigo",
+      "travelMinutes": 70
+    },
+    {
+      "id": "conn-040",
+      "from": "zone-porto-de-canoas",
+      "to": "zone-igarape-de-anhanga",
+      "travelMinutes": 80
+    },
+    {
+      "id": "conn-041",
+      "from": "zone-corredeira-negra",
+      "to": "zone-igarape-de-anhanga",
+      "travelMinutes": 72
+    },
+    {
+      "id": "conn-042",
+      "from": "zone-corredeira-negra",
+      "to": "zone-a-raiz",
+      "travelMinutes": 85
+    },
+    {
+      "id": "conn-043",
+      "from": "zone-castanhal-antigo",
+      "to": "zone-igarape-de-anhanga",
+      "travelMinutes": 25
+    },
+    {
+      "id": "conn-044",
+      "from": "zone-igarape-de-anhanga",
+      "to": "zone-a-raiz",
+      "travelMinutes": 30
+    }
+  ],
+  "noteCamps": "Acampamento e aninhado na zona: e 1:N e cada um carrega os proprios numeros, para variar tamanho e presenca de elite entre dois acampamentos da mesma faccao. factionId nulo no acampamento significa fauna.",
+  "noteMobFaction": "mobFactionId e o que NASCE na zona; factionId e quem CONTROLA a zona. Coincidem quase sempre, e divergem numa zona tomada por inimigos — por isso sao dois campos. Formula do Albion: zona = fauna em qualquer lugar + uma faccao de mob definida pelo bioma."
+}

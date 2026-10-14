@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "id": "armor",
+  "scope": "shared",
+  "note": "Linhas, pecas e bonus de conjunto. As habilidades das pecas estao em skills.json, com source armadura.",
+  "lines": [
+    {
+      "id": "armorline-crua",
+      "name": "Crua",
+      "materials": ["res-couro"],
+      "traditionId": null,
+      "identity": "nenhuma — é o que dá para vestir com couro cru",
+      "weightClass": "baixo",
+      "setBonusId": null
+    },
+    {
+      "id": "armorline-pesada",
+      "name": "Pesada",
+      "materials": ["res-minerio", "res-couro"],
+      "traditionId": "tradition-colonial",
+      "identity": "armadura, autocura instantânea, resistir a controle",
+      "weightClass": "alto",
+      "setBonusId": "setbonus-pesada"
+    },
+    {
+      "id": "armorline-media",
+      "name": "Média",
+      "materials": ["res-couro", "res-fibra"],
+      "traditionId": "tradition-indigena",
+      "identity": "evasão, crítico, viagem, escape",
+      "weightClass": "medio",
+      "setBonusId": "setbonus-media"
+    },
+    {
+      "id": "armorline-leve",
+      "name": "Leve",
+      "materials": ["res-fibra"],
+      "traditionId": "tradition-encantada",
+      "identity": "recurso, escudo, cura ao longo do tempo, sumir",
+      "weightClass": "baixo",
+      "setBonusId": "setbonus-leve"
+    }
+  ],
+  "slots": [
+    {
+      "id": "slot-cabeca",
+      "name": "Cabeça",
+      "role": "utilidade e percepção"
+    },
+    {
+      "id": "slot-torso",
+      "name": "Torso",
+      "role": "a grande defensiva"
+    },
+    {
+      "id": "slot-botas",
+      "name": "Botas",
+      "role": "peso, viagem e fuga"
+    }
+  ],
+  "pieces": [
+    {
+      "id": "armor-capuz-cru",
+      "name": "Capuz Cru",
+      "lineId": "armorline-crua",
+      "slotId": "slot-cabeca",
+      "entryTier": 1
+    },
+    {
+      "id": "armor-colete-cru",
+      "name": "Colete Cru",
+      "lineId": "armorline-crua",
+      "slotId": "slot-torso",
+      "entryTier": 1
+    },
+    {
+      "id": "armor-botina-crua",
+      "name": "Botina Crua",
+      "lineId": "armorline-crua",
+      "slotId": "slot-botas",
+      "entryTier": 1
+    },
+    {
+      "id": "armor-morriao",
+      "name": "Morrião",
+      "lineId": "armorline-pesada",
+      "slotId": "slot-cabeca",
+      "entryTier": 2
+    },
+    {
+      "id": "armor-couraca",
+      "name": "Couraça",
+      "lineId": "armorline-pesada",
+      "slotId": "slot-torso",
+      "entryTier": 2
+    },
+    {
+      "id": "armor-grevas",
+      "name": "Grevas",
+      "lineId": "armorline-pesada",
+      "slotId": "slot-botas",
+      "entryTier": 2
+    },
+    {
+      "id": "armor-cocar",
+      "name": "Cocar",
+      "lineId": "armorline-media",
+      "slotId": "slot-cabeca",
+      "entryTier": 2
+    },
+    {
+      "id": "armor-escaupil",
+      "name": "Escaupil",
+      "lineId": "armorline-media",
+      "slotId": "slot-torso",
+      "entryTier": 2
+    },
+    {
+      "id": "armor-alpercatas",
+      "name": "Alpercatas",
+      "lineId": "armorline-media",
+      "slotId": "slot-botas",
+      "entryTier": 2
+    },
+    {
+      "id": "armor-carapuca",
+      "name": "Carapuça",
+      "lineId": "armorline-leve",
+      "slotId": "slot-cabeca",
+      "entryTier": 2
+    },
+    {
+      "id": "armor-manto-de-retalhos",
+      "name": "Manto de Retalhos",
+      "lineId": "armorline-leve",
+      "slotId": "slot-torso",
+      "entryTier": 2
+    },
+    {
+      "id": "armor-sandalias-de-piacava",
+      "name": "Sandálias de Piaçava",
+      "lineId": "armorline-leve",
+      "slotId": "slot-botas",
+      "entryTier": 2
+    }
+  ],
+  "setBonuses": [
+    {
+      "id": "setbonus-pesada",
+      "lineId": "armorline-pesada",
+      "requires": 3,
+      "effect": "Armadura adicional e resistência a controle."
+    },
+    {
+      "id": "setbonus-media",
+      "lineId": "armorline-media",
+      "requires": 3,
+      "effect": "Evasão adicional e bônus de escape."
+    },
+    {
+      "id": "setbonus-leve",
+      "lineId": "armorline-leve",
+      "requires": 3,
+      "effect": "Recurso máximo e potência de escudo e cura aumentados."
+    }
+  ]
+}
