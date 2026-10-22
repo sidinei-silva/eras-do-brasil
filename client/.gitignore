@@ -1,0 +1,22 @@
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emory[Cc]aptures/
+/[Rr]ecordings/
+
+# Gerados pela Unity, recriados ao abrir o editor
+*.csproj
+*.sln
+*.slnx
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Artefatos de build
+*.apk
+*.aab
+*.unitypackage

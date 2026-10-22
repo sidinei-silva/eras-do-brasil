@@ -1,0 +1,20 @@
+# .NET (core, server, sim, tests, tools)
+[Bb]in/
+[Oo]bj/
+TestResults/
+*.user
+*.suo
+
+# IDEs
+.vs/
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# SO
+.DS_Store
+Thumbs.db
+
+# Segredos locais
+.env
+*.local.json

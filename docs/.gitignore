@@ -1,0 +1,10 @@
+# Ignora o estado atual da interface (telas abertas, painéis)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/workspace-*
+
+# Ignora a lixeira interna do Obsidian
+.trash/
+
+# Ignora caches (se você usar plugins que geram cache pesado)
+.obsidian/cache/

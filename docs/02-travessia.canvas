@@ -1,0 +1,19 @@
+{
+	"nodes":[
+		{"id":"tv0titulo000001","type":"text","text":"# Travessia\nMapa do MVP. Os passos estão em [[02-travessia]].","x":-40,"y":-260,"width":420,"height":110},
+		{"id":"tv1beira0000001","type":"text","color":"4","text":"## A Beira · T1\nOnde se cai.\n\n**Passos 1–8**\nColeta T1 sem ferramenta, primeiras lutas, conserto.\n\n**NPC:** Bartolomeu — recepção e primeiras tarefas","x":-480,"y":0,"width":360,"height":300},
+		{"id":"tv2acamp0000001","type":"text","color":"5","text":"## Acampamento\nBancadas, refino, mural de contratos.\n\n**Passos 9–12, 15–17**\n\n**NPCs**\n- Ferramenteiro — ferramentas\n- Tutor de estação — craft e refino\n- Comprador — piso sugerido; vende a montaria","x":0,"y":0,"width":380,"height":340},
+		{"id":"tv3mata00000001","type":"text","color":"3","text":"## Mata Revirada · T2\nMadeira e couro.\n\n**Passos 13–14**","x":520,"y":-200,"width":300,"height":180},
+		{"id":"tv4pedreira0001","type":"text","color":"3","text":"## Pedreira Torta · T2\nFibra e minério. Perdidos.\n\n**Passos 13, 18**","x":520,"y":120,"width":300,"height":180},
+		{"id":"tv5boca00000001","type":"text","color":"1","text":"## Boca da Fenda\nChefe opcional.\n\n**Passo 19**","x":940,"y":120,"width":260,"height":180},
+		{"id":"tv6bruma0000001","type":"text","color":"6","text":"## Bruma\nPassagem para a Era 1, com volta.\n\n**Passo 20**\n\n**NPC:** Mateiro","x":0,"y":440,"width":380,"height":220}
+	],
+	"edges":[
+		{"id":"tve1beiraacamp1","fromNode":"tv1beira0000001","fromSide":"right","toNode":"tv2acamp0000001","toSide":"left","label":"passo 9"},
+		{"id":"tve2acampmata01","fromNode":"tv2acamp0000001","fromSide":"right","toNode":"tv3mata00000001","toSide":"left"},
+		{"id":"tve3acamppedr01","fromNode":"tv2acamp0000001","fromSide":"right","toNode":"tv4pedreira0001","toSide":"left"},
+		{"id":"tve4matapedr001","fromNode":"tv3mata00000001","fromSide":"bottom","toNode":"tv4pedreira0001","toSide":"top","toEnd":"none"},
+		{"id":"tve5pedrboca001","fromNode":"tv4pedreira0001","fromSide":"right","toNode":"tv5boca00000001","toSide":"left"},
+		{"id":"tve6acampbruma1","fromNode":"tv2acamp0000001","fromSide":"bottom","toNode":"tv6bruma0000001","toSide":"top","label":"quando quiser"}
+	]
+}
