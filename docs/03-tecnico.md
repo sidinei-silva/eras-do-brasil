@@ -16,13 +16,28 @@ Como o jogo é montado por dentro. A ordem de trabalho está em [04-roteiro](04-
 
 ## Núcleo
 
-`aplicar(estado, ação, semente) → (estado, eventos)`
+`aplicar(estado, ação, agora) → (estado, eventos)`
 
 - Nada que muda fica guardado fora do `estado`.
 - O estado é dado puro: sem métodos, sem `map` e sem ponteiro compartilhado.
 - Não mexe no estado que entrou: copia ou monta um novo.
-- Só inteiros. Semente e contador do sorteio ficam dentro do estado. Sem relógio do sistema.
+- Só inteiros. Semente e contador do sorteio ficam dentro do estado. O tempo entra como `agora`; nunca se lê o relógio.
 - Ver [Motor de regras](mecanicas/motor-de-regras.md).
+
+## Tempo
+
+| Onde    | Como passa o tempo                                                                         |
+| ------- | ------------------------------------------------------------------------------------------ |
+| Combate | Por turno. Sem relógio                                                                     |
+| Mundo   | Ação com início e fim (`Atividade`). O loop do servidor checa 1 vez por segundo: "venceu?" |
+
+| Atividade                      | Termina quando                                                       |
+| ------------------------------ | -------------------------------------------------------------------- |
+| Andar                          | Chega ao destino da rota                                             |
+| Coletar (manual ou automático) | Acaba o tempo do nó                                                  |
+| Caçada automática              | Entre uma luta e outra; cada luta é resolvida de uma vez pelo núcleo |
+| Respawn de nó e de mob         | Acaba o tempo de volta                                               |
+| Descanso                       | Conta desde a hora do logout                                         |
 
 ## Uma ação, do clique à tela
 
@@ -32,57 +47,65 @@ sequenceDiagram
   participant S as Servidor
   participant N as Núcleo
   C->>S: comando (id, usar skill Y no alvo Z)
-  S->>N: estado + comando + semente
+  S->>N: estado + comando + agora
   N-->>S: estado novo + eventos
   S-->>C: eventos (com número de sequência)
   C->>C: anima
 ```
 
-## Partes
+## Servidor
 
 ```mermaid
 flowchart LR
-  Cl[Cliente Unity] -->|comando| Sv[Servidor]
-  Sv -->|evento e estado| Cl
-  N[Núcleo] --> Sv
-  D[data/ JSON] --> N
-  Sv --> F[(Save em arquivo)]
+  WS[WebSocket] -->|comando| F[Fila]
+  F --> L[Loop: único dono do estado]
+  T[Relógio 1 s] -->|venceu?| L
+  L --> N[Núcleo]
+  L -->|eventos| WS
+  L -->|pontos importantes| Sv[(Save)]
 ```
 
-| Parte | Faz | Não faz |
-|---|---|---|
-| Núcleo | Regras: d20, combate, durabilidade, progressão | Rede, tela, arquivo |
-| Servidor | Dono do mundo; roda lutas e o automático do jogador conectado | Desenhar |
-| Cliente | Envia comando, anima evento, monta o personagem pelo equipamento | Decidir resultado |
-
+- Uma goroutine é dona do estado. A rede só põe comandos na fila.
+- Salva em pontos importantes (fim de luta, troca de zona, logout), nunca a cada segundo.
 - Combate é instância: usa o cenário do lugar; no mapa aparece o personagem parado com o ícone de luta.
 - Log de luta guarda a versão das regras e o hash de `data/`.
 
 ## Stack
 
-| Parte | Escolha |
-|---|---|
-| Núcleo, simulador e servidor | Go |
-| Cliente | Unity (C#), fino; entra depois da luta no terminal |
-| Rede | WebSocket + JSON, um processo, sem framework |
-| Até um amigo jogar | Servidor local junto do cliente; save em arquivo |
-| Depois | VPS, PostgreSQL, login Steamworks |
-| Navegador | Só playground (cliente WebSocket do servidor local) |
+| Parte                        | Escolha                                             |
+| ---------------------------- | --------------------------------------------------- |
+| Núcleo, simulador e servidor | Go                                                  |
+| Cliente                      | Unity (C#), fino; entra depois da luta no terminal  |
+| Rede                         | WebSocket + JSON, um processo, sem framework        |
+| Até um amigo jogar           | Servidor local junto do cliente; save em arquivo    |
+| Depois                       | VPS, PostgreSQL, login Steamworks                   |
+| Navegador                    | Só playground (cliente WebSocket do servidor local) |
 
-- Contrato de mensagens desde a noite 1: comando com id; evento com número de sequência.
+| Decisão                  | Por quê                                                               | Reabrir quando |
+| ------------------------ | --------------------------------------------------------------------- | -------------- |
+| Go                       | Escrevo à mão o que pratico no trabalho; binário único junto do Unity | Fase 2 jogável |
+| Sem framework            | Nenhum problema real pede                                             | Gargalo medido |
+| Local até um amigo jogar | Rede antes do jogo come noites sem nada na tela                       | Fase 5 pronta  |
 
 ## Repositório
 
-| Pasta | Conteúdo |
-|---|---|
-| `regras/` | Núcleo |
-| `contrato/` | Mensagens entre cliente e servidor |
-| `sim/` | Simulador de console |
-| `server/` | Servidor |
-| `client/` | Projeto Unity |
-| `data/` | JSON de conteúdo |
-| `docs/` | Esta documentação |
+| Pasta       | Conteúdo                                                             | Nasce na fase |
+| ----------- | -------------------------------------------------------------------- | ------------- |
+| `regras/`   | Núcleo; `testdata/` com as tabelas de casos                          | 1             |
+| `sim/`      | `package main`: luta no terminal e as 1.000 lutas                    | 1             |
+| `data/`     | JSON de conteúdo (`shared/`, `mvp/`)                                 | 1             |
+| `contrato/` | Envelope `{tipo, dados}`, uma struct por mensagem, `exemplos/*.json` | 2             |
+| `server/`   | `package main`: fila, loop, WebSocket, save                          | 2             |
+| `client/`   | Projeto Unity                                                        | 2             |
+| `docs/`     | Esta documentação                                                    | 0             |
 
+**Regras do código**
+- Pacote nasce quando tem código. Sem `internal/` e sem `cmd/`.
+- Evento: `interface{ evento() }` + uma struct por tipo de evento.
+- Lista no estado é slice ordenada, nunca `map`.
+- Ler arquivo fica fora de `regras/`.
+- Nomes do domínio em português.
+- Contrato: Go e Unity testam contra os mesmos `exemplos/*.json`.
 - Git LFS desde o início para modelo, textura e áudio. Unity LTS.
 
 ## Propostas
@@ -99,5 +122,4 @@ flowchart LR
 
 ## Em aberto
 
-- Ordem fixa para efeitos simultâneos.
-- Modelo dos eventos em Go: struct achatada ou interface com tipo.
+- Tempo de cada atividade (andar por casa, coletar por nó, respawn).

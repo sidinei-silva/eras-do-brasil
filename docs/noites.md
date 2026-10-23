@@ -8,4 +8,6 @@ Fase estoura quando passa de 1,5× o orçamento: corta escopo, nunca troca de st
 
 ## Registro
 
-- 
+- 22/10/2026
+    - Adicionado os arquivos de docs depois dos debates
+    - 
