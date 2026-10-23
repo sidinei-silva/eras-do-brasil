@@ -10,3 +10,4 @@ Fase estoura quando passa de 1,5× o orçamento: corta escopo, nunca troca de st
 
 - 2026-10-22 · F0 · 1/4 · design · aplica os docs dos debates
 - 2026-10-23 · F0 · 2/4 · design · valida motor-de-regras e combate
+- 2026-10-23 · F0 · 3/4 · código · separa docs em jogo/tecnico/gestao e adiciona PM automático

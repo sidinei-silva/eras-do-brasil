@@ -9,7 +9,7 @@ Pronto quando: docs validados e congelados; pastas separadas; automações ativa
 - [x] Aplicar os docs dos debates
 - [x] Validar `motor-de-regras`
 - [x] Validar `combate`
-- [ ] Separar `docs/` em `jogo/`, `tecnico/` e `gestao/`
-- [ ] Ativar as automações (`.claude/` e `.githooks/`)
-- [ ] Testar `/proxima-tarefa` e `/fechar-sessao`
+- [x] Separar `docs/` em `jogo/`, `tecnico/` e `gestao/`
+- [x] Ativar as automações (`.claude/` e `.githooks/`)
+- [x] Testar `/proxima-tarefa` e `/fechar-sessao`
 - [ ] Rodar `/planejar-fase` para a fase 1 e trocar a "Fase em curso" no roteiro
