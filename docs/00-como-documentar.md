@@ -13,7 +13,16 @@ Regras desta pasta. Valem para mim e para qualquer IA que escrever aqui.
 7. **Curto para validar.** Um arquivo se lê e se valida em até 10 minutos.
 8. **Mecânica não se poetiza.** Nome comum de MMORPG. Lore não explica mecânica.
 9. **Todo arquivo é alcançável a partir do [01-o-jogo](01-o-jogo.md).**
-10. **Docs congelados.** Depois da noite de correção, só muda o que a fase em curso pedir. Ideia nova não entra no meio da fase.
+10. **Docs congelados.** Depois da sessão de correção, `jogo/` e `tecnico/` só mudam quando a fase em curso pedir. Ideia nova vai para o [estacionamento](gestao/estacionamento.md). `gestao/` muda sempre.
+
+## Pastas
+
+| Pasta | O que mora | Quem mexe |
+|---|---|---|
+| `docs/` (raiz) | Estas regras e o índice ([01-o-jogo](01-o-jogo.md)) | Eu |
+| `docs/jogo/` | Regras do jogo, mundo, enredo, Travessia | Eu |
+| `docs/tecnico/` | Como o jogo é montado por dentro | Eu |
+| `docs/gestao/` | Roteiro, tarefas da fase, sessões, estacionamento, painel | Eu e as skills do PM |
 
 ## Canvas ou Mermaid
 
@@ -40,4 +49,4 @@ _(adiado)_ marca o que está decidido, mas fora do MVP.
 
 ## Validação
 
-Um arquivo por noite. Cada item de **Propostas**: aceito, corto ou deixo. Sem propostas pendentes: `validado: true`. Acompanhe no [05-painel](05-painel.md).
+Um arquivo por sessão. Cada item de **Propostas**: aceito, corto ou deixo. Sem propostas pendentes: `validado: true`. Acompanhe no [05-painel](gestao/05-painel.md).

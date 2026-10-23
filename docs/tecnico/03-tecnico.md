@@ -4,7 +4,7 @@ validado: false
 
 # Técnico
 
-Como o jogo é montado por dentro. A ordem de trabalho está em [04-roteiro](04-roteiro.md).
+Como o jogo é montado por dentro. A ordem de trabalho está em [04-roteiro](../gestao/04-roteiro.md).
 
 ## Regras
 
@@ -22,7 +22,7 @@ Como o jogo é montado por dentro. A ordem de trabalho está em [04-roteiro](04-
 - O estado é dado puro: sem métodos, sem `map` e sem ponteiro compartilhado.
 - Não mexe no estado que entrou: copia ou monta um novo.
 - Só inteiros. Semente e contador do sorteio ficam dentro do estado. O tempo entra como `agora`; nunca se lê o relógio.
-- Ver [Motor de regras](mecanicas/motor-de-regras.md).
+- Ver [Motor de regras](../jogo/mecanicas/motor-de-regras.md).
 
 ## Tempo
 
@@ -85,7 +85,7 @@ flowchart LR
 | ------------------------ | --------------------------------------------------------------------- | -------------- |
 | Go                       | Escrevo à mão o que pratico no trabalho; binário único junto do Unity | Fase 2 jogável |
 | Sem framework            | Nenhum problema real pede                                             | Gargalo medido |
-| Local até um amigo jogar | Rede antes do jogo come noites sem nada na tela                       | Fase 5 pronta  |
+| Local até um amigo jogar | Rede antes do jogo come sessões sem nada na tela                       | Fase 5 pronta  |
 
 ## Repositório
 
@@ -97,7 +97,9 @@ flowchart LR
 | `contrato/` | Envelope `{tipo, dados}`, uma struct por mensagem, `exemplos/*.json` | 2             |
 | `server/`   | `package main`: fila, loop, WebSocket, save                          | 2             |
 | `client/`   | Projeto Unity                                                        | 2             |
-| `docs/`     | Esta documentação                                                    | 0             |
+| `docs/` | Documentação: `jogo/`, `tecnico/`, `gestao/` | 0 |
+| `.claude/` | PM do Claude Code: `agents/pm.md`, `skills/`, `hooks/`, `settings.json` | 0 |
+| `.githooks/` | `commit-msg`: checa o formato do commit | 0 |
 
 **Regras do código**
 - Pacote nasce quando tem código. Sem `internal/` e sem `cmd/`.

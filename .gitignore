@@ -1,9 +1,12 @@
-# .NET (core, server, sim, tests, tools)
-[Bb]in/
-[Oo]bj/
-TestResults/
-*.user
-*.suo
+# Go
+/sim/sim
+/server/server
+*.exe
+*.test
+*.out
+
+# Claude Code (configuração local, não versionada)
+.claude/settings.local.json
 
 # IDEs
 .vs/

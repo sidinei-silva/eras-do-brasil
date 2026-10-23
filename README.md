@@ -6,15 +6,15 @@ MMORPG sandbox por turno, para PC, inspirado no Brasil e no folclore. Você é o
 
 ## Estado
 
-Fase 0 do [roteiro](docs/04-roteiro.md): docs corrigidos, montando a base. Ainda sem código.
+Fase 0 do [roteiro](docs/gestao/04-roteiro.md): docs validados, montando a base. Ainda sem código. Tarefas: [fase-atual](docs/gestao/fase-atual.md).
 
 Núcleo, simulador e servidor em Go; cliente em Unity.
 
 ## Por onde ler
 
 1. [O jogo](docs/01-o-jogo.md): visão, pilares e índice de tudo
-2. [Roteiro](docs/04-roteiro.md): fases até o MVP
-3. [Painel](docs/05-painel.md): o que falta decidir (abre no Obsidian com Dataview)
+2. [Roteiro](docs/gestao/04-roteiro.md): fases até o MVP
+3. [Painel](docs/gestao/05-painel.md): o que falta decidir (abre no Obsidian com Dataview)
 
 A pasta `docs/` é um vault do Obsidian, mas também se lê aqui no GitHub.
 
@@ -22,15 +22,19 @@ A pasta `docs/` é um vault do Obsidian, mas também se lê aqui no GitHub.
 
 | Pasta | O que tem |
 |---|---|
-| `docs/` | Design, lore, técnico e roteiro |
+| `docs/jogo/` | Regras do jogo, mundo, enredo, Travessia |
+| `docs/tecnico/` | Arquitetura e stack |
+| `docs/gestao/` | Roteiro, tarefas, sessões, estacionamento |
 | `regras/` | Núcleo de regras (Go) |
 | `contrato/` | Mensagens entre cliente e servidor |
 | `sim/` | Simulador de console |
 | `server/` | Servidor |
 | `data/` | Conteúdo em JSON |
 | `client/` | Cliente Unity |
+| `.claude/` | PM automático do Claude Code: subagente, skills, hook e permissões |
+| `.githooks/` | Checagem da mensagem de commit |
 
-As outras pastas entram conforme o [roteiro](docs/04-roteiro.md) avança.
+As outras pastas entram conforme o [roteiro](docs/gestao/04-roteiro.md) avança.
 
 ## Regras do repositório
 

@@ -36,22 +36,22 @@ Realizar o sonho de ter um MMORPG feito por mim e ver um mundo funcionando por i
 
 ## Ordem de leitura
 
-1. [Enredo do mundo](enredo/enredo-do-mundo.md)
-2. [Enredo da Era](enredo/enredo-da-era.md)
-3. [Travessia (MVP e tutorial)](02-travessia.md)
+1. [Enredo do mundo](jogo/enredo/enredo-do-mundo.md)
+2. [Enredo da Era](jogo/enredo/enredo-da-era.md)
+3. [Travessia (MVP e tutorial)](jogo/02-travessia.md)
 4. Mecânicas (tabela abaixo)
-5. [Técnico](03-tecnico.md)
-6. [Roteiro até o MVP](04-roteiro.md)
+5. [Técnico](tecnico/03-tecnico.md)
+6. [Roteiro até o MVP](gestao/04-roteiro.md)
 
-O que falta decidir e validar: [05-painel](05-painel.md) · Mapa visual: [01-idealizando-o-jogo.canvas](01-idealizando-o-jogo.canvas) · Regras da pasta: [00-como-documentar](00-como-documentar.md)
+O que falta decidir e validar: [05-painel](gestao/05-painel.md) · Mapa visual: [01-idealizando-o-jogo.canvas](jogo/01-idealizando-o-jogo.canvas) · Regras da pasta: [00-como-documentar](00-como-documentar.md)
 
 ## Mecânicas
 
 | # | Arquivo | Cobre |
 |---|---|---|
-| 1 | [Motor de regras](mecanicas/motor-de-regras.md) | d20, graus de sucesso, bônus, determinismo |
-| 2 | [Combate](mecanicas/combate.md) | turno, grid, movimento, manual e automático, PvP contra eco |
-| 3 | [Personagem](mecanicas/personagem.md) | build, off-hand, atributos, progressão |
-| 4 | [Ofícios e economia](mecanicas/oficios-e-economia.md) | coleta, ferramentas, refino, craft, carga, mercado |
-| 5 | [Durabilidade e morte](mecanicas/durabilidade-e-morte.md) | duas camadas, reparo, morte |
-| 6 | [Mundo](mecanicas/mundo.md) | zonas, facções, eras, eventos, NPCs, jornada |
+| 1 | [Motor de regras](jogo/mecanicas/motor-de-regras.md) | d20, graus de sucesso, bônus, determinismo |
+| 2 | [Combate](jogo/mecanicas/combate.md) | turno, grid, movimento, manual e automático, PvP contra eco |
+| 3 | [Personagem](jogo/mecanicas/personagem.md) | build, off-hand, atributos, progressão |
+| 4 | [Ofícios e economia](jogo/mecanicas/oficios-e-economia.md) | coleta, ferramentas, refino, craft, carga, mercado |
+| 5 | [Durabilidade e morte](jogo/mecanicas/durabilidade-e-morte.md) | duas camadas, reparo, morte |
+| 6 | [Mundo](jogo/mecanicas/mundo.md) | zonas, facções, eras, eventos, NPCs, jornada |

@@ -4,7 +4,9 @@ Formato: `tipo(escopo): descrição`
 
 | Tipos | `feat`, `fix`, `docs`, `refactor`, `test`, `chore` |
 |---|---|
-| Escopos | `core`, `sim`, `tests`, `server`, `client`, `data`, `docs`, `repo` |
+| Escopos | `regras`, `contrato`, `sim`, `server`, `client`, `data`, `docs`, `gestao`, `repo` |
+
+O hook `.githooks/commit-msg` recusa o commit fora desse formato.
 
 ## Regras
 
@@ -12,6 +14,7 @@ Formato: `tipo(escopo): descrição`
 - O tipo é o que o commit entrega, não o arquivo que mais mudou.
 - Um commit, uma entrega. Se precisar de "e" no assunto, são dois commits.
 - Corpo opcional: uma linha por peça alterada.
+- `gestao` é para `docs/gestao/` (sessões, tarefas, estacionamento); `docs` é para regra do jogo e técnico.
 
 ## Proibido
 
@@ -20,12 +23,12 @@ Formato: `tipo(escopo): descrição`
 ## Exemplos
 
 ```
-feat(core): adiciona graus de sucesso no teste de d20
+feat(regras): adiciona graus de sucesso no teste de d20
 
-- core: Teste.Resolver com crítico por ±10 e 20/1 natural
-- tests: 8 casos dos graus de sucesso
+- regras: ResolverTeste com crítico por ±10 e 20/1 natural
+- regras: tabela com 8 casos dos graus de sucesso
 ```
 
 ```
-docs(docs): valida personagem e sobe a progressão para decidido
+docs(gestao): registra sessão e marca tarefa de pastas
 ```

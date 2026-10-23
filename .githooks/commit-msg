@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# Checa a primeira linha do commit: tipo(escopo): descrição
+# Regras em .github/commit-instructions.md
+# Ativar uma vez por clone: git config core.hooksPath .githooks
+
+linha=$(head -n1 "$1")
+
+# Merge e revert gerados pelo git passam direto
+case "$linha" in Merge*|Revert*) exit 0 ;; esac
+
+tipos='feat|fix|docs|refactor|test|chore'
+escopos='regras|contrato|sim|server|client|data|docs|gestao|repo'
+
+if ! echo "$linha" | grep -Eq "^($tipos)\(($escopos)\): [^A-Z].*[^.]$"; then
+  echo "Commit recusado: use tipo(escopo): descrição em minúscula, sem ponto final." >&2
+  echo "Tipos: $tipos | Escopos: $escopos" >&2
+  exit 1
+fi
+
+if [ "${#linha}" -gt 90 ]; then
+  echo "Commit recusado: primeira linha longa demais (máx. ~72 na descrição)." >&2
+  exit 1
+fi
+
+if echo "$linha" | grep -Eiq 'melhora|aprimora|otimiza|ajustes diversos|diversas melhorias'; then
+  echo "Commit recusado: diga o que mudou, não 'melhora/otimiza/ajustes'." >&2
+  exit 1
+fi
+
+exit 0
