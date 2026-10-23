@@ -23,7 +23,7 @@ flowchart LR
 - Os mesmos graus valem para coleta e craft.
 - Bônus fixos, sem vantagem/desvantagem.
 - Tipos de bônus: item, circunstância, status. Do mesmo tipo não se somam; vale o maior.
-- Determinismo: gerador com semente por luta, contas em inteiros, nada de relógio do sistema. Reproduzir = semente + estado inicial + decisões.
+- Determinismo: gerador com semente por luta, contas em inteiros, nada de relógio do sistema. A semente e o contador do sorteio ficam dentro do estado. Reproduzir = semente + estado inicial + decisões.
 
 ## Propostas
 

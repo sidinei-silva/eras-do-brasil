@@ -20,7 +20,7 @@ flowchart LR
 - T1 (pedra, madeira) se coleta sem ferramenta.
 - Ferramentas: machado (madeira), picareta (minério e pedra), foice (fibra), faca (couro).
 - A ferramenta coleta até 1 tier acima dela (machado T3 corta madeira T4).
-- Coleta automática e offline usa o mesmo teste e é limitada pela durabilidade da ferramenta.
+- Coleta automática usa o mesmo teste, só com o jogo aberto. Para com o inventário cheio ou a ferramenta sem durabilidade.
 
 ## Refino
 
@@ -34,7 +34,8 @@ flowchart LR
 
 ## Carga
 
-- Bolsa: craftada; aumenta a carga.
+- Inventário existe sem bolsa.
+- Bolsa: craftada; como no Albion, aumenta a capacidade de peso e dá status.
 - Montaria: comprada; carga e velocidade.
 
 ## Mercado
@@ -49,11 +50,10 @@ flowchart LR
 | Sucesso crítico | 7 | Devolve parte do bruto | Qualidade acima |
 | Sucesso | 5 | Produz | Produz |
 | Falha | 3 | Não produz, sem perda | Não produz |
-| Falha crítica | 3, ferramenta gasta mais | Perde material | Perde material |
+| Falha crítica | 3, ferramenta gasta mais | Não produz, sem perda de material | Não produz, sem perda de material |
 
 - Qualidade em 5 níveis.
 - Recompensas de jornada e contrato fora do mercado.
-- Trabalhadores NPC para auto-coleta.
 
 ## Em aberto
 

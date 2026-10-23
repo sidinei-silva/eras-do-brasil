@@ -1,425 +1,425 @@
 {
- "nodes": [
-  {
-   "id": "rt00titulo00001",
-   "type": "text",
-   "text": "# Roteiro até o MVP\n\"Pronto quando\" de cada fase: [[04-roteiro]]. Fase pronta: cards verdes.",
-   "x": 0,
-   "y": -200,
-   "width": 620,
-   "height": 110
-  },
-  {
-   "id": "rtph000000000000",
-   "type": "text",
-   "text": "## 0 · Base",
-   "x": 200,
-   "y": 0,
-   "width": 280,
-   "height": 80
-  },
-  {
-   "id": "rtph010000000000",
-   "type": "text",
-   "text": "## 1 · Núcleo",
-   "x": 520,
-   "y": 0,
-   "width": 280,
-   "height": 80
-  },
-  {
-   "id": "rtph020000000000",
-   "type": "text",
-   "text": "## 2 · Luta na tela",
-   "x": 840,
-   "y": 0,
-   "width": 280,
-   "height": 80
-  },
-  {
-   "id": "rtph030000000000",
-   "type": "text",
-   "text": "## 3 · Online",
-   "x": 1160,
-   "y": 0,
-   "width": 280,
-   "height": 80
-  },
-  {
-   "id": "rtph040000000000",
-   "type": "text",
-   "text": "## 4 · Mundo e ofícios",
-   "x": 1480,
-   "y": 0,
-   "width": 280,
-   "height": 80
-  },
-  {
-   "id": "rtph050000000000",
-   "type": "text",
-   "text": "## 5 · Travessia",
-   "x": 1800,
-   "y": 0,
-   "width": 280,
-   "height": 80
-  },
-  {
-   "id": "rtph060000000000",
-   "type": "text",
-   "text": "## 6 · MVP jogável",
-   "x": 2120,
-   "y": 0,
-   "width": 280,
-   "height": 80
-  },
-  {
-   "id": "rtph070000000000",
-   "type": "text",
-   "text": "## Depois",
-   "x": 2440,
-   "y": 0,
-   "width": 280,
-   "height": 80,
-   "color": "6"
-  },
-  {
-   "id": "rtrw000000000000",
-   "type": "text",
-   "text": "### Técnico",
-   "x": 0,
-   "y": 120,
-   "width": 160,
-   "height": 240
-  },
-  {
-   "id": "rtc0000000000000",
-   "type": "text",
-   "text": "- Monorepo, Git LFS\n- Projeto Unity vazio\n- Solução .NET (core, sim, tests, server)",
-   "x": 200,
-   "y": 120,
-   "width": 280,
-   "height": 240
-  },
-  {
-   "id": "rtc1000000000000",
-   "type": "text",
-   "text": "- Core + simulador + testes\n- d20, graus, 3 ações, grid, ataque de oportunidade, semente\n- [[motor-de-regras]] · [[combate]]",
-   "x": 520,
-   "y": 120,
-   "width": 280,
-   "height": 240
-  },
-  {
-   "id": "rtc2000000000000",
-   "type": "text",
-   "text": "- Unity anima o registro de eventos\n- Troca de equipamento\n- Automático e IA dos inimigos\n- [[personagem]] · [[combate]]",
-   "x": 840,
-   "y": 120,
-   "width": 280,
-   "height": 240
-  },
-  {
-   "id": "rtc3000000000000",
-   "type": "text",
-   "text": "- Servidor .NET + PostgreSQL\n- Login local (Steam depois)\n- Salvar e reconectar\n- [[03-tecnico]]",
-   "x": 1160,
-   "y": 120,
-   "width": 280,
-   "height": 240
-  },
-  {
-   "id": "rtc4000000000000",
-   "type": "text",
-   "text": "- Zona e grid exportado\n- Grupos visíveis, luta no lugar\n- Coleta por nó, refino, craft, carga, durabilidade\n- [[mundo]] · [[oficios-e-economia]] · [[durabilidade-e-morte]]",
-   "x": 1480,
-   "y": 120,
-   "width": 280,
-   "height": 240
-  },
-  {
-   "id": "rtc5000000000000",
-   "type": "text",
-   "text": "- Tutorial como máquina de estados\n- NPCs, contratos, chefe\n- [[02-travessia]]",
-   "x": 1800,
-   "y": 120,
-   "width": 280,
-   "height": 240
-  },
-  {
-   "id": "rtc6000000000000",
-   "type": "text",
-   "text": "- Steamworks\n- Corrigir o que o teste mostrar",
-   "x": 2120,
-   "y": 120,
-   "width": 280,
-   "height": 240
-  },
-  {
-   "id": "rtc7000000000000",
-   "type": "text",
-   "text": "- PvP com eco\n- Diário e desafio periódico",
-   "x": 2440,
-   "y": 120,
-   "width": 280,
-   "height": 240
-  },
-  {
-   "id": "rtrw010000000000",
-   "type": "text",
-   "text": "### Cliente",
-   "x": 0,
-   "y": 400,
-   "width": 160,
-   "height": 200
-  },
-  {
-   "id": "rtc2100000000000",
-   "type": "text",
-   "text": "- Arena com grid\n- Personagem placeholder\n- Barra de ações e log da luta",
-   "x": 840,
-   "y": 400,
-   "width": 280,
-   "height": 200
-  },
-  {
-   "id": "rtc3100000000000",
-   "type": "text",
-   "text": "- Tela de login e de personagem simples",
-   "x": 1160,
-   "y": 400,
-   "width": 280,
-   "height": 200
-  },
-  {
-   "id": "rtc4100000000000",
-   "type": "text",
-   "text": "- Greybox da Beira\n- Inventário, craft e reparo",
-   "x": 1480,
-   "y": 400,
-   "width": 280,
-   "height": 200
-  },
-  {
-   "id": "rtc5100000000000",
-   "type": "text",
-   "text": "- Greybox das 5 zonas ([[02-travessia.canvas]])\n- Diálogo e mural",
-   "x": 1800,
-   "y": 400,
-   "width": 280,
-   "height": 200
-  },
-  {
-   "id": "rtc6100000000000",
-   "type": "text",
-   "text": "- Trocar os placeholders principais\n- Som básico",
-   "x": 2120,
-   "y": 400,
-   "width": 280,
-   "height": 200
-  },
-  {
-   "id": "rtc7100000000000",
-   "type": "text",
-   "text": "- Arte da Era 1",
-   "x": 2440,
-   "y": 400,
-   "width": 280,
-   "height": 200
-  },
-  {
-   "id": "rtrw020000000000",
-   "type": "text",
-   "text": "### Dados",
-   "x": 0,
-   "y": 640,
-   "width": 160,
-   "height": 200
-  },
-  {
-   "id": "rtc1200000000000",
-   "type": "text",
-   "text": "- 2 armas, 1 armadura, 2 inimigos em JSON\n- Números chutados",
-   "x": 520,
-   "y": 640,
-   "width": 280,
-   "height": 200
-  },
-  {
-   "id": "rtc2200000000000",
-   "type": "text",
-   "text": "- 3 linhas de arma\n- Pano, couro, placa\n- Skills e passivas",
-   "x": 840,
-   "y": 640,
-   "width": 280,
-   "height": 200
-  },
-  {
-   "id": "rtc4200000000000",
-   "type": "text",
-   "text": "- Recursos e ferramentas T1–T2\n- Receitas e refino\n- Bolsa e montaria",
-   "x": 1480,
-   "y": 640,
-   "width": 280,
-   "height": 200
-  },
-  {
-   "id": "rtc5200000000000",
-   "type": "text",
-   "text": "- Inimigos T1–T2\n- Passos do tutorial\n- Contratos",
-   "x": 1800,
-   "y": 640,
-   "width": 280,
-   "height": 200
-  },
-  {
-   "id": "rtc6200000000000",
-   "type": "text",
-   "text": "- Balancear T1–T2",
-   "x": 2120,
-   "y": 640,
-   "width": 280,
-   "height": 200
-  },
-  {
-   "id": "rtc7200000000000",
-   "type": "text",
-   "text": "- Zonas, facções e itens da Era 1",
-   "x": 2440,
-   "y": 640,
-   "width": 280,
-   "height": 200
-  },
-  {
-   "id": "rtrw030000000000",
-   "type": "text",
-   "text": "### Escrita e doc",
-   "x": 0,
-   "y": 880,
-   "width": 160,
-   "height": 240
-  },
-  {
-   "id": "rtc0300000000000",
-   "type": "text",
-   "text": "- Validar [[motor-de-regras]], [[combate]], [[personagem]]\n- Confirmar stack em [[03-tecnico]]",
-   "x": 200,
-   "y": 880,
-   "width": 280,
-   "height": 240
-  },
-  {
-   "id": "rtc1300000000000",
-   "type": "text",
-   "text": "- Ajustar números com o que o simulador mostrar",
-   "x": 520,
-   "y": 880,
-   "width": 280,
-   "height": 240
-  },
-  {
-   "id": "rtc2300000000000",
-   "type": "text",
-   "text": "- Nomes de itens e skills (sem poetizar)",
-   "x": 840,
-   "y": 880,
-   "width": 280,
-   "height": 240
-  },
-  {
-   "id": "rtc3300000000000",
-   "type": "text",
-   "text": "- Validar rede e repositório em [[03-tecnico]]",
-   "x": 1160,
-   "y": 880,
-   "width": 280,
-   "height": 240
-  },
-  {
-   "id": "rtc4300000000000",
-   "type": "text",
-   "text": "- Validar [[mundo]], [[oficios-e-economia]], [[durabilidade-e-morte]]\n- Fechar carga e refino",
-   "x": 1480,
-   "y": 880,
-   "width": 280,
-   "height": 240
-  },
-  {
-   "id": "rtc5300000000000",
-   "type": "text",
-   "text": "- Falas de todos os NPCs\n- Textos dos passos\n- Introdução (narração sobre imagens paradas)",
-   "x": 1800,
-   "y": 880,
-   "width": 280,
-   "height": 240
-  },
-  {
-   "id": "rtc6300000000000",
-   "type": "text",
-   "text": "- Revisar introdução e falas\n- Teste com amigos",
-   "x": 2120,
-   "y": 880,
-   "width": 280,
-   "height": 240
-  },
-  {
-   "id": "rtc7300000000000",
-   "type": "text",
-   "text": "- Enredo da Era 1 ([[enredo-da-era]])\n- Pendências do [[enredo-do-mundo]]",
-   "x": 2440,
-   "y": 880,
-   "width": 280,
-   "height": 240
-  }
- ],
- "edges": [
-  {
-   "id": "rted010000000000",
-   "fromNode": "rtph000000000000",
-   "fromSide": "right",
-   "toNode": "rtph010000000000",
-   "toSide": "left"
-  },
-  {
-   "id": "rted020000000000",
-   "fromNode": "rtph010000000000",
-   "fromSide": "right",
-   "toNode": "rtph020000000000",
-   "toSide": "left"
-  },
-  {
-   "id": "rted030000000000",
-   "fromNode": "rtph020000000000",
-   "fromSide": "right",
-   "toNode": "rtph030000000000",
-   "toSide": "left"
-  },
-  {
-   "id": "rted040000000000",
-   "fromNode": "rtph030000000000",
-   "fromSide": "right",
-   "toNode": "rtph040000000000",
-   "toSide": "left"
-  },
-  {
-   "id": "rted050000000000",
-   "fromNode": "rtph040000000000",
-   "fromSide": "right",
-   "toNode": "rtph050000000000",
-   "toSide": "left"
-  },
-  {
-   "id": "rted060000000000",
-   "fromNode": "rtph050000000000",
-   "fromSide": "right",
-   "toNode": "rtph060000000000",
-   "toSide": "left"
-  },
-  {
-   "id": "rted070000000000",
-   "fromNode": "rtph060000000000",
-   "fromSide": "right",
-   "toNode": "rtph070000000000",
-   "toSide": "left"
-  }
- ]
+	"nodes": [
+		{
+			"id": "rt00titulo00001",
+			"type": "text",
+			"text": "# Roteiro até o MVP\n\"Pronto quando\" de cada fase: [[04-roteiro]]. Fase pronta: cards verdes.",
+			"x": 0,
+			"y": -200,
+			"width": 620,
+			"height": 110
+		},
+		{
+			"id": "rtph000000000000",
+			"type": "text",
+			"text": "## 0 · Base",
+			"x": 200,
+			"y": 0,
+			"width": 280,
+			"height": 80
+		},
+		{
+			"id": "rtph010000000000",
+			"type": "text",
+			"text": "## 1 · Luta no terminal",
+			"x": 520,
+			"y": 0,
+			"width": 280,
+			"height": 80
+		},
+		{
+			"id": "rtph020000000000",
+			"type": "text",
+			"text": "## 2 · Luta na tela",
+			"x": 840,
+			"y": 0,
+			"width": 280,
+			"height": 80
+		},
+		{
+			"id": "rtph030000000000",
+			"type": "text",
+			"text": "## 3 · Mundo e ofícios",
+			"x": 1160,
+			"y": 0,
+			"width": 280,
+			"height": 80
+		},
+		{
+			"id": "rtph040000000000",
+			"type": "text",
+			"text": "## 4 · Travessia",
+			"x": 1480,
+			"y": 0,
+			"width": 280,
+			"height": 80
+		},
+		{
+			"id": "rtph050000000000",
+			"type": "text",
+			"text": "## 5 · MVP local",
+			"x": 1800,
+			"y": 0,
+			"width": 280,
+			"height": 80
+		},
+		{
+			"id": "rtph060000000000",
+			"type": "text",
+			"text": "## 6 · Online",
+			"x": 2120,
+			"y": 0,
+			"width": 280,
+			"height": 80
+		},
+		{
+			"id": "rtph070000000000",
+			"type": "text",
+			"text": "## Depois",
+			"x": 2440,
+			"y": 0,
+			"width": 280,
+			"height": 80,
+			"color": "6"
+		},
+		{
+			"id": "rtrw000000000000",
+			"type": "text",
+			"text": "### Técnico",
+			"x": 0,
+			"y": 120,
+			"width": 160,
+			"height": 240
+		},
+		{
+			"id": "rtrw010000000000",
+			"type": "text",
+			"text": "### Cliente",
+			"x": 0,
+			"y": 400,
+			"width": 160,
+			"height": 200
+		},
+		{
+			"id": "rtrw020000000000",
+			"type": "text",
+			"text": "### Dados",
+			"x": 0,
+			"y": 640,
+			"width": 160,
+			"height": 200
+		},
+		{
+			"id": "rtrw030000000000",
+			"type": "text",
+			"text": "### Escrita e doc",
+			"x": 0,
+			"y": 880,
+			"width": 160,
+			"height": 240
+		},
+		{
+			"id": "rtc00000000000000",
+			"type": "text",
+			"text": "- Repositório, Git LFS\n- `go mod init`; pastas `regras/`, `contrato/`, `sim/`",
+			"x": 200,
+			"y": 120,
+			"width": 280,
+			"height": 240
+		},
+		{
+			"id": "rtc03000000000000",
+			"type": "text",
+			"text": "- 1 noite: corrigir os docs e congelar\n- Criar [[noites]]",
+			"x": 200,
+			"y": 880,
+			"width": 280,
+			"height": 240
+		},
+		{
+			"id": "rtc10000000000000",
+			"type": "text",
+			"text": "- `regras/` + `sim/` no terminal\n- d20, graus, turno por lado, 3 ações, Passo, ataque de oportunidade, semente\n- Replay e 1.000 lutas\n- [[motor-de-regras]] · [[combate]]",
+			"x": 520,
+			"y": 120,
+			"width": 280,
+			"height": 240
+		},
+		{
+			"id": "rtc12000000000000",
+			"type": "text",
+			"text": "- 2 armas, 1 armadura, 2 inimigos em JSON\n- Números chutados",
+			"x": 520,
+			"y": 640,
+			"width": 280,
+			"height": 200
+		},
+		{
+			"id": "rtc13000000000000",
+			"type": "text",
+			"text": "- Casos e resultado esperado de cada regra\n- Ajustar números com o simulador",
+			"x": 520,
+			"y": 880,
+			"width": 280,
+			"height": 240
+		},
+		{
+			"id": "rtc20000000000000",
+			"type": "text",
+			"text": "- Servidor local (WebSocket) + `contrato/`\n- Unity anima os eventos\n- Troca de equipamento\n- Automático e IA dos inimigos\n- [[personagem]] · [[combate]]",
+			"x": 840,
+			"y": 120,
+			"width": 280,
+			"height": 240
+		},
+		{
+			"id": "rtc21000000000000",
+			"type": "text",
+			"text": "- Teste de 1 noite: 3 Sidekicks no grid\n- Arena com grid\n- Barra de ações, log, 2x/3x",
+			"x": 840,
+			"y": 400,
+			"width": 280,
+			"height": 200
+		},
+		{
+			"id": "rtc22000000000000",
+			"type": "text",
+			"text": "- 3 linhas de arma\n- Pano, couro, placa\n- Skills e passivas",
+			"x": 840,
+			"y": 640,
+			"width": 280,
+			"height": 200
+		},
+		{
+			"id": "rtc23000000000000",
+			"type": "text",
+			"text": "- Nomes de itens e skills (sem poetizar)",
+			"x": 840,
+			"y": 880,
+			"width": 280,
+			"height": 240
+		},
+		{
+			"id": "rtc30000000000000",
+			"type": "text",
+			"text": "- Zona e grid exportado\n- Grupos visíveis, luta em instância\n- Coleta por nó, refino, craft, carga, durabilidade\n- Save em arquivo\n- [[mundo]] · [[oficios-e-economia]] · [[durabilidade-e-morte]]",
+			"x": 1160,
+			"y": 120,
+			"width": 280,
+			"height": 240
+		},
+		{
+			"id": "rtc31000000000000",
+			"type": "text",
+			"text": "- Greybox da Beira\n- Inventário, craft e reparo",
+			"x": 1160,
+			"y": 400,
+			"width": 280,
+			"height": 200
+		},
+		{
+			"id": "rtc32000000000000",
+			"type": "text",
+			"text": "- Recursos e ferramentas T1–T2\n- Receitas e refino\n- Bolsa e montaria",
+			"x": 1160,
+			"y": 640,
+			"width": 280,
+			"height": 200
+		},
+		{
+			"id": "rtc33000000000000",
+			"type": "text",
+			"text": "- Validar [[mundo]], [[oficios-e-economia]], [[durabilidade-e-morte]]\n- Fechar carga",
+			"x": 1160,
+			"y": 880,
+			"width": 280,
+			"height": 240
+		},
+		{
+			"id": "rtc40000000000000",
+			"type": "text",
+			"text": "- Tutorial como máquina de estados\n- NPCs, contratos, chefe\n- Descanso\n- [[02-travessia]]",
+			"x": 1480,
+			"y": 120,
+			"width": 280,
+			"height": 240
+		},
+		{
+			"id": "rtc41000000000000",
+			"type": "text",
+			"text": "- Greybox das 5 zonas ([[02-travessia.canvas]])\n- Diálogo e mural",
+			"x": 1480,
+			"y": 400,
+			"width": 280,
+			"height": 200
+		},
+		{
+			"id": "rtc42000000000000",
+			"type": "text",
+			"text": "- Inimigos T1–T2\n- 15 passos do tutorial\n- Contratos",
+			"x": 1480,
+			"y": 640,
+			"width": 280,
+			"height": 200
+		},
+		{
+			"id": "rtc43000000000000",
+			"type": "text",
+			"text": "- Falas de todos os NPCs\n- Textos dos passos\n- Introdução (narração sobre imagens paradas)",
+			"x": 1480,
+			"y": 880,
+			"width": 280,
+			"height": 240
+		},
+		{
+			"id": "rtc50000000000000",
+			"type": "text",
+			"text": "- Servidor local empacotado com o cliente\n- Corrigir o que o teste mostrar",
+			"x": 1800,
+			"y": 120,
+			"width": 280,
+			"height": 240
+		},
+		{
+			"id": "rtc51000000000000",
+			"type": "text",
+			"text": "- Trocar os placeholders principais\n- Som básico",
+			"x": 1800,
+			"y": 400,
+			"width": 280,
+			"height": 200
+		},
+		{
+			"id": "rtc52000000000000",
+			"type": "text",
+			"text": "- Balancear T1–T2",
+			"x": 1800,
+			"y": 640,
+			"width": 280,
+			"height": 200
+		},
+		{
+			"id": "rtc53000000000000",
+			"type": "text",
+			"text": "- Revisar introdução e falas\n- Teste com um amigo",
+			"x": 1800,
+			"y": 880,
+			"width": 280,
+			"height": 240
+		},
+		{
+			"id": "rtc60000000000000",
+			"type": "text",
+			"text": "- VPS + PostgreSQL\n- Login Steamworks\n- Salvar e reconectar\n- [[03-tecnico]]",
+			"x": 2120,
+			"y": 120,
+			"width": 280,
+			"height": 240
+		},
+		{
+			"id": "rtc61000000000000",
+			"type": "text",
+			"text": "- Tela de login e de personagem simples",
+			"x": 2120,
+			"y": 400,
+			"width": 280,
+			"height": 200
+		},
+		{
+			"id": "rtc63000000000000",
+			"type": "text",
+			"text": "- Página da Steam (depois do teste de arte)",
+			"x": 2120,
+			"y": 880,
+			"width": 280,
+			"height": 240
+		},
+		{
+			"id": "rtc70000000000000",
+			"type": "text",
+			"text": "- PvP com eco\n- Diário e desafio periódico\n- Foco (craft e refino)",
+			"x": 2440,
+			"y": 120,
+			"width": 280,
+			"height": 240
+		},
+		{
+			"id": "rtc71000000000000",
+			"type": "text",
+			"text": "- Arte da Era 1",
+			"x": 2440,
+			"y": 400,
+			"width": 280,
+			"height": 200
+		},
+		{
+			"id": "rtc72000000000000",
+			"type": "text",
+			"text": "- Zonas, facções e itens da Era 1 (até T4)",
+			"x": 2440,
+			"y": 640,
+			"width": 280,
+			"height": 200
+		},
+		{
+			"id": "rtc73000000000000",
+			"type": "text",
+			"text": "- Enredo da Era 1 ([[enredo-da-era]])\n- Pendências do [[enredo-do-mundo]]",
+			"x": 2440,
+			"y": 880,
+			"width": 280,
+			"height": 240
+		}
+	],
+	"edges": [
+		{
+			"id": "rted010000000000",
+			"fromNode": "rtph000000000000",
+			"fromSide": "right",
+			"toNode": "rtph010000000000",
+			"toSide": "left"
+		},
+		{
+			"id": "rted020000000000",
+			"fromNode": "rtph010000000000",
+			"fromSide": "right",
+			"toNode": "rtph020000000000",
+			"toSide": "left"
+		},
+		{
+			"id": "rted030000000000",
+			"fromNode": "rtph020000000000",
+			"fromSide": "right",
+			"toNode": "rtph030000000000",
+			"toSide": "left"
+		},
+		{
+			"id": "rted040000000000",
+			"fromNode": "rtph030000000000",
+			"fromSide": "right",
+			"toNode": "rtph040000000000",
+			"toSide": "left"
+		},
+		{
+			"id": "rted050000000000",
+			"fromNode": "rtph040000000000",
+			"fromSide": "right",
+			"toNode": "rtph050000000000",
+			"toSide": "left"
+		},
+		{
+			"id": "rted060000000000",
+			"fromNode": "rtph050000000000",
+			"fromSide": "right",
+			"toNode": "rtph060000000000",
+			"toSide": "left"
+		},
+		{
+			"id": "rted070000000000",
+			"fromNode": "rtph060000000000",
+			"fromSide": "right",
+			"toNode": "rtph070000000000",
+			"toSide": "left"
+		}
+	]
 }

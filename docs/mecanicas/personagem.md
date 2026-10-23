@@ -42,9 +42,25 @@ flowchart LR
 | Craft | Família de item | Item | Menos material |
 
 - Maestria: +1 a +4 no teste, em degraus.
-- Gate de tier pela maestria: um marco por tier, 8 marcos (como o Albion).
+- Gate de tier pela maestria: um marco por tier, 8 marcos (como o Albion). A interface só mostra os marcos dos tiers que existem no jogo (Era 1: até T4).
 - Sem bônus cruzado: especializar um item não ajuda outro.
 - O tier do item dá bônus de item, atributos e passivas melhores.
+
+## Descanso
+
+Bônus para quem ficou fora. Nada é produzido offline.
+
+| Regra | Valor |
+|---|---|
+| Começa a contar | Depois de 4h deslogado, em qualquer lugar |
+| Acumula | 1 noite de bônus a cada 20h fora |
+| 1 noite de bônus | Pontos que se ganham em 2h de jogo manual |
+| Efeito | Dobra o ganho das duas escadas, só em ação manual |
+| Gasto | Em pontos, como o rested XP do WoW (a pausa não gasta) |
+| Saída de novo | O que sobrou fica; o novo tempo fora soma |
+| Teto | 3 noites |
+
+- Saídas de menos de 4h não somam descanso e não gastam o que você tem.
 
 ## Propostas
 

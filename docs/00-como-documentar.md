@@ -13,6 +13,7 @@ Regras desta pasta. Valem para mim e para qualquer IA que escrever aqui.
 7. **Curto para validar.** Um arquivo se lê e se valida em até 10 minutos.
 8. **Mecânica não se poetiza.** Nome comum de MMORPG. Lore não explica mecânica.
 9. **Todo arquivo é alcançável a partir do [01-o-jogo](01-o-jogo.md).**
+10. **Docs congelados.** Depois da noite de correção, só muda o que a fase em curso pedir. Ideia nova não entra no meio da fase.
 
 ## Canvas ou Mermaid
 

@@ -25,10 +25,11 @@ Nada é destruído por azar. A durabilidade tem duas camadas; o teto é o ralo d
 
 - Sem full loot.
 - O risco aparece antes da luta (manual) ou na configuração (automático).
+- Volta a pé na última cidade em que entrou (como o Albion), não na mais próxima.
+- Nenhum nó fica a mais de ~4 min a pé de uma cidade.
 - Mesmas regras na Travessia e nas Eras.
 
 ## Em aberto
 
 - Porcentagens e tamanho da barra.
 - Quanto o reparo em campo tira do teto.
-- Ponto de retorno depois de morrer.

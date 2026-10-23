@@ -1,24 +1,37 @@
 # AGENTS.md
 
-> Regras de uso de IA em **Eras do Brasil**. Valem para qualquer ferramenta: Copilot,
-> ChatGPT, Claude, o que vier depois. Se uma ferramenta não lê este arquivo, a
-> regra continua valendo — ela é minha, não dela.
+Regras para qualquer IA neste repositório (Claude, Copilot, ChatGPT, o que vier). Se a ferramenta não lê este arquivo, a regra continua valendo.
 
+## Antes de tudo
 
-**Conventional Commits, com a descrição em pt-BR.**
+- A fonte da verdade é `docs/`. Comece por [docs/01-o-jogo.md](docs/01-o-jogo.md).
+- Decisão registrada é decisão. Para reabrir, diga o que mudou e por quê.
+- O que está em **Propostas** ou **Em aberto** não é regra ainda.
+- A stack só se rediscute com a fase em curso jogável.
 
-Formato: `tipo(escopo): descrição`
+## Papel da IA
 
-- Tipos em inglês, que é o padrão: `feat`, `fix`, `docs`, `refactor`, `test`,
-  `chore`
-- **Descrição em português**, imperativo, minúscula, sem ponto final
-  ✅ `feat(coleta): adiciona ciclo com nó de recurso`
-  ❌ `feat(coleta): Adicionado o ciclo de coleta.`
-- Escopos deste repo: `fluxo`, `sistema`, `data`, `adr`, `server`, `web`, `docs`
+| Pode | Não pode |
+|---|---|
+| Explicar conceito e comparar abordagens | Escrever a regra do jogo (`regras/`) |
+| Escrever o laço que roda a minha tabela de casos | Escrever casos de teste ou resultado esperado |
+| Escrever simulador, scripts e testes de rede | Fazer arte, voz, texto ou qualquer coisa que o jogador vê |
+| Revisar o código que eu escrevi | Editar `docs/` sem pedido |
+| Apontar contradição na doc e na lore | Inventar regra que não está na doc |
 
-**O tipo é o que a fatia entrega**, não o arquivo que mais mudou. Fatia que
-entrega coleta é `feat`, mesmo que 80% das linhas sejam markdown.
+Eu escrevo a regra, os casos de teste e a lore.
 
-**A fatia inteira num commit só.** A receita manda fechar fluxo, regra, conteúdo,
-código, teste e lore juntos. Então o assunto resume a entrega e o corpo lista as
-peças
+## Como responder
+
+- Curto e fácil de validar. Tenho ~2h por noite e sou interrompido.
+- O porquê vai na conversa, não no arquivo.
+- Hipótese é declarada como hipótese. Se não sabe, pesquise ou pergunte.
+- Sem complexidade antecipada (nada de Redis, Kafka, microserviço "por precaução").
+
+## Regras do projeto
+
+- Doc segue [docs/00-como-documentar.md](docs/00-como-documentar.md).
+- Mecânica não se poetiza: nome comum de MMORPG.
+- Constante de jogo mora em `data/`, nunca no código.
+- Núcleo de regras: função pura, sem estado escondido, só inteiros. Ver [docs/03-tecnico.md](docs/03-tecnico.md).
+- Commits: [.github/commit-instructions.md](.github/commit-instructions.md).

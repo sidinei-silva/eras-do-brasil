@@ -12,26 +12,21 @@ Mapa, zonas, NPCs e onde cada passo acontece: [02-travessia.canvas](02-travessia
 
 | # | Passo | Mecânica |
 |---|---|---|
-| 1 | Acordar e falar com Bartolomeu | Objetivo |
-| 2 | Coletar pedra e madeira | d20 na coleta; T1 sem ferramenta |
-| 3 | Craftar arma de uma mão e off-hand | Craft; skill e atributos no item; off-hand |
-| 4 | Primeiro combate, no manual | Grupo visível; grid; 3 ações; ataque múltiplo; aviso de risco |
-| 5 | Craftar e vestir armadura crua | Passivas; atributos do equipamento |
-| 6 | Combate contra 2 que se movem | Reação; ataque de oportunidade; Passo |
-| 7 | Consertar | Durabilidade atual e teto |
-| 8 | Entregar a tarefa do Bartolomeu | Tarefa de NPC |
-| 9 | Acampamento | Comprador; tutor; primeiro contrato; teste de Presença |
-| 10 | Comprar a montaria | Montaria |
-| 11 | Craftar a bolsa | Carga |
-| 12 | Craftar ferramentas | Ferramenta coleta até 1 tier acima |
-| 13 | Coletar T2 nas duas zonas | Peso; maestria de coleta |
-| 14 | Coleta automática | Limite pela durabilidade da ferramenta |
-| 15 | Refinar | Tábua, couro curtido, pano, barra |
-| 16 | Primeiro nível de maestria | Gate de tier |
-| 17 | Craftar e vestir conjunto T2 | Escolha de linha; você é o que veste |
-| 18 | Caçada automática | Lista de prioridade; intenção de movimento |
-| 19 | Chefe (opcional) | Só manual; drop simples |
-| 20 | Falar com o Mateiro | Ida à Era 1 |
+| 1 | Acordar e falar com o Bartolomeu | Objetivo; o abrigo é o primeiro ponto de volta |
+| 2 | Coletar pedra e madeira à mão | d20 na coleta; T1 sem ferramenta; inventário |
+| 3 | Craftar arma, off-hand e armadura crua | Craft; skill e atributos no item; passivas; material define deslocamento |
+| 4 | Primeiro combate, no manual (1 inimigo) | Grid; turno por lado; 3 ações, no máximo 2 golpes; intenção do inimigo; aviso de risco; 2x/3x e pular turno |
+| 5 | Combate contra 2 que se movem | Reação; ataque de oportunidade; Passo; maestria de combate |
+| 6 | Consertar e entregar a tarefa | Durabilidade atual e teto; tarefa de NPC; aviso: morreu, volta à última cidade em que entrou |
+| 7 | Entrar no Acampamento | Novo ponto de volta; comprador NPC; tutor (descanso); contrato; teste de Presença |
+| 8 | Montaria e bolsa | Montaria; bolsa (mais peso e status) |
+| 9 | Craftar ferramentas e coletar T2 | Ferramenta coleta até 1 tier acima; peso; maestria e especialização de coleta |
+| 10 | Coleta automática | Para com o inventário cheio ou a ferramenta sem durabilidade; rende menos que o manual |
+| 11 | Refinar | Refino; especialização mostra o rendimento maior |
+| 12 | Primeiro marco e conjunto T2 | Gate de tier (a interface mostra só até T4); você é o que veste; especialização de craft |
+| 13 | Caçada automática | Lista de prioridade |
+| 14 | Chefe (opcional) | Só manual |
+| 15 | Falar com o Mateiro | Ida à Era 1 |
 
 ## Falas
 
@@ -43,7 +38,7 @@ Mapa, zonas, NPCs e onde cada passo acontece: [02-travessia.canvas](02-travessia
 >
 > Tá vendo aquele acampamento ali atrás? É tudo gente como você e eu — Puxados. Nós escolhemos ficar por aqui mesmo. A gente não achou um chão, achou um canto. A terra é pobre, mas é calma.
 >
-> Agora, se você quiser mais do que sobreviver de migalha... lá na frente, depois da bruma, fica a primeira Era firme. O Mateiro conhece a trilha. Lá tem riqueza de verdade, ferro bom e cidades inteiras, mas também tem guerra de facção e bicho que não perdoa. E lá dá para firmar o pé. Quem não firma em lugar nenhum, quando cai, volta a cair aqui, sem o que carregava.
+> Agora, se você quiser mais do que sobreviver de migalha... lá na frente, depois da bruma, fica a primeira Era firme. O Mateiro conhece a trilha. Lá tem riqueza de verdade, ferro bom e cidades inteiras, mas também tem guerra de facção e bicho que não perdoa. E lá tem cidade de verdade. Quem cai volta para a última cidade em que entrou, sem parte do que carregava.
 >
 > Ninguém aqui vai te mandar ir. Fica o tempo que quiser — ou atravessa quando achar que o seu braço aguenta o risco."
 
@@ -62,7 +57,8 @@ Mapa, zonas, NPCs e onde cada passo acontece: [02-travessia.canvas](02-travessia
 | Perdido | T2 | Pedreira Torta |
 | O Primeiro Perdido (chefe) | T2 | Boca da Fenda |
 
-- Passos 1–8 na Beira instanciados e solo (como o Farol do Albion); o Acampamento é o primeiro lugar com outros jogadores.
+- Passos 1–6 na Beira instanciados e solo (como o Farol do Albion); o Acampamento é o primeiro lugar com outros jogadores.
+- Inimigos provisórios: bicho só entra se existir pack comprado já animado.
 
 ## Em aberto
 

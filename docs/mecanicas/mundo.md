@@ -10,11 +10,19 @@ Zonas ligadas por saídas. Facções controlam zonas, eventos deixam marcas, NPC
 
 ```mermaid
 flowchart LR
-  T[Travessia: T1–T2, sem facção] -->|bruma| E1[Era 1: T1–T6]
+  T[Travessia: T1–T2, sem facção] -->|bruma| E1[Era 1: T1–T4]
   E1 -.->|expansão| E2[Era 2]
 ```
 
 - Zona é a unidade: recursos, inimigos, NPCs, facção e saídas.
+- Nenhum nó fica a mais de ~4 min a pé de uma cidade.
+- Combate em instância, com o cenário do lugar.
+
+## Era 1
+
+- Inspirada em 1500–1654. T1–T4 no lançamento.
+- Paisagem: litoral, Mata Atlântica e engenho.
+- Facções só depois da luta jogável. Nenhum povo real nem religião como lado.
 
 ## Eras e facções
 
@@ -51,5 +59,4 @@ flowchart LR
 
 ## Em aberto
 
-- Arena no lugar do encontro ou fixa por bioma.
 - Zonas da Era 1.

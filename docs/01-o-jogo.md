@@ -21,8 +21,9 @@ Realizar o sonho de ter um MMORPG feito por mim e ver um mundo funcionando por i
 
 - O jogador é uma pessoa comum, nunca o escolhido. O reconhecimento vem do que ele faz e de como os outros o veem.
 - Você é o que veste: sem classe; a identidade e as skills vêm do equipamento.
-- Pouco tempo não prejudica: tarefa repetitiva tem forma automática.
-- O combate manual é o pilar; o automático é o fallback. Manual rende mais por luta, automático rende mais por hora.
+- Pouco tempo não prejudica: a luta manual pausa sem limite, o automático cobre a tarefa repetitiva com o jogo aberto, e o descanso compensa quem ficou fora.
+- Nada acontece offline. O jogo precisa estar aberto.
+- O combate manual é o pilar; o automático é o fallback e rende menos que o manual.
 - Lutas curtas, contra poucos oponentes, sem pressão de tempo.
 - Ações resolvidas com dados e modificadores, em combate, coleta, craft e conversa.
 - Tudo o que você faz traz algum tipo de progressão.
