@@ -14,7 +14,7 @@ flowchart LR
   F3 --> F4[4 Travessia] --> F5[5 MVP local] --> F6[6 Online] --> D[Depois: Era 1]
 ```
 
-**Fase em curso:** 0 Base
+**Fase em curso:** 1 Luta no terminal
 
 | Fase | Orçamento (sessões) | Pronto quando |
 |---|---|---|
