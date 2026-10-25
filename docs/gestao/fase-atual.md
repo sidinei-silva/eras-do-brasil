@@ -6,7 +6,7 @@ Pronto quando: 1 personagem × 2 mobs no terminal; a mesma semente repete a luta
 
 ## Tarefas
 
-- [ ] `go mod init` + estrutura de pastas (`rules/`, `sim/`, `data/`)
+- [x] `go mod init` + estrutura de pastas (`rules/`, `sim/`, `data/`)
 - [ ] Estado do núcleo: structs de personagem, mob e estado da luta — só inteiros, semente e contador do sorteio dentro do estado
 - [ ] Gerador de dado determinístico (1d20 por semente+contador) e graus (20 sobe grau, 1 desce grau)
 - [ ] Teste de ataque: 1d20 + atributo + maestria + item vs Defesa; bônus por tipo sem somar — marco sessão 5
