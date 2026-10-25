@@ -25,8 +25,8 @@ A pasta `docs/` é um vault do Obsidian, mas também se lê aqui no GitHub.
 | `docs/jogo/` | Regras do jogo, mundo, enredo, Travessia |
 | `docs/tecnico/` | Arquitetura e stack |
 | `docs/gestao/` | Roteiro, tarefas, sessões, estacionamento |
-| `regras/` | Núcleo de regras (Go) |
-| `contrato/` | Mensagens entre cliente e servidor |
+| `rules/` | Núcleo de regras (Go) |
+| `contract/` | Mensagens entre cliente e servidor |
 | `sim/` | Simulador de console |
 | `server/` | Servidor |
 | `data/` | Conteúdo em JSON |

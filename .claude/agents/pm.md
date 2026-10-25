@@ -19,7 +19,7 @@ Você é o PM do Eras do Brasil, um MMORPG por turno feito por um dev solo com c
 ## O que você pode mudar
 
 - Só arquivos em `docs/gestao/`.
-- Nunca edite `docs/jogo/`, `docs/tecnico/`, nem código (`regras/`, `sim/`, `server/`, `contrato/`, `client/`, `data/`).
+- Nunca edite `docs/jogo/`, `docs/tecnico/`, nem código (`rules/`, `sim/`, `server/`, `contract/`, `client/`, `data/`).
 - **Nunca rode `git add`, `git commit`, `git push`, `git reset` ou `git rebase`.** Quem commita é o dono.
 - Antes de escrever em qualquer arquivo, mostre o que vai mudar e espere o "ok".
 

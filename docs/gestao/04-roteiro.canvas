@@ -121,7 +121,7 @@
 		{
 			"id": "rtc00000000000000",
 			"type": "text",
-			"text": "- Repositório, Git LFS\n- `go mod init`; pastas `regras/`, `contrato/`, `sim/`",
+			"text": "- Repositório, Git LFS\n- `go mod init`; pastas `rules/`, `contract/`, `sim/`",
 			"x": 200,
 			"y": 120,
 			"width": 280,
@@ -139,7 +139,7 @@
 		{
 			"id": "rtc10000000000000",
 			"type": "text",
-			"text": "- `regras/` + `sim/` no terminal\n- d20, graus, turno por lado, 3 ações, Passo, ataque de oportunidade, semente\n- Replay e 1.000 lutas\n- [[motor-de-regras]] · [[combate]]",
+			"text": "- `rules/` + `sim/` no terminal\n- d20, graus, turno por lado, 3 ações, Passo, ataque de oportunidade, semente\n- Replay e 1.000 lutas\n- [[motor-de-regras]] · [[combate]]",
 			"x": 520,
 			"y": 120,
 			"width": 280,
@@ -166,7 +166,7 @@
 		{
 			"id": "rtc20000000000000",
 			"type": "text",
-			"text": "- Servidor local (WebSocket) + `contrato/`\n- Unity anima os eventos\n- Troca de equipamento\n- Automático e IA dos inimigos\n- [[personagem]] · [[combate]]",
+			"text": "- Servidor local (WebSocket) + `contract/`\n- Unity anima os eventos\n- Troca de equipamento\n- Automático e IA dos inimigos\n- [[personagem]] · [[combate]]",
 			"x": 840,
 			"y": 120,
 			"width": 280,

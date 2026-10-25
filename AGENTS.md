@@ -13,7 +13,7 @@ Regras para qualquer IA neste repositório (Claude, Copilot, ChatGPT, o que vier
 
 | Pode | Não pode |
 |---|---|
-| Explicar conceito e comparar abordagens | Escrever a regra do jogo (`regras/`) |
+| Explicar conceito e comparar abordagens | Escrever a regra do jogo (`rules/`) |
 | Escrever o laço que roda a minha tabela de casos | Escrever casos de teste ou resultado esperado |
 | Escrever simulador, scripts e testes de rede | Fazer arte, voz, texto ou qualquer coisa que o jogador vê |
 | Revisar o código que eu escrevi | Editar `docs/` sem pedido (fora de `docs/gestao/`, que o PM atualiza) |

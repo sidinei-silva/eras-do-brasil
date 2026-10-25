@@ -91,10 +91,10 @@ flowchart LR
 
 | Pasta       | Conteúdo                                                             | Nasce na fase |
 | ----------- | -------------------------------------------------------------------- | ------------- |
-| `regras/`   | Núcleo; `testdata/` com as tabelas de casos                          | 1             |
+| `rules/`    | Núcleo; `testdata/` com as tabelas de casos                          | 1             |
 | `sim/`      | `package main`: luta no terminal e as 1.000 lutas                    | 1             |
 | `data/`     | JSON de conteúdo (`shared/`, `mvp/`)                                 | 1             |
-| `contrato/` | Envelope `{tipo, dados}`, uma struct por mensagem, `exemplos/*.json` | 2             |
+| `contract/` | Envelope `{tipo, dados}`, uma struct por mensagem, `examples/*.json` | 2             |
 | `server/`   | `package main`: fila, loop, WebSocket, save                          | 2             |
 | `client/`   | Projeto Unity                                                        | 2             |
 | `docs/` | Documentação: `jogo/`, `tecnico/`, `gestao/` | 0 |
@@ -105,9 +105,9 @@ flowchart LR
 - Pacote nasce quando tem código. Sem `internal/` e sem `cmd/`.
 - Evento: `interface{ evento() }` + uma struct por tipo de evento.
 - Lista no estado é slice ordenada, nunca `map`.
-- Ler arquivo fica fora de `regras/`.
-- Nomes do domínio em português.
-- Contrato: Go e Unity testam contra os mesmos `exemplos/*.json`.
+- Ler arquivo fica fora de `rules/`.
+- Código todo em inglês (pastas, pacotes, tipos, funções). Termos próprios do jogo ficam como nome (`Travessia`, `Enraizado`). Cada tipo do domínio tem um comentário com o termo do doc: `// Strike é o golpe (combate.md)`.
+- Contrato: Go e Unity testam contra os mesmos `examples/*.json`.
 - Git LFS desde o início para modelo, textura e áudio. Unity LTS.
 
 ## Propostas

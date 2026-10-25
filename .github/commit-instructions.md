@@ -4,7 +4,7 @@ Formato: `tipo(escopo): descrição`
 
 | Tipos | `feat`, `fix`, `docs`, `refactor`, `test`, `chore` |
 |---|---|
-| Escopos | `regras`, `contrato`, `sim`, `server`, `client`, `data`, `docs`, `gestao`, `repo` |
+| Escopos | `rules`, `contract`, `sim`, `server`, `client`, `data`, `docs`, `gestao`, `repo` |
 
 O hook `.githooks/commit-msg` recusa o commit fora desse formato.
 
@@ -23,10 +23,10 @@ O hook `.githooks/commit-msg` recusa o commit fora desse formato.
 ## Exemplos
 
 ```
-feat(regras): adiciona graus de sucesso no teste de d20
+feat(rules): adiciona graus de sucesso no teste de d20
 
-- regras: ResolverTeste com crítico por ±10 e 20/1 natural
-- regras: tabela com 8 casos dos graus de sucesso
+- rules: ResolverTeste com crítico por ±10 e 20/1 natural
+- rules: tabela com 8 casos dos graus de sucesso
 ```
 
 ```
