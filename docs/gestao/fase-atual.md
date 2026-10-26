@@ -8,9 +8,9 @@ nas sessões 5, 10 e 20.
 ## Tarefas
 
 - [x] `go mod init` + estrutura de pastas (`core/`, `sim/`, `data/`) · 1 sessão
-- [ ] Estado do núcleo mínimo: só o que o ataque usa (PV, atributo, maestria, arma, Defesa, semente e contador). Cada
-      tarefa seguinte acrescenta o campo que usar · 1 sessão
 - [ ] Gerador de dado determinístico (1d20 por semente+contador) e graus (20 sobe grau, 1 desce grau) · 1 sessão
+- [ ]  Estado do núcleo mínimo, criado pelo teste da Apply(Golpe): só o que o ataque usa (PV, atributo, maestria, arma, Defesa, semente e contador). Cada
+      tarefa seguinte acrescenta o campo que usar · 1 sessão
 - [ ] `Apply(estado, Golpe)`: 1d20 + atributo + maestria + item vs Defesa, devolve estado novo + eventos; bônus por tipo
       sem somar — marco sessão 5 · 2 sessões
 - [ ] `data/`: 2 armas, 1 armadura, 2 inimigos em JSON, números chutados · 1 sessão
