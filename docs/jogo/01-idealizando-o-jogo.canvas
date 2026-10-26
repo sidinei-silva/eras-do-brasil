@@ -1,221 +1,31 @@
 {
-	"nodes": [
-		{
-			"id": "3f1584f74d6bce2c",
-			"type": "text",
-			"text": "# Eras do Brasil",
-			"x": 720,
-			"y": -935,
-			"width": 220,
-			"height": 50
-		},
-		{
-			"id": "b31f7b510f0e578e",
-			"type": "text",
-			"text": "## Premissas: \n\n- Diferentes Eras coexiste no mesmo mundo\n- Algo esta baguçando pessoas e eras inteiras",
-			"x": 1120,
-			"y": -1105,
-			"width": 360,
-			"height": 220
-		},
-		{
-			"id": "a1o0jogo00000001",
-			"type": "file",
-			"file": "01-o-jogo.md",
-			"x": 180,
-			"y": -1305,
-			"width": 420,
-			"height": 300
-		},
-		{
-			"id": "4efc7c66302c082e",
-			"type": "file",
-			"file": "jogo/enredo/enredo-do-mundo.md",
-			"x": -260,
-			"y": -609,
-			"width": 720,
-			"height": 680
-		},
-		{
-			"id": "e959c798417681a8",
-			"type": "file",
-			"file": "jogo/enredo/enredo-da-era.md",
-			"x": 1660,
-			"y": -609,
-			"width": 400,
-			"height": 400
-		},
-		{
-			"id": "a2travessia00001",
-			"type": "file",
-			"file": "jogo/02-travessia.md",
-			"x": -260,
-			"y": 260,
-			"width": 720,
-			"height": 900
-		},
-		{
-			"id": "g0mecanicas00001",
-			"type": "group",
-			"label": "Mecânicas",
-			"x": 620,
-			"y": 260,
-			"width": 960,
-			"height": 660
-		},
-		{
-			"id": "m1motor000000001",
-			"type": "file",
-			"file": "jogo/mecanicas/motor-de-regras.md",
-			"x": 660,
-			"y": 300,
-			"width": 280,
-			"height": 280
-		},
-		{
-			"id": "m2combate0000001",
-			"type": "file",
-			"file": "jogo/mecanicas/combate.md",
-			"x": 960,
-			"y": 300,
-			"width": 280,
-			"height": 280
-		},
-		{
-			"id": "m3personagem0001",
-			"type": "file",
-			"file": "jogo/mecanicas/personagem.md",
-			"x": 1260,
-			"y": 300,
-			"width": 280,
-			"height": 280
-		},
-		{
-			"id": "m4oficios000001",
-			"type": "file",
-			"file": "jogo/mecanicas/oficios-e-economia.md",
-			"x": 660,
-			"y": 600,
-			"width": 280,
-			"height": 280
-		},
-		{
-			"id": "m5durabilidade1",
-			"type": "file",
-			"file": "jogo/mecanicas/durabilidade-e-morte.md",
-			"x": 960,
-			"y": 600,
-			"width": 280,
-			"height": 280
-		},
-		{
-			"id": "m6mundo00000001",
-			"type": "file",
-			"file": "jogo/mecanicas/mundo.md",
-			"x": 1260,
-			"y": 600,
-			"width": 280,
-			"height": 280
-		},
-		{
-			"id": "a3construir00001",
-			"type": "file",
-			"file": "tecnico/03-tecnico.md",
-			"x": 620,
-			"y": 1000,
-			"width": 460,
-			"height": 400
-		},
-		{
-			"id": "a4fatias0000001",
-			"type": "file",
-			"file": "gestao/04-roteiro.md",
-			"x": 1120,
-			"y": 1000,
-			"width": 460,
-			"height": 400
-		},
-		{
-			"id": "a5painel0000001",
-			"type": "file",
-			"file": "gestao/05-painel.md",
-			"x": -260,
-			"y": -1305,
-			"width": 400,
-			"height": 300
-		}
+	"nodes":[
+		{"id":"3f1584f74d6bce2c","type":"text","text":"# Eras do Brasil","x":720,"y":-935,"width":220,"height":50},
+		{"id":"b31f7b510f0e578e","type":"text","text":"## Premissas: \n\n- Diferentes Eras coexiste no mesmo mundo\n- Algo esta baguçando pessoas e eras inteiras","x":1120,"y":-1105,"width":360,"height":220},
+		{"id":"a1o0jogo00000001","type":"file","file":"01-o-jogo.md","x":180,"y":-1305,"width":420,"height":300},
+		{"id":"4efc7c66302c082e","type":"file","file":"jogo/enredo/enredo-do-mundo.md","x":-260,"y":-609,"width":720,"height":680},
+		{"id":"e959c798417681a8","type":"file","file":"jogo/enredo/enredo-da-era.md","x":1660,"y":-609,"width":400,"height":400},
+		{"id":"a2travessia00001","type":"file","file":"jogo/02-travessia.md","x":-260,"y":260,"width":720,"height":900},
+		{"id":"g0mecanicas00001","type":"group","label":"Mecânicas","x":620,"y":260,"width":960,"height":660},
+		{"id":"m1motor000000001","type":"file","file":"jogo/mecanicas/motor-de-regras.md","x":660,"y":300,"width":280,"height":280},
+		{"id":"m2combate0000001","type":"file","file":"jogo/mecanicas/combate.md","x":960,"y":300,"width":280,"height":280},
+		{"id":"m3personagem0001","type":"file","file":"jogo/mecanicas/personagem.md","x":1260,"y":300,"width":280,"height":280},
+		{"id":"m4oficios000001","type":"file","file":"jogo/mecanicas/oficios-e-economia.md","x":660,"y":600,"width":280,"height":280},
+		{"id":"m5durabilidade1","type":"file","file":"jogo/mecanicas/durabilidade-e-morte.md","x":960,"y":600,"width":280,"height":280},
+		{"id":"m6mundo00000001","type":"file","file":"jogo/mecanicas/mundo.md","x":1260,"y":600,"width":280,"height":280},
+		{"id":"a3construir00001","type":"file","file":"tecnico/03-tecnico.md","x":620,"y":1000,"width":460,"height":400},
+		{"id":"a4fatias0000001","type":"file","file":"gestao/04-roteiro.md","x":1120,"y":1000,"width":460,"height":400},
+		{"id":"a5painel0000001","type":"file","file":"gestao/05-painel.md","x":-260,"y":-1305,"width":400,"height":300}
 	],
-	"edges": [
-		{
-			"id": "e33f08183a224828",
-			"fromNode": "3f1584f74d6bce2c",
-			"fromSide": "bottom",
-			"toNode": "4efc7c66302c082e",
-			"toSide": "top",
-			"label": "Introdução do jogo"
-		},
-		{
-			"id": "7fa34966bc15cb0e",
-			"fromNode": "3f1584f74d6bce2c",
-			"fromSide": "right",
-			"toNode": "b31f7b510f0e578e",
-			"toSide": "left"
-		},
-		{
-			"id": "e0ojogo000000001",
-			"fromNode": "3f1584f74d6bce2c",
-			"fromSide": "left",
-			"toNode": "a1o0jogo00000001",
-			"toSide": "right",
-			"label": "Visão e pilares"
-		},
-		{
-			"id": "f7b1ac37080212dc",
-			"fromNode": "3f1584f74d6bce2c",
-			"fromSide": "bottom",
-			"toNode": "e959c798417681a8",
-			"toSide": "top",
-			"label": "Pós tutorial começa as Eras"
-		},
-		{
-			"id": "1954ee6bc093b791",
-			"fromNode": "4efc7c66302c082e",
-			"fromSide": "bottom",
-			"toNode": "a2travessia00001",
-			"toSide": "top",
-			"label": "Acorda na Travessia"
-		},
-		{
-			"id": "e0travmec0000001",
-			"fromNode": "a2travessia00001",
-			"fromSide": "right",
-			"toNode": "g0mecanicas00001",
-			"toSide": "left",
-			"label": "Ensina"
-		},
-		{
-			"id": "e0mecconst000001",
-			"fromNode": "g0mecanicas00001",
-			"fromSide": "bottom",
-			"toNode": "a3construir00001",
-			"toSide": "top",
-			"label": "Construir"
-		},
-		{
-			"id": "e0tecfat0000001",
-			"fromNode": "a3construir00001",
-			"fromSide": "right",
-			"toNode": "a4fatias0000001",
-			"toSide": "left",
-			"label": "Fatias"
-		},
-		{
-			"id": "e0painel0000001",
-			"fromNode": "a1o0jogo00000001",
-			"fromSide": "left",
-			"toNode": "a5painel0000001",
-			"toSide": "right",
-			"label": "O que falta"
-		}
+	"edges":[
+		{"id":"e33f08183a224828","fromNode":"3f1584f74d6bce2c","fromSide":"bottom","toNode":"4efc7c66302c082e","toSide":"top","label":"Introdução do jogo"},
+		{"id":"7fa34966bc15cb0e","fromNode":"3f1584f74d6bce2c","fromSide":"right","toNode":"b31f7b510f0e578e","toSide":"left"},
+		{"id":"e0ojogo000000001","fromNode":"3f1584f74d6bce2c","fromSide":"left","toNode":"a1o0jogo00000001","toSide":"right","label":"Visão e pilares"},
+		{"id":"f7b1ac37080212dc","fromNode":"3f1584f74d6bce2c","fromSide":"bottom","toNode":"e959c798417681a8","toSide":"top","label":"Pós tutorial começa as Eras"},
+		{"id":"1954ee6bc093b791","fromNode":"4efc7c66302c082e","fromSide":"bottom","toNode":"a2travessia00001","toSide":"top","label":"Acorda na Travessia"},
+		{"id":"e0travmec0000001","fromNode":"a2travessia00001","fromSide":"right","toNode":"g0mecanicas00001","toSide":"left","label":"Ensina"},
+		{"id":"e0mecconst000001","fromNode":"g0mecanicas00001","fromSide":"bottom","toNode":"a3construir00001","toSide":"top","label":"Construir"},
+		{"id":"e0tecfat0000001","fromNode":"a3construir00001","fromSide":"right","toNode":"a4fatias0000001","toSide":"left","label":"Fatias"},
+		{"id":"e0painel0000001","fromNode":"a1o0jogo00000001","fromSide":"left","toNode":"a5painel0000001","toSide":"right","label":"O que falta"}
 	]
 }
