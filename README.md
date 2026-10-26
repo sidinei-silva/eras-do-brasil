@@ -1,12 +1,14 @@
 # Eras do Brasil
 
-MMORPG sandbox por turno, para PC, inspirado no Brasil e no folclore. Você é o que veste. Projeto pessoal, feito por um dev solo, for fun.
+MMORPG sandbox por turno, para PC, inspirado no Brasil e no folclore. Você é o que veste. Projeto pessoal, feito por um
+dev solo, for fun.
 
 > "Você não foi escolhido. Ninguém aqui foi. Você se destaca pelo que faz, não pelo que é."
 
 ## Estado
 
-Fase 0 do [roteiro](docs/gestao/04-roteiro.md): docs validados, montando a base. Ainda sem código. Tarefas: [fase-atual](docs/gestao/fase-atual.md).
+Fase 0 do [roteiro](docs/gestao/04-roteiro.md): docs validados, montando a base. Ainda sem código. Tarefas:
+[fase-atual](docs/gestao/fase-atual.md).
 
 Núcleo, simulador e servidor em Go; cliente em Unity.
 
@@ -20,19 +22,19 @@ A pasta `docs/` é um vault do Obsidian, mas também se lê aqui no GitHub.
 
 ## Estrutura
 
-| Pasta | O que tem |
-|---|---|
-| `docs/jogo/` | Regras do jogo, mundo, enredo, Travessia |
-| `docs/tecnico/` | Arquitetura e stack |
-| `docs/gestao/` | Roteiro, tarefas, sessões, estacionamento |
-| `rules/` | Núcleo de regras (Go) |
-| `contract/` | Mensagens entre cliente e servidor |
-| `sim/` | Simulador de console |
-| `server/` | Servidor |
-| `data/` | Conteúdo em JSON |
-| `client/` | Cliente Unity |
-| `.claude/` | PM automático do Claude Code: subagente, skills, hook e permissões |
-| `.githooks/` | Checagem da mensagem de commit |
+| Pasta           | O que tem                                                          |
+| --------------- | ------------------------------------------------------------------ |
+| `docs/jogo/`    | Regras do jogo, mundo, enredo, Travessia                           |
+| `docs/tecnico/` | Arquitetura e stack                                                |
+| `docs/gestao/`  | Roteiro, tarefas, sessões, estacionamento                          |
+| `core/`         | Núcleo de regras (Go)                                              |
+| `contract/`     | Mensagens entre cliente e servidor                                 |
+| `sim/`          | Simulador de console                                               |
+| `server/`       | Servidor                                                           |
+| `data/`         | Conteúdo em JSON                                                   |
+| `client/`       | Cliente Unity                                                      |
+| `.claude/`      | PM automático do Claude Code: subagente, skills, hook e permissões |
+| `.githooks/`    | Checagem da mensagem de commit                                     |
 
 As outras pastas entram conforme o [roteiro](docs/gestao/04-roteiro.md) avança.
 

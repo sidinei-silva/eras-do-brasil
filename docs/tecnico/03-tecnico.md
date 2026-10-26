@@ -85,28 +85,30 @@ flowchart LR
 | ------------------------ | --------------------------------------------------------------------- | -------------- |
 | Go                       | Escrevo à mão o que pratico no trabalho; binário único junto do Unity | Fase 2 jogável |
 | Sem framework            | Nenhum problema real pede                                             | Gargalo medido |
-| Local até um amigo jogar | Rede antes do jogo come sessões sem nada na tela                       | Fase 5 pronta  |
+| Local até um amigo jogar | Rede antes do jogo come sessões sem nada na tela                      | Fase 5 pronta  |
 
 ## Repositório
 
-| Pasta       | Conteúdo                                                             | Nasce na fase |
-| ----------- | -------------------------------------------------------------------- | ------------- |
-| `rules/`    | Núcleo; `testdata/` com as tabelas de casos                          | 1             |
-| `sim/`      | `package main`: luta no terminal e as 1.000 lutas                    | 1             |
-| `data/`     | JSON de conteúdo (`shared/`, `mvp/`)                                 | 1             |
-| `contract/` | Envelope `{tipo, dados}`, uma struct por mensagem, `examples/*.json` | 2             |
-| `server/`   | `package main`: fila, loop, WebSocket, save                          | 2             |
-| `client/`   | Projeto Unity                                                        | 2             |
-| `docs/` | Documentação: `jogo/`, `tecnico/`, `gestao/` | 0 |
-| `.claude/` | PM do Claude Code: `agents/pm.md`, `skills/`, `hooks/`, `settings.json` | 0 |
-| `.githooks/` | `commit-msg`: checa o formato do commit | 0 |
+| Pasta        | Conteúdo                                                                | Nasce na fase |
+| ------------ | ----------------------------------------------------------------------- | ------------- |
+| `core/`      | Núcleo; `testdata/` com as tabelas de casos                             | 1             |
+| `sim/`       | `package main`: luta no terminal e as 1.000 lutas                       | 1             |
+| `data/`      | JSON de conteúdo (`shared/`, `mvp/`)                                    | 1             |
+| `contract/`  | Envelope `{tipo, dados}`, uma struct por mensagem, `examples/*.json`    | 2             |
+| `server/`    | `package main`: fila, loop, WebSocket, save                             | 2             |
+| `client/`    | Projeto Unity                                                           | 2             |
+| `docs/`      | Documentação: `jogo/`, `tecnico/`, `gestao/`                            | 0             |
+| `.claude/`   | PM do Claude Code: `agents/pm.md`, `skills/`, `hooks/`, `settings.json` | 0             |
+| `.githooks/` | `commit-msg`: checa o formato do commit                                 | 0             |
 
 **Regras do código**
+
 - Pacote nasce quando tem código. Sem `internal/` e sem `cmd/`.
 - Evento: `interface{ evento() }` + uma struct por tipo de evento.
 - Lista no estado é slice ordenada, nunca `map`.
-- Ler arquivo fica fora de `rules/`.
-- Código todo em inglês (pastas, pacotes, tipos, funções). Termos próprios do jogo ficam como nome (`Travessia`, `Enraizado`). Cada tipo do domínio tem um comentário com o termo do doc: `// Strike é o golpe (combate.md)`.
+- Ler arquivo fica fora de `core/`.
+- Código todo em inglês (pastas, pacotes, tipos, funções). Termos próprios do jogo ficam como nome (`Travessia`,
+  `Enraizado`). Cada tipo do domínio tem um comentário com o termo do doc: `// Strike é o golpe (combate.md)`.
 - Contrato: Go e Unity testam contra os mesmos `examples/*.json`.
 - Git LFS desde o início para modelo, textura e áudio. Unity LTS.
 

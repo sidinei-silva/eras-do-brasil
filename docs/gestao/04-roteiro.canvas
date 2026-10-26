@@ -121,7 +121,7 @@
 		{
 			"id": "rtc00000000000000",
 			"type": "text",
-			"text": "- Repositório, Git LFS\n- `go mod init`; pastas `rules/`, `contract/`, `sim/`",
+			"text": "- Repositório, Git LFS\n- `go mod init`; pastas `core/`, `contract/`, `sim/`",
 			"x": 200,
 			"y": 120,
 			"width": 280,
@@ -139,7 +139,7 @@
 		{
 			"id": "rtc10000000000000",
 			"type": "text",
-			"text": "- `rules/` + `sim/` no terminal\n- d20, graus, turno por lado, 3 ações, Passo, ataque de oportunidade, semente\n- Replay e 1.000 lutas\n- [[motor-de-regras]] · [[combate]]",
+			"text": "- `core/` + `sim/` no terminal\n- d20, graus, turno por lado, 3 ações, Passo, ataque de oportunidade, semente\n- Replay e 1.000 lutas\n- [[motor-de-regras]] · [[combate]]",
 			"x": 520,
 			"y": 120,
 			"width": 280,
