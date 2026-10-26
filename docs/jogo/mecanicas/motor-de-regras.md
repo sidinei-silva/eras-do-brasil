@@ -20,6 +20,7 @@ flowchart LR
 ## Regras
 
 - 20 natural sobe um grau; 1 natural desce um grau.
+- O grau não passa dos extremos: 20 natural em sucesso crítico continua crítico; 1 natural em falha crítica continua falha crítica.
 - Os mesmos graus valem para coleta e craft.
 - Bônus fixos, sem vantagem/desvantagem.
 - Tipos de bônus: item, circunstância, status. Do mesmo tipo não se somam; vale o maior.

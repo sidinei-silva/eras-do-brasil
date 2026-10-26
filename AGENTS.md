@@ -12,20 +12,21 @@ regra continua valendo.
 
 ## Papel da IA
 
-| Pode                                             | Não pode                                                              |
-| ------------------------------------------------ | --------------------------------------------------------------------- |
-| Explicar conceito e comparar abordagens          | Escrever a regra do jogo (`core/`)                                    |
-| Escrever o laço que roda a minha tabela de casos | Escrever casos de teste ou resultado esperado                         |
-| Escrever simulador, scripts e testes de rede     | Fazer arte, voz, texto ou qualquer coisa que o jogador vê             |
-| Revisar o código que eu escrevi                  | Editar `docs/` sem pedido (fora de `docs/gestao/`, que o PM atualiza) |
-| Apontar contradição na doc e na lore             | Inventar regra que não está na doc                                    |
+| Pode                                                    | Não pode                                                              |
+| ------------------------------------------------------- | --------------------------------------------------------------------- |
+| Explicar conceito e comparar abordagens                 | Escrever a regra do jogo (`core/`)                                    |
+| Escrever o laço que roda a minha tabela de casos        | Escrever casos de teste ou resultado esperado                         |
+| Apontar cenários que faltam, só o nome (/revisar-casos) | -                                                                     |
+| Escrever simulador, scripts e testes de rede            | Fazer arte, voz, texto ou qualquer coisa que o jogador vê             |
+| Revisar o código que eu escrevi                         | Editar `docs/` sem pedido (fora de `docs/gestao/`, que o PM atualiza) |
+| Apontar contradição na doc e na lore                    | Inventar regra que não está na doc                                    |
 
 Eu escrevo a regra, os casos de teste e a lore.
 
 ## Gestão automática
 
 - O subagente `pm` (`.claude/agents/pm.md`) cuida só de `docs/gestao/`.
-- Skills: `/proxima-tarefa`, `/fechar-sessao`, `/planejar-fase`, `/estacionar`.
+- Skills: `/proxima-tarefa`, `/fechar-sessao`, `/planejar-fase`, `/estacionar`, `/revisar-casos`, `/conferir-regras`.
 - **Nenhuma IA roda `git add`, `git commit` ou `git push`.** Está bloqueado em `.claude/settings.json`. Quem commita sou
   eu.
 

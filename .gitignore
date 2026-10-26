@@ -21,3 +21,6 @@ Thumbs.db
 # Segredos locais
 .env
 *.local.json
+
+# Added by MD Pretty View — Markdown Preview Enhanced pan/zoom assets
+.crossnote/

@@ -46,7 +46,7 @@ flowchart LR
   L[Ler o arquivo da mecânica] --> T[Eu escrevo os casos e o resultado esperado] --> C[Eu escrevo o código] --> R[Revisão] --> P[Pronto quando?]
 ```
 
-- A IA escreve só o laço que roda a tabela de casos.
+- A IA escreve só o laço que roda a tabela de casos. Depois que escrevo meus casos, ela pode apontar cenários que faltam (só o nome, sem valor esperado).
 - A IA pode no simulador, em scripts e em testes de rede. Nunca na regra nem no que o jogador vê.
 
 ## Em aberto

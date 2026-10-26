@@ -22,6 +22,7 @@ Como o jogo é montado por dentro. A ordem de trabalho está em [04-roteiro](../
 - O estado é dado puro: sem métodos, sem `map` e sem ponteiro compartilhado.
 - Não mexe no estado que entrou: copia ou monta um novo.
 - Só inteiros. Semente e contador do sorteio ficam dentro do estado. O tempo entra como `agora`; nunca se lê o relógio.
+- O combate recebe `agora`, mas não usa: é por turno.
 - Ver [Motor de regras](../jogo/mecanicas/motor-de-regras.md).
 
 ## Tempo
