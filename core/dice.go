@@ -13,14 +13,14 @@ const (
 func degree(roll int, total int, dc int) Degree {
 	// Verificar o total com o DC para saber qual a faixa
 	// Total - DC > 10 = 3 CritSuccess
-	// Total - DV < -10 = 0  CritFail
+	// Total - DC < -10 = 0  CritFail
 	margem := total - dc
 	degreeValue := Fail
 
 	switch {
-	case margem > 10:
+	case margem >= 10:
 		degreeValue = CritSuccess
-	case margem < -10:
+	case margem <= -10:
 		degreeValue = CritFail
 	case margem >= 0:
 		degreeValue = Success
