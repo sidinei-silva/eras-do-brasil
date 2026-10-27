@@ -1,0 +1,10 @@
+version: "3"
+
+tasks:
+  test:
+    desc: "Executa todos os testes mostrando os nomes e ignorando o cache"
+    cmd: gotestsum --format testname -- -count=1 ./...
+
+  test:fast:
+    desc: "Executa os testes de forma rápida (usa o cache nativo do Go e exibe o sumário)"
+    cmd: gotestsum ./...

@@ -1,3 +1,3 @@
-// Package core é o pacote responsavel por ter todo o nuncleo de regras
+// Package core é o pacote responsável por ter todo o núcleo de regras
 
 package core
