@@ -12,18 +12,9 @@ const (
 	CritSuccess               // 3: sucesso crítico
 )
 
-type Dice struct {
-	seed uint64
-}
-
-func NewDice(seed uint64) *Dice {
-	return &Dice{seed: seed}
-}
-
-func (d *Dice) Roll(counter uint64) int {
-
+func roll(seed uint64, counter uint64) int {
 	// Cria um gerador de números pseudo-aleatórios com a semente fornecida
-	pcg := rand.NewPCG(d.seed, counter)
+	pcg := rand.NewPCG(seed, counter)
 	rng := rand.New(pcg)
 
 	// Gera um número aleatório entre 1 e 20 (inclusive)
