@@ -19,7 +19,7 @@ flowchart LR
 | Fase | Orçamento (sessões) | Pronto quando |
 |---|---|---|
 | 0 Base | 4 | Docs validados e congelados; pastas separadas; automações ativas |
-| 1 Luta no terminal | 20 | 1 personagem × 2 mobs no terminal; a mesma semente repete a luta; o simulador roda 1.000 lutas. Marcos nas sessões 5, 10 e 20 |
+| 1 Luta no terminal | 20 | 1 personagem contra 3 encontros no terminal (3 mobs T1 fracos; 1 mob T1 mais forte; 1 mini boss T2 sozinho); a mesma semente repete a luta; o simulador roda 1.000 lutas. Marcos nas sessões 5, 10 e 20 |
 | 2 Luta na tela | medir na fase 1 | Luto no manual e no automático numa arena no Unity; trocar equipamento muda visual, skills e atributos |
 | 3 Mundo e ofícios | medir na fase 1 | Na Beira em greybox, local, com save em arquivo: ando, a luta abre, coleto, refino, crafto e conserto |
 | 4 Travessia | medir na fase 1 | Jogo os 15 passos do começo ao fim |

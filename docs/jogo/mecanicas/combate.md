@@ -125,4 +125,5 @@ Bônus fixo de circunstância: +2 ou -2 no teste ou na Defesa. Do mesmo tipo nã
 
 ## Em Aberto
 - Onde cada lado nasce na arena (fase 1: arena fixa em data/?).
-- HP: de onde vem e quanto vale no T1.
+- HP do mob: vem pronto em data/, calibrado pelos turnos para matar; o Albion só dá a proporção entre mobs.
+- Valores de base e k do HP do jogador (calibrar no simulador).

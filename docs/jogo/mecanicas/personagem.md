@@ -27,6 +27,10 @@ Vêm só do equipamento.
 | Sabedoria Ancestral | Magia espiritual, percepção, coleta |
 | Presença | Resistência mental, provocação, magia mental, testes sociais |
 
+- Só modificador: sem equipamento, tudo vale 0; as peças somam até +4 (como o PF2e).
+- O peso da armadura (o mesmo da velocidade: placa 2, couro 1, pano 0 por peça) soma no HP. O Vigor é um atributo normal, de 0 a +4.
+- HP = base + (peso + Vigor) × k. Sem nível. Tudo pano sem Vigor fica com ~55% do HP de tudo placa; base e k saem do simulador.
+
 ## Progressão: duas escadas
 
 ```mermaid
@@ -80,11 +84,10 @@ Bônus para quem ficou fora. Nada é produzido offline.
 - Especialização (0–100): +1 a cada 20 níveis (dano, unidade, retorno ou economia de material).
 - Pontos de aprendizado (como os Learning Points do Albion): ganhos por desafio diário, gastos para adiantar qualquer escada. Ajuda quem tem pouco tempo.
 - Atributo por peça: arma = ofensivo da linha; peitoral = do material; capacete = Presença ou Sabedoria Ancestral; botas = Astúcia.
-- Escala: sem equipamento tudo em 3 (mod 0); itens somam até 6 (+3). Defesa = 10 + Astúcia + armadura.
+- Defesa = 10 + Astúcia + armadura.
 
 ## Em aberto
 
-- Base sem equipamento: 3 ou 0.
 - Um atributo por peça ou principal + secundário.
 - Papel da Presença.
 - Skills de armadura: confirmar o modelo do Albion (ativa por peça? passivas por material?).
