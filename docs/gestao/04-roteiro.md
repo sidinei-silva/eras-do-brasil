@@ -10,7 +10,7 @@ Do zero ao MVP, em fases. Cada fase junta técnico, cliente, dados e escrita. O 
 
 ```mermaid
 flowchart LR
-  F0[0 Base] --> F1[1 Luta no terminal] --> F2[2 Luta na tela] --> F3[3 Mundo e ofícios]
+  F0[0 Base] --> F1[1 Luta no terminal] --> F2[2 Luta na tela] --> F3[3 A Beira (o Farol)]
   F3 --> F4[4 Travessia] --> F5[5 MVP local] --> F6[6 Online] --> D[Depois: Era 1]
 ```
 
@@ -19,10 +19,10 @@ flowchart LR
 | Fase | Orçamento (sessões) | Pronto quando |
 |---|---|---|
 | 0 Base | 4 | Docs validados e congelados; pastas separadas; automações ativas |
-| 1 Luta no terminal | 20 | 1 personagem contra 3 encontros no terminal (3 mobs T1 fracos; 1 mob T1 mais forte; 1 mini boss T2 sozinho); a mesma semente repete a luta; o simulador roda 1.000 lutas. Marcos nas sessões 5, 10 e 20 |
+| 1 Luta no terminal | 27 | 1 personagem contra 3 encontros no terminal (3 mobs T1 fracos; 1 mob T1 mais forte; 1 mini boss T2 sozinho), com as skills T1 (Q da espada e ativas da armadura); a mesma semente repete a luta; o simulador roda 1.000 lutas. Marcos nas sessões 5, 10 e 27 |
 | 2 Luta na tela | medir na fase 1 | Luto no manual e no automático numa arena no Unity; trocar equipamento muda visual, skills e atributos |
-| 3 Mundo e ofícios | medir na fase 1 | Na Beira em greybox, local, com save em arquivo: ando, a luta abre, coleto, refino, crafto e conserto |
-| 4 Travessia | medir na fase 1 | Jogo os 15 passos do começo ao fim |
+| 3 A Beira (o Farol) | medir na fase 1 | Jogo os passos 1 a 6 da Travessia na Beira em greybox, local, com save em arquivo: ando, coleto, crafto T1, os 3 encontros na tela e conserto |
+| 4 Travessia | medir na fase 1 | Jogo os passos 7 a 15 da Travessia (T2) do começo ao fim |
 | 5 MVP local | medir na fase 1 | Um amigo joga a Travessia sem eu explicar nada |
 | 6 Online | medir na fase 1 | Rede, login Steam e banco; saio e volto com tudo salvo |
 

@@ -39,7 +39,7 @@
 		{
 			"id": "rtph030000000000",
 			"type": "text",
-			"text": "## 3 · Mundo e ofícios",
+			"text": "## 3 · A Beira (o Farol)",
 			"x": 1160,
 			"y": 0,
 			"width": 280,
@@ -148,7 +148,7 @@
 		{
 			"id": "rtc12000000000000",
 			"type": "text",
-			"text": "- 2 armas, 1 armadura, 2 inimigos em JSON\n- Números chutados",
+			"text": "- Espada, escudo e couro T1 em JSON, com as skills T1\n- Inimigos dos 3 encontros (2 tipos T1 + 1 mini boss T2)\n- Números pela conversão do Albion",
 			"x": 520,
 			"y": 640,
 			"width": 280,
@@ -202,7 +202,7 @@
 		{
 			"id": "rtc30000000000000",
 			"type": "text",
-			"text": "- Zona e grid exportado\n- Grupos visíveis, luta em instância\n- Coleta por nó, refino, craft, carga, durabilidade\n- Save em arquivo\n- [[mundo]] · [[oficios-e-economia]] · [[durabilidade-e-morte]]",
+			"text": "- Zona e grid exportado\n- Grupos visíveis, luta em instância\n- Coleta por nó, craft T1, carga, durabilidade e conserto\n- Save em arquivo\n- [[mundo]] · [[oficios-e-economia]] · [[durabilidade-e-morte]]",
 			"x": 1160,
 			"y": 120,
 			"width": 280,
@@ -220,7 +220,7 @@
 		{
 			"id": "rtc32000000000000",
 			"type": "text",
-			"text": "- Recursos e ferramentas T1–T2\n- Receitas e refino\n- Bolsa e montaria",
+			"text": "- Recursos T1 (pedra e madeira, sem ferramenta)\n- Receitas T1 (arma, off-hand, armadura)",
 			"x": 1160,
 			"y": 640,
 			"width": 280,
@@ -256,7 +256,7 @@
 		{
 			"id": "rtc42000000000000",
 			"type": "text",
-			"text": "- Inimigos T1–T2\n- 15 passos do tutorial\n- Contratos",
+			"text": "- Inimigos T2\n- Passos 7 a 15 do tutorial\n- Contratos\n- Ferramentas, refino, bolsa e montaria (T2)",
 			"x": 1480,
 			"y": 640,
 			"width": 280,

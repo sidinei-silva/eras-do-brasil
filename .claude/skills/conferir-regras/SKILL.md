@@ -1,6 +1,6 @@
 ---
 name: conferir-regras
-description: Compara as regras de docs/jogo/ com o código de core/ e os testes, e aponta divergências. Use nos marcos da fase (sessões 5, 10 e 20) ou quando eu disser "conferir regras" ou "doc e código batem?".
+description: Compara as regras de docs/jogo/ com o código de core/ e os testes, e aponta divergências. Use nos marcos da fase (ver docs/gestao/fase-atual.md) ou quando eu disser "conferir regras" ou "doc e código batem?".
 ---
 
 Só lê. Não corrija doc nem código. Nunca rode `git add`, `git commit` nem `git push`.

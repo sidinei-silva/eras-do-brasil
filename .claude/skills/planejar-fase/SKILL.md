@@ -10,7 +10,7 @@ Roda na conversa principal, porque precisa da minha aprovação. Mexe só em `do
 3. Proponha de 5 a 12 tarefas, numa tabela com tarefa e sessões estimadas:
    - cada uma cabe em 1 ou 2 sessões e termina em algo verificável (teste passa, comando roda, arquivo existe);
    - na ordem em que devem ser feitas;
-   - incluindo os marcos da fase, se houver (ex.: sessões 5, 10 e 20 da fase 1);
+   - incluindo os marcos da fase, se houver (os marcos estão no "Pronto quando" do roteiro);
    - a soma das sessões cabe no orçamento;
    - sem tarefa de outra fase. O que for de outra fase vira sugestão de estacionar.
 4. Diga em uma linha cada suposição que você fez, e pergunte se aprovo, ajusto ou estaciono.

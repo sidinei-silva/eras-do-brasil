@@ -1,9 +1,10 @@
 # Fase atual
 
-**Fase 1 · Luta no terminal** · orçamento: 20 sessões · ver [04-roteiro](04-roteiro.md)
+**Fase 1 · Luta no terminal** · orçamento: 27 sessões · ver [04-roteiro](04-roteiro.md)
 
 Pronto quando: 1 personagem contra 3 encontros no terminal (3 mobs T1 fracos; 1 mob T1 mais forte; 1 mini boss T2
-sozinho); a mesma semente repete a luta; o simulador roda 1.000 lutas. Marcos nas sessões 5, 10 e 20.
+sozinho), com as skills T1 (Q da espada e ativas da armadura); a mesma semente repete a luta; o simulador roda 1.000
+lutas. Marcos nas sessões 5, 10 e 27.
 
 ## Tarefas
 
@@ -15,8 +16,11 @@ sozinho); a mesma semente repete a luta; o simulador roda 1.000 lutas. Marcos na
 - [ ] Turno por lado: 3 ações, golpe (máx. 2, 2º com -5), andar · 3 sessões
 - [ ] Passo (sem ataque de oportunidade) e ataque de oportunidade como reação do item — marco sessão 10: 1 personagem ×
       1 mob, luta completa no terminal · 3 sessões
+- [ ] Q da espada T1 com 2 opções: Heroic Strike (alvo único) e Cleave (área; a forma da área é decidida aqui) · 2 sessões
+- [ ] Ativas da armadura T1: capacete (barreira que absorve dano) e botas (esquiva: anda sem ataque de oportunidade) · 2 sessões
+- [ ] Os 3 encontros em sequência: o HP passa de um para o outro; regen fora da luta e ativa do peitoral (cura fora da luta) entre os encontros · 2 sessões
 - [ ] Simulador no terminal: luta até o fim nos 3 encontros do `data/`, com log · 2 sessões
 - [ ] Semente por luta: reproduzir a mesma luta a partir da mesma semente · 1 sessão
 - [ ] Laço de 1.000 lutas + relatório (vitórias, turnos médios) · 2 sessões
 - [ ] Ajustar números de `data/` com base no relatório de 1.000 lutas · 2 sessões
-- [ ] Fechar casos pendentes e checar o "Pronto quando" da fase — marco sessão 20 (fim) · 1 sessão
+- [ ] Fechar casos pendentes e checar o "Pronto quando" da fase — marco sessão 27 (fim) · 1 sessão

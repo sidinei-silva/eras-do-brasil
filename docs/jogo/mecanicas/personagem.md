@@ -12,7 +12,11 @@ Você é o que veste: skills, passivas e atributos vêm do equipamento. Sem nív
 - Material da armadura (pano, couro, placa) define defesa, deslocamento e grupo de passivas.
 - Off-hand desde o T1. Arma de uma mão libera o off-hand; arma de duas mãos ocupa as duas (como o Albion).
 - Sem gemas. Sem encantamento no início.
-- Arma: Q e W vêm do pool da família (todas as espadas compartilham); as opções aumentam com o tier. O E é único de cada arma (como o Albion).
+- Arma: Q, W e passiva vêm do pool da família (todas as espadas compartilham); o E é único de cada arma. No T1, só o Q, com 2 opções; do T2 em diante, Q, W, E e passiva (como o Albion).
+- Armadura: cada peça tem 1 slot de ativa e, do T2 em diante, 1 slot de passiva. Opções por slot: 1 no T1, 2 no T2, 3 do T3 em diante. A 1ª ativa de cada peça é a mesma em todos os materiais (a do T1).
+- Peitoral de placa: um 2º slot de passiva, com 2 opções, do T2 em diante.
+- Off-hand: sem skill e sem passiva; dá só números.
+- T1 não tem marco de maestria: qualquer um usa (como o Albion, onde o painel do destino começa no T2).
 
 ## Atributos
 
@@ -47,7 +51,7 @@ flowchart LR
 | Craft | Família de item | Item | Menos material |
 
 - Maestria: +1 a +4 no teste, em degraus.
-- Gate de tier pela maestria: um marco por tier, 8 marcos (como o Albion). A interface só mostra os marcos dos tiers que existem no jogo (Era 1: até T4).
+- Gate de tier pela maestria: um marco por tier do T2 ao T8, 7 marcos (como o Albion). A interface só mostra os marcos dos tiers que existem no jogo (Era 1: até T4).
 - Sem bônus cruzado: especializar um item não ajuda outro.
 - O tier do item dá bônus de item, atributos e passivas melhores.
 
@@ -90,4 +94,3 @@ Bônus para quem ficou fora. Nada é produzido offline.
 
 - Um atributo por peça ou principal + secundário.
 - Papel da Presença.
-- Skills de armadura: confirmar o modelo do Albion (ativa por peça? passivas por material?).

@@ -17,7 +17,7 @@ Lutas por turno num grid visível, em instância. O mesmo motor serve para jogad
 - Inimigo: até 4 ações por rodada, animadas juntas em até 2 s. A intenção dele aparece antes (casa-alvo).
 - Velocidade 2x/3x e pular o turno inimigo.
 - Acerto base calibrado jogando no terminal.
-- Ataque básico é uma skill da arma: 1 ação, 1 golpe.
+- Ataque básico vem da arma, à parte do Q e das outras skills: 1 ação, 1 golpe (como o auto-ataque do Albion).
 - Acerto: 1d20 + modificador de acerto da skill contra a Defesa do alvo.
 - Dano por skill em dado (ex.: 1d8+2), com prévia da faixa na tela. Só rola dano se acertou. Sucesso crítico dobra o total.
 
@@ -86,6 +86,7 @@ Bônus fixo de circunstância: +2 ou -2 no teste ou na Defesa. Do mesmo tipo nã
 - O mob ganha uma cópia por jogador: ninguém trava o grupo para os outros.
 - Antes da luta no manual, a tela mostra o risco.
 - A luta manual pausa sem limite.
+- O HP passa de uma luta para a outra. Fora da luta, o HP regenera sozinho (como o Albion).
 
 ## Movimento
 
@@ -127,3 +128,5 @@ Bônus fixo de circunstância: +2 ou -2 no teste ou na Defesa. Do mesmo tipo nã
 - Onde cada lado nasce na arena (fase 1: arena fixa em data/?).
 - HP do mob: vem pronto em data/, calibrado pelos turnos para matar; o Albion só dá a proporção entre mobs.
 - Valores de base e k do HP do jogador (calibrar no simulador).
+- Forma da área do Cleave (decidir com o grid, na tarefa do andar).
+- Velocidade do regen fora da luta.
