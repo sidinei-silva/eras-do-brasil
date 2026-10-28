@@ -10,7 +10,7 @@ Como toda ação com chance de sucesso é resolvida: ataque, coleta, craft e con
 
 ```mermaid
 flowchart LR
-  A[1d20 + atributo + proficiência + item] --> T{contra Defesa ou CD}
+  A[1d20 + atributo + maestria + item] --> T{contra Defesa ou CD}
   T -->|CD+10 ou mais| SC[Sucesso crítico]
   T -->|igual ou acima| SU[Sucesso]
   T -->|abaixo| FA[Falha]
@@ -21,6 +21,7 @@ flowchart LR
 
 - 20 natural sobe um grau; 1 natural desce um grau.
 - O grau não passa dos extremos: 20 natural em sucesso crítico continua crítico; 1 natural em falha crítica continua falha crítica.
+- Modificador = soma dos bônus e penalidades já aplicada (é o número que o código guarda).
 - Os mesmos graus valem para coleta e craft.
 - Bônus fixos, sem vantagem/desvantagem.
 - Tipos de bônus: item, circunstância, status. Do mesmo tipo não se somam; vale o maior.

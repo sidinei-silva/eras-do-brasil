@@ -12,6 +12,7 @@ Você é o que veste: skills, passivas e atributos vêm do equipamento. Sem nív
 - Material da armadura (pano, couro, placa) define defesa, deslocamento e grupo de passivas.
 - Off-hand desde o T1. Arma de uma mão libera o off-hand; arma de duas mãos ocupa as duas (como o Albion).
 - Sem gemas. Sem encantamento no início.
+- Arma: Q e W vêm do pool da família (todas as espadas compartilham); as opções aumentam com o tier. O E é único de cada arma (como o Albion).
 
 ## Atributos
 
@@ -86,4 +87,4 @@ Bônus para quem ficou fora. Nada é produzido offline.
 - Base sem equipamento: 3 ou 0.
 - Um atributo por peça ou principal + secundário.
 - Papel da Presença.
-- Quantas skills por arma; armas do mesmo grupo compartilham skills?
+- Skills de armadura: confirmar o modelo do Albion (ativa por peça? passivas por material?).

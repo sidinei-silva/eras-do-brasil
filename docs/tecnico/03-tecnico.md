@@ -16,13 +16,18 @@ Como o jogo é montado por dentro. A ordem de trabalho está em [04-roteiro](../
 
 ## Núcleo
 
-`aplicar(estado, ação, agora) → (estado, eventos)`
+`ResolveCombatAction(combat, ação) → (combat, eventos)`
 
 - Nada que muda fica guardado fora do `estado`.
 - O estado é dado puro: sem métodos, sem `map` e sem ponteiro compartilhado.
 - Não mexe no estado que entrou: copia ou monta um novo.
 - Só inteiros. Semente e contador do sorteio ficam dentro do estado. O tempo entra como `agora`; nunca se lê o relógio.
-- O combate recebe `agora`, mas não usa: é por turno.
+- O combate não recebe `agora`: é por turno. O `agora` é só das ações do mundo.
+- Ação de combate: interface `CombatAction` com `resolve(combat) (combat, eventos)`; uma struct por ação (ex.: `UseSkill`), cada uma com o seu `resolve`.
+- Porta: `ResolveCombatAction` em `combat.go`. Valida o que vale para toda ação (vez do lado, ações restantes, ator vivo) e chama o `resolve`. Ações do mundo terão a própria porta na fase 3.
+- Arquivos: `combat.go` (porta, ações e regras de luta: `rollToHit`, `rollDamage`), `dice.go` (dados e graus).
+- Fighter guarda números prontos (HP, Defesa, skills com modificadores). A conta de equipamento → números é outra função. Mob e jogador usam o mesmo Fighter.
+- Seed: uma por luta. Quem cria a luta sorteia (`crypto/rand`); cada dado soma 1 no counter; nunca vai para o cliente; não é ID da luta.
 - Ver [Motor de regras](../jogo/mecanicas/motor-de-regras.md).
 
 ## Tempo
@@ -48,7 +53,7 @@ sequenceDiagram
   participant S as Servidor
   participant N as Núcleo
   C->>S: comando (id, usar skill Y no alvo Z)
-  S->>N: estado + comando + agora
+  S->>N: estado + comando (+ agora, só no mundo)
   N-->>S: estado novo + eventos
   S-->>C: eventos (com número de sequência)
   C->>C: anima
@@ -94,7 +99,7 @@ flowchart LR
 | ------------ | ----------------------------------------------------------------------- | ------------- |
 | `core/`      | Núcleo; `testdata/` com as tabelas de casos                             | 1             |
 | `sim/`       | `package main`: luta no terminal e as 1.000 lutas                       | 1             |
-| `data/`      | JSON de conteúdo (`shared/`, `mvp/`)                                    | 1             |
+| `data/`      | JSON de conteúdo, na raiz por enquanto                                  | 1             |
 | `contract/`  | Envelope `{tipo, dados}`, uma struct por mensagem, `examples/*.json`    | 2             |
 | `server/`    | `package main`: fila, loop, WebSocket, save                             | 2             |
 | `client/`    | Projeto Unity                                                           | 2             |
@@ -105,11 +110,11 @@ flowchart LR
 **Regras do código**
 
 - Pacote nasce quando tem código. Sem `internal/` e sem `cmd/`.
-- Evento: `interface{ evento() }` + uma struct por tipo de evento.
+- Evento de combate: `interface{ event() }` (`CombatEvent`) + uma struct por tipo de evento.
 - Lista no estado é slice ordenada, nunca `map`.
 - Ler arquivo fica fora de `core/`.
 - Código todo em inglês (pastas, pacotes, tipos, funções). Termos próprios do jogo ficam como nome (`Travessia`,
-  `Enraizado`). Cada tipo do domínio tem um comentário com o termo do doc: `// Strike é o golpe (combate.md)`.
+  `Enraizado`). Cada tipo do domínio tem um comentário com o termo do doc: `// Degree é o grau de sucesso (motor-de-regras.md).`
 - Contrato: Go e Unity testam contra os mesmos `examples/*.json`.
 - Git LFS desde o início para modelo, textura e áudio. Unity LTS.
 

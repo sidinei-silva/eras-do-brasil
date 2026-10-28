@@ -17,6 +17,9 @@ Lutas por turno num grid visível, em instância. O mesmo motor serve para jogad
 - Inimigo: até 4 ações por rodada, animadas juntas em até 2 s. A intenção dele aparece antes (casa-alvo).
 - Velocidade 2x/3x e pular o turno inimigo.
 - Acerto base calibrado jogando no terminal.
+- Ataque básico é uma skill da arma: 1 ação, 1 golpe.
+- Acerto: 1d20 + modificador de acerto da skill contra a Defesa do alvo.
+- Dano por skill em dado (ex.: 1d8+2), com prévia da faixa na tela. Só rola dano se acertou. Sucesso crítico dobra o total.
 
 ```mermaid
 flowchart TD
@@ -119,3 +122,7 @@ Bônus fixo de circunstância: +2 ou -2 no teste ou na Defesa. Do mesmo tipo nã
 
 - Eco: cópia da build e da automação de outro jogador. Sem perda de itens.
 - Primeiro os dois lados no automático; depois, manual contra o eco.
+
+## Em Aberto
+- Onde cada lado nasce na arena (fase 1: arena fixa em data/?).
+- HP: de onde vem e quanto vale no T1.

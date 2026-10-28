@@ -9,3 +9,5 @@ Formato: `data · ideia · quando volto a olhar`
 - 2026-10-22 · Foco (recurso de craft e refino) · Era 1
 - 2026-10-22 · PvP contra eco · depois do MVP
 - 2026-10-22 · Seção de direção de arte · fase 2, junto do teste dos 3 Sidekicks
+- 2026-10-28 · data/shared e data/mvp (por enquanto JSON na raiz de data/) · fase 3
+- 2026-10-28 · seed e counter de coleta e craft: por Atividade ou por personagem · fase 3
