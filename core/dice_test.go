@@ -1,6 +1,8 @@
 package core
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestDegree(t *testing.T) {
 	cases := []struct {
@@ -39,4 +41,66 @@ func TestDegree(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestRoll(t *testing.T) {
+	t.Run("Mesma seed e mesmo counter precisa retornar o mesmo numero", func(t *testing.T) {
+		seed := uint64(123456789)
+		counter := uint64(2)
+
+		dice1 := NewDice(seed)
+		dice2 := NewDice(seed)
+
+		result1 := dice1.Roll(counter) // Rola 1d20
+		result2 := dice2.Roll(counter) // Rola 1d20
+
+		if result1 != result2 {
+			t.Errorf("Resultados diferentes para mesma seed e counter: %d vs %d", result1, result2)
+		}
+	})
+
+	t.Run("Mesma seed e counter diferentes precisa retornar números diferentes", func(t *testing.T) {
+		seed := uint64(123456789)
+		counter1 := uint64(1)
+		counter2 := uint64(2)
+
+		dice1 := NewDice(seed)
+		dice2 := NewDice(seed)
+
+		result1 := dice1.Roll(counter1) // Rola 1d20
+		result2 := dice2.Roll(counter2) // Rola 1d20
+
+		if result1 == result2 {
+			t.Errorf("Resultados iguais para mesma seed e counters diferentes: %d vs %d", result1, result2)
+		}
+	})
+
+	t.Run("Diferentes seeds e mesmo counter precisa retornar números diferentes", func(t *testing.T) {
+		seed1 := uint64(123456789)
+		seed2 := uint64(987654321)
+		counter := uint64(1)
+
+		dice1 := NewDice(seed1)
+		dice2 := NewDice(seed2)
+
+		result1 := dice1.Roll(counter) // Rola 1d20
+		result2 := dice2.Roll(counter) // Rola 1d20
+
+		if result1 == result2 {
+			t.Errorf("Resultados iguais para diferentes seeds e mesmo counter: %d vs %d", result1, result2)
+		}
+	})
+
+	t.Run("1000 rolls se dado retorna entre 1 a 20", func(t *testing.T) {
+		seed := uint64(123456789)
+		dice := NewDice(seed)
+
+		for i := 0; i < 1000; i++ {
+			result := dice.Roll(uint64(i))
+			if result < 1 || result > 20 {
+				t.Errorf("Resultado fora do intervalo esperado (1-20): %d", result)
+			}
+		}
+	})
+
 }

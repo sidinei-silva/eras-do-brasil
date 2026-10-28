@@ -1,5 +1,7 @@
 package core
 
+import "math/rand/v2"
+
 // Degree é o grau de sucesso (motor-de-regras.md).
 type Degree int
 
@@ -10,12 +12,30 @@ const (
 	CritSuccess               // 3: sucesso crítico
 )
 
+type Dice struct {
+	seed uint64
+}
+
+func NewDice(seed uint64) *Dice {
+	return &Dice{seed: seed}
+}
+
+func (d *Dice) Roll(counter uint64) int {
+
+	// Cria um gerador de números pseudo-aleatórios com a semente fornecida
+	pcg := rand.NewPCG(d.seed, counter)
+	rng := rand.New(pcg)
+
+	// Gera um número aleatório entre 1 e 20 (inclusive)
+	return rng.IntN(20) + 1
+}
+
 func degree(roll int, total int, dc int) Degree {
 	// Verificar o total com o DC para saber qual a faixa
 	// Total - DC > 10 = 3 CritSuccess
 	// Total - DC < -10 = 0  CritFail
 	margem := total - dc
-	degreeValue := Fail
+	var degreeValue Degree
 
 	switch {
 	case margem >= 10:
