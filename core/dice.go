@@ -12,19 +12,18 @@ const (
 	CritSuccess               // 3: sucesso crítico
 )
 
-func roll(seed uint64, counter uint64) int {
+func roll(seed uint64, counter uint64, sides int) int {
 	// Cria um gerador de números pseudo-aleatórios com a semente fornecida
 	pcg := rand.NewPCG(seed, counter)
 	rng := rand.New(pcg)
 
-	// Gera um número aleatório entre 1 e 20 (inclusive)
-	return rng.IntN(20) + 1
+	return rng.IntN(sides) + 1
 }
 
-func degree(roll int, total int, dc int) Degree {
+func degree(natural int, total int, dc int) Degree {
 	// Verificar o total com o DC para saber qual a faixa
-	// Total - DC > 10 = 3 CritSuccess
-	// Total - DC < -10 = 0  CritFail
+	// Total - DC >= 10 = 3 CritSuccess
+	// Total - DC <= -10 = 0  CritFail
 	margem := total - dc
 	var degreeValue Degree
 
@@ -41,9 +40,9 @@ func degree(roll int, total int, dc int) Degree {
 
 	// Validando o dado natural
 	switch {
-	case roll == 20 && degreeValue < CritSuccess:
+	case natural == 20 && degreeValue < CritSuccess:
 		degreeValue++
-	case roll == 1 && degreeValue > CritFail:
+	case natural == 1 && degreeValue > CritFail:
 		degreeValue--
 	}
 

@@ -6,11 +6,11 @@ import (
 
 func TestDegree(t *testing.T) {
 	cases := []struct {
-		name  string
-		dc    int // a CD; no ataque, a Defesa do alvo
-		total int // d20 + bônus
-		roll  int // o número que saiu no d20
-		want  Degree
+		name    string
+		dc      int // a CD; no ataque, a Defesa do alvo
+		total   int // d20 + bônus
+		natural int // o número que saiu no d20
+		want    Degree
 	}{
 		// as 4 faixas, com dado comum
 		{"acima da CD é sucesso", 15, 18, 10, Success},
@@ -35,9 +35,9 @@ func TestDegree(t *testing.T) {
 
 	for _, c := range cases {
 		t.Run(c.name, func(t *testing.T) {
-			got := degree(c.roll, c.total, c.dc)
+			got := degree(c.natural, c.total, c.dc)
 			if got != c.want {
-				t.Errorf("degree(roll %d, total %d, dc %d) = %v, want %v", c.roll, c.total, c.dc, got, c.want)
+				t.Errorf("degree(roll %d, total %d, dc %d) = %v, want %v", c.natural, c.total, c.dc, got, c.want)
 			}
 		})
 	}
@@ -48,8 +48,8 @@ func TestRoll(t *testing.T) {
 		seed := uint64(123456789)
 		counter := uint64(2)
 
-		result1 := roll(seed, counter) // Rola 1d20
-		result2 := roll(seed, counter) // Rola 1d20
+		result1 := roll(seed, counter, 20) // Rola 1d20
+		result2 := roll(seed, counter, 20) // Rola 1d20
 
 		if result1 != result2 {
 			t.Errorf("Resultados diferentes para mesma seed e counter: %d vs %d", result1, result2)
@@ -61,8 +61,8 @@ func TestRoll(t *testing.T) {
 		counter1 := uint64(1)
 		counter2 := uint64(2)
 
-		result1 := roll(seed, counter1) // Rola 1d20
-		result2 := roll(seed, counter2) // Rola 1d20
+		result1 := roll(seed, counter1, 20) // Rola 1d20
+		result2 := roll(seed, counter2, 20) // Rola 1d20
 
 		if result1 == result2 {
 			t.Errorf("Resultados iguais para mesma seed e counters diferentes: %d vs %d", result1, result2)
@@ -74,8 +74,8 @@ func TestRoll(t *testing.T) {
 		seed2 := uint64(987654321)
 		counter := uint64(1)
 
-		result1 := roll(seed1, counter) // Rola 1d20
-		result2 := roll(seed2, counter) // Rola 1d20
+		result1 := roll(seed1, counter, 20) // Rola 1d20
+		result2 := roll(seed2, counter, 20) // Rola 1d20
 
 		if result1 == result2 {
 			t.Errorf("Resultados iguais para diferentes seeds e mesmo counter: %d vs %d", result1, result2)
@@ -86,7 +86,7 @@ func TestRoll(t *testing.T) {
 		seed := uint64(123456789)
 
 		for i := 0; i < 1000; i++ {
-			result := roll(seed, uint64(i))
+			result := roll(seed, uint64(i), 20)
 			if result < 1 || result > 20 {
 				t.Errorf("Resultado fora do intervalo esperado (1-20): %d", result)
 			}
