@@ -20,7 +20,10 @@ func roll(seed uint64, counter uint64, sides int) int {
 	return rng.IntN(sides) + 1
 }
 
-func degree(natural int, total int, dc int) Degree {
+func degree(natural int, modifiers int, dc int) Degree {
+	// Calcula o total do teste
+	total := natural + modifiers
+
 	// Verificar o total com o DC para saber qual a faixa
 	// Total - DC >= 10 = 3 CritSuccess
 	// Total - DC <= -10 = 0  CritFail
