@@ -1,0 +1,8 @@
+{
+  "HPBase": 28,
+  "HPPerPoint": 4,
+  "DefenseBase": 10,
+  "WeightByMaterial": { "cloth": 0, "leather": 1, "plate": 2 },
+  "MasteryBonusByTier": { "1": 1 },
+  "RegenPercentPerSecond": 1
+}

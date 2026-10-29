@@ -9,7 +9,7 @@ linha=$(head -n1 "$1")
 case "$linha" in Merge*|Revert*) exit 0 ;; esac
 
 tipos='feat|fix|docs|refactor|test|chore'
-escopos='core|contract|sim|server|client|data|docs|gestao|repo'
+escopos='core|contract|sim|server|client|data|docs|gestao|repo|jogo'
 
 if ! echo "$linha" | grep -Eq "^($tipos)\(($escopos)\): [^A-Z].*[^.]$"; then
   echo "Commit recusado: use tipo(escopo): descrição em minúscula, sem ponto final." >&2

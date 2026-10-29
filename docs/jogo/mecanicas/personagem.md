@@ -33,6 +33,8 @@ Vêm só do equipamento.
 
 - Só modificador: sem equipamento, tudo vale 0; as peças somam até +4 (como o PF2e).
 - O peso da armadura (o mesmo da velocidade: placa 2, couro 1, pano 0 por peça) soma no HP. O Vigor é um atributo normal, de 0 a +4.
+- Arma: dá o atributo ofensivo da linha. Botas: dão Astúcia.
+- Defesa = 10 + Astúcia + armadura. A armadura vem do peitoral; no T1: pano +1, couro +2, placa +3.
 - HP = base + (peso + Vigor) × k. Sem nível. Tudo pano sem Vigor fica com ~55% do HP de tudo placa; base e k saem do simulador.
 
 ## Progressão: duas escadas
@@ -51,6 +53,7 @@ flowchart LR
 | Craft | Família de item | Item | Menos material |
 
 - Maestria: +1 a +4 no teste, em degraus.
+- No T1, maestria +1.
 - Gate de tier pela maestria: um marco por tier do T2 ao T8, 7 marcos (como o Albion). A interface só mostra os marcos dos tiers que existem no jogo (Era 1: até T4).
 - Sem bônus cruzado: especializar um item não ajuda outro.
 - O tier do item dá bônus de item, atributos e passivas melhores.
@@ -87,10 +90,9 @@ Bônus para quem ficou fora. Nada é produzido offline.
 - Curva lenta: cada degrau pede bem mais que o anterior.
 - Especialização (0–100): +1 a cada 20 níveis (dano, unidade, retorno ou economia de material).
 - Pontos de aprendizado (como os Learning Points do Albion): ganhos por desafio diário, gastos para adiantar qualquer escada. Ajuda quem tem pouco tempo.
-- Atributo por peça: arma = ofensivo da linha; peitoral = do material; capacete = Presença ou Sabedoria Ancestral; botas = Astúcia.
-- Defesa = 10 + Astúcia + armadura.
+- Atributo por peça: peitoral = do material; capacete = Presença ou Sabedoria Ancestral.
 
 ## Em aberto
 
-- Um atributo por peça ou principal + secundário.
+- Capacete e peitoral: um atributo ou principal + secundário.
 - Papel da Presença.

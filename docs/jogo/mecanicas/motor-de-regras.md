@@ -53,3 +53,15 @@ CD padrão do tier = 8 + bônus esperado do tier. Cada tier de diferença vale �
 
 - Números iniciais: o simulador ajusta.
 - O mob ataca com a conta inversa: bônus do mob = Defesa típica do jogador no tier − 8.
+## Conversão do Albion
+
+| # | Passo |
+|---|---|
+| 1 | Referência no mesmo tier: skill → ataque básico da arma; mob → média dos mobs comuns; utilidade → HP do jogador |
+| 2 | Proporção = valor Albion ÷ referência Albion (mob: dano × velocidade de ataque) |
+| 3 | Base do Eras: a tabela de tiers + âncoras (básico T1 1d6; mob comum morre em 2 turnos; placa T1 +3) |
+| 4 | Valor = base × proporção, inteiro, arredondado para o mais próximo (,5 sobe) |
+| 5 | Dado: XdY+Z com média X×(Y+1)/2+Z perto do valor |
+| 6 | Custo em ações = proporção do dano, de 1 a 3. Recarga, régua e conjuração: ver [combate](combate.md) |
+
+- Sem equivalente (ignorar): tempo de animação, fama, prata e raio de aggro. O que ainda não tem equivalente decidido está no [estacionamento](../../gestao/estacionamento.md).

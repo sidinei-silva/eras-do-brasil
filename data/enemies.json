@@ -1,0 +1,12 @@
+{
+  "Enemies": [
+    { "ID": "t1_scavenger", "Tier": 1, "HP": 7,  "Defense": 10, "Skills": ["scavenger_basic"] },
+    { "ID": "t1_thief",     "Tier": 1, "HP": 13, "Defense": 10, "Skills": ["thief_basic"] },
+    { "ID": "t2_spencer",   "Tier": 2, "HP": 39, "Defense": 11, "Skills": ["spencer_basic", "double_slap"] }
+  ],
+  "Encounters": [
+    { "ID": "beira_1", "RestSecondsBefore": 0,  "Enemies": ["t1_scavenger", "t1_scavenger", "t1_scavenger"] },
+    { "ID": "beira_2", "RestSecondsBefore": 30, "Enemies": ["t1_thief"] },
+    { "ID": "beira_3", "RestSecondsBefore": 30, "Enemies": ["t2_spencer"] }
+  ]
+}

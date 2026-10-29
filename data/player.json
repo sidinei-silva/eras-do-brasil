@@ -1,0 +1,9 @@
+{
+  "ID": "player",
+  "Equipment": {
+    "MainHand": "t1_sword", "OffHand": "t1_shield",
+    "Chest": "t1_leather_chest", "Head": "t1_leather_head", "Shoes": "t1_leather_shoes"
+  },
+  "Chosen": { "Q": "heroic_strike", "Chest": "mend", "Head": "barrier", "Shoes": "dodge" },
+  "MasteryTier": { "sword": 1 }
+}

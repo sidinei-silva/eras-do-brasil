@@ -12,13 +12,18 @@ Lutas por turno num grid visível, em instância. O mesmo motor serve para jogad
 - 3 ações + 1 reação por rodada.
 - Golpe = qualquer teste de ataque contra a Defesa (ataque básico ou skill de ataque). No máximo 2 golpes por turno; o 2º com -5.
 - Skills custam 1, 2 ou 3 ações. Skill de ataque conta como 1 golpe, não importa o custo.
+- Skill de dano custa ações em proporção ao dano: 1, 2 ou 3 (2 ≈ o dobro do ataque básico). Utilidade instantânea custa 1 ação.
+- Recarga em turnos = recarga do Albion ÷ 6 s, arredondada (,5 sobe); abaixo de 3 s, sem recarga.
 - Andar custa ação.
 - Skill que fica ativa (ex.: aura, escudo) gasta 1 ação por turno para continuar (sustentar); se não gastar, acaba. Sustentar não é golpe.
-- Inimigo: até 4 ações por rodada, animadas juntas em até 2 s. A intenção dele aparece antes (casa-alvo).
+- Inimigo: até 4 ações por rodada, animadas juntas em até 2 s. A intenção dele aparece antes (casa-alvo), e o ataque comum sai na hora.
+- Conjuração (de qualquer um): ao usar, marca a área; ela cai no início do próximo turno de quem conjurou. Quem sair da área escapa. Não rola acerto nem tem crítico: quem está na área leva o dano. Na fase 1, não pode ser interrompida.
+- Conjuração não é golpe: não conta no limite de 2 golpes e não leva o -5.
+- A recarga de skill com conjuração conta a partir do turno em que ela cai.
 - Velocidade 2x/3x e pular o turno inimigo.
 - Acerto base calibrado jogando no terminal.
 - Ataque básico vem da arma, à parte do Q e das outras skills: 1 ação, 1 golpe (como o auto-ataque do Albion).
-- Acerto: 1d20 + modificador de acerto da skill contra a Defesa do alvo.
+- Acerto: 1d20 + modificador de acerto da skill contra a Defesa do alvo. Conjuração não rola acerto (ver abaixo).
 - Dano por skill em dado (ex.: 1d8+2), com prévia da faixa na tela. Só rola dano se acertou. Sucesso crítico dobra o total.
 
 ```mermaid
@@ -86,10 +91,12 @@ Bônus fixo de circunstância: +2 ou -2 no teste ou na Defesa. Do mesmo tipo nã
 - O mob ganha uma cópia por jogador: ninguém trava o grupo para os outros.
 - Antes da luta no manual, a tela mostra o risco.
 - A luta manual pausa sem limite.
-- O HP passa de uma luta para a outra. Fora da luta, o HP regenera sozinho (como o Albion).
+- O HP passa de uma luta para a outra. Fora da luta, o HP regenera 1% do HP máx. por segundo (como o Albion). A ativa do peitoral T1 cura 72% do HP máx., só fora da luta.
+- HP do mob: vem pronto em data/, calibrado pelos turnos para matar; o Albion só dá a proporção entre mobs.
 
 ## Movimento
 
+- 1 casa ≈ 2,5 m (o alcance corpo a corpo do Albion). Toda distância do Albion se converte por essa régua.
 - Casas por ação = 5 − (peso total ÷ 3), arredondado para baixo. Peso por peça: pano 0, couro 1, placa 2. Calibrar no simulador.
 - Ataque de oportunidade é reação e vem do item (campo no JSON); nem todo item tem.
 - Passo: 1 casa, sem provocar ataque de oportunidade.
@@ -126,7 +133,5 @@ Bônus fixo de circunstância: +2 ou -2 no teste ou na Defesa. Do mesmo tipo nã
 
 ## Em Aberto
 - Onde cada lado nasce na arena (fase 1: arena fixa em data/?).
-- HP do mob: vem pronto em data/, calibrado pelos turnos para matar; o Albion só dá a proporção entre mobs.
-- Valores de base e k do HP do jogador (calibrar no simulador).
 - Forma da área do Cleave (decidir com o grid, na tarefa do andar).
-- Velocidade do regen fora da luta.
+- Forma exata do tapa do mini boss no grid (provisório: arco de 35° à frente, casas 1 a 2).

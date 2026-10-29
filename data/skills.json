@@ -1,0 +1,26 @@
+{
+  "Skills": [
+    { "ID": "sword_basic",    "Cost": 1, "Range": 1,
+      "Damage": { "Count": 1, "Sides": 6, "Modifier": 0 } },
+    { "ID": "heroic_strike",  "Cost": 2, "Range": 1, "Cooldown": 1,
+      "Damage": { "Count": 2, "Sides": 6, "Modifier": 1 } },
+    { "ID": "cleave",         "Cost": 2, "Cooldown": 1,
+      "Area": { "Shape": "around", "Radius": 2 }, "MultiTargetBonus": 1,
+      "Damage": { "Count": 1, "Sides": 8, "Modifier": 2 } },
+
+    { "ID": "mend",    "Cost": 0, "OutOfCombat": true, "HealPercentMaxHP": 72 },
+    { "ID": "barrier", "Cost": 1, "Cooldown": 4, "AbsorbPercentMaxHP": 16 },
+    { "ID": "dodge",   "Cost": 1, "Cooldown": 3, "Move": 2, "NoOpportunity": true },
+
+    { "ID": "scavenger_basic", "Cost": 1, "HitModifier": 5, "Range": 3,
+      "Damage": { "Count": 1, "Sides": 4, "Modifier": 0 } },
+    { "ID": "thief_basic",     "Cost": 1, "HitModifier": 5, "Range": 1,
+      "Damage": { "Count": 1, "Sides": 4, "Modifier": 0 } },
+    { "ID": "spencer_basic",   "Cost": 1, "HitModifier": 6, "Range": 1,
+      "Damage": { "Count": 1, "Sides": 3, "Modifier": 0 } },
+    { "ID": "double_slap",     "Cost": 3, "Cast": true, "Cooldown": 1, "FirstTurn": 2,
+      "Area": { "Shape": "front_arc", "MinDistance": 1, "MaxDistance": 2, "Angle": 35 },
+      "Push": 1,
+      "Damage": { "Count": 6, "Sides": 8, "Modifier": 0 } }
+  ]
+}

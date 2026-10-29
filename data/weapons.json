@@ -1,0 +1,15 @@
+{
+  "Pools": {
+    "sword": {
+      "Q": [ { "Skill": "heroic_strike", "Tier": 1 }, { "Skill": "cleave", "Tier": 1 } ],
+      "W": [],
+      "Passive": []
+    }
+  },
+  "Items": [
+    { "ID": "t1_sword", "Family": "sword", "Slot": "MainHand", "Tier": 1, "TwoHanded": false,
+      "Attributes": { "ForcaBruta": 1 }, "ItemBonus": 0, "Basic": "sword_basic", "E": null },
+    { "ID": "t1_shield", "Family": "shield", "Slot": "OffHand", "Tier": 1,
+      "Attributes": {}, "ItemBonus": 0 }
+  ]
+}

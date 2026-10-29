@@ -19,7 +19,7 @@ flowchart LR
 | Fase | Orçamento (sessões) | Pronto quando |
 |---|---|---|
 | 0 Base | 4 | Docs validados e congelados; pastas separadas; automações ativas |
-| 1 Luta no terminal | 27 | 1 personagem contra 3 encontros no terminal (3 mobs T1 fracos; 1 mob T1 mais forte; 1 mini boss T2 sozinho), com as skills T1 (Q da espada e ativas da armadura); a mesma semente repete a luta; o simulador roda 1.000 lutas. Marcos nas sessões 5, 10 e 27 |
+| 1 Luta no terminal | 29 | 1 personagem contra 3 encontros no terminal (3 mobs T1 fracos; 1 mob T1 mais forte; 1 mini boss T2 sozinho), com as skills T1 (Q da espada e ativas da armadura); a mesma semente repete a luta; o simulador roda 1.000 lutas. Marcos nas sessões 5, 13 e 29 |
 | 2 Luta na tela | medir na fase 1 | Luto no manual e no automático numa arena no Unity; trocar equipamento muda visual, skills e atributos |
 | 3 A Beira (o Farol) | medir na fase 1 | Jogo os passos 1 a 6 da Travessia na Beira em greybox, local, com save em arquivo: ando, coleto, crafto T1, os 3 encontros na tela e conserto |
 | 4 Travessia | medir na fase 1 | Jogo os passos 7 a 15 da Travessia (T2) do começo ao fim |

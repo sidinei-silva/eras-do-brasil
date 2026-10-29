@@ -63,3 +63,4 @@ Mapa, zonas, NPCs e onde cada passo acontece: [02-travessia.canvas](02-travessia
 ## Em aberto
 
 - Drop do chefe.
+- Inimigos da Beira: qual nome (Caranguejo da Beira, Teiú Rachado) vai para cada mob T1 dos 3 encontros, e o nome do mini boss T2.

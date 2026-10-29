@@ -1,0 +1,15 @@
+{
+  "Pools": {
+    "common": {
+      "Chest": [ { "Skill": "mend",    "Tier": 1 } ],
+      "Head":  [ { "Skill": "barrier", "Tier": 1 } ],
+      "Shoes": [ { "Skill": "dodge",   "Tier": 1 } ]
+    },
+    "leather": { "Chest": [], "Head": [], "Shoes": [] }
+  },
+  "Items": [
+    { "ID": "t1_leather_chest", "Family": "leather", "Slot": "Chest", "Tier": 1, "Armor": 2, "Attributes": {} },
+    { "ID": "t1_leather_head",  "Family": "leather", "Slot": "Head",  "Tier": 1, "Armor": 0, "Attributes": {} },
+    { "ID": "t1_leather_shoes", "Family": "leather", "Slot": "Shoes", "Tier": 1, "Armor": 0, "Attributes": { "Astucia": 1 } }
+  ]
+}
