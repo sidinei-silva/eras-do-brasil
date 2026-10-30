@@ -21,3 +21,4 @@ Formato: `data · ideia · quando volto a olhar`
 - 2026-10-29 · interromper conjuração · com a primeira skill de controle
 - 2026-10-29 · ameaça do escudo · depois do MVP
 - 2026-10-29 · automático por objetivos (como o SoulStonia): lista em ordem com quantidade; produção acrescenta a coleta do material que falta · depois do MVP
+- 2026-10-29 · automático: skills "sempre que puder" (ataque) × "com condição" (situacionais: barreira, esquiva, sprint); condições por entrada na lista de prioridade, tipo gambits do FF12 · depois do MVP
