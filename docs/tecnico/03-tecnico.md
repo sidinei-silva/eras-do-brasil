@@ -25,7 +25,6 @@ Como o jogo é montado por dentro. A ordem de trabalho está em [04-roteiro](../
 - O combate não recebe `agora`: é por turno. O `agora` é só das ações do mundo.
 - Ação de combate: interface `CombatAction` com `resolve(combat) (combat, eventos)`; uma struct por ação (ex.: `UseSkill`), cada uma com o seu `resolve`.
 - Porta: `ResolveCombatAction` em `combat.go`. Valida o que vale para toda ação (vez do lado, ações restantes, ator vivo) e chama o `resolve`. Ações do mundo terão a própria porta na fase 3.
-- Arquivos: `combat.go` (porta, ações e regras de luta: `rollToHit`, `rollDamage`), `dice.go` (dados e graus).
 - Fighter guarda números prontos (HP, Defesa, skills com modificadores). A conta de equipamento → números é outra função. Mob e jogador usam o mesmo Fighter.
 - Seed: uma por luta. Quem cria a luta sorteia (`crypto/rand`); cada dado soma 1 no counter; nunca vai para o cliente; não é ID da luta.
 - Ver [Motor de regras](../jogo/mecanicas/motor-de-regras.md).
