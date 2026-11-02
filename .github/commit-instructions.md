@@ -2,9 +2,9 @@
 
 Formato: `tipo(escopo): descrição`
 
-| Tipos   | `feat`, `fix`, `docs`, `refactor`, `test`, `chore`                              |
+| Tipos   | `feat`, `fix`, `docs`, `refactor`, `test`, `chore`, `devlog`,`post`                              |
 | ------- | ------------------------------------------------------------------------------- |
-| Escopos | `core`, `contract`, `sim`, `server`, `client`, `data`, `docs`, `gestao`, `repo` |
+| Escopos | `core`, `contract`, `sim`, `server`, `client`, `data`, `docs`, `gestao`, `repo`, `post`,`devlog` |
 
 O hook `.githooks/commit-msg` recusa o commit fora desse formato.
 
