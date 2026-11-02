@@ -105,6 +105,7 @@ flowchart LR
 | `docs/`      | Documentação: `jogo/`, `tecnico/`, `gestao/`                            | 0             |
 | `.claude/`   | PM do Claude Code: `agents/pm.md`, `skills/`, `hooks/`, `settings.json` | 0             |
 | `.githooks/` | `commit-msg`: checa o formato do commit                                 | 0             |
+| `devlog/` | Posts do devlog (`AAAA-MM-DD.md`), feitos com `/devlog`; publicados no Medium | 1 |
 
 **Regras do código**
 
