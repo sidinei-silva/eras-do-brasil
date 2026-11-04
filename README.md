@@ -38,6 +38,8 @@ A pasta `docs/` é um vault do Obsidian, mas também se lê aqui no GitHub.
 
 As outras pastas entram conforme o [roteiro](docs/gestao/04-roteiro.md) avança.
 
+- Dojo das regras (treino diário, só para mim): https://claude.ai/artifact/3YyS9mHbxzoPxgEzhq6UGu. Mudou regra em `docs/jogo/`? Peça para atualizar o Dojo.
+
 ## Regras do repositório
 
 - Doc curta, visual e fácil de validar: [como documentar](docs/00-como-documentar.md).
