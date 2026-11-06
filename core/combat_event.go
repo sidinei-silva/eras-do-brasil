@@ -23,6 +23,7 @@ type DamageRolled struct {
 	Rolls    []int // um valor por dado
 	Critical bool  // sucesso crítico: total dobrado
 	Total    int
+	HpBefore int
 	HPAfter  int
 }
 

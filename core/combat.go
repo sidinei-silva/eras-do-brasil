@@ -79,8 +79,6 @@ func dealDamage(c *Combat, target *Fighter, dmg Damage, isCrit bool) []CombatEve
 		totalDamage *= 2
 	}
 
-	target.HP -= totalDamage
-
 	events := []CombatEvent{}
 	events = append(events, DamageRolled{
 		TargetID: target.ID,
@@ -88,7 +86,8 @@ func dealDamage(c *Combat, target *Fighter, dmg Damage, isCrit bool) []CombatEve
 		Rolls:    rolls,
 		Critical: isCrit,
 		Total:    totalDamage,
-		HPAfter:  target.HP,
+		HpBefore: target.HP,
+		HPAfter:  target.HP - totalDamage,
 	})
 
 	if target.HP <= 0 {
