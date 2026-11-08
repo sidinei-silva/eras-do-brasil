@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/core.tests/">
+    <Project Path="core.tests/Eras.Core.Tests.csproj" />
+  </Folder>
+  <Folder Name="/core/">
+    <Project Path="core/Eras.Core.csproj" />
+  </Folder>
+</Solution>

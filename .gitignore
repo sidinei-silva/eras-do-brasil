@@ -1,3 +1,13 @@
+# .NET (core, core.tests, server)
+artifacts/
+bin/
+obj/
+TestResults/
+*.user
+
+# mise (configuração local, não versionada)
+mise.local.toml
+
 # Claude Code (configuração local, não versionada)
 .claude/settings.local.json
 
