@@ -1,0 +1,16 @@
+
+namespace Eras.Core.Dice
+{
+    internal static class SplitMix64
+    {
+        public static ulong Next(ulong seed, ulong counter)
+        {
+            ulong z = seed + (counter + 1) * 0x9E3779B97F4A7C15UL;
+            z = (z ^ (z >> 30)) * 0xBF58476D1CE4E5B9UL;
+            z = (z ^ (z >> 27)) * 0x94D049BB133111EBUL;
+            return z ^ (z >> 31);
+        }   
+    }
+}
+
+
