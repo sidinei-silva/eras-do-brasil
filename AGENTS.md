@@ -42,18 +42,31 @@ Eu escrevo a regra, os casos de teste, o código do jogo e a lore.
 
 ## Stack e estrutura
 
-- Stack: Unity 6 LTS + C#. Core em C# puro, sem UnityEngine, compartilhado com o futuro servidor .NET.
-- Versões: SDK .NET 10.0.403 (LTS) pelo mise; core em netstandard2.1 com C# 9 (limite da Unity); tests e server em
-  net10.0.
-- Estrutura: `core/` (regras puras, pacote local da Unity + projeto .NET), `core.tests/` (xUnit), `client/` (Unity),
-  `server/` depois.
+- Stack: Godot 4 + C# (.NET). Jogo 2D top-down em pixel art. Core em C# puro, sem Godot, compartilhado com o futuro
+  servidor .NET.
+- Versões: SDK .NET 10 pelo mise; core, tests e client no mesmo target .NET da Godot.
+- Estrutura: `core/` (regras puras, projeto .NET), `core.tests/` (xUnit), `client/` (projeto Godot, referencia o
+  `core` por `ProjectReference`), `server/` depois.
 - Ordem: primeiro roda local; o servidor entra quando 1 combate estiver divertido.
 
 ## Regras do projeto
 
 - Núcleo de regras: função pura, sem estado escondido, só inteiros, semente e contador do sorteio no estado.
-- Cena de teste usa os mesmos prefabs e scripts do jogo; regra fica no core, a cena só mostra.
+- Sorteio: `readonly struct Rng` (Seed, Counter) no estado; `Roll(sides)` devolve (valor, próximo `Rng`), com
+  SplitMix64 próprio. Nunca `System.Random` no core.
+- Um tipo por arquivo; pasta só quando o tema tiver 4+ arquivos; `core.tests` espelha as pastas do `core`.
+- Regra de uma classe mora no comentário dela (`/// <summary>` com o porquê curto). `.md` só para o que atravessa
+  várias classes ou ainda não é código.
+- Nome de teste: `Método_Cenário_Resultado`, com o método em inglês e cenário/resultado em português sem acento
+  (ex.: `Roll_MesmoRng_RetornaMesmoValor`).
+- Cena de teste usa as mesmas cenas e scripts do jogo; regra fica no core, a cena só mostra.
 - Balanceamento: teste no `core.tests` (Trait "Balanceamento") chamando `RunFights` do core. Simulador de console só na
   fase 2, se precisar explorar.
 - Constante de jogo mora em `data/`, nunca no código.
 - Mecânica não se poetiza: nome comum de MMORPG.
+
+## Arte
+
+- A direção de arte é [docs/direcao-de-arte.md](docs/direcao-de-arte.md).
+- A arte é feita no repo `eras-do-brasil-mesa-de-desenho`, nunca aqui.
+- Referência feita com IA pode entrar em cena de teste como placeholder, com `_ref` no nome. Nunca como conteúdo final.
