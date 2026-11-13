@@ -1,4 +1,9 @@
 <Solution>
+  <Folder Name="/client/">
+    <Project Path="client/Eras.Client.csproj">
+      <BuildType Project="Debug" />
+    </Project>
+  </Folder>
   <Folder Name="/core.tests/">
     <Project Path="core.tests/Eras.Core.Tests.csproj" />
   </Folder>

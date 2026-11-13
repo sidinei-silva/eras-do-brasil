@@ -44,7 +44,7 @@ Eu escrevo a regra, os casos de teste, o código do jogo e a lore.
 
 - Stack: Godot 4 + C# (.NET). Jogo 2D top-down em pixel art. Core em C# puro, sem Godot, compartilhado com o futuro
   servidor .NET.
-- Versões: SDK .NET 10 pelo mise; core, tests e client no mesmo target .NET da Godot.
+- Versões: SDK .NET 10 pelo mise; Godot 4.7 (.NET); core e client em net8.0 (alvo da Godot); core.tests em net10.0.
 - Estrutura: `core/` (regras puras, projeto .NET), `core.tests/` (xUnit), `client/` (projeto Godot, referencia o
   `core` por `ProjectReference`), `server/` depois.
 - Ordem: primeiro roda local; o servidor entra quando 1 combate estiver divertido.

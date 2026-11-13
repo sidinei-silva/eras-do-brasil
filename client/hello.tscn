@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://btodpvpsxgd3l"]
+
+[ext_resource type="Script" uid="uid://ecchlqbbr0x1" path="res://Hello.cs" id="1_p3r8j"]
+
+[node name="Hello" type="Node2D" unique_id=452614074]
+script = ExtResource("1_p3r8j")
+
+[node name="Button" type="Button" parent="." unique_id=504273749]
+offset_left = 175.0
+offset_top = 215.0
+offset_right = 321.0
+offset_bottom = 246.0
+text = "Roll"
+
+[node name="Label" type="Label" parent="." unique_id=2058555143]
+anchors_preset = -1
+offset_left = 176.0
+offset_top = 143.0
+offset_right = 313.0
+offset_bottom = 182.0
+theme_type_variation = &"HeaderLarge"
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
