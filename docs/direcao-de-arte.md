@@ -17,10 +17,11 @@ citadas como [F1], [F2]…
 | Tom                   | Não infantil e não sombrio demais. O chibi do Calamity é limite, não meta.                                                                                                                                     |
 | Era 1                 | 1500–1654, litoral, Mata Atlântica, engenho. Brasil e folclore só como inspiração indireta: sem religião, sem povo real, sem nomes fortes.                                                                     |
 | Dado                  | Dado de interface no centro da tela (como no BG3): 48×48 (tela de 64×64 no Aseprite), terra e madeira, número em `#F0E2B6` sobreposto; face da frente vazia. Giro em 3 quadros; o movimento é feito no código. |
-| Janela de teste       | Painel 9-slice 160×157 (nativo), miolo `#26262F`; d20 de 48 px; dano em dados de 32 px, até 4 lado a lado; com mais, 1 dado com "×N" e o total. Todo texto é fonte.                                            |
+| Janela de teste       | Painel ~176 de largura (PanelContainer; a altura vem dos containers), miolo #26262F; título de 1 palavra em placa de 16 px de altura; d20 de 48 px; dano em dados de 32 px, até 4 lado a lado; faixa e botão de 16 px. Todo texto é fonte; por enquanto, a padrão da Godot (ver E5). |
 | Produção              | Desenho à mão. Pack comprado só como placeholder, e só com licença que permita uso junto com IA. Referência feita com IA pode ser placeholder em cena de teste (com `_ref` no nome), nunca conteúdo final.     |
 | Importação            | Godot 4 (.NET). Filtro Nearest, sem compressão (Lossless), 16 px = 1 tile.                                                                                                                                     |
-| Resolução nativa      | 480×270 (×4 em 1080p, ×8 em 4K; 1440p com borda em ×5).                                                                                                                                                        |
+| Resolução nativa      | 640×360 (×3 em 1080p, ×4 em 1440p, ×6 em 4K).                                                                                |
+| Renderização          | Stretch canvas_items, escala inteira, Snap 2D Transforms e Vertices to Pixel; o texto é desenhado na resolução da janela. Se o mundo tremer, ele vai para um SubViewport de 640×360 e a UI fica fora. |
 | Paleta                | 36 cores próprias (P1). Só aumenta quando faltar cor de verdade.                                                                                                                                               |
 | Ícone                 | 16×16 na HUD, 32×32 na dica.                                                                                                                                                                                   |
 | UI                    | Madeira escura com dourado velho e folhas.                                                                                                                                                                     |
@@ -128,7 +129,7 @@ Cores de estado:
 
 | #   | Questão | Opção A                                            | Opção B                                                                    | Opção C                                            |
 | --- | ------- | -------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------- |
-| E5  | Fonte   | **TinyUnicode** ([F1]): já avaliada, muito pequena | Fonte pixel pública de 7–11 px (hipótese: conferir acento e cedilha antes) | **Fonte própria** no Aseprite: só as letras usadas |
+| E5  | Fonte   | monogram 16 (pixel; um tamanho só, hierarquia por cor e caixa) | Fonte comum com licença OFL e acentos (qualquer tamanho) | As duas: pixel em números e títulos, comum no texto |
 
 Enquanto a E5 não fecha, as cenas de teste usam a fonte padrão da Godot.
 
