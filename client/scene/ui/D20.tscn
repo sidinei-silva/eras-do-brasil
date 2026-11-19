@@ -55,7 +55,7 @@ script = ExtResource("1_ivk47")
 position = Vector2(32, 32)
 sprite_frames = SubResource("SpriteFrames_dtpsm")
 animation = &"idle"
-frame_progress = 0.63290846
+frame_progress = 0.95843387
 
 [node name="Number" type="Label" parent="." unique_id=1807454112]
 layout_mode = 0

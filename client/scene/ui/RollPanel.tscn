@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://3ytyd85j3r5j"]
+
+[ext_resource type="Script" uid="uid://c8oh8rhax4t0m" path="res://scripts/ui/RollPanel.cs" id="1_1m18b"]
+[ext_resource type="Texture2D" uid="uid://da0jjdkihf1f0" path="res://assets/ui/ui_window_panel_9slice_ref.png" id="1_ygrar"]
+[ext_resource type="Texture2D" uid="uid://dg4f57i54mckr" path="res://assets/ui/ui_window_title_plate_3slice_ref.png" id="2_1m18b"]
+[ext_resource type="PackedScene" uid="uid://cmf4kq1y65wc7" path="res://scene/ui/D20.tscn" id="3_yb5oi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4amdh"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+texture = ExtResource("2_1m18b")
+texture_margin_left = 8.0
+texture_margin_right = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dtpsm"]
+texture = ExtResource("1_ygrar")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[node name="RollPanel" type="VBoxContainer" unique_id=1637610690]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 168.0
+offset_bottom = 89.0
+theme_override_constants/separation = -8
+script = ExtResource("1_1m18b")
+
+[node name="TitlePlate" type="PanelContainer" parent="." unique_id=903900332]
+z_index = 1
+custom_minimum_size = Vector2(86, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_4amdh")
+
+[node name="Title" type="Label" parent="TitlePlate" unique_id=1651052827]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9411765, 0.8862745, 0.7137255, 1)
+theme_override_font_sizes/font_size = 8
+text = "Ataque"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Frame" type="PanelContainer" parent="." unique_id=806529171]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dtpsm")
+
+[node name="Margin" type="MarginContainer" parent="Frame" unique_id=473437874]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Content" type="VBoxContainer" parent="Frame/Margin" unique_id=516414390]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="D20" parent="Frame/Margin/Content" unique_id=1054104492 instance=ExtResource("3_yb5oi")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4

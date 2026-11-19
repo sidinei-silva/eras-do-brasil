@@ -7,7 +7,7 @@ namespace Eras.Client
 	public partial class D20 : Control
 	{
 		[Signal]
-		public delegate void FinishedEventHandler();
+		public delegate void FinishedRollEventHandler();
 
 		[Export]
 		public float SpinSeconds = 1.5f;
@@ -49,7 +49,7 @@ namespace Eras.Client
 			_number.Visible = true;
 
 			_spinning = false;
-			EmitSignal(SignalName.Finished);
+			EmitSignal(SignalName.FinishedRoll);
 
 		}
 	}
