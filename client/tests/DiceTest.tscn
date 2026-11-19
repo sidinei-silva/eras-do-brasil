@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://d31fx2lhybjik"]
+
+[ext_resource type="Script" uid="uid://bcv870580c8rf" path="res://tests/DiceTest.cs" id="1_ovia2"]
+[ext_resource type="PackedScene" uid="uid://3ytyd85j3r5j" path="res://ui/dice/RollPanel.tscn" id="2_x7h3g"]
+
+[node name="DiceTest" type="Control" unique_id=1752096978]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ovia2")
+
+[node name="Center" type="CenterContainer" parent="." unique_id=968080519]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Stack" type="VBoxContainer" parent="Center" unique_id=1156342226]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="RollPanel" parent="Center/Stack" unique_id=1637610690 instance=ExtResource("2_x7h3g")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RollButton" type="Button" parent="Center/Stack" unique_id=560681989]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Rolar"
