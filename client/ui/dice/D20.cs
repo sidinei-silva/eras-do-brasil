@@ -2,8 +2,6 @@ using Godot;
 
 namespace Eras.Client
 {
-
-
 	public partial class D20 : Control
 	{
 		[Signal]
