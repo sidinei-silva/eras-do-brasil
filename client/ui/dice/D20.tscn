@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cmf4kq1y65wc7"]
 
-[ext_resource type="Script" uid="uid://egylsug0ppea" path="res://scripts/ui/D20.cs" id="1_ivk47"]
+[ext_resource type="Script" uid="uid://egylsug0ppea" path="res://ui/dice/D20.cs" id="1_ivk47"]
 [ext_resource type="Texture2D" uid="uid://q82fl0w2nx28" path="res://assets/ui/ui_d20_v2_ref_sheet.png" id="1_o3ls1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rw710"]

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://3ytyd85j3r5j"]
 
-[ext_resource type="Script" uid="uid://c8oh8rhax4t0m" path="res://scripts/ui/RollPanel.cs" id="1_1m18b"]
+[ext_resource type="Script" uid="uid://c8oh8rhax4t0m" path="res://ui/dice/RollPanel.cs" id="1_1m18b"]
 [ext_resource type="Texture2D" uid="uid://da0jjdkihf1f0" path="res://assets/ui/ui_window_panel_9slice_ref.png" id="1_ygrar"]
 [ext_resource type="Texture2D" uid="uid://dg4f57i54mckr" path="res://assets/ui/ui_window_title_plate_3slice_ref.png" id="2_1m18b"]
-[ext_resource type="PackedScene" uid="uid://cmf4kq1y65wc7" path="res://scene/ui/D20.tscn" id="3_yb5oi"]
+[ext_resource type="PackedScene" uid="uid://cmf4kq1y65wc7" path="res://ui/dice/D20.tscn" id="3_yb5oi"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4amdh"]
 content_margin_left = 8.0
