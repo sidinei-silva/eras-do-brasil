@@ -24,13 +24,8 @@ Eu escrevo a regra, os casos de teste, o código do jogo e a lore.
 
 ## Commits
 
-- **Nenhuma IA roda `git add`, `git commit` ou `git push`.** Está bloqueado em `.claude/settings.json`. Quem commita
-  sou eu.
-- Formato `tipo(escopo): descrição`, em português, imperativo, minúscula, sem ponto final. Regras completas em
-  [.github/commit-instructions.md](.github/commit-instructions.md).
-- O hook `.githooks/commit-msg` recusa commit fora do formato. Ativar uma vez por clone:
-  `git config core.hooksPath .githooks`.
-- Se eu pedir sugestão de mensagem, siga o formato e diga o que mudou, nunca "melhora/ajustes".
+- **Nenhuma IA roda `git add`, `git commit` ou `git push`.** Está bloqueado em `.claude/settings.json`. Quem commita sou eu.
+- Mensagem de commit: o Copilot gera seguindo [.github/commit-instructions.md](.github/commit-instructions.md).
 
 ## Como responder
 

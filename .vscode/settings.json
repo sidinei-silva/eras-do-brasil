@@ -1,0 +1,20 @@
+{
+  "dotnetAcquisitionExtension.existingDotnetPath": [
+    { "extensionId": "ms-dotnettools.csharp", "path": "~/.local/share/mise/dotnet-root/dotnet" },
+    { "extensionId": "ms-dotnettools.csdevkit", "path": "~/.local/share/mise/dotnet-root/dotnet" }
+  ],
+  "dotnet.defaultSolution": "Eras.slnx",
+  "commentTranslate.targetLanguage": "pt",
+  "[csharp]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSaveMode": "modifications",
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "ms-dotnettools.csharp"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "github.copilot.chat.commitMessageGeneration.instructions": [{ "file": ".github/commit-instructions.md" }]
+}

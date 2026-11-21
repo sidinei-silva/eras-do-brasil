@@ -14,7 +14,6 @@ mise.local.toml
 # IDEs
 .vs/
 .idea/
-.vscode/*
 !.vscode/extensions.json
 
 # SO
