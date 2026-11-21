@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://da0jjdkihf1f0" path="res://assets/ui/ui_window_panel_9slice_ref.png" id="1_ygrar"]
 [ext_resource type="Texture2D" uid="uid://dg4f57i54mckr" path="res://assets/ui/ui_window_title_plate_3slice_ref.png" id="2_1m18b"]
 [ext_resource type="PackedScene" uid="uid://cmf4kq1y65wc7" path="res://ui/dice/D20.tscn" id="3_yb5oi"]
+[ext_resource type="Texture2D" uid="uid://v17ny3tl1ked" path="res://assets/ui/ui_window_status_bar_3slice_ref.png" id="5_u3kxp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4amdh"]
 content_margin_left = 8.0
@@ -20,6 +21,15 @@ texture_margin_left = 8.0
 texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jpjm8"]
+content_margin_left = 5.0
+content_margin_top = 2.0
+content_margin_right = 5.0
+content_margin_bottom = 2.0
+texture = ExtResource("5_u3kxp")
+texture_margin_left = 8.0
+texture_margin_right = 8.0
 
 [node name="RollPanel" type="VBoxContainer" unique_id=1637610690]
 offset_left = 8.0
@@ -64,3 +74,26 @@ theme_override_constants/separation = 4
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="ResultLabel" type="Label" parent="Frame/Margin/Content" unique_id=1881374216]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9411765, 0.8862745, 0.7137255, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatusBar" type="PanelContainer" parent="Frame/Margin/Content" unique_id=1026087096]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_jpjm8")
+
+[node name="StatusLabel" type="Label" parent="Frame/Margin/Content/StatusBar" unique_id=1708471172]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
