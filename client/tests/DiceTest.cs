@@ -1,6 +1,5 @@
 using Eras.Client;
 using Godot;
-using System;
 
 public partial class DiceTest : Control
 {
@@ -23,6 +22,7 @@ public partial class DiceTest : Control
 		_rollButton = GetNode<Button>("%RollButton");
 		_rollPanel = GetNode<RollPanel>("%RollPanel");
 		_rollButton.Pressed += _OnRollButtonPressed;
+		_rollPanel.FinishedRoll += () => _rollButton.Disabled = false;
 	}
 
 	private void _OnRollButtonPressed()
@@ -30,7 +30,5 @@ public partial class DiceTest : Control
 		_rollButton.Disabled = true;
 		int v = _dice.Roll(20);
 		_rollPanel.ShowRoll(v);
-		_rollPanel.FinishedRoll += () => _rollButton.Disabled = false;
-		
 	}
 }
